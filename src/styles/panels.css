@@ -174,8 +174,8 @@
 }
 
 .schedule-row.active {
-  border-color: rgba(255, 255, 255, 0.62);
-  background: var(--color-accent-soft);
+  border-color: var(--color-text);
+  background: rgba(255, 255, 255, 0.34);
 }
 
 .schedule-day {
