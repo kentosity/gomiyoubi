@@ -1,0 +1,5483 @@
+{
+  "ward_slug": "taito",
+  "generated_at": "2026-04-01T13:35:17+00:00",
+  "overview": {
+    "source_quality": "high",
+    "source_label": "地域別収集曜日一覧 CSV",
+    "granularity": "町丁名単位の収集ルールを反映済みです。地図上は区表示です。",
+    "notes": [
+      "台東区オープンデータ CSV を一次ソースとして使用しています。",
+      "資源と燃やすごみは weekly rule、不燃系は nth-weekday rule として保持しています。",
+      "プラスチック系の扱いは別ソース確認後に追加します。"
+    ],
+    "day_signals": {}
+  },
+  "artifacts": [
+    {
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_key": "taito:download:01",
+      "artifact_kind": "parser_output",
+      "local_path": "data/normalized/taito/taito_dataset.json",
+      "content_type": "application/json",
+      "sha256": "7dc78328cefe04b3d5e60c7b7934f5d8ce58f2ea69fb26df24b8be3f27d47370",
+      "fetched_at": "2026-04-01T13:35:18+00:00",
+      "parser_version": "ward_extract_v1",
+      "metadata": {
+        "ward_slug": "taito",
+        "script": "scripts/extract_more_wards.py"
+      }
+    }
+  ],
+  "areas": [
+    {
+      "area_key": "taito:area:001",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "秋葉原",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:002",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "浅草1丁目・浅草2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:003",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "浅草3丁目・浅草4丁目・浅草5丁目・浅草6丁目・浅草7丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:004",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "浅草橋1丁目・浅草橋2丁目・浅草橋3丁目・浅草橋4丁目・浅草橋5丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:005",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "池之端1丁目・池之端2丁目・池之端3丁目・池之端4丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:006",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "今戸1丁目・今戸2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:007",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "入谷1丁目・入谷2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:008",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "上野1丁目・上野2丁目・上野3丁目・上野4丁目・上野5丁目・上野6丁目・上野7丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:009",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "上野公園",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:010",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "上野桜木1丁目・上野桜木2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:011",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "雷門1丁目・雷門2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:012",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "北上野1丁目・北上野2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:013",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "清川1丁目・清川2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:014",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "蔵前1丁目・蔵前2丁目・蔵前3丁目・蔵前4丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:015",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "小島1丁目・小島2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:016",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "寿1丁目・寿2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:017",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "寿3丁目・寿4丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:018",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "駒形1丁目・駒形2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:019",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "下谷1丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:020",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "下谷2丁目・下谷3丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:021",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "千束1丁目・千束2丁目・千束3丁目・千束4丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:022",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "台東1丁目・台東2丁目・台東3丁目・台東4丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:023",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "鳥越1丁目・鳥越2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:024",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "西浅草1丁目・西浅草2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:025",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "西浅草3丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:026",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "日本堤1丁目・日本堤2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:027",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "根岸1丁目、根岸2丁目・根岸3丁目・根岸4丁目・根岸5丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:028",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "橋場1丁目・橋場2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:029",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "花川戸1丁目・花川戸2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:030",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "東浅草1丁目・東浅草2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:031",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "東上野1丁目・東上野2丁目・東上野3丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:032",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "東上野4丁目・東上野5丁目・東上野6丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:033",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "松が谷1丁目・松が谷2丁目・松が谷3丁目・松が谷4丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:034",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "三筋1丁目・三筋2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:035",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "三ノ輪1丁目・三ノ輪2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:036",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "元浅草1丁目・元浅草2丁目・元浅草3丁目・元浅草4丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:037",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "谷中1丁目・谷中2丁目・谷中3丁目・谷中4丁目・谷中5丁目・谷中6丁目・谷中7丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:038",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "柳橋1丁目・柳橋2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "taito:area:039",
+      "parent_area_key": "ward:taito",
+      "area_kind": "district",
+      "label_ja": "竜泉1丁目・竜泉2丁目・竜泉3丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    }
+  ],
+  "claims": [
+    {
+      "claim_key": "taito:area:001:burnable:monday:official",
+      "area_key": "taito:area:001",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "秋葉原",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:001:burnable:thursday:official",
+      "area_key": "taito:area:001",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "秋葉原",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:001:resource:wednesday:official",
+      "area_key": "taito:area:001",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "秋葉原",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:001:nonburnable:1-3:official",
+      "area_key": "taito:area:001",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の土曜日"
+        },
+        "description": "その月の1回目・3回目の土曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "秋葉原",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:002:burnable:tuesday:official",
+      "area_key": "taito:area:002",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "浅草1丁目・浅草2丁目",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:002:burnable:friday:official",
+      "area_key": "taito:area:002",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "浅草1丁目・浅草2丁目",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:002:resource:thursday:official",
+      "area_key": "taito:area:002",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "浅草1丁目・浅草2丁目",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:002:nonburnable:1-3:official",
+      "area_key": "taito:area:002",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の月曜日"
+        },
+        "description": "その月の1回目・3回目の月曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "浅草1丁目・浅草2丁目",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:003:burnable:tuesday:official",
+      "area_key": "taito:area:003",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "浅草3丁目・浅草4丁目・浅草5丁目・浅草6丁目・浅草7丁目",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:003:burnable:friday:official",
+      "area_key": "taito:area:003",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "浅草3丁目・浅草4丁目・浅草5丁目・浅草6丁目・浅草7丁目",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:003:resource:monday:official",
+      "area_key": "taito:area:003",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "浅草3丁目・浅草4丁目・浅草5丁目・浅草6丁目・浅草7丁目",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:003:nonburnable:1-3:official",
+      "area_key": "taito:area:003",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の木曜日"
+        },
+        "description": "その月の1回目・3回目の木曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "浅草3丁目・浅草4丁目・浅草5丁目・浅草6丁目・浅草7丁目",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:004:burnable:monday:official",
+      "area_key": "taito:area:004",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "浅草橋1丁目・浅草橋2丁目・浅草橋3丁目・浅草橋4丁目・浅草橋5丁目",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:004:burnable:thursday:official",
+      "area_key": "taito:area:004",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "浅草橋1丁目・浅草橋2丁目・浅草橋3丁目・浅草橋4丁目・浅草橋5丁目",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:004:resource:saturday:official",
+      "area_key": "taito:area:004",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "浅草橋1丁目・浅草橋2丁目・浅草橋3丁目・浅草橋4丁目・浅草橋5丁目",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:004:nonburnable:1-3:official",
+      "area_key": "taito:area:004",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の水曜日"
+        },
+        "description": "その月の1回目・3回目の水曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "浅草橋1丁目・浅草橋2丁目・浅草橋3丁目・浅草橋4丁目・浅草橋5丁目",
+        "csv_index": "あ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:005:burnable:monday:official",
+      "area_key": "taito:area:005",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "池之端1丁目・池之端2丁目・池之端3丁目・池之端4丁目",
+        "csv_index": "い"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:005:burnable:thursday:official",
+      "area_key": "taito:area:005",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "池之端1丁目・池之端2丁目・池之端3丁目・池之端4丁目",
+        "csv_index": "い"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:005:resource:wednesday:official",
+      "area_key": "taito:area:005",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "池之端1丁目・池之端2丁目・池之端3丁目・池之端4丁目",
+        "csv_index": "い"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:005:nonburnable:2-4:official",
+      "area_key": "taito:area:005",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の土曜日"
+        },
+        "description": "その月の2回目・4回目の土曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "池之端1丁目・池之端2丁目・池之端3丁目・池之端4丁目",
+        "csv_index": "い"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:006:burnable:wednesday:official",
+      "area_key": "taito:area:006",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "今戸1丁目・今戸2丁目",
+        "csv_index": "い"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:006:burnable:saturday:official",
+      "area_key": "taito:area:006",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "今戸1丁目・今戸2丁目",
+        "csv_index": "い"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:006:resource:tuesday:official",
+      "area_key": "taito:area:006",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "今戸1丁目・今戸2丁目",
+        "csv_index": "い"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:006:nonburnable:1-3:official",
+      "area_key": "taito:area:006",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の金曜日"
+        },
+        "description": "その月の1回目・3回目の金曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "今戸1丁目・今戸2丁目",
+        "csv_index": "い"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:007:burnable:wednesday:official",
+      "area_key": "taito:area:007",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "入谷1丁目・入谷2丁目",
+        "csv_index": "い"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:007:burnable:saturday:official",
+      "area_key": "taito:area:007",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "入谷1丁目・入谷2丁目",
+        "csv_index": "い"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:007:resource:friday:official",
+      "area_key": "taito:area:007",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "入谷1丁目・入谷2丁目",
+        "csv_index": "い"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:007:nonburnable:1-3:official",
+      "area_key": "taito:area:007",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の火曜日"
+        },
+        "description": "その月の1回目・3回目の火曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "入谷1丁目・入谷2丁目",
+        "csv_index": "い"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:008:burnable:monday:official",
+      "area_key": "taito:area:008",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "上野1丁目・上野2丁目・上野3丁目・上野4丁目・上野5丁目・上野6丁目・上野7丁目",
+        "csv_index": "う"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:008:burnable:thursday:official",
+      "area_key": "taito:area:008",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "上野1丁目・上野2丁目・上野3丁目・上野4丁目・上野5丁目・上野6丁目・上野7丁目",
+        "csv_index": "う"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:008:resource:wednesday:official",
+      "area_key": "taito:area:008",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "上野1丁目・上野2丁目・上野3丁目・上野4丁目・上野5丁目・上野6丁目・上野7丁目",
+        "csv_index": "う"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:008:nonburnable:1-3:official",
+      "area_key": "taito:area:008",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の土曜日"
+        },
+        "description": "その月の1回目・3回目の土曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "上野1丁目・上野2丁目・上野3丁目・上野4丁目・上野5丁目・上野6丁目・上野7丁目",
+        "csv_index": "う"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:009:burnable:monday:official",
+      "area_key": "taito:area:009",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "上野公園",
+        "csv_index": "う"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:009:burnable:thursday:official",
+      "area_key": "taito:area:009",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "上野公園",
+        "csv_index": "う"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:009:resource:wednesday:official",
+      "area_key": "taito:area:009",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "上野公園",
+        "csv_index": "う"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:009:nonburnable:2-4:official",
+      "area_key": "taito:area:009",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の土曜日"
+        },
+        "description": "その月の2回目・4回目の土曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "上野公園",
+        "csv_index": "う"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:010:burnable:monday:official",
+      "area_key": "taito:area:010",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "上野桜木1丁目・上野桜木2丁目",
+        "csv_index": "う"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:010:burnable:thursday:official",
+      "area_key": "taito:area:010",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "上野桜木1丁目・上野桜木2丁目",
+        "csv_index": "う"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:010:resource:wednesday:official",
+      "area_key": "taito:area:010",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "上野桜木1丁目・上野桜木2丁目",
+        "csv_index": "う"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:010:nonburnable:1-3:official",
+      "area_key": "taito:area:010",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の土曜日"
+        },
+        "description": "その月の1回目・3回目の土曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "上野桜木1丁目・上野桜木2丁目",
+        "csv_index": "う"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:011:burnable:tuesday:official",
+      "area_key": "taito:area:011",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "雷門1丁目・雷門2丁目",
+        "csv_index": "か"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:011:burnable:friday:official",
+      "area_key": "taito:area:011",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "雷門1丁目・雷門2丁目",
+        "csv_index": "か"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:011:resource:thursday:official",
+      "area_key": "taito:area:011",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "雷門1丁目・雷門2丁目",
+        "csv_index": "か"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:011:nonburnable:1-3:official",
+      "area_key": "taito:area:011",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の月曜日"
+        },
+        "description": "その月の1回目・3回目の月曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "雷門1丁目・雷門2丁目",
+        "csv_index": "か"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:012:burnable:tuesday:official",
+      "area_key": "taito:area:012",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "北上野1丁目・北上野2丁目",
+        "csv_index": "き"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:012:burnable:friday:official",
+      "area_key": "taito:area:012",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "北上野1丁目・北上野2丁目",
+        "csv_index": "き"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:012:resource:monday:official",
+      "area_key": "taito:area:012",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "北上野1丁目・北上野2丁目",
+        "csv_index": "き"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:012:nonburnable:2-4:official",
+      "area_key": "taito:area:012",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の木曜日"
+        },
+        "description": "その月の2回目・4回目の木曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "北上野1丁目・北上野2丁目",
+        "csv_index": "き"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:013:burnable:wednesday:official",
+      "area_key": "taito:area:013",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "清川1丁目・清川2丁目",
+        "csv_index": "き"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:013:burnable:saturday:official",
+      "area_key": "taito:area:013",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "清川1丁目・清川2丁目",
+        "csv_index": "き"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:013:resource:tuesday:official",
+      "area_key": "taito:area:013",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "清川1丁目・清川2丁目",
+        "csv_index": "き"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:013:nonburnable:1-3:official",
+      "area_key": "taito:area:013",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の金曜日"
+        },
+        "description": "その月の1回目・3回目の金曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "清川1丁目・清川2丁目",
+        "csv_index": "き"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:014:burnable:tuesday:official",
+      "area_key": "taito:area:014",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "蔵前1丁目・蔵前2丁目・蔵前3丁目・蔵前4丁目",
+        "csv_index": "く"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:014:burnable:friday:official",
+      "area_key": "taito:area:014",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "蔵前1丁目・蔵前2丁目・蔵前3丁目・蔵前4丁目",
+        "csv_index": "く"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:014:resource:thursday:official",
+      "area_key": "taito:area:014",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "蔵前1丁目・蔵前2丁目・蔵前3丁目・蔵前4丁目",
+        "csv_index": "く"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:014:nonburnable:2-4:official",
+      "area_key": "taito:area:014",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の月曜日"
+        },
+        "description": "その月の2回目・4回目の月曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "蔵前1丁目・蔵前2丁目・蔵前3丁目・蔵前4丁目",
+        "csv_index": "く"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:015:burnable:monday:official",
+      "area_key": "taito:area:015",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "小島1丁目・小島2丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:015:burnable:thursday:official",
+      "area_key": "taito:area:015",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "小島1丁目・小島2丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:015:resource:saturday:official",
+      "area_key": "taito:area:015",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "小島1丁目・小島2丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:015:nonburnable:1-3:official",
+      "area_key": "taito:area:015",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の水曜日"
+        },
+        "description": "その月の1回目・3回目の水曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "小島1丁目・小島2丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:016:burnable:tuesday:official",
+      "area_key": "taito:area:016",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "寿1丁目・寿2丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:016:burnable:friday:official",
+      "area_key": "taito:area:016",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "寿1丁目・寿2丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:016:resource:thursday:official",
+      "area_key": "taito:area:016",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "寿1丁目・寿2丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:016:nonburnable:2-4:official",
+      "area_key": "taito:area:016",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の月曜日"
+        },
+        "description": "その月の2回目・4回目の月曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "寿1丁目・寿2丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:017:burnable:tuesday:official",
+      "area_key": "taito:area:017",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "寿3丁目・寿4丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:017:burnable:friday:official",
+      "area_key": "taito:area:017",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "寿3丁目・寿4丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:017:resource:thursday:official",
+      "area_key": "taito:area:017",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "寿3丁目・寿4丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:017:nonburnable:1-3:official",
+      "area_key": "taito:area:017",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の月曜日"
+        },
+        "description": "その月の1回目・3回目の月曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "寿3丁目・寿4丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:018:burnable:tuesday:official",
+      "area_key": "taito:area:018",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "駒形1丁目・駒形2丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:018:burnable:friday:official",
+      "area_key": "taito:area:018",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "駒形1丁目・駒形2丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:018:resource:thursday:official",
+      "area_key": "taito:area:018",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "駒形1丁目・駒形2丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:018:nonburnable:1-3:official",
+      "area_key": "taito:area:018",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の月曜日"
+        },
+        "description": "その月の1回目・3回目の月曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "駒形1丁目・駒形2丁目",
+        "csv_index": "こ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:019:burnable:wednesday:official",
+      "area_key": "taito:area:019",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "下谷1丁目",
+        "csv_index": "し"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:019:burnable:saturday:official",
+      "area_key": "taito:area:019",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "下谷1丁目",
+        "csv_index": "し"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:019:resource:friday:official",
+      "area_key": "taito:area:019",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "下谷1丁目",
+        "csv_index": "し"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:019:nonburnable:2-4:official",
+      "area_key": "taito:area:019",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の火曜日"
+        },
+        "description": "その月の2回目・4回目の火曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "下谷1丁目",
+        "csv_index": "し"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:020:burnable:wednesday:official",
+      "area_key": "taito:area:020",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "下谷2丁目・下谷3丁目",
+        "csv_index": "し"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:020:burnable:saturday:official",
+      "area_key": "taito:area:020",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "下谷2丁目・下谷3丁目",
+        "csv_index": "し"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:020:resource:friday:official",
+      "area_key": "taito:area:020",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "下谷2丁目・下谷3丁目",
+        "csv_index": "し"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:020:nonburnable:1-3:official",
+      "area_key": "taito:area:020",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の火曜日"
+        },
+        "description": "その月の1回目・3回目の火曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "下谷2丁目・下谷3丁目",
+        "csv_index": "し"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:021:burnable:wednesday:official",
+      "area_key": "taito:area:021",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "千束1丁目・千束2丁目・千束3丁目・千束4丁目",
+        "csv_index": "せ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:021:burnable:saturday:official",
+      "area_key": "taito:area:021",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "千束1丁目・千束2丁目・千束3丁目・千束4丁目",
+        "csv_index": "せ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:021:resource:tuesday:official",
+      "area_key": "taito:area:021",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "千束1丁目・千束2丁目・千束3丁目・千束4丁目",
+        "csv_index": "せ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:021:nonburnable:2-4:official",
+      "area_key": "taito:area:021",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の金曜日"
+        },
+        "description": "その月の2回目・4回目の金曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "千束1丁目・千束2丁目・千束3丁目・千束4丁目",
+        "csv_index": "せ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:022:burnable:monday:official",
+      "area_key": "taito:area:022",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "台東1丁目・台東2丁目・台東3丁目・台東4丁目",
+        "csv_index": "た"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:022:burnable:thursday:official",
+      "area_key": "taito:area:022",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "台東1丁目・台東2丁目・台東3丁目・台東4丁目",
+        "csv_index": "た"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:022:resource:saturday:official",
+      "area_key": "taito:area:022",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "台東1丁目・台東2丁目・台東3丁目・台東4丁目",
+        "csv_index": "た"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:022:nonburnable:2-4:official",
+      "area_key": "taito:area:022",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の水曜日"
+        },
+        "description": "その月の2回目・4回目の水曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "台東1丁目・台東2丁目・台東3丁目・台東4丁目",
+        "csv_index": "た"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:023:burnable:monday:official",
+      "area_key": "taito:area:023",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "鳥越1丁目・鳥越2丁目",
+        "csv_index": "と"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:023:burnable:thursday:official",
+      "area_key": "taito:area:023",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "鳥越1丁目・鳥越2丁目",
+        "csv_index": "と"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:023:resource:saturday:official",
+      "area_key": "taito:area:023",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "鳥越1丁目・鳥越2丁目",
+        "csv_index": "と"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:023:nonburnable:1-3:official",
+      "area_key": "taito:area:023",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の水曜日"
+        },
+        "description": "その月の1回目・3回目の水曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "鳥越1丁目・鳥越2丁目",
+        "csv_index": "と"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:024:burnable:tuesday:official",
+      "area_key": "taito:area:024",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "西浅草1丁目・西浅草2丁目",
+        "csv_index": "に"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:024:burnable:friday:official",
+      "area_key": "taito:area:024",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "西浅草1丁目・西浅草2丁目",
+        "csv_index": "に"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:024:resource:monday:official",
+      "area_key": "taito:area:024",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "西浅草1丁目・西浅草2丁目",
+        "csv_index": "に"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:024:nonburnable:2-4:official",
+      "area_key": "taito:area:024",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の木曜日"
+        },
+        "description": "その月の2回目・4回目の木曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "西浅草1丁目・西浅草2丁目",
+        "csv_index": "に"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:025:burnable:tuesday:official",
+      "area_key": "taito:area:025",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "西浅草3丁目",
+        "csv_index": "に"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:025:burnable:friday:official",
+      "area_key": "taito:area:025",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "西浅草3丁目",
+        "csv_index": "に"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:025:resource:monday:official",
+      "area_key": "taito:area:025",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "西浅草3丁目",
+        "csv_index": "に"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:025:nonburnable:1-3:official",
+      "area_key": "taito:area:025",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の木曜日"
+        },
+        "description": "その月の1回目・3回目の木曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "西浅草3丁目",
+        "csv_index": "に"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:026:burnable:wednesday:official",
+      "area_key": "taito:area:026",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "日本堤1丁目・日本堤2丁目",
+        "csv_index": "に"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:026:burnable:saturday:official",
+      "area_key": "taito:area:026",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "日本堤1丁目・日本堤2丁目",
+        "csv_index": "に"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:026:resource:tuesday:official",
+      "area_key": "taito:area:026",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "日本堤1丁目・日本堤2丁目",
+        "csv_index": "に"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:026:nonburnable:2-4:official",
+      "area_key": "taito:area:026",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の金曜日"
+        },
+        "description": "その月の2回目・4回目の金曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "日本堤1丁目・日本堤2丁目",
+        "csv_index": "に"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:027:burnable:wednesday:official",
+      "area_key": "taito:area:027",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "根岸1丁目、根岸2丁目・根岸3丁目・根岸4丁目・根岸5丁目",
+        "csv_index": "ね"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:027:burnable:saturday:official",
+      "area_key": "taito:area:027",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "根岸1丁目、根岸2丁目・根岸3丁目・根岸4丁目・根岸5丁目",
+        "csv_index": "ね"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:027:resource:friday:official",
+      "area_key": "taito:area:027",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "根岸1丁目、根岸2丁目・根岸3丁目・根岸4丁目・根岸5丁目",
+        "csv_index": "ね"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:027:nonburnable:2-4:official",
+      "area_key": "taito:area:027",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の火曜日"
+        },
+        "description": "その月の2回目・4回目の火曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "根岸1丁目、根岸2丁目・根岸3丁目・根岸4丁目・根岸5丁目",
+        "csv_index": "ね"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:028:burnable:wednesday:official",
+      "area_key": "taito:area:028",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "橋場1丁目・橋場2丁目",
+        "csv_index": "は"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:028:burnable:saturday:official",
+      "area_key": "taito:area:028",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "橋場1丁目・橋場2丁目",
+        "csv_index": "は"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:028:resource:tuesday:official",
+      "area_key": "taito:area:028",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "橋場1丁目・橋場2丁目",
+        "csv_index": "は"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:028:nonburnable:1-3:official",
+      "area_key": "taito:area:028",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の金曜日"
+        },
+        "description": "その月の1回目・3回目の金曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "橋場1丁目・橋場2丁目",
+        "csv_index": "は"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:029:burnable:tuesday:official",
+      "area_key": "taito:area:029",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "花川戸1丁目・花川戸2丁目",
+        "csv_index": "は"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:029:burnable:friday:official",
+      "area_key": "taito:area:029",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "花川戸1丁目・花川戸2丁目",
+        "csv_index": "は"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:029:resource:thursday:official",
+      "area_key": "taito:area:029",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "花川戸1丁目・花川戸2丁目",
+        "csv_index": "は"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:029:nonburnable:1-3:official",
+      "area_key": "taito:area:029",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の月曜日"
+        },
+        "description": "その月の1回目・3回目の月曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "花川戸1丁目・花川戸2丁目",
+        "csv_index": "は"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:030:burnable:wednesday:official",
+      "area_key": "taito:area:030",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "東浅草1丁目・東浅草2丁目",
+        "csv_index": "ひ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:030:burnable:saturday:official",
+      "area_key": "taito:area:030",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "東浅草1丁目・東浅草2丁目",
+        "csv_index": "ひ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:030:resource:tuesday:official",
+      "area_key": "taito:area:030",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "東浅草1丁目・東浅草2丁目",
+        "csv_index": "ひ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:030:nonburnable:1-3:official",
+      "area_key": "taito:area:030",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の金曜日"
+        },
+        "description": "その月の1回目・3回目の金曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "東浅草1丁目・東浅草2丁目",
+        "csv_index": "ひ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:031:burnable:monday:official",
+      "area_key": "taito:area:031",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "東上野1丁目・東上野2丁目・東上野3丁目",
+        "csv_index": "ひ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:031:burnable:thursday:official",
+      "area_key": "taito:area:031",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "東上野1丁目・東上野2丁目・東上野3丁目",
+        "csv_index": "ひ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:031:resource:saturday:official",
+      "area_key": "taito:area:031",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "東上野1丁目・東上野2丁目・東上野3丁目",
+        "csv_index": "ひ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:031:nonburnable:2-4:official",
+      "area_key": "taito:area:031",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の水曜日"
+        },
+        "description": "その月の2回目・4回目の水曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "東上野1丁目・東上野2丁目・東上野3丁目",
+        "csv_index": "ひ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:032:burnable:monday:official",
+      "area_key": "taito:area:032",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "東上野4丁目・東上野5丁目・東上野6丁目",
+        "csv_index": "ひ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:032:burnable:thursday:official",
+      "area_key": "taito:area:032",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "東上野4丁目・東上野5丁目・東上野6丁目",
+        "csv_index": "ひ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:032:resource:wednesday:official",
+      "area_key": "taito:area:032",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "東上野4丁目・東上野5丁目・東上野6丁目",
+        "csv_index": "ひ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:032:nonburnable:1-3:official",
+      "area_key": "taito:area:032",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の土曜日"
+        },
+        "description": "その月の1回目・3回目の土曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "東上野4丁目・東上野5丁目・東上野6丁目",
+        "csv_index": "ひ"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:033:burnable:tuesday:official",
+      "area_key": "taito:area:033",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "松が谷1丁目・松が谷2丁目・松が谷3丁目・松が谷4丁目",
+        "csv_index": "ま"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:033:burnable:friday:official",
+      "area_key": "taito:area:033",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "松が谷1丁目・松が谷2丁目・松が谷3丁目・松が谷4丁目",
+        "csv_index": "ま"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:033:resource:monday:official",
+      "area_key": "taito:area:033",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "松が谷1丁目・松が谷2丁目・松が谷3丁目・松が谷4丁目",
+        "csv_index": "ま"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:033:nonburnable:2-4:official",
+      "area_key": "taito:area:033",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の木曜日"
+        },
+        "description": "その月の2回目・4回目の木曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "松が谷1丁目・松が谷2丁目・松が谷3丁目・松が谷4丁目",
+        "csv_index": "ま"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:034:burnable:tuesday:official",
+      "area_key": "taito:area:034",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "三筋1丁目・三筋2丁目",
+        "csv_index": "み"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:034:burnable:friday:official",
+      "area_key": "taito:area:034",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "三筋1丁目・三筋2丁目",
+        "csv_index": "み"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:034:resource:thursday:official",
+      "area_key": "taito:area:034",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "三筋1丁目・三筋2丁目",
+        "csv_index": "み"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:034:nonburnable:2-4:official",
+      "area_key": "taito:area:034",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の月曜日"
+        },
+        "description": "その月の2回目・4回目の月曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "三筋1丁目・三筋2丁目",
+        "csv_index": "み"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:035:burnable:wednesday:official",
+      "area_key": "taito:area:035",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "三ノ輪1丁目・三ノ輪2丁目",
+        "csv_index": "み"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:035:burnable:saturday:official",
+      "area_key": "taito:area:035",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "三ノ輪1丁目・三ノ輪2丁目",
+        "csv_index": "み"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:035:resource:friday:official",
+      "area_key": "taito:area:035",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "三ノ輪1丁目・三ノ輪2丁目",
+        "csv_index": "み"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:035:nonburnable:1-3:official",
+      "area_key": "taito:area:035",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の火曜日"
+        },
+        "description": "その月の1回目・3回目の火曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "三ノ輪1丁目・三ノ輪2丁目",
+        "csv_index": "み"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:036:burnable:tuesday:official",
+      "area_key": "taito:area:036",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "元浅草1丁目・元浅草2丁目・元浅草3丁目・元浅草4丁目",
+        "csv_index": "も"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:036:burnable:friday:official",
+      "area_key": "taito:area:036",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "元浅草1丁目・元浅草2丁目・元浅草3丁目・元浅草4丁目",
+        "csv_index": "も"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:036:resource:thursday:official",
+      "area_key": "taito:area:036",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "元浅草1丁目・元浅草2丁目・元浅草3丁目・元浅草4丁目",
+        "csv_index": "も"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:036:nonburnable:2-4:official",
+      "area_key": "taito:area:036",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の月曜日"
+        },
+        "description": "その月の2回目・4回目の月曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "元浅草1丁目・元浅草2丁目・元浅草3丁目・元浅草4丁目",
+        "csv_index": "も"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:037:burnable:monday:official",
+      "area_key": "taito:area:037",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "谷中1丁目・谷中2丁目・谷中3丁目・谷中4丁目・谷中5丁目・谷中6丁目・谷中7丁目",
+        "csv_index": "や"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:037:burnable:thursday:official",
+      "area_key": "taito:area:037",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "谷中1丁目・谷中2丁目・谷中3丁目・谷中4丁目・谷中5丁目・谷中6丁目・谷中7丁目",
+        "csv_index": "や"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:037:resource:wednesday:official",
+      "area_key": "taito:area:037",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "谷中1丁目・谷中2丁目・谷中3丁目・谷中4丁目・谷中5丁目・谷中6丁目・谷中7丁目",
+        "csv_index": "や"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:037:nonburnable:2-4:official",
+      "area_key": "taito:area:037",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "その月の2回目・4回目の土曜日"
+        },
+        "description": "その月の2回目・4回目の土曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "谷中1丁目・谷中2丁目・谷中3丁目・谷中4丁目・谷中5丁目・谷中6丁目・谷中7丁目",
+        "csv_index": "や"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:038:burnable:monday:official",
+      "area_key": "taito:area:038",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "柳橋1丁目・柳橋2丁目",
+        "csv_index": "や"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:038:burnable:thursday:official",
+      "area_key": "taito:area:038",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "柳橋1丁目・柳橋2丁目",
+        "csv_index": "や"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:038:resource:saturday:official",
+      "area_key": "taito:area:038",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "柳橋1丁目・柳橋2丁目",
+        "csv_index": "や"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:038:nonburnable:1-3:official",
+      "area_key": "taito:area:038",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の水曜日"
+        },
+        "description": "その月の1回目・3回目の水曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "柳橋1丁目・柳橋2丁目",
+        "csv_index": "や"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:039:burnable:wednesday:official",
+      "area_key": "taito:area:039",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "竜泉1丁目・竜泉2丁目・竜泉3丁目",
+        "csv_index": "り"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:039:burnable:saturday:official",
+      "area_key": "taito:area:039",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "taito:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "竜泉1丁目・竜泉2丁目・竜泉3丁目",
+        "csv_index": "り"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:039:resource:friday:official",
+      "area_key": "taito:area:039",
+      "category": "resource",
+      "rule": {
+        "rule_key": "taito:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "竜泉1丁目・竜泉2丁目・竜泉3丁目",
+        "csv_index": "り"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "taito:area:039:nonburnable:1-3:official",
+      "area_key": "taito:area:039",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "taito:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "その月の1回目・3回目の火曜日"
+        },
+        "description": "その月の1回目・3回目の火曜日"
+      },
+      "source_key": "taito:download:01",
+      "artifact_key": "taito:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+        "row_label": "竜泉1丁目・竜泉2丁目・竜泉3丁目",
+        "csv_index": "り"
+      },
+      "note": null
+    }
+  ],
+  "geometry_memberships": [
+    {
+      "area_key": "taito:area:001",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "秋葉原"
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:002",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "浅草",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:003",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "浅草",
+          "chomes": [
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:004",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "浅草橋",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:005",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "池之端",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:006",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "今戸",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:007",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "入谷",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:008",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "上野",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:009",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "上野公園"
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:010",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "上野桜木",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:011",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "雷門",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:012",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "北上野",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:013",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "清川",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:014",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "蔵前",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:015",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "小島",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:016",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "寿",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:017",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "寿",
+          "chomes": [
+            "3",
+            "4"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:018",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "駒形",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:019",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "下谷",
+          "chomes": [
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:020",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "下谷",
+          "chomes": [
+            "2",
+            "3"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:021",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "千束",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:022",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "台東",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:023",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "鳥越",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:024",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "西浅草",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:025",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "西浅草",
+          "chomes": [
+            "3"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:026",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "日本堤",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:027",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "根岸",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:028",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "橋場",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:029",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "花川戸",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:030",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "東浅草",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:031",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "東上野",
+          "chomes": [
+            "1",
+            "2",
+            "3"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:032",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "東上野",
+          "chomes": [
+            "4",
+            "5",
+            "6"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:033",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "松が谷",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:034",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "三筋",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:035",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "三ノ輪",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:036",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "元浅草",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:037",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "谷中",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:038",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "柳橋",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "taito:area:039",
+      "selector_source_label": "地域別収集曜日一覧 CSV",
+      "selector_source_urls": [
+        "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv"
+      ],
+      "members": [
+        {
+          "town_ja": "竜泉",
+          "chomes": [
+            "1",
+            "2",
+            "3"
+          ]
+        }
+      ]
+    }
+  ],
+  "review_tasks": []
+}

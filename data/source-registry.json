@@ -31,9 +31,31 @@
       "ward_name_en": "Adachi",
       "ward_name_ja": "足立区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "ごみ・資源の分け方・出し方",
+          "url": "https://www.city.adachi.tokyo.jp/seso/manual.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "資源とごみの分け方・出し方 2026",
+            "url": "https://www.city.adachi.tokyo.jp/documents/56163/wakedashi2026.pdf",
+            "format": "pdf"
+          }
+        ],
+        "related_pages": [
+          {
+            "label": "ごみ分別アプリ「さんあ～る」",
+            "url": "https://www.city.adachi.tokyo.jp/gomi/kurashi/kankyo/gomi-gomidasiapp.html",
+            "format": "html"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "足立区は公式 guide page と 2026 年版 PDF を公開しています。",
+        "地域別収集曜日一覧は PDF から町丁目単位で抽出できます。"
       ]
     },
     {
@@ -41,9 +63,24 @@
       "ward_name_en": "Arakawa",
       "ward_name_ja": "荒川区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "収集日",
+          "url": "https://www.city.arakawa.tokyo.jp/a025/recycle/shuushuubi/syusyubi.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "related_pages": [
+          {
+            "label": "荒川区ごみ分別辞典・ごみ収集日案内",
+            "url": "https://www.city.arakawa.tokyo.jp/portal/gomi/index.html",
+            "format": "html"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "荒川区は公式収集日ページと分別辞典ポータルを公開しています。",
+        "現時点では source tracking と ward-level support のみで、地域別の正規化は未着手です。"
       ]
     },
     {
@@ -51,9 +88,31 @@
       "ward_name_en": "Bunkyo",
       "ward_name_ja": "文京区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "ごみと資源の収集日",
+          "url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "ごみと資源の収集日一覧",
+            "url": "https://www.city.bunkyo.lg.jp/documents/953/youbiitiran.pdf",
+            "format": "pdf"
+          }
+        ],
+        "related_pages": [
+          {
+            "label": "ごみ出しカレンダー",
+            "url": "https://www.city.bunkyo.lg.jp/b039/p000927.html",
+            "format": "html"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "文京区は entry page に地域別収集日 table を掲載しています。",
+        "HTML table だけで可燃・不燃・資源・プラスチックの weekly/monthly rule を組めます。"
       ]
     },
     {
@@ -61,9 +120,34 @@
       "ward_name_en": "Chiyoda",
       "ward_name_ja": "千代田区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "資源とごみの分別・出し方",
+          "url": "https://www.city.chiyoda.lg.jp/koho/kurashi/gomi/wakekata/index.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "ごみの分別・出し方 冊子",
+            "url": "https://www.city.chiyoda.lg.jp/documents/1952/r701pamphlet.pdf",
+            "format": "pdf"
+          },
+          {
+            "label": "資源とごみの分け方・出し方ポスター（日本語）",
+            "url": "https://www.city.chiyoda.lg.jp/documents/1952/r7poster-jp.pdf",
+            "format": "pdf"
+          },
+          {
+            "label": "住所別早見表（日本語）",
+            "url": "https://www.city.chiyoda.lg.jp/documents/1952/hayami31_jp.pdf",
+            "format": "pdf"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "千代田区は公式 HTML に住所別カレンダー一覧を持ち、各カレンダー PDF への direct links があります。",
+        "ポスター PDF と住所別早見表 PDF も補助ソースとして利用できます。"
       ]
     },
     {
@@ -110,9 +194,24 @@
       "ward_name_en": "Edogawa",
       "ward_name_ja": "江戸川区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "資源・ごみの収集曜日",
+          "url": "https://www.city.edogawa.tokyo.jp/e025/kurashi/gomi_recycle/kategomi/yobihyo.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "related_pages": [
+          {
+            "label": "資源・ごみの分け方・出し方",
+            "url": "https://www.city.edogawa.tokyo.jp/e025/kurashi/gomi_recycle/kategomi/bunbetsu/",
+            "format": "html"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "江戸川区は公式の収集曜日ページと分別案内ページを公開しています。",
+        "現時点では source tracking と ward-level support のみで、地域別の正規化は未着手です。"
       ]
     },
     {
@@ -120,9 +219,29 @@
       "ward_name_en": "Itabashi",
       "ward_name_ja": "板橋区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "区別資源・ごみの収集日",
+          "url": "https://www.city.itabashi.tokyo.jp/tetsuduki/gomi/kaishu/index.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "related_pages": [
+          {
+            "label": "地域別 資源回収・ごみ収集曜日カレンダー（令和8年度版）",
+            "url": "https://www.city.itabashi.tokyo.jp/tetsuduki/gomi/kaishu/1038152.html",
+            "format": "html"
+          },
+          {
+            "label": "板橋区資源とごみの分け方・出し方",
+            "url": "https://www.city.itabashi.tokyo.jp/tetsuduki/gomi/shigen/1001856.html",
+            "format": "html"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "板橋区は区別収集日ページと地域別曜日表ページを公開しています。",
+        "地域別 HTML table から町丁目 selector を直接抽出できます。"
       ]
     },
     {
@@ -130,9 +249,31 @@
       "ward_name_en": "Katsushika",
       "ward_name_ja": "葛飾区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "2026年度版 資源とごみの収集カレンダー",
+          "url": "https://www.city.katsushika.lg.jp/kurashi/1000048/1017199/1020038.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "related_pages": [
+          {
+            "label": "資源・ごみの正しい分け方・出し方",
+            "url": "https://www.city.katsushika.lg.jp/kurashi/1000048/1001535/index.html",
+            "format": "html"
+          }
+        ],
+        "downloads": [
+          {
+            "label": "収集地区1 簡易版カレンダー",
+            "url": "https://www.city.katsushika.lg.jp/_res/projects/default_project/_page_/001/020/038/2025k-1.pdf",
+            "format": "pdf"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "葛飾区は公式 2026 カレンダーページで町丁目別カレンダーと収集地区別簡易版 PDF を公開しています。",
+        "簡易版 PDF は image-first で、収集地区ごとのルール抽出に OCR または画像解析が必要です。"
       ]
     },
     {
@@ -140,9 +281,36 @@
       "ward_name_en": "Kita",
       "ward_name_ja": "北区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "ごみ・資源の収集日",
+          "url": "https://www.city.kita.lg.jp/living/bins/1002013/1002014.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "家庭ごみ・資源の分け方出し方チラシ",
+            "url": "https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/002/019/japanese_wake_a4_2023.pdf",
+            "format": "pdf"
+          },
+          {
+            "label": "北区の家庭ごみ・資源の分け方出し方（日本語版冊子）",
+            "url": "https://www.city.kita.lg.jp/_res/projects/default_project/_page_/001/002/019/wakedashi_book_r07.pdf",
+            "format": "pdf"
+          }
+        ],
+        "related_pages": [
+          {
+            "label": "プラスチック",
+            "url": "https://www.city.kita.lg.jp/living/bins/1002013/1002040/1002044.html",
+            "format": "html"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "北区は公式収集日ページと家庭ごみ・資源チラシ PDF を公開しています。",
+        "現在の地域別曜日 source は image-first PDF が中心で、OCR 抽出が必要です。"
       ]
     },
     {
@@ -216,9 +384,31 @@
       "ward_name_en": "Meguro",
       "ward_name_ja": "目黒区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "ごみ・資源収集日一覧（目黒区）",
+          "url": "https://www.city.meguro.tokyo.jp/seisou/kurashi/gomi/youbiichiran.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "地域別収集曜日一覧",
+            "url": "https://www.city.meguro.tokyo.jp/documents/4335/h28syuusyuuyoubi.pdf",
+            "format": "pdf"
+          }
+        ],
+        "related_pages": [
+          {
+            "label": "ごみ分別・収集日検索",
+            "url": "https://www.city.meguro.tokyo.jp/kurashi/gomi/bunbetsu/kensaku/index.html",
+            "format": "html"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "目黒区は地域別収集曜日一覧 PDF を公開しています。",
+        "地域粒度は町名・丁目グループで、weekly rule と monthly rule の両方を持ちます。"
       ]
     },
     {
@@ -226,9 +416,24 @@
       "ward_name_en": "Minato",
       "ward_name_ja": "港区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "令和8年4月1日からの収集曜日（港区）",
+          "url": "https://www.city.minato.tokyo.jp/unei/2025gomikarenda.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "資源とごみの分別ガイドブック",
+            "url": "https://www.city.minato.tokyo.jp/documents/6284/20250421114759.pdf",
+            "format": "pdf"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "港区は guidebook PDF に収集曜日一覧を掲載しています。",
+        "町丁目に加えて番地分割が多く、複雑な行は manual review を前提にします。"
       ]
     },
     {
@@ -236,9 +441,24 @@
       "ward_name_en": "Nakano",
       "ward_name_ja": "中野区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "中野区全域のごみと資源の収集曜日一覧",
+          "url": "https://www.city.tokyo-nakano.lg.jp/kurashi/gomi/syusyuyobi/nakanoku.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "related_pages": [
+          {
+            "label": "資源とごみの分け方・出し方 冊子・リーフレット",
+            "url": "https://www.city.tokyo-nakano.lg.jp/kurashi/gomi/dashikata/leaflet.html",
+            "format": "html"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "中野区は全域一覧 HTML table を公開しています。",
+        "資源プラスチックとびん・缶・ペットボトルが別列です。"
       ]
     },
     {
@@ -246,9 +466,24 @@
       "ward_name_en": "Nerima",
       "ward_name_ja": "練馬区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "資源・ごみの分け方と出し方",
+          "url": "https://www.city.nerima.tokyo.jp/kurashi/gomi/wakekata/",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "related_pages": [
+          {
+            "label": "地域別ごみ収集曜日一覧",
+            "url": "https://www.city.nerima.tokyo.jp/kurashi/gomi/wakekata/ichiran/",
+            "format": "html"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "練馬区は分別案内と地域別収集曜日一覧を公開しています。",
+        "現時点では source tracking と ward-level support のみで、地域別の正規化は未着手です。"
       ]
     },
     {
@@ -256,9 +491,25 @@
       "ward_name_en": "Ota",
       "ward_name_ja": "大田区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "downloads": [
+          {
+            "label": "家庭用 資源とごみの分け方・出し方",
+            "url": "https://www.city.ota.tokyo.jp/seikatsu/gomi/shigentogomi/katei-shigen-gomi_pamphlet.files/reiwahachinennwakekatadashikata.pdf",
+            "format": "pdf"
+          }
+        ],
+        "related_pages": [
+          {
+            "label": "大田区ごみ分別アプリ",
+            "url": "https://www.city.ota.tokyo.jp/seikatsu/gomi/topics/gomi-bunbetsu-apli.html",
+            "format": "html"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "大田区は家庭用の資源とごみの分け方・出し方 PDF を公開しています。",
+        "収集曜日の table は PDF 17-18 ページにあり、丁目単位と番地例外が混在します。"
       ]
     },
     {
@@ -266,9 +517,31 @@
       "ward_name_en": "Setagaya",
       "ward_name_ja": "世田谷区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "資源・ごみ分別アプリ「さんあ～る」をご活用ください",
+          "url": "https://www.city.setagaya.lg.jp/02241/415.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "世田谷区 ごみ・資源分別ガイドブック",
+            "url": "https://www.city.setagaya.lg.jp/documents/29675/all.pdf",
+            "format": "pdf"
+          }
+        ],
+        "related_pages": [
+          {
+            "label": "Web版 さんあ～る",
+            "url": "https://manage.delight-system.com/threeR/web/calendar?menu=calendar&jichitaiId=setagayaku&areaId=&benriCateId=&bunbetsuCateId=&faqCateId=&lang=ja",
+            "format": "html"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "世田谷区は公式に Web 版さんあ〜るを案内しており、areaId ごとの収集カレンダーを取得できます。",
+        "ガイドブック PDF は補助ソースです。"
       ]
     },
     {
@@ -276,9 +549,29 @@
       "ward_name_en": "Shibuya",
       "ward_name_ja": "渋谷区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "ごみ収集日",
+          "url": "https://www.city.shibuya.tokyo.jp/kurashi/gomi/kateigomi/gomid.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "地域別収集日（曜日）一覧表",
+            "url": "https://files.city.shibuya.tokyo.jp/assets/12995aba8b194961be709ba879857f70/6da4b9a0e1f34a4a8a10fbbf29c03c09/chiikibetushuushuuyoubiitiran2025.pdf",
+            "format": "pdf"
+          },
+          {
+            "label": "令和7年9月～令和8年4月 渋谷区資源とごみの収集日一覧表",
+            "url": "https://files.city.shibuya.tokyo.jp/assets/12995aba8b194961be709ba879857f70/90341c09953f4417a0fadc9c1288e61d/shuushuubiitiran-202509-202604.pdf",
+            "format": "pdf"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "渋谷区は entry page の HTML table から地域別収集日を取得できます。",
+        "一部地域・繁華街地域の分割行があります。"
       ]
     },
     {
@@ -286,9 +579,42 @@
       "ward_name_en": "Shinagawa",
       "ward_name_ja": "品川区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "資源・ごみの分け方・出し方（品川区）",
+          "url": "https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-gomi/gomi-kateigomi/gomi-kateigomi-dashikata/hpg000005617.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "資源・ごみの分け方・出し方（sigengomi2025.pdf）",
+            "url": "https://www.city.shinagawa.tokyo.jp/contentshozon2025/sigengomi2025.pdf",
+            "format": "pdf"
+          },
+          {
+            "label": "令和8年版 ごみリサイクルカレンダー PDF",
+            "url": "https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-gomi/gomi-recycle/gomi-recycle-kankou/R8gomirisakarennda.pdf",
+            "format": "pdf"
+          },
+          {
+            "label": "令和8年版 ごみリサイクルカレンダー TXT",
+            "url": "https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-gomi/gomi-recycle/gomi-recycle-kankou/R8gomirisakarennda.txt",
+            "format": "txt",
+            "encoding": "cp932"
+          }
+        ],
+        "related_pages": [
+          {
+            "label": "資源回収・ごみ収集日（令和8年版カレンダー）",
+            "url": "https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-gomi/gomi-recycle/gomi-recycle-kankou/hpg000027173.html",
+            "format": "html"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "品川区は guide PDF と calendar PDF/TXT を併用しています。",
+        "収集曜日一覧は住所・番地例外を含むため、一部は review task 前提です。"
       ]
     },
     {
@@ -296,9 +622,17 @@
       "ward_name_en": "Shinjuku",
       "ward_name_ja": "新宿区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "資源回収・ごみ収集日（令和8年度）",
+          "url": "https://www.city.shinjuku.lg.jp/seikatsu/file09_01_00001.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        }
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "新宿区は住所行単位の HTML table を掲載しています。",
+        "番地例外や * 付き特記事項があるため、一部は review task 化します。"
       ]
     },
     {
@@ -306,9 +640,37 @@
       "ward_name_en": "Suginami",
       "ward_name_ja": "杉並区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "ごみ・資源の分け方・出し方",
+          "url": "https://www.city.suginami.tokyo.jp/s104/713.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "garbage.csv",
+            "url": "https://www.city.suginami.tokyo.jp/documents/12125/garbage.csv",
+            "format": "csv",
+            "encoding": "utf-8"
+          }
+        ],
+        "related_pages": [
+          {
+            "label": "ごみ・資源の収集日",
+            "url": "https://www.city.suginami.tokyo.jp/s104/715.html",
+            "format": "html"
+          },
+          {
+            "label": "ごみ・資源収集日検索",
+            "url": "https://www.city.suginami.tokyo.jp/kurashi/gomi/seisougomi/index.html",
+            "format": "html"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "杉並区は分別案内ページと収集日ページを公開しています。",
+        "収集日検索ページから参照される garbage.csv を使うと、町名・丁目グループ単位で正規化できます。"
       ]
     },
     {
@@ -421,9 +783,32 @@
       "ward_name_en": "Taito",
       "ward_name_ja": "台東区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "ごみ分別・収集一覧（台東区オープンデータ）",
+          "url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "地域別収集曜日一覧 CSV",
+            "url": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.files/tiikibetusyuusyuuyoubiitiran.csv",
+            "format": "csv",
+            "encoding": "cp932"
+          }
+        ],
+        "related_pages": [
+          {
+            "label": "令和7年度版 資源とごみ出しカレンダー",
+            "url": "https://www.city.taito.lg.jp/kurashi/gomi/keikaku/kakusyupanfuretto/R7gomidasikarennda-.html",
+            "format": "html"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "台東区は地域別収集曜日一覧 CSV を公開しています。",
+        "CSV は町丁名単位で resource, burnable, nonburnable を持ちます。"
       ]
     },
     {
@@ -431,9 +816,36 @@
       "ward_name_en": "Toshima",
       "ward_name_ja": "豊島区",
       "status": "tracked",
-      "official_sources": {},
+      "official_sources": {
+        "entry_page": {
+          "label": "資源回収・ごみ収集カレンダー",
+          "url": "https://www.city.toshima.lg.jp/150/kurashi/gomi/shigen/2303021832.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "地域別収集曜日一覧（PDF）",
+            "url": "https://www.city.toshima.lg.jp/documents/1053/r6_34-35.pdf",
+            "format": "pdf"
+          }
+        ],
+        "related_pages": [
+          {
+            "label": "WEB版 さんあ〜る",
+            "url": "https://manage.delight-system.com/threeR/web/init/toshimaku",
+            "format": "web_app"
+          },
+          {
+            "label": "資源・ごみパンフレット",
+            "url": "https://www.city.toshima.lg.jp/150/kurashi/gomi/shigen/013329.html",
+            "format": "html"
+          }
+        ]
+      },
       "notes": [
-        "Boundary only. Source discovery and normalization are not started yet."
+        "豊島区は公式 WEB版さんあ〜るで area hierarchy と calendar を提供しています。",
+        "PDF より app endpoint の方が機械可読性が高いです。"
       ]
     }
   ]

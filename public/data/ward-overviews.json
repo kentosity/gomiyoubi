@@ -3,49 +3,379 @@
     "wardSlug": "adachi",
     "wardNameJa": "足立区",
     "wardNameEn": "Adachi",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "high",
+    "sourceLabel": "資源とごみの分け方・出し方 2026",
+    "sourceUrl": "https://www.city.adachi.tokyo.jp/seso/manual.html",
+    "granularity": "地域別収集曜日一覧 PDF を反映済みです。地図上は町丁目 selector で join しています。",
+    "notes": [
+      "足立区の 2026 年版『資源とごみの分け方・出し方』PDF から地域別収集曜日一覧を抽出しています。",
+      "プラスチック・可燃ごみ・資源は weekly、不燃ごみは nth-weekday として保持しています。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 17
+        },
+        {
+          "category": "plastic",
+          "areas": 16
+        },
+        {
+          "category": "resource",
+          "areas": 5
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 14
+        },
+        {
+          "category": "plastic",
+          "areas": 6
+        },
+        {
+          "category": "resource",
+          "areas": 15
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 29
+        },
+        {
+          "category": "plastic",
+          "areas": 10
+        },
+        {
+          "category": "resource",
+          "areas": 11
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 14
+        },
+        {
+          "category": "plastic",
+          "areas": 11
+        },
+        {
+          "category": "resource",
+          "areas": 14
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 17
+        },
+        {
+          "category": "plastic",
+          "areas": 15
+        },
+        {
+          "category": "resource",
+          "areas": 9
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 29
+        },
+        {
+          "category": "plastic",
+          "areas": 6
+        },
+        {
+          "category": "resource",
+          "areas": 6
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "arakawa",
     "wardNameJa": "荒川区",
     "wardNameEn": "Arakawa",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "high",
+    "sourceLabel": "収集日",
+    "sourceUrl": "https://www.city.arakawa.tokyo.jp/a025/recycle/shuushuubi/syusyubi.html",
+    "granularity": "地域行単位の収集ルールを反映済みです。建物個別例外は review task に分離しています。",
+    "notes": [
+      "荒川区の公式収集日ページ 1 表目を町丁目ベースの正規 source として取り込みました。",
+      "大規模集合住宅などの建物個別例外 30 件は review task に分離しています。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 14
+        },
+        {
+          "category": "plastic",
+          "areas": 7
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 14
+        },
+        {
+          "category": "plastic",
+          "areas": 9
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 18
+        },
+        {
+          "category": "plastic",
+          "areas": 8
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 14
+        },
+        {
+          "category": "plastic",
+          "areas": 5
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 14
+        },
+        {
+          "category": "plastic",
+          "areas": 11
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 18
+        },
+        {
+          "category": "plastic",
+          "areas": 6
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "bunkyo",
     "wardNameJa": "文京区",
     "wardNameEn": "Bunkyo",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "high",
+    "sourceLabel": "ごみと資源の収集日",
+    "sourceUrl": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+    "granularity": "町丁目グループ単位の収集ルールを反映済みです。地図上は区表示です。",
+    "notes": [
+      "文京区の公式 HTML table から地域別の収集曜日を抽出しています。",
+      "可燃・不燃・資源・プラスチックを ward-level area claim として正規化しています。",
+      "地図上の詳細マスクはまだ未実装です。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 13
+        },
+        {
+          "category": "plastic",
+          "areas": 7
+        },
+        {
+          "category": "resource",
+          "areas": 6
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 13
+        },
+        {
+          "category": "plastic",
+          "areas": 4
+        },
+        {
+          "category": "resource",
+          "areas": 3
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 7
+        },
+        {
+          "category": "plastic",
+          "areas": 6
+        },
+        {
+          "category": "resource",
+          "areas": 7
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 13
+        },
+        {
+          "category": "plastic",
+          "areas": 3
+        },
+        {
+          "category": "resource",
+          "areas": 4
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 13
+        },
+        {
+          "category": "plastic",
+          "areas": 6
+        },
+        {
+          "category": "resource",
+          "areas": 7
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 7
+        },
+        {
+          "category": "plastic",
+          "areas": 7
+        },
+        {
+          "category": "resource",
+          "areas": 6
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "chiyoda",
     "wardNameJa": "千代田区",
     "wardNameEn": "Chiyoda",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "high",
+    "sourceLabel": "資源とごみの分別・出し方",
+    "sourceUrl": "https://www.city.chiyoda.lg.jp/koho/kurashi/gomi/wakekata/index.html",
+    "granularity": "住所別カレンダー単位で official rules を正規化しています。番地・奇偶分割のある一部住所は review task に残ります。",
+    "notes": [
+      "千代田区は公式 HTML の住所別カレンダー一覧と 12 種類の収集カレンダー PDF を一次ソースとして使用しています。",
+      "calendar PDF の text layer から曜日パターンを推定し、可燃・プラ・資源・不燃を正規化しています。",
+      "奇数番地・偶数番地・一部番地除外のような詳細 selectors は geometry join 時に review task へ落とします。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 20
+        },
+        {
+          "category": "plastic",
+          "areas": 14
+        },
+        {
+          "category": "resource",
+          "areas": 22
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 36
+        },
+        {
+          "category": "plastic",
+          "areas": 8
+        },
+        {
+          "category": "resource",
+          "areas": 14
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 22
+        },
+        {
+          "category": "plastic",
+          "areas": 12
+        },
+        {
+          "category": "resource",
+          "areas": 8
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 36
+        },
+        {
+          "category": "plastic",
+          "areas": 14
+        },
+        {
+          "category": "resource",
+          "areas": 8
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 20
+        },
+        {
+          "category": "plastic",
+          "areas": 22
+        },
+        {
+          "category": "resource",
+          "areas": 14
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 22
+        },
+        {
+          "category": "plastic",
+          "areas": 8
+        },
+        {
+          "category": "resource",
+          "areas": 12
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "chuo",
@@ -200,35 +530,124 @@
     "wardSlug": "edogawa",
     "wardNameJa": "江戸川区",
     "wardNameEn": "Edogawa",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "high",
+    "sourceLabel": "資源・ごみの収集曜日",
+    "sourceUrl": "https://www.city.edogawa.tokyo.jp/e025/kurashi/gomi_recycle/kategomi/yobihyo.html",
+    "granularity": "地域別 HTML table を反映済みです。地図上は join できる selector を優先して町丁目へ重ねています。",
+    "notes": [
+      "江戸川区の公式『ごみ収集・資源回収地域別曜日表』HTML table を一次ソースとして使用しています。",
+      "番地や道路境界を含む複雑な selector は review task に回り、町丁目 join できる範囲を詳細表示しています。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 35
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 55
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 33
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "itabashi",
     "wardNameJa": "板橋区",
     "wardNameEn": "Itabashi",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "high",
+    "sourceLabel": "区別資源・ごみの収集日",
+    "sourceUrl": "https://www.city.itabashi.tokyo.jp/tetsuduki/gomi/kaishu/index.html",
+    "granularity": "地域別一覧表の行単位で収集ルールを反映済みです。",
+    "notes": [
+      "板橋区の地域別曜日表ページ本文から地域・曜日・カレンダー番号を抽出しています。",
+      "資源回収欄は resource として保持し、可燃ごみと不燃ごみを別 category に分離しています。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 42
+        },
+        {
+          "category": "resource",
+          "areas": 9
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 42
+        },
+        {
+          "category": "resource",
+          "areas": 11
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 28
+        },
+        {
+          "category": "resource",
+          "areas": 14
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 28
+        },
+        {
+          "category": "resource",
+          "areas": 15
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 28
+        },
+        {
+          "category": "resource",
+          "areas": 13
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 42
+        },
+        {
+          "category": "resource",
+          "areas": 8
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "katsushika",
     "wardNameJa": "葛飾区",
     "wardNameEn": "Katsushika",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
+    "sourceQuality": "medium",
+    "sourceLabel": "2026年度版 資源とごみの収集カレンダー",
+    "sourceUrl": "https://www.city.katsushika.lg.jp/kurashi/1000048/1017199/1020038.html",
+    "granularity": "葛飾区は公式 2026 カレンダーページを追跡済みです。現在は ward-level の暫定表示です。",
+    "notes": [
+      "町丁目別カレンダー PDF と収集地区別簡易版 PDF は追跡済みです。",
+      "簡易版 PDF が image-first のため、収集地区ルールの正規化は未完了です。"
+    ],
     "daySignals": {},
     "hasDetailedAreas": false
   },
@@ -236,11 +655,14 @@
     "wardSlug": "kita",
     "wardNameJa": "北区",
     "wardNameEn": "Kita",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
+    "sourceQuality": "medium",
+    "sourceLabel": "ごみ・資源の収集日",
+    "sourceUrl": "https://www.city.kita.lg.jp/living/bins/1002013/1002014.html",
+    "granularity": "北区は公式収集日ページと配布 PDF を追跡済みです。現在は ward-level の暫定表示です。",
+    "notes": [
+      "収集日ページとチラシ・冊子 PDF は追跡済みです。",
+      "地域別曜日 source が image-first のため、正規化は未完了です。"
+    ],
     "daySignals": {},
     "hasDetailedAreas": false
   },
@@ -350,59 +772,389 @@
     "wardSlug": "meguro",
     "wardNameJa": "目黒区",
     "wardNameEn": "Meguro",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "medium",
+    "sourceLabel": "地域別収集曜日一覧",
+    "sourceUrl": "https://www.city.meguro.tokyo.jp/seisou/kurashi/gomi/youbiichiran.html",
+    "granularity": "地域グループ単位の収集ルールを反映済みです。地図上は区表示です。",
+    "notes": [
+      "目黒区の地域別曜日一覧 PDF を text extraction して正規化しています。",
+      "資源・燃やすごみは weekly rule、不燃は monthly nth-weekday rule として保持しています。",
+      "詳細マスク化は次段階です。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 15
+        },
+        {
+          "category": "resource",
+          "areas": 9
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 13
+        },
+        {
+          "category": "resource",
+          "areas": 5
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 16
+        },
+        {
+          "category": "resource",
+          "areas": 7
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 13
+        },
+        {
+          "category": "resource",
+          "areas": 9
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 15
+        },
+        {
+          "category": "resource",
+          "areas": 7
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 16
+        },
+        {
+          "category": "resource",
+          "areas": 7
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "minato",
     "wardNameJa": "港区",
     "wardNameEn": "Minato",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "medium",
+    "sourceLabel": "資源とごみの分別ガイドブック",
+    "sourceUrl": "https://www.city.minato.tokyo.jp/unei/2025gomikarenda.html",
+    "granularity": "地域行単位の収集ルールを反映済みです。地図上は区表示です。",
+    "notes": [
+      "港区の guidebook PDF 2ページ目の収集曜日一覧を text extraction して正規化しています。",
+      "資源プラスチックと資源古紙・びん・かん・ペットボトルを別 category として保持しています。",
+      "複雑な番地分割など 0 件は review task に回しています。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 21
+        },
+        {
+          "category": "plastic",
+          "areas": 7
+        },
+        {
+          "category": "resource",
+          "areas": 4
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 21
+        },
+        {
+          "category": "plastic",
+          "areas": 14
+        },
+        {
+          "category": "resource",
+          "areas": 7
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 11
+        },
+        {
+          "category": "plastic",
+          "areas": 8
+        },
+        {
+          "category": "resource",
+          "areas": 13
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 21
+        },
+        {
+          "category": "plastic",
+          "areas": 7
+        },
+        {
+          "category": "resource",
+          "areas": 14
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 21
+        },
+        {
+          "category": "plastic",
+          "areas": 4
+        },
+        {
+          "category": "resource",
+          "areas": 7
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 11
+        },
+        {
+          "category": "plastic",
+          "areas": 13
+        },
+        {
+          "category": "resource",
+          "areas": 8
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "nakano",
     "wardNameJa": "中野区",
     "wardNameEn": "Nakano",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "high",
+    "sourceLabel": "中野区全域のごみと資源の収集曜日一覧",
+    "sourceUrl": "https://www.city.tokyo-nakano.lg.jp/kurashi/gomi/syusyuyobi/nakanoku.html",
+    "granularity": "町名・丁目単位の収集ルールを反映済みです。地図上は区表示です。",
+    "notes": [
+      "中野区全域ページの HTML table を一次ソースとして使用しています。",
+      "資源プラスチックとびん・缶・ペットボトルを別 category として保持しています。",
+      "陶器・ガラス・金属ごみは monthly nth-weekday rule として保持しています。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 15
+        },
+        {
+          "category": "plastic",
+          "areas": 5
+        },
+        {
+          "category": "resource",
+          "areas": 7
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 11
+        },
+        {
+          "category": "plastic",
+          "areas": 7
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 16
+        },
+        {
+          "category": "plastic",
+          "areas": 6
+        },
+        {
+          "category": "resource",
+          "areas": 5
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 11
+        },
+        {
+          "category": "plastic",
+          "areas": 8
+        },
+        {
+          "category": "resource",
+          "areas": 7
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 15
+        },
+        {
+          "category": "plastic",
+          "areas": 11
+        },
+        {
+          "category": "resource",
+          "areas": 11
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 16
+        },
+        {
+          "category": "plastic",
+          "areas": 5
+        },
+        {
+          "category": "resource",
+          "areas": 12
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "nerima",
     "wardNameJa": "練馬区",
     "wardNameEn": "Nerima",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "high",
+    "sourceLabel": "地域別ごみ収集曜日一覧",
+    "sourceUrl": "https://www.city.nerima.tokyo.jp/kurashi/gomi/wakekata/",
+    "granularity": "地域別収集曜日一覧の行単位で収集ルールを反映済みです。",
+    "notes": [
+      "練馬区の地域別収集曜日一覧の各 50 音ページ table を直接取り込んでいます。",
+      "容器包装プラスチック・古紙列は plastic と resource の両方に反映し、びん・缶・ペットボトル列も resource に集約しています。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 31
+        },
+        {
+          "category": "plastic",
+          "areas": 13
+        },
+        {
+          "category": "resource",
+          "areas": 20
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 38
+        },
+        {
+          "category": "plastic",
+          "areas": 16
+        },
+        {
+          "category": "resource",
+          "areas": 29
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 32
+        },
+        {
+          "category": "plastic",
+          "areas": 16
+        },
+        {
+          "category": "resource",
+          "areas": 31
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 38
+        },
+        {
+          "category": "plastic",
+          "areas": 16
+        },
+        {
+          "category": "resource",
+          "areas": 47
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 31
+        },
+        {
+          "category": "plastic",
+          "areas": 18
+        },
+        {
+          "category": "resource",
+          "areas": 26
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 32
+        },
+        {
+          "category": "plastic",
+          "areas": 22
+        },
+        {
+          "category": "resource",
+          "areas": 41
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "ota",
     "wardNameJa": "大田区",
     "wardNameEn": "Ota",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
+    "sourceQuality": "medium",
+    "sourceLabel": "大田区 家庭用 資源とごみの分け方・出し方",
+    "sourceUrl": "https://www.city.ota.tokyo.jp/seikatsu/gomi/shigentogomi/katei-shigen-gomi_pamphlet.files/reiwahachinennwakekatadashikata.pdf",
+    "granularity": "大田区は公式 PDF の収集曜日 table を追跡済みです。現在は ward-level の暫定表示です。",
+    "notes": [
+      "家庭用の資源とごみの分け方・出し方 PDF は追跡済みです。",
+      "収集曜日 table は丁目単位と番地例外が混在しており、正規化は未完了です。"
+    ],
     "daySignals": {},
     "hasDetailedAreas": false
   },
@@ -410,61 +1162,447 @@
     "wardSlug": "setagaya",
     "wardNameJa": "世田谷区",
     "wardNameEn": "Setagaya",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "high",
+    "sourceLabel": "Web版 さんあ～る",
+    "sourceUrl": "https://www.city.setagaya.lg.jp/02241/415.html",
+    "granularity": "世田谷区 official Web 版さんあ〜るの areaId 単位で収集ルールを反映しています。",
+    "notes": [
+      "世田谷区は official Web 版さんあ〜るを一次ソースとして使用しています。",
+      "町名（アイウエオ順）経路の areaId は丁目レベルで取得でき、例外的な集合住宅は個別 areaId として保持しています。",
+      "ペットボトルは resource に含めて正規化しています。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 102
+        },
+        {
+          "category": "resource",
+          "areas": 99
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 89
+        },
+        {
+          "category": "resource",
+          "areas": 102
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 89
+        },
+        {
+          "category": "resource",
+          "areas": 99
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 102
+        },
+        {
+          "category": "resource",
+          "areas": 98
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 98
+        },
+        {
+          "category": "resource",
+          "areas": 89
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "shibuya",
     "wardNameJa": "渋谷区",
     "wardNameEn": "Shibuya",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "high",
+    "sourceLabel": "ごみ収集日",
+    "sourceUrl": "https://www.city.shibuya.tokyo.jp/kurashi/gomi/kateigomi/gomid.html",
+    "granularity": "町名・丁目グループ単位の収集ルールを反映済みです。地図上は区表示です。",
+    "notes": [
+      "渋谷区の公式 HTML table を一次ソースとして使用しています。",
+      "資源欄は weekly rule、不燃欄は monthly nth-weekday rule として保持しています。",
+      "繁華街地域の細かい例外は今後の review task で扱います。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 17
+        },
+        {
+          "category": "resource",
+          "areas": 6
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 15
+        },
+        {
+          "category": "resource",
+          "areas": 10
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 32
+        },
+        {
+          "category": "resource",
+          "areas": 9
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 15
+        },
+        {
+          "category": "resource",
+          "areas": 11
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 17
+        },
+        {
+          "category": "resource",
+          "areas": 22
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 32
+        },
+        {
+          "category": "resource",
+          "areas": 6
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "shinagawa",
     "wardNameJa": "品川区",
     "wardNameEn": "Shinagawa",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "medium",
+    "sourceLabel": "資源・ごみの分け方・出し方（sigengomi2025.pdf）",
+    "sourceUrl": "https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-gomi/gomi-kateigomi/gomi-kateigomi-dashikata/hpg000005617.html",
+    "granularity": "地域行単位の収集ルールを反映済みです。地図上は区表示です。",
+    "notes": [
+      "品川区のガイド PDF 収集曜日一覧を text extraction して ward-level area claim を作成しています。",
+      "資源欄は資源プラスチックを含むため、plastic も同じ曜日へ展開しています。",
+      "複雑な番地分割など 1 件は review task に回しています。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 26
+        },
+        {
+          "category": "plastic",
+          "areas": 8
+        },
+        {
+          "category": "resource",
+          "areas": 8
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 22
+        },
+        {
+          "category": "plastic",
+          "areas": 19
+        },
+        {
+          "category": "resource",
+          "areas": 19
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 26
+        },
+        {
+          "category": "plastic",
+          "areas": 13
+        },
+        {
+          "category": "resource",
+          "areas": 13
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 21
+        },
+        {
+          "category": "plastic",
+          "areas": 11
+        },
+        {
+          "category": "resource",
+          "areas": 11
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 25
+        },
+        {
+          "category": "plastic",
+          "areas": 11
+        },
+        {
+          "category": "resource",
+          "areas": 11
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 27
+        },
+        {
+          "category": "plastic",
+          "areas": 10
+        },
+        {
+          "category": "resource",
+          "areas": 10
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "shinjuku",
     "wardNameJa": "新宿区",
     "wardNameEn": "Shinjuku",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "high",
+    "sourceLabel": "資源回収・ごみ収集日（令和8年度）",
+    "sourceUrl": "https://www.city.shinjuku.lg.jp/seikatsu/file09_01_00001.html",
+    "granularity": "住所行単位の収集ルールを反映済みです。地図上は区表示です。",
+    "notes": [
+      "新宿区の公式 HTML table から住所行ベースの収集曜日を抽出しています。",
+      "新宿区の資源欄は古紙・プラスチック・びん・缶・ペットボトル等を含むため、plastic も同じ曜日へ展開しています。",
+      "特記事項付きの行は 5 件を review task に回しています。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 49
+        },
+        {
+          "category": "plastic",
+          "areas": 20
+        },
+        {
+          "category": "resource",
+          "areas": 20
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 71
+        },
+        {
+          "category": "plastic",
+          "areas": 25
+        },
+        {
+          "category": "resource",
+          "areas": 25
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 46
+        },
+        {
+          "category": "plastic",
+          "areas": 38
+        },
+        {
+          "category": "resource",
+          "areas": 38
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 71
+        },
+        {
+          "category": "plastic",
+          "areas": 27
+        },
+        {
+          "category": "resource",
+          "areas": 27
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 49
+        },
+        {
+          "category": "plastic",
+          "areas": 34
+        },
+        {
+          "category": "resource",
+          "areas": 34
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 46
+        },
+        {
+          "category": "plastic",
+          "areas": 22
+        },
+        {
+          "category": "resource",
+          "areas": 22
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "suginami",
     "wardNameJa": "杉並区",
     "wardNameEn": "Suginami",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "high",
+    "sourceLabel": "杉並区 garbage.csv",
+    "sourceUrl": "https://www.city.suginami.tokyo.jp/s104/713.html",
+    "granularity": "町名・丁目グループ CSV を反映済みです。地図上は町丁目 selector で join しています。",
+    "notes": [
+      "杉並区の公式収集日ページから参照される garbage.csv を一次ソースとして使用しています。",
+      "『びん・かん・プラ』列は plastic と resource の両方に反映し、『古紙・ペットボトル』は resource に集約しています。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 19
+        },
+        {
+          "category": "plastic",
+          "areas": 7
+        },
+        {
+          "category": "resource",
+          "areas": 16
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 17
+        },
+        {
+          "category": "plastic",
+          "areas": 10
+        },
+        {
+          "category": "resource",
+          "areas": 17
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 16
+        },
+        {
+          "category": "plastic",
+          "areas": 9
+        },
+        {
+          "category": "resource",
+          "areas": 20
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 17
+        },
+        {
+          "category": "plastic",
+          "areas": 10
+        },
+        {
+          "category": "resource",
+          "areas": 17
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 19
+        },
+        {
+          "category": "plastic",
+          "areas": 8
+        },
+        {
+          "category": "resource",
+          "areas": 18
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 16
+        },
+        {
+          "category": "plastic",
+          "areas": 8
+        },
+        {
+          "category": "resource",
+          "areas": 16
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "sumida",
@@ -571,24 +1709,164 @@
     "wardSlug": "taito",
     "wardNameJa": "台東区",
     "wardNameEn": "Taito",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "high",
+    "sourceLabel": "地域別収集曜日一覧 CSV",
+    "sourceUrl": "https://www.city.taito.lg.jp/kusei/online/opendata/koutu/gomibunbetuitiran.html",
+    "granularity": "町丁名単位の収集ルールを反映済みです。地図上は区表示です。",
+    "notes": [
+      "台東区オープンデータ CSV を一次ソースとして使用しています。",
+      "資源と燃やすごみは weekly rule、不燃系は nth-weekday rule として保持しています。",
+      "プラスチック系の扱いは別ソース確認後に追加します。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 14
+        },
+        {
+          "category": "resource",
+          "areas": 6
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 13
+        },
+        {
+          "category": "resource",
+          "areas": 5
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 12
+        },
+        {
+          "category": "resource",
+          "areas": 6
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 13
+        },
+        {
+          "category": "resource",
+          "areas": 9
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 14
+        },
+        {
+          "category": "resource",
+          "areas": 6
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 12
+        },
+        {
+          "category": "resource",
+          "areas": 7
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "toshima",
     "wardNameJa": "豊島区",
     "wardNameEn": "Toshima",
-    "sourceQuality": "pending",
-    "sourceLabel": "データソース未設定",
-    "sourceUrl": null,
-    "granularity": "",
-    "notes": [],
-    "daySignals": {},
-    "hasDetailedAreas": false
+    "sourceQuality": "high",
+    "sourceLabel": "WEB版 さんあ〜る",
+    "sourceUrl": "https://www.city.toshima.lg.jp/150/kurashi/gomi/shigen/2303021832.html",
+    "granularity": "公式 app の地域選択単位で収集ルールを反映済みです。地図上は区表示です。",
+    "notes": [
+      "豊島区は公式 WEB版さんあ〜るの地域 API と calendar HTML を一次ソースとして使用しています。",
+      "資源は紙系とびん・かん・ペットボトルの両方を resource として扱い、プラスチックは別 category として保持しています。",
+      "地図上の詳細マスクはまだ未実装です。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 11
+        },
+        {
+          "category": "plastic",
+          "areas": 8
+        },
+        {
+          "category": "resource",
+          "areas": 15
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 15
+        },
+        {
+          "category": "plastic",
+          "areas": 5
+        },
+        {
+          "category": "resource",
+          "areas": 10
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 15
+        },
+        {
+          "category": "plastic",
+          "areas": 6
+        },
+        {
+          "category": "resource",
+          "areas": 14
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 11
+        },
+        {
+          "category": "plastic",
+          "areas": 7
+        },
+        {
+          "category": "resource",
+          "areas": 14
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 13
+        },
+        {
+          "category": "plastic",
+          "areas": 6
+        },
+        {
+          "category": "resource",
+          "areas": 14
+        }
+      ]
+    },
+    "hasDetailedAreas": true
   }
 ]

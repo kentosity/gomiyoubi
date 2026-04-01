@@ -1,0 +1,5517 @@
+{
+  "ward_slug": "bunkyo",
+  "generated_at": "2026-04-01T13:33:34+00:00",
+  "overview": {
+    "source_quality": "high",
+    "source_label": "ごみと資源の収集日",
+    "granularity": "町丁目グループ単位の収集ルールを反映済みです。地図上は区表示です。",
+    "notes": [
+      "文京区の公式 HTML table から地域別の収集曜日を抽出しています。",
+      "可燃・不燃・資源・プラスチックを ward-level area claim として正規化しています。",
+      "地図上の詳細マスクはまだ未実装です。"
+    ],
+    "day_signals": {}
+  },
+  "artifacts": [
+    {
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_key": "bunkyo:entry_page",
+      "artifact_kind": "parser_output",
+      "local_path": "data/normalized/bunkyo/bunkyo_dataset.json",
+      "content_type": "application/json",
+      "sha256": "adb70516c822212d4893c79b4a98aa4f7219e0c9c4bc0c946037f76d7d07afb5",
+      "fetched_at": "2026-04-01T13:33:35+00:00",
+      "parser_version": "ward_extract_v1",
+      "metadata": {
+        "ward_slug": "bunkyo",
+        "script": "scripts/extract_more_wards.py"
+      }
+    }
+  ],
+  "areas": [
+    {
+      "area_key": "bunkyo:area:001",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "後楽1丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:002",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "後楽2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:003",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "春日1丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:004",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "春日2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:005",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "小石川1丁目1～16",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:006",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "小石川1丁目17～28",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:007",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "小石川2・3丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:008",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "小石川4丁目1～14",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:009",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "小石川4丁目15～22",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:010",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "小石川5丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:011",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "白山1丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:012",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "白山2・5丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:013",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "白山3・4丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:014",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "千石1～4丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:015",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "水道1・2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:016",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "小日向1～4丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:017",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "大塚1・2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:018",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "大塚3～6丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:019",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "関口1～3丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:020",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "目白台1～3丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:021",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "音羽1・2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:022",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "本郷1・2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:023",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "本郷3～7丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:024",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "湯島1丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:025",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "湯島2～4丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:026",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "西片1・2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:027",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "向丘1・2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:028",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "弥生1・2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:029",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "根津1・2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:030",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "千駄木1・2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:031",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "千駄木3～5丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:032",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "本駒込1・2丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    },
+    {
+      "area_key": "bunkyo:area:033",
+      "parent_area_key": "ward:bunkyo",
+      "area_kind": "district",
+      "label_ja": "本駒込3～6丁目",
+      "status": "active",
+      "metadata": {
+        "extraction_scope": "ward_level_only"
+      }
+    }
+  ],
+  "claims": [
+    {
+      "claim_key": "bunkyo:area:001:burnable:tuesday:official",
+      "area_key": "bunkyo:area:001",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "後楽1丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:001:burnable:friday:official",
+      "area_key": "bunkyo:area:001",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "後楽1丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:001:resource:wednesday:official",
+      "area_key": "bunkyo:area:001",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "後楽1丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:001:plastic:saturday:official",
+      "area_key": "bunkyo:area:001",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "後楽1丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:001:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:001",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:thursday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "thursday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3木曜日"
+        },
+        "description": "第1・第3木曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "後楽1丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:002:burnable:tuesday:official",
+      "area_key": "bunkyo:area:002",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "後楽2丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:002:burnable:friday:official",
+      "area_key": "bunkyo:area:002",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "後楽2丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:002:resource:saturday:official",
+      "area_key": "bunkyo:area:002",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "後楽2丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:002:plastic:wednesday:official",
+      "area_key": "bunkyo:area:002",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "後楽2丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:002:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:002",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:thursday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "thursday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3木曜日"
+        },
+        "description": "第1・第3木曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "後楽2丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:003:burnable:tuesday:official",
+      "area_key": "bunkyo:area:003",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "春日1丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:003:burnable:friday:official",
+      "area_key": "bunkyo:area:003",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "春日1丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:003:resource:wednesday:official",
+      "area_key": "bunkyo:area:003",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "春日1丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:003:plastic:saturday:official",
+      "area_key": "bunkyo:area:003",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "春日1丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:003:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:003",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:thursday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "thursday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3木曜日"
+        },
+        "description": "第1・第3木曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "春日1丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:004:burnable:monday:official",
+      "area_key": "bunkyo:area:004",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "春日2丁目",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:004:burnable:thursday:official",
+      "area_key": "bunkyo:area:004",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "春日2丁目",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:004:resource:friday:official",
+      "area_key": "bunkyo:area:004",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "春日2丁目",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:004:plastic:tuesday:official",
+      "area_key": "bunkyo:area:004",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "春日2丁目",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:004:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:004",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:saturday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "saturday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3土曜日"
+        },
+        "description": "第1・第3土曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "春日2丁目",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:005:burnable:monday:official",
+      "area_key": "bunkyo:area:005",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川1丁目1～16",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:005:burnable:thursday:official",
+      "area_key": "bunkyo:area:005",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川1丁目1～16",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:005:resource:tuesday:official",
+      "area_key": "bunkyo:area:005",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川1丁目1～16",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:005:plastic:friday:official",
+      "area_key": "bunkyo:area:005",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川1丁目1～16",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:005:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:005",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:saturday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "saturday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3土曜日"
+        },
+        "description": "第1・第3土曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川1丁目1～16",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:006:burnable:wednesday:official",
+      "area_key": "bunkyo:area:006",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川1丁目17～28",
+        "nonburnable_text_ja": "第2・第4金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:006:burnable:saturday:official",
+      "area_key": "bunkyo:area:006",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川1丁目17～28",
+        "nonburnable_text_ja": "第2・第4金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:006:resource:thursday:official",
+      "area_key": "bunkyo:area:006",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川1丁目17～28",
+        "nonburnable_text_ja": "第2・第4金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:006:plastic:monday:official",
+      "area_key": "bunkyo:area:006",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川1丁目17～28",
+        "nonburnable_text_ja": "第2・第4金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:006:nonburnable:2-4:official",
+      "area_key": "bunkyo:area:006",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:friday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "friday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "第2・第4金曜日"
+        },
+        "description": "第2・第4金曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川1丁目17～28",
+        "nonburnable_text_ja": "第2・第4金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:007:burnable:monday:official",
+      "area_key": "bunkyo:area:007",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川2・3丁目",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:007:burnable:thursday:official",
+      "area_key": "bunkyo:area:007",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川2・3丁目",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:007:resource:friday:official",
+      "area_key": "bunkyo:area:007",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川2・3丁目",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:007:plastic:tuesday:official",
+      "area_key": "bunkyo:area:007",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川2・3丁目",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:007:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:007",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:saturday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "saturday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3土曜日"
+        },
+        "description": "第1・第3土曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川2・3丁目",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:008:burnable:monday:official",
+      "area_key": "bunkyo:area:008",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川4丁目1～14",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:008:burnable:thursday:official",
+      "area_key": "bunkyo:area:008",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川4丁目1～14",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:008:resource:friday:official",
+      "area_key": "bunkyo:area:008",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川4丁目1～14",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:008:plastic:tuesday:official",
+      "area_key": "bunkyo:area:008",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川4丁目1～14",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:008:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:008",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:saturday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "saturday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3土曜日"
+        },
+        "description": "第1・第3土曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川4丁目1～14",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:009:burnable:monday:official",
+      "area_key": "bunkyo:area:009",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川4丁目15～22",
+        "nonburnable_text_ja": "第2・第4土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:009:burnable:thursday:official",
+      "area_key": "bunkyo:area:009",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川4丁目15～22",
+        "nonburnable_text_ja": "第2・第4土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:009:resource:friday:official",
+      "area_key": "bunkyo:area:009",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川4丁目15～22",
+        "nonburnable_text_ja": "第2・第4土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:009:plastic:tuesday:official",
+      "area_key": "bunkyo:area:009",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川4丁目15～22",
+        "nonburnable_text_ja": "第2・第4土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:009:nonburnable:2-4:official",
+      "area_key": "bunkyo:area:009",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:saturday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "saturday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "第2・第4土曜日"
+        },
+        "description": "第2・第4土曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川4丁目15～22",
+        "nonburnable_text_ja": "第2・第4土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:010:burnable:monday:official",
+      "area_key": "bunkyo:area:010",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川5丁目",
+        "nonburnable_text_ja": "第2・第4土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:010:burnable:thursday:official",
+      "area_key": "bunkyo:area:010",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川5丁目",
+        "nonburnable_text_ja": "第2・第4土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:010:resource:friday:official",
+      "area_key": "bunkyo:area:010",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川5丁目",
+        "nonburnable_text_ja": "第2・第4土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:010:plastic:tuesday:official",
+      "area_key": "bunkyo:area:010",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川5丁目",
+        "nonburnable_text_ja": "第2・第4土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:010:nonburnable:2-4:official",
+      "area_key": "bunkyo:area:010",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:saturday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "saturday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "第2・第4土曜日"
+        },
+        "description": "第2・第4土曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小石川5丁目",
+        "nonburnable_text_ja": "第2・第4土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:011:burnable:monday:official",
+      "area_key": "bunkyo:area:011",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "白山1丁目",
+        "nonburnable_text_ja": "第1・第3水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:011:burnable:thursday:official",
+      "area_key": "bunkyo:area:011",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "白山1丁目",
+        "nonburnable_text_ja": "第1・第3水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:011:resource:tuesday:official",
+      "area_key": "bunkyo:area:011",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "白山1丁目",
+        "nonburnable_text_ja": "第1・第3水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:011:plastic:friday:official",
+      "area_key": "bunkyo:area:011",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "白山1丁目",
+        "nonburnable_text_ja": "第1・第3水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:011:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:011",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:wednesday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "wednesday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3水曜日"
+        },
+        "description": "第1・第3水曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "白山1丁目",
+        "nonburnable_text_ja": "第1・第3水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:012:burnable:wednesday:official",
+      "area_key": "bunkyo:area:012",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "白山2・5丁目",
+        "nonburnable_text_ja": "第2・第4金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:012:burnable:saturday:official",
+      "area_key": "bunkyo:area:012",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "白山2・5丁目",
+        "nonburnable_text_ja": "第2・第4金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:012:resource:thursday:official",
+      "area_key": "bunkyo:area:012",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "白山2・5丁目",
+        "nonburnable_text_ja": "第2・第4金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:012:plastic:monday:official",
+      "area_key": "bunkyo:area:012",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "白山2・5丁目",
+        "nonburnable_text_ja": "第2・第4金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:012:nonburnable:2-4:official",
+      "area_key": "bunkyo:area:012",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:friday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "friday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "第2・第4金曜日"
+        },
+        "description": "第2・第4金曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "白山2・5丁目",
+        "nonburnable_text_ja": "第2・第4金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:013:burnable:wednesday:official",
+      "area_key": "bunkyo:area:013",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "白山3・4丁目",
+        "nonburnable_text_ja": "第1・第3金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:013:burnable:saturday:official",
+      "area_key": "bunkyo:area:013",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "白山3・4丁目",
+        "nonburnable_text_ja": "第1・第3金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:013:resource:thursday:official",
+      "area_key": "bunkyo:area:013",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "白山3・4丁目",
+        "nonburnable_text_ja": "第1・第3金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:013:plastic:monday:official",
+      "area_key": "bunkyo:area:013",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "白山3・4丁目",
+        "nonburnable_text_ja": "第1・第3金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:013:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:013",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:friday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "friday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3金曜日"
+        },
+        "description": "第1・第3金曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "白山3・4丁目",
+        "nonburnable_text_ja": "第1・第3金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:014:burnable:wednesday:official",
+      "area_key": "bunkyo:area:014",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "千石1～4丁目",
+        "nonburnable_text_ja": "第1・第3金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:014:burnable:saturday:official",
+      "area_key": "bunkyo:area:014",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "千石1～4丁目",
+        "nonburnable_text_ja": "第1・第3金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:014:resource:thursday:official",
+      "area_key": "bunkyo:area:014",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "千石1～4丁目",
+        "nonburnable_text_ja": "第1・第3金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:014:plastic:monday:official",
+      "area_key": "bunkyo:area:014",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "千石1～4丁目",
+        "nonburnable_text_ja": "第1・第3金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:014:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:014",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:friday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "friday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3金曜日"
+        },
+        "description": "第1・第3金曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "千石1～4丁目",
+        "nonburnable_text_ja": "第1・第3金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:015:burnable:tuesday:official",
+      "area_key": "bunkyo:area:015",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "水道1・2丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:015:burnable:friday:official",
+      "area_key": "bunkyo:area:015",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "水道1・2丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:015:resource:saturday:official",
+      "area_key": "bunkyo:area:015",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "水道1・2丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:015:plastic:wednesday:official",
+      "area_key": "bunkyo:area:015",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "水道1・2丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:015:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:015",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:thursday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "thursday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3木曜日"
+        },
+        "description": "第1・第3木曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "水道1・2丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:016:burnable:tuesday:official",
+      "area_key": "bunkyo:area:016",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小日向1～4丁目",
+        "nonburnable_text_ja": "第1・第3月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:016:burnable:friday:official",
+      "area_key": "bunkyo:area:016",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小日向1～4丁目",
+        "nonburnable_text_ja": "第1・第3月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:016:resource:saturday:official",
+      "area_key": "bunkyo:area:016",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小日向1～4丁目",
+        "nonburnable_text_ja": "第1・第3月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:016:plastic:wednesday:official",
+      "area_key": "bunkyo:area:016",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小日向1～4丁目",
+        "nonburnable_text_ja": "第1・第3月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:016:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:016",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3月曜日"
+        },
+        "description": "第1・第3月曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "小日向1～4丁目",
+        "nonburnable_text_ja": "第1・第3月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:017:burnable:tuesday:official",
+      "area_key": "bunkyo:area:017",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "大塚1・2丁目",
+        "nonburnable_text_ja": "第1・第3月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:017:burnable:friday:official",
+      "area_key": "bunkyo:area:017",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "大塚1・2丁目",
+        "nonburnable_text_ja": "第1・第3月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:017:resource:saturday:official",
+      "area_key": "bunkyo:area:017",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "大塚1・2丁目",
+        "nonburnable_text_ja": "第1・第3月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:017:plastic:wednesday:official",
+      "area_key": "bunkyo:area:017",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "大塚1・2丁目",
+        "nonburnable_text_ja": "第1・第3月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:017:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:017",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3月曜日"
+        },
+        "description": "第1・第3月曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "大塚1・2丁目",
+        "nonburnable_text_ja": "第1・第3月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:018:burnable:monday:official",
+      "area_key": "bunkyo:area:018",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "大塚3～6丁目",
+        "nonburnable_text_ja": "第2・第4土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:018:burnable:thursday:official",
+      "area_key": "bunkyo:area:018",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "大塚3～6丁目",
+        "nonburnable_text_ja": "第2・第4土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:018:resource:friday:official",
+      "area_key": "bunkyo:area:018",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "大塚3～6丁目",
+        "nonburnable_text_ja": "第2・第4土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:018:plastic:tuesday:official",
+      "area_key": "bunkyo:area:018",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "大塚3～6丁目",
+        "nonburnable_text_ja": "第2・第4土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:018:nonburnable:2-4:official",
+      "area_key": "bunkyo:area:018",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:saturday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "saturday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "第2・第4土曜日"
+        },
+        "description": "第2・第4土曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "大塚3～6丁目",
+        "nonburnable_text_ja": "第2・第4土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:019:burnable:tuesday:official",
+      "area_key": "bunkyo:area:019",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "関口1～3丁目",
+        "nonburnable_text_ja": "第2・第4月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:019:burnable:friday:official",
+      "area_key": "bunkyo:area:019",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "関口1～3丁目",
+        "nonburnable_text_ja": "第2・第4月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:019:resource:saturday:official",
+      "area_key": "bunkyo:area:019",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "関口1～3丁目",
+        "nonburnable_text_ja": "第2・第4月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:019:plastic:wednesday:official",
+      "area_key": "bunkyo:area:019",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "関口1～3丁目",
+        "nonburnable_text_ja": "第2・第4月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:019:nonburnable:2-4:official",
+      "area_key": "bunkyo:area:019",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "第2・第4月曜日"
+        },
+        "description": "第2・第4月曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "関口1～3丁目",
+        "nonburnable_text_ja": "第2・第4月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:020:burnable:tuesday:official",
+      "area_key": "bunkyo:area:020",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "目白台1～3丁目",
+        "nonburnable_text_ja": "第2・第4月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:020:burnable:friday:official",
+      "area_key": "bunkyo:area:020",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "目白台1～3丁目",
+        "nonburnable_text_ja": "第2・第4月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:020:resource:saturday:official",
+      "area_key": "bunkyo:area:020",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "目白台1～3丁目",
+        "nonburnable_text_ja": "第2・第4月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:020:plastic:wednesday:official",
+      "area_key": "bunkyo:area:020",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "目白台1～3丁目",
+        "nonburnable_text_ja": "第2・第4月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:020:nonburnable:2-4:official",
+      "area_key": "bunkyo:area:020",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:monday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "第2・第4月曜日"
+        },
+        "description": "第2・第4月曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "目白台1～3丁目",
+        "nonburnable_text_ja": "第2・第4月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:021:burnable:tuesday:official",
+      "area_key": "bunkyo:area:021",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "音羽1・2丁目",
+        "nonburnable_text_ja": "第1・第3月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:021:burnable:friday:official",
+      "area_key": "bunkyo:area:021",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "音羽1・2丁目",
+        "nonburnable_text_ja": "第1・第3月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:021:resource:saturday:official",
+      "area_key": "bunkyo:area:021",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "音羽1・2丁目",
+        "nonburnable_text_ja": "第1・第3月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:021:plastic:wednesday:official",
+      "area_key": "bunkyo:area:021",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "音羽1・2丁目",
+        "nonburnable_text_ja": "第1・第3月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:021:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:021",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:monday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3月曜日"
+        },
+        "description": "第1・第3月曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "音羽1・2丁目",
+        "nonburnable_text_ja": "第1・第3月曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:022:burnable:tuesday:official",
+      "area_key": "bunkyo:area:022",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本郷1・2丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:022:burnable:friday:official",
+      "area_key": "bunkyo:area:022",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本郷1・2丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:022:resource:wednesday:official",
+      "area_key": "bunkyo:area:022",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本郷1・2丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:022:plastic:saturday:official",
+      "area_key": "bunkyo:area:022",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本郷1・2丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:022:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:022",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:thursday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "thursday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3木曜日"
+        },
+        "description": "第1・第3木曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本郷1・2丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:023:burnable:tuesday:official",
+      "area_key": "bunkyo:area:023",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本郷3～7丁目",
+        "nonburnable_text_ja": "第2・第4木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:023:burnable:friday:official",
+      "area_key": "bunkyo:area:023",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本郷3～7丁目",
+        "nonburnable_text_ja": "第2・第4木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:023:resource:wednesday:official",
+      "area_key": "bunkyo:area:023",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本郷3～7丁目",
+        "nonburnable_text_ja": "第2・第4木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:023:plastic:saturday:official",
+      "area_key": "bunkyo:area:023",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本郷3～7丁目",
+        "nonburnable_text_ja": "第2・第4木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:023:nonburnable:2-4:official",
+      "area_key": "bunkyo:area:023",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:thursday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "thursday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "第2・第4木曜日"
+        },
+        "description": "第2・第4木曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本郷3～7丁目",
+        "nonburnable_text_ja": "第2・第4木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:024:burnable:tuesday:official",
+      "area_key": "bunkyo:area:024",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "湯島1丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:024:burnable:friday:official",
+      "area_key": "bunkyo:area:024",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "湯島1丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:024:resource:wednesday:official",
+      "area_key": "bunkyo:area:024",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "湯島1丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:024:plastic:saturday:official",
+      "area_key": "bunkyo:area:024",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "湯島1丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:024:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:024",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:thursday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "thursday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3木曜日"
+        },
+        "description": "第1・第3木曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "湯島1丁目",
+        "nonburnable_text_ja": "第1・第3木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:025:burnable:tuesday:official",
+      "area_key": "bunkyo:area:025",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "湯島2～4丁目",
+        "nonburnable_text_ja": "第2・第4木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:025:burnable:friday:official",
+      "area_key": "bunkyo:area:025",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "湯島2～4丁目",
+        "nonburnable_text_ja": "第2・第4木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:025:resource:wednesday:official",
+      "area_key": "bunkyo:area:025",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "湯島2～4丁目",
+        "nonburnable_text_ja": "第2・第4木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:025:plastic:saturday:official",
+      "area_key": "bunkyo:area:025",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "湯島2～4丁目",
+        "nonburnable_text_ja": "第2・第4木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:025:nonburnable:2-4:official",
+      "area_key": "bunkyo:area:025",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:thursday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "thursday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "第2・第4木曜日"
+        },
+        "description": "第2・第4木曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "湯島2～4丁目",
+        "nonburnable_text_ja": "第2・第4木曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:026:burnable:monday:official",
+      "area_key": "bunkyo:area:026",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "西片1・2丁目",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:026:burnable:thursday:official",
+      "area_key": "bunkyo:area:026",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "西片1・2丁目",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:026:resource:tuesday:official",
+      "area_key": "bunkyo:area:026",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "西片1・2丁目",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:026:plastic:friday:official",
+      "area_key": "bunkyo:area:026",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "西片1・2丁目",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:026:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:026",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:saturday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "saturday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3土曜日"
+        },
+        "description": "第1・第3土曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "西片1・2丁目",
+        "nonburnable_text_ja": "第1・第3土曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:027:burnable:monday:official",
+      "area_key": "bunkyo:area:027",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "向丘1・2丁目",
+        "nonburnable_text_ja": "第1・第3水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:027:burnable:thursday:official",
+      "area_key": "bunkyo:area:027",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "向丘1・2丁目",
+        "nonburnable_text_ja": "第1・第3水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:027:resource:tuesday:official",
+      "area_key": "bunkyo:area:027",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "向丘1・2丁目",
+        "nonburnable_text_ja": "第1・第3水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:027:plastic:friday:official",
+      "area_key": "bunkyo:area:027",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "向丘1・2丁目",
+        "nonburnable_text_ja": "第1・第3水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:027:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:027",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:wednesday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "wednesday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3水曜日"
+        },
+        "description": "第1・第3水曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "向丘1・2丁目",
+        "nonburnable_text_ja": "第1・第3水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:028:burnable:monday:official",
+      "area_key": "bunkyo:area:028",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "弥生1・2丁目",
+        "nonburnable_text_ja": "第1・第3水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:028:burnable:thursday:official",
+      "area_key": "bunkyo:area:028",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "弥生1・2丁目",
+        "nonburnable_text_ja": "第1・第3水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:028:resource:tuesday:official",
+      "area_key": "bunkyo:area:028",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "弥生1・2丁目",
+        "nonburnable_text_ja": "第1・第3水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:028:plastic:friday:official",
+      "area_key": "bunkyo:area:028",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "弥生1・2丁目",
+        "nonburnable_text_ja": "第1・第3水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:028:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:028",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:wednesday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "wednesday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3水曜日"
+        },
+        "description": "第1・第3水曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "弥生1・2丁目",
+        "nonburnable_text_ja": "第1・第3水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:029:burnable:monday:official",
+      "area_key": "bunkyo:area:029",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "根津1・2丁目",
+        "nonburnable_text_ja": "第2・第4水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:029:burnable:thursday:official",
+      "area_key": "bunkyo:area:029",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "根津1・2丁目",
+        "nonburnable_text_ja": "第2・第4水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:029:resource:tuesday:official",
+      "area_key": "bunkyo:area:029",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "根津1・2丁目",
+        "nonburnable_text_ja": "第2・第4水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:029:plastic:friday:official",
+      "area_key": "bunkyo:area:029",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "根津1・2丁目",
+        "nonburnable_text_ja": "第2・第4水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:029:nonburnable:2-4:official",
+      "area_key": "bunkyo:area:029",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:wednesday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "wednesday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "第2・第4水曜日"
+        },
+        "description": "第2・第4水曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "根津1・2丁目",
+        "nonburnable_text_ja": "第2・第4水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:030:burnable:monday:official",
+      "area_key": "bunkyo:area:030",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "千駄木1・2丁目",
+        "nonburnable_text_ja": "第2・第4水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:030:burnable:thursday:official",
+      "area_key": "bunkyo:area:030",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "千駄木1・2丁目",
+        "nonburnable_text_ja": "第2・第4水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:030:resource:tuesday:official",
+      "area_key": "bunkyo:area:030",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "火曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "千駄木1・2丁目",
+        "nonburnable_text_ja": "第2・第4水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:030:plastic:friday:official",
+      "area_key": "bunkyo:area:030",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "金曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "千駄木1・2丁目",
+        "nonburnable_text_ja": "第2・第4水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:030:nonburnable:2-4:official",
+      "area_key": "bunkyo:area:030",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:wednesday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "wednesday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "第2・第4水曜日"
+        },
+        "description": "第2・第4水曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "千駄木1・2丁目",
+        "nonburnable_text_ja": "第2・第4水曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:031:burnable:wednesday:official",
+      "area_key": "bunkyo:area:031",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "千駄木3～5丁目",
+        "nonburnable_text_ja": "第1・第3火曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:031:burnable:saturday:official",
+      "area_key": "bunkyo:area:031",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "千駄木3～5丁目",
+        "nonburnable_text_ja": "第1・第3火曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:031:resource:monday:official",
+      "area_key": "bunkyo:area:031",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "千駄木3～5丁目",
+        "nonburnable_text_ja": "第1・第3火曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:031:plastic:thursday:official",
+      "area_key": "bunkyo:area:031",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "千駄木3～5丁目",
+        "nonburnable_text_ja": "第1・第3火曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:031:nonburnable:1-3:official",
+      "area_key": "bunkyo:area:031",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:tuesday:1-3",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "tuesday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "text_ja": "第1・第3火曜日"
+        },
+        "description": "第1・第3火曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "千駄木3～5丁目",
+        "nonburnable_text_ja": "第1・第3火曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:032:burnable:wednesday:official",
+      "area_key": "bunkyo:area:032",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本駒込1・2丁目",
+        "nonburnable_text_ja": "第2・第4金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:032:burnable:saturday:official",
+      "area_key": "bunkyo:area:032",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本駒込1・2丁目",
+        "nonburnable_text_ja": "第2・第4金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:032:resource:monday:official",
+      "area_key": "bunkyo:area:032",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本駒込1・2丁目",
+        "nonburnable_text_ja": "第2・第4金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:032:plastic:thursday:official",
+      "area_key": "bunkyo:area:032",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本駒込1・2丁目",
+        "nonburnable_text_ja": "第2・第4金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:032:nonburnable:2-4:official",
+      "area_key": "bunkyo:area:032",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:friday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "friday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "第2・第4金曜日"
+        },
+        "description": "第2・第4金曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本駒込1・2丁目",
+        "nonburnable_text_ja": "第2・第4金曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:033:burnable:wednesday:official",
+      "area_key": "bunkyo:area:033",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "水曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本駒込3～6丁目",
+        "nonburnable_text_ja": "第2・第4火曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:033:burnable:saturday:official",
+      "area_key": "bunkyo:area:033",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "土曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本駒込3～6丁目",
+        "nonburnable_text_ja": "第2・第4火曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:033:resource:monday:official",
+      "area_key": "bunkyo:area:033",
+      "category": "resource",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "月曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本駒込3～6丁目",
+        "nonburnable_text_ja": "第2・第4火曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:033:plastic:thursday:official",
+      "area_key": "bunkyo:area:033",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "bunkyo:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "木曜日 weekly collection"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本駒込3～6丁目",
+        "nonburnable_text_ja": "第2・第4火曜日"
+      },
+      "note": null
+    },
+    {
+      "claim_key": "bunkyo:area:033:nonburnable:2-4:official",
+      "area_key": "bunkyo:area:033",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "bunkyo:rule:nth_weekday:tuesday:2-4",
+        "rule_type": "nth_weekday",
+        "rule_json": {
+          "day": "tuesday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "text_ja": "第2・第4火曜日"
+        },
+        "description": "第2・第4火曜日"
+      },
+      "source_key": "bunkyo:entry_page",
+      "artifact_key": "bunkyo:artifact:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "submitted_by": "scripts/extract_more_wards.py",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "source_url": "https://www.city.bunkyo.lg.jp/b039/p000926/index.html",
+        "row_label": "本駒込3～6丁目",
+        "nonburnable_text_ja": "第2・第4火曜日"
+      },
+      "note": null
+    }
+  ],
+  "geometry_memberships": [
+    {
+      "area_key": "bunkyo:area:001",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "後楽",
+          "chomes": [
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:002",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "後楽",
+          "chomes": [
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:003",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "春日",
+          "chomes": [
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:004",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "春日",
+          "chomes": [
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:007",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "小石川",
+          "chomes": [
+            "2",
+            "3"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:010",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "小石川",
+          "chomes": [
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:011",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "白山",
+          "chomes": [
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:012",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "白山",
+          "chomes": [
+            "2",
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:013",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "白山",
+          "chomes": [
+            "3",
+            "4"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:014",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "千石",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:015",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "水道",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:016",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "小日向",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:017",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "大塚",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:018",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "大塚",
+          "chomes": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:019",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "関口",
+          "chomes": [
+            "1",
+            "2",
+            "3"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:020",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "目白台",
+          "chomes": [
+            "1",
+            "2",
+            "3"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:021",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "音羽",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:022",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "本郷",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:023",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "本郷",
+          "chomes": [
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:024",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "湯島",
+          "chomes": [
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:025",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "湯島",
+          "chomes": [
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:026",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "西片",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:027",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "向丘",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:028",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "弥生",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:029",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "根津",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:030",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "千駄木",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:031",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "千駄木",
+          "chomes": [
+            "3",
+            "4",
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:032",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "本駒込",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "bunkyo:area:033",
+      "selector_source_label": "ごみと資源の収集日",
+      "selector_source_urls": [
+        "https://www.city.bunkyo.lg.jp/b039/p000926/index.html"
+      ],
+      "members": [
+        {
+          "town_ja": "本駒込",
+          "chomes": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ]
+        }
+      ]
+    }
+  ],
+  "review_tasks": [
+    {
+      "task_key": "bunkyo:area:005:area_match",
+      "task_type": "area_match",
+      "area_key": "bunkyo:area:005",
+      "source_key": "bunkyo:entry_page",
+      "title": "Geometry match requires review: 小石川1丁目1～16",
+      "payload": {
+        "label_ja": "小石川1丁目1～16",
+        "normalized_label_ja": "小石川1丁目1～16",
+        "annotation": null,
+        "reason": "Could not safely map label to town/chome selectors."
+      },
+      "created_by": "scripts/extract_more_wards.py"
+    },
+    {
+      "task_key": "bunkyo:area:006:area_match",
+      "task_type": "area_match",
+      "area_key": "bunkyo:area:006",
+      "source_key": "bunkyo:entry_page",
+      "title": "Geometry match requires review: 小石川1丁目17～28",
+      "payload": {
+        "label_ja": "小石川1丁目17～28",
+        "normalized_label_ja": "小石川1丁目17～28",
+        "annotation": null,
+        "reason": "Could not safely map label to town/chome selectors."
+      },
+      "created_by": "scripts/extract_more_wards.py"
+    },
+    {
+      "task_key": "bunkyo:area:008:area_match",
+      "task_type": "area_match",
+      "area_key": "bunkyo:area:008",
+      "source_key": "bunkyo:entry_page",
+      "title": "Geometry match requires review: 小石川4丁目1～14",
+      "payload": {
+        "label_ja": "小石川4丁目1～14",
+        "normalized_label_ja": "小石川4丁目1～14",
+        "annotation": null,
+        "reason": "Could not safely map label to town/chome selectors."
+      },
+      "created_by": "scripts/extract_more_wards.py"
+    },
+    {
+      "task_key": "bunkyo:area:009:area_match",
+      "task_type": "area_match",
+      "area_key": "bunkyo:area:009",
+      "source_key": "bunkyo:entry_page",
+      "title": "Geometry match requires review: 小石川4丁目15～22",
+      "payload": {
+        "label_ja": "小石川4丁目15～22",
+        "normalized_label_ja": "小石川4丁目15～22",
+        "annotation": null,
+        "reason": "Could not safely map label to town/chome selectors."
+      },
+      "created_by": "scripts/extract_more_wards.py"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "ward_slug": "koto",
-  "generated_at": "2026-04-01T08:53:56+00:00",
+  "generated_at": "2026-04-01T13:33:29+00:00",
   "parser_version": "koto_extract_v1",
   "overview": {
     "source_quality": "medium",
@@ -98,7 +98,7 @@
       "artifact_kind": "parser_output",
       "local_path": "data/extracted/koto/koto_2026_schedule_patterns.json",
       "content_type": "application/json",
-      "sha256": "c376649c584ef829a360db5640eb6d837ee31afa033071d9853f84cea4e565fe",
+      "sha256": "9ecde514ab13da0149669787a9edda45c507cba494a3f1f85179046b1c99a0bf",
       "fetched_at": "2026-04-01",
       "parser_version": "koto_extract_v1",
       "ocr_engine": null,
@@ -173,7 +173,7 @@
       "artifact_kind": "parser_output",
       "local_path": "data/extracted/koto/koto_2026_schedule_patterns.json",
       "content_type": "application/json",
-      "sha256": "c376649c584ef829a360db5640eb6d837ee31afa033071d9853f84cea4e565fe",
+      "sha256": "9ecde514ab13da0149669787a9edda45c507cba494a3f1f85179046b1c99a0bf",
       "fetched_at": "2026-04-01",
       "parser_version": "koto_extract_v1",
       "ocr_engine": null,

@@ -15,12 +15,34 @@ SHAPE_URL = (
 )
 
 WARD_CITY_CODES = {
+    "chiyoda": "101",
     "chuo": "102",
+    "minato": "103",
+    "shinjuku": "104",
+    "bunkyo": "105",
+    "taito": "106",
     "sumida": "107",
     "koto": "108",
+    "shinagawa": "109",
+    "meguro": "110",
+    "ota": "111",
+    "setagaya": "112",
+    "shibuya": "113",
+    "nakano": "114",
+    "suginami": "115",
+    "toshima": "116",
+    "kita": "117",
+    "arakawa": "118",
+    "itabashi": "119",
+    "nerima": "120",
+    "adachi": "121",
+    "katsushika": "122",
+    "edogawa": "123",
 }
 
-KANJI_TO_ARABIC = {
+KANJI_DIGITS = {
+    "〇": 0,
+    "零": 0,
     "一": 1,
     "二": 2,
     "三": 3,
@@ -30,7 +52,6 @@ KANJI_TO_ARABIC = {
     "七": 7,
     "八": 8,
     "九": 9,
-    "十": 10,
 }
 
 _BOUNDARY_CACHE: dict[str, list[dict]] = {}
@@ -45,10 +66,31 @@ def fetch_bytes(url: str) -> bytes:
 def parse_small_area_name(s_name: str) -> tuple[str, str | None]:
     import re
 
-    match = re.match(r"^(.*?)([一二三四五六七八九十]+)丁目$", s_name)
+    match = re.match(r"^(.*?)([〇零一二三四五六七八九十0-9]+)丁目$", s_name)
     if not match:
         return s_name, None
-    return match.group(1), str(KANJI_TO_ARABIC[match.group(2)])
+    return match.group(1), parse_japanese_number(match.group(2))
+
+
+def parse_japanese_number(value: str) -> str | None:
+    if value.isdigit():
+        return str(int(value))
+
+    total = 0
+    current = 0
+    for char in value:
+        if char == "十":
+            current = 1 if current == 0 else current
+            total += current * 10
+            current = 0
+            continue
+        digit = KANJI_DIGITS.get(char)
+        if digit is None:
+            return None
+        current = current * 10 + digit
+
+    total += current
+    return str(total) if total > 0 else None
 
 
 def shape_to_geometry(shape):

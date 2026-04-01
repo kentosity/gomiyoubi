@@ -1,5 +1,27 @@
 [
   {
+    "ward_slug": "adachi",
+    "source_quality": "medium",
+    "source_label": "足立区 ごみの収集日一覧",
+    "granularity": "足立区は公式収集日ページを追跡済みです。現在は ward-level の暫定表示です。",
+    "notes": [
+      "公式の収集日一覧ページとごみ分別アプリ案内ページは追跡済みです。",
+      "地域別の収集ルール正規化はまだ未着手です。"
+    ],
+    "day_signals": {}
+  },
+  {
+    "ward_slug": "arakawa",
+    "source_quality": "medium",
+    "source_label": "荒川区 収集日",
+    "granularity": "荒川区は公式収集日ページを追跡済みです。現在は ward-level の暫定表示です。",
+    "notes": [
+      "公式の収集日ページとごみ分別辞典ポータルは追跡済みです。",
+      "地域別の収集ルール正規化はまだ未着手です。"
+    ],
+    "day_signals": {}
+  },
+  {
     "ward_slug": "chuo",
     "source_quality": "high",
     "source_label": "中央区オープンデータ / gomitoshigen.csv",
@@ -55,6 +77,61 @@
     }
   },
   {
+    "ward_slug": "chiyoda",
+    "source_quality": "medium",
+    "source_label": "千代田区 資源とごみの分別・出し方",
+    "granularity": "千代田区は公式案内ページを追跡済みです。現在は ward-level の暫定表示です。",
+    "notes": [
+      "公式の分別案内ページと冊子 PDF は追跡済みです。",
+      "住所別カレンダーの正規化はまだ未着手です。"
+    ],
+    "day_signals": {}
+  },
+  {
+    "ward_slug": "edogawa",
+    "source_quality": "medium",
+    "source_label": "江戸川区 資源・ごみの収集曜日",
+    "granularity": "江戸川区は公式収集曜日ページを追跡済みです。現在は ward-level の暫定表示です。",
+    "notes": [
+      "公式の収集曜日ページと分け方・出し方ページは追跡済みです。",
+      "地域別の収集ルール正規化はまだ未着手です。"
+    ],
+    "day_signals": {}
+  },
+  {
+    "ward_slug": "itabashi",
+    "source_quality": "medium",
+    "source_label": "板橋区 区別資源・ごみの収集日",
+    "granularity": "板橋区は公式収集日ページを追跡済みです。現在は ward-level の暫定表示です。",
+    "notes": [
+      "公式の区別収集日ページと分別案内ページは追跡済みです。",
+      "地域別の収集ルール正規化はまだ未着手です。"
+    ],
+    "day_signals": {}
+  },
+  {
+    "ward_slug": "katsushika",
+    "source_quality": "medium",
+    "source_label": "2026年度版 資源とごみの収集カレンダー",
+    "granularity": "葛飾区は公式 2026 カレンダーページを追跡済みです。現在は ward-level の暫定表示です。",
+    "notes": [
+      "町丁目別カレンダー PDF と収集地区別簡易版 PDF は追跡済みです。",
+      "簡易版 PDF が image-first のため、収集地区ルールの正規化は未完了です。"
+    ],
+    "day_signals": {}
+  },
+  {
+    "ward_slug": "kita",
+    "source_quality": "medium",
+    "source_label": "ごみ・資源の収集日",
+    "granularity": "北区は公式収集日ページと配布 PDF を追跡済みです。現在は ward-level の暫定表示です。",
+    "notes": [
+      "収集日ページとチラシ・冊子 PDF は追跡済みです。",
+      "地域別曜日 source が image-first のため、正規化は未完了です。"
+    ],
+    "day_signals": {}
+  },
+  {
     "ward_slug": "koto",
     "source_quality": "medium",
     "source_label": "江東区 地区別資源回収・ごみ収集日一覧",
@@ -96,6 +173,50 @@
         { "category": "plastic", "areas": 2 }
       ]
     }
+  },
+  {
+    "ward_slug": "nerima",
+    "source_quality": "medium",
+    "source_label": "練馬区 資源・ごみの分け方と出し方",
+    "granularity": "練馬区は公式案内ページを追跡済みです。現在は ward-level の暫定表示です。",
+    "notes": [
+      "公式の分け方・出し方ページと地域別収集曜日一覧ページは追跡済みです。",
+      "地域別の収集ルール正規化はまだ未着手です。"
+    ],
+    "day_signals": {}
+  },
+  {
+    "ward_slug": "ota",
+    "source_quality": "medium",
+    "source_label": "大田区 家庭用 資源とごみの分け方・出し方",
+    "granularity": "大田区は公式 PDF の収集曜日 table を追跡済みです。現在は ward-level の暫定表示です。",
+    "notes": [
+      "家庭用の資源とごみの分け方・出し方 PDF は追跡済みです。",
+      "収集曜日 table は丁目単位と番地例外が混在しており、正規化は未完了です。"
+    ],
+    "day_signals": {}
+  },
+  {
+    "ward_slug": "setagaya",
+    "source_quality": "medium",
+    "source_label": "世田谷区 ごみ・資源分別ガイドブック",
+    "granularity": "世田谷区は公式 PDF を追跡済みです。現在は ward-level の暫定表示です。",
+    "notes": [
+      "ごみ・資源分別ガイドブック PDF は追跡済みです。",
+      "地域別の収集ルール正規化はまだ未着手です。"
+    ],
+    "day_signals": {}
+  },
+  {
+    "ward_slug": "suginami",
+    "source_quality": "medium",
+    "source_label": "杉並区 ごみ・資源の分け方・出し方",
+    "granularity": "杉並区は公式案内ページを追跡済みです。現在は ward-level の暫定表示です。",
+    "notes": [
+      "公式の分け方・出し方ページと収集日ページは追跡済みです。",
+      "地域別の収集ルール正規化はまだ未着手です。"
+    ],
+    "day_signals": {}
   },
   {
     "ward_slug": "sumida",
