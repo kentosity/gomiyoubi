@@ -1,0 +1,215 @@
+{
+  "updated_at": "2026-04-01",
+  "scope": [
+    "sumida",
+    "koto",
+    "chuo"
+  ],
+  "wards": [
+    {
+      "ward_slug": "sumida",
+      "ward_name_en": "Sumida",
+      "ward_name_ja": "墨田区",
+      "status": "tracked",
+      "official_sources": {
+        "entry_page": {
+          "label": "2026年度 資源とごみの収集カレンダー",
+          "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "横様式: 資源とごみの収集カレンダー",
+            "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/01syusyucalender_0804.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2027-03"
+          },
+          {
+            "label": "縦様式: わが家の資源とごみの収集曜日",
+            "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/02syusyucalender_0804.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2027-03"
+          },
+          {
+            "label": "両国、亀沢、石原、横網",
+            "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/0804_01.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2026-09"
+          },
+          {
+            "label": "千歳、緑、立川",
+            "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/0804_02.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2026-09"
+          },
+          {
+            "label": "太平、横川",
+            "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/0804_03.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2026-09"
+          },
+          {
+            "label": "菊川、江東橋、錦糸",
+            "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/0804_04.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2026-09"
+          },
+          {
+            "label": "本所1・2丁目、東駒形1・2丁目、吾妻橋、向島1・2・3丁目",
+            "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/0804_05.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2026-09"
+          },
+          {
+            "label": "向島4・5丁目、東向島1・2・3丁目、堤通1丁目",
+            "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/0804_06.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2026-09"
+          },
+          {
+            "label": "押上、京島",
+            "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/0804_07.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2026-09"
+          },
+          {
+            "label": "本所3・4丁目、東駒形3・4丁目、業平、文花1丁目",
+            "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/0804_08.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2026-09"
+          },
+          {
+            "label": "堤通2丁目、東向島4丁目、墨田1・2・5丁目",
+            "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/0804_09.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2026-09"
+          },
+          {
+            "label": "東向島5・6丁目、墨田3・4丁目、八広6丁目",
+            "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/0804_10.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2026-09"
+          },
+          {
+            "label": "立花、東墨田",
+            "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/0804_11.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2026-09"
+          },
+          {
+            "label": "文花2・3丁目、八広1・2・3・4・5丁目",
+            "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/0804_12.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2026-09"
+          }
+        ]
+      },
+      "notes": [
+        "The entry page is the canonical discovery page and should be scraped for fresh PDF links instead of hardcoding file names forever.",
+        "As of 2026-04-01, the region-specific PDFs on the page cover only 2026-04 through 2026-09.",
+        "The page also provides two ward-wide PDFs that summarize collection weekday patterns."
+      ]
+    },
+    {
+      "ward_slug": "koto",
+      "ward_name_en": "Koto",
+      "ward_name_ja": "江東区",
+      "status": "tracked",
+      "official_sources": {
+        "entry_page": {
+          "label": "地区別資源回収・ごみ収集日一覧",
+          "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "2026年度 資源回収・ごみ収集日一覧 表面",
+            "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/documents/8omote.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2027-03"
+          },
+          {
+            "label": "2026年度 資源回収・ごみ収集日一覧 裏面",
+            "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/documents/8ura.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2027-03"
+          },
+          {
+            "label": "住所別地区番号画像",
+            "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
+            "format": "image"
+          },
+          {
+            "label": "配布施設一覧",
+            "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/documents/8shisetu.pdf",
+            "format": "pdf"
+          }
+        ],
+        "related_pages": [
+          {
+            "label": "資源とごみの分け方・出し方",
+            "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/7348.html",
+            "format": "html"
+          },
+          {
+            "label": "ことまっぷ - ごみマップ",
+            "url": "https://koto.geocloud.jp/mp/20",
+            "format": "interactive_map"
+          },
+          {
+            "label": "江東ごみナビ",
+            "url": "https://www.city.koto.lg.jp/381104/kurashi/gomi/kotogominavi.html",
+            "format": "html"
+          }
+        ]
+      },
+      "notes": [
+        "Koto publishes district schedules by district number 1 through 12.",
+        "The practical mapping source for addresses is an image, not a text table, so address-to-district normalization will require OCR or manual transcription.",
+        "The external geocloud map returned HTTP 403 to a scripted check on 2026-04-01, but the ward page still links to it as an official interactive source.",
+        "The entry page warns that some apartment complexes and some local areas may follow different collection days."
+      ]
+    },
+    {
+      "ward_slug": "chuo",
+      "ward_name_en": "Chuo",
+      "ward_name_ja": "中央区",
+      "status": "tracked",
+      "official_sources": {
+        "entry_page": {
+          "label": "中央区オープンデータ",
+          "url": "https://www.city.chuo.lg.jp/kusei/gaiyou/toukeidate/opendata.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "ごみと資源の収集曜日",
+            "url": "https://www.city.chuo.lg.jp/documents/984/gomitoshigen.csv",
+            "format": "csv",
+            "encoding": "cp932"
+          },
+          {
+            "label": "ゴミの分別方法一覧",
+            "url": "https://www.city.chuo.lg.jp/documents/984/gominobunbetu.csv",
+            "format": "csv",
+            "encoding": "cp932"
+          },
+          {
+            "label": "資源回収場所",
+            "url": "https://www.city.chuo.lg.jp/documents/984/shigenkaishubasho.csv",
+            "format": "csv",
+            "encoding": "cp932"
+          }
+        ]
+      },
+      "notes": [
+        "Chuo is the strongest source in this initial set because the collection weekday data is already published as machine-readable CSV.",
+        "A sample from gomitoshigen.csv contains columns for region, town name, chome, burnable, non-burnable, plastic, resources, and bulky waste.",
+        "The CSV uses Japanese fiscal-year style collection patterns and should be treated as the primary scraping target for Chuo."
+      ]
+    }
+  ]
+}

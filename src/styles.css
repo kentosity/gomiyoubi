@@ -1,0 +1,268 @@
+:root {
+  font-family: "IBM Plex Sans", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  color: #e2e8f0;
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.35), transparent 34%),
+    radial-gradient(circle at top right, rgba(37, 99, 235, 0.28), transparent 28%),
+    linear-gradient(180deg, #08121d 0%, #0f1f2d 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.map-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.control-panel,
+.hover-card {
+  position: absolute;
+  z-index: 2;
+  width: min(380px, calc(100vw - 32px));
+  backdrop-filter: blur(24px);
+  background: rgba(8, 18, 29, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+}
+
+.control-panel {
+  top: 20px;
+  left: 20px;
+  padding: 22px 22px 20px;
+  border-radius: 28px;
+}
+
+.hover-card {
+  top: 20px;
+  right: 20px;
+  padding: 22px;
+  border-radius: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7dd3fc;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: "IBM Plex Serif", "Yu Mincho", serif;
+  font-weight: 600;
+  line-height: 1.02;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  max-width: 11ch;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.panel-copy,
+.granularity,
+.notes p,
+.quality-copy,
+.empty-state {
+  margin: 0;
+  color: #cbd5e1;
+  line-height: 1.55;
+}
+
+.panel-copy {
+  margin-top: 14px;
+}
+
+.mode-row,
+.weekday-grid,
+.legend,
+.signal-list,
+.notes {
+  margin-top: 18px;
+}
+
+.mode-row {
+  display: flex;
+  gap: 10px;
+}
+
+.mode-pill,
+.weekday-pill {
+  border: 0;
+  cursor: pointer;
+  transition: transform 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+
+.mode-pill {
+  padding: 11px 16px;
+  border-radius: 999px;
+  background: rgba(51, 65, 85, 0.7);
+  color: #e2e8f0;
+}
+
+.weekday-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.weekday-pill {
+  padding: 11px 0;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.88);
+  color: #cbd5e1;
+}
+
+.mode-pill.active,
+.weekday-pill.active {
+  background: linear-gradient(135deg, #14b8a6, #2563eb);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 14px;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #cbd5e1;
+}
+
+.legend-swatch,
+.signal-dot {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+}
+
+.hover-day {
+  margin: 10px 0 0;
+  font-size: 1.1rem;
+  color: #7dd3fc;
+}
+
+.granularity {
+  margin-top: 10px;
+}
+
+.quality-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.quality-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 78px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.quality-badge.high {
+  background: rgba(37, 99, 235, 0.18);
+  color: #bfdbfe;
+}
+
+.quality-badge.medium {
+  background: rgba(20, 184, 166, 0.18);
+  color: #99f6e4;
+}
+
+.quality-badge.pending {
+  background: rgba(148, 163, 184, 0.18);
+  color: #e2e8f0;
+}
+
+.signal-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.signal-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.86);
+}
+
+.signal-chip strong {
+  color: #f8fafc;
+}
+
+.empty-state {
+  padding: 14px 15px;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.88);
+}
+
+.notes {
+  display: grid;
+  gap: 10px;
+}
+
+.maplibregl-ctrl-bottom-right {
+  bottom: 14px;
+  right: 14px;
+}
+
+@media (max-width: 920px) {
+  .control-panel,
+  .hover-card {
+    position: static;
+    width: auto;
+    margin: 16px;
+  }
+
+  .app-shell {
+    display: grid;
+    grid-template-rows: 360px auto auto;
+  }
+
+  .map-canvas {
+    position: relative;
+    min-height: 360px;
+  }
+}
