@@ -6,6 +6,7 @@ What is in the repo right now:
 - a source registry for the official ward schedule pages
 - a `MapLibre + React + Vite` display prototype
 - a small boundary fetch script that pulls the three ward polygons into local GeoJSON
+- project notes and findings in `docs/findings.md`
 
 Current prototype limits:
 - the map is still ward-level, not exact block-level collection-zone masking
@@ -30,6 +31,9 @@ Build it:
 Primary data files:
 - `data/source-registry.json`
 - `public/data/ward-boundaries.geojson`
+
+Useful notes:
+- `docs/findings.md`
 
 Last refreshed:
 - `2026-04-01`

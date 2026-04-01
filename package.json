@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.node.json --noEmit && vite build",
     "preview": "vite preview",
-    "fetch:boundaries": "node scripts/fetch-ward-boundaries.mjs"
+    "fetch:boundaries": "node scripts/fetch-ward-boundaries.mjs",
+    "build:chuo-zones": "python3 scripts/build_chuo_zones.py"
   },
   "dependencies": {
     "maplibre-gl": "^5.9.0",

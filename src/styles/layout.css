@@ -1,0 +1,148 @@
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.map-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.map-canvas::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(247, 242, 230, 0.22), rgba(247, 242, 230, 0.16)),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent calc(var(--paper-grid) - 1px),
+      rgba(92, 130, 179, 0.08) calc(var(--paper-grid) - 1px),
+      rgba(92, 130, 179, 0.08) var(--paper-grid)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent calc(var(--paper-grid) - 1px),
+      rgba(92, 130, 179, 0.08) calc(var(--paper-grid) - 1px),
+      rgba(92, 130, 179, 0.08) var(--paper-grid)
+    ),
+    linear-gradient(
+      90deg,
+      rgba(159, 75, 75, 0.045) 0,
+      rgba(159, 75, 75, 0.045) 1px,
+      transparent 1px
+    );
+  background-size: auto, auto, auto, 100% 100%;
+  background-position: 0 0, 0 0, 0 0, 80px 0;
+  mix-blend-mode: multiply;
+  opacity: 0.58;
+}
+
+.map-canvas::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.22), transparent 14%),
+    radial-gradient(circle at 84% 74%, rgba(191, 162, 107, 0.1), transparent 18%);
+  mix-blend-mode: screen;
+  opacity: 0.42;
+}
+
+.surface-card {
+  z-index: 2;
+  backdrop-filter: blur(16px);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.12)),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent calc(var(--paper-grid) - 1px),
+      var(--color-grid-minor) calc(var(--paper-grid) - 1px),
+      var(--color-grid-minor) var(--paper-grid)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent calc(var(--paper-grid) - 1px),
+      var(--color-grid-minor) calc(var(--paper-grid) - 1px),
+      var(--color-grid-minor) var(--paper-grid)
+    ),
+    radial-gradient(circle at top left, var(--color-paper-stain), transparent 30%),
+    var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.surface-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--panel-pad);
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent 0,
+    rgba(182, 95, 95, 0.08) 16%,
+    rgba(182, 95, 95, 0.08) 84%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.surface-card::after {
+  content: none;
+}
+
+.control-panel,
+.hover-card {
+  position: absolute;
+  z-index: 2;
+}
+
+.control-panel {
+  top: 20px;
+  right: 20px;
+  width: var(--panel-width-filter);
+  padding: var(--panel-pad);
+  border-radius: var(--radius-card-lg);
+}
+
+.hover-card {
+  top: 20px;
+  left: 20px;
+  width: var(--panel-width-detail);
+  padding: var(--panel-pad);
+  border-radius: var(--radius-card-md);
+}
+
+.maplibregl-ctrl-bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+@media (max-width: 920px) {
+  .control-panel,
+  .hover-card {
+    position: static;
+    width: auto;
+    margin: 20px;
+  }
+
+  .app-shell {
+    display: grid;
+    grid-template-rows: 360px auto auto;
+  }
+
+  .map-canvas {
+    position: relative;
+    min-height: 360px;
+  }
+}

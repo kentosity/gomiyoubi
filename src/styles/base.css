@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: var(--line-body);
+  color: var(--color-text);
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent calc(var(--paper-grid) - 1px),
+      var(--color-grid-minor) calc(var(--paper-grid) - 1px),
+      var(--color-grid-minor) var(--paper-grid)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent calc(var(--paper-grid) - 1px),
+      var(--color-grid-minor) calc(var(--paper-grid) - 1px),
+      var(--color-grid-minor) var(--paper-grid)
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent calc(var(--paper-grid-major) - 1px),
+      var(--color-grid-major) calc(var(--paper-grid-major) - 1px),
+      var(--color-grid-major) var(--paper-grid-major)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent calc(var(--paper-grid-major) - 1px),
+      var(--color-grid-major) calc(var(--paper-grid-major) - 1px),
+      var(--color-grid-major) var(--paper-grid-major)
+    ),
+    var(--gradient-bg);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.34), transparent 18%),
+    radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.16), transparent 16%),
+    radial-gradient(circle at 76% 82%, rgba(191, 162, 107, 0.12), transparent 22%);
+  opacity: 0.9;
+}
+
+button {
+  font: inherit;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: var(--line-title);
+}
+
+h1 {
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+h2 {
+  font-size: 1.55rem;
+  letter-spacing: 0.03em;
+}

@@ -24,6 +24,7 @@ export type WardScheduleSummary = {
   wardNameJa: string;
   wardNameEn: string;
   sourceQuality: "high" | "medium" | "pending";
+  sourceLabel: string;
   granularity: string;
   notes: string[];
   daySignals: Partial<Record<DayKey, CategorySignal[]>>;
@@ -34,40 +35,40 @@ export const categoryMeta: Record<
   { label: string; color: string; shortLabel: string }
 > = {
   burnable: {
-    label: "Burnable",
-    shortLabel: "Burn",
+    label: "燃やすごみ",
+    shortLabel: "燃",
     color: "#f97316"
   },
   plastic: {
-    label: "Plastic",
-    shortLabel: "Plastic",
+    label: "プラ",
+    shortLabel: "プラ",
     color: "#06b6d4"
   },
   resource: {
-    label: "Recyclables",
-    shortLabel: "Recycle",
+    label: "資源",
+    shortLabel: "資源",
     color: "#2563eb"
   },
   nonburnable: {
-    label: "Non-burnable",
-    shortLabel: "Non-burn",
+    label: "燃やさないごみ",
+    shortLabel: "不燃",
     color: "#6b7280"
   },
   bulky: {
-    label: "Bulky",
-    shortLabel: "Bulky",
+    label: "粗大ごみ",
+    shortLabel: "粗大",
     color: "#a855f7"
   }
 };
 
 export const weekdayMeta: Record<DayKey, { label: string; shortLabel: string }> = {
-  sunday: { label: "Sunday", shortLabel: "Sun" },
-  monday: { label: "Monday", shortLabel: "Mon" },
-  tuesday: { label: "Tuesday", shortLabel: "Tue" },
-  wednesday: { label: "Wednesday", shortLabel: "Wed" },
-  thursday: { label: "Thursday", shortLabel: "Thu" },
-  friday: { label: "Friday", shortLabel: "Fri" },
-  saturday: { label: "Saturday", shortLabel: "Sat" }
+  sunday: { label: "日曜日", shortLabel: "日" },
+  monday: { label: "月曜日", shortLabel: "月" },
+  tuesday: { label: "火曜日", shortLabel: "火" },
+  wednesday: { label: "水曜日", shortLabel: "水" },
+  thursday: { label: "木曜日", shortLabel: "木" },
+  friday: { label: "金曜日", shortLabel: "金" },
+  saturday: { label: "土曜日", shortLabel: "土" }
 };
 
 export const weekdayOrder: DayKey[] = [
@@ -86,11 +87,12 @@ export const wardSchedules: Record<string, WardScheduleSummary> = {
     wardNameJa: "中央区",
     wardNameEn: "Chuo",
     sourceQuality: "high",
-    granularity: "Ward-level preview derived from the official Chuo CSV",
+    sourceLabel: "中央区オープンデータ / gomitoshigen.csv",
+    granularity: "中央区は町丁・字等の境界まで反映済みです",
     notes: [
-      "Prototype view is still aggregated to the ward polygon.",
-      "The underlying source is machine-readable CSV, so Chuo is the strongest starting point.",
-      "Counts show how many source rows mention that collection day."
+      "中央区は e-Stat の町丁・字等境界を重ねています。",
+      "公式データのうち 11 件は番地単位で分かれているため、まだ未解決です。",
+      "中央区の小エリアを指していないときは、区全体の要約を表示します。"
     ],
     daySignals: {
       monday: [
@@ -142,11 +144,12 @@ export const wardSchedules: Record<string, WardScheduleSummary> = {
     wardNameJa: "江東区",
     wardNameEn: "Koto",
     sourceQuality: "medium",
-    granularity: "Ward-level preview derived from district templates",
+    sourceLabel: "江東区 地区別資源回収・ごみ収集日一覧",
+    granularity: "江東区はまだ区レベルの暫定表示です",
     notes: [
-      "Koto schedule logic is split across 12 districts.",
-      "The weekly categories below are reliable, but non-burnable is date-specific and not shown in this prototype.",
-      "Address-to-district mapping is still trapped in an official image, so exact polygon masking is a later step."
+      "江東区の収集ロジックは 12 地区に分かれています。",
+      "曜日ベースの種類は使えますが、不燃ごみは日付指定なのでこの試作には未反映です。",
+      "住所から地区番号への対応づけがまだ残っているので、正確なマスク化は次の段階です。"
     ],
     daySignals: {
       monday: [
@@ -186,10 +189,11 @@ export const wardSchedules: Record<string, WardScheduleSummary> = {
     wardNameJa: "墨田区",
     wardNameEn: "Sumida",
     sourceQuality: "pending",
-    granularity: "Source tracked, schedule normalization pending",
+    sourceLabel: "墨田区 資源とごみの収集カレンダー",
+    granularity: "墨田区はソース追跡のみで正規化待ちです",
     notes: [
-      "The official PDFs are registered in the source registry, but weekday/category extraction is not implemented yet.",
-      "This polygon is kept on the map so the UI reflects the real project scope instead of hiding unfinished wards."
+      "公式 PDF の所在は追跡済みですが、曜日と品目の抽出はまだです。",
+      "未完成でも作業対象として見えるように、地図上には残しています。"
     ],
     daySignals: {}
   }
