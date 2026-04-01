@@ -97,7 +97,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 1
   },
   {
     "wardSlug": "arakawa",
@@ -173,7 +174,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 2
   },
   {
     "wardSlug": "bunkyo",
@@ -274,7 +276,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 3
   },
   {
     "wardSlug": "chiyoda",
@@ -375,7 +378,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 4
   },
   {
     "wardSlug": "chuo",
@@ -524,7 +528,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 5
   },
   {
     "wardSlug": "edogawa",
@@ -558,7 +563,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 6
   },
   {
     "wardSlug": "itabashi",
@@ -634,7 +640,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 7
   },
   {
     "wardSlug": "katsushika",
@@ -649,7 +656,8 @@
       "簡易版 PDF が image-first のため、収集地区ルールの正規化は未完了です。"
     ],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 8
   },
   {
     "wardSlug": "kita",
@@ -664,7 +672,8 @@
       "地域別曜日 source が image-first のため、正規化は未完了です。"
     ],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 9
   },
   {
     "wardSlug": "koto",
@@ -766,7 +775,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 10
   },
   {
     "wardSlug": "meguro",
@@ -843,7 +853,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 11
   },
   {
     "wardSlug": "minato",
@@ -944,7 +955,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 12
   },
   {
     "wardSlug": "nakano",
@@ -1041,7 +1053,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 13
   },
   {
     "wardSlug": "nerima",
@@ -1141,7 +1154,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 14
   },
   {
     "wardSlug": "ota",
@@ -1156,7 +1170,8 @@
       "収集曜日 table は丁目単位と番地例外が混在しており、正規化は未完了です。"
     ],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 15
   },
   {
     "wardSlug": "setagaya",
@@ -1223,7 +1238,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 16
   },
   {
     "wardSlug": "shibuya",
@@ -1300,7 +1316,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 17
   },
   {
     "wardSlug": "shinagawa",
@@ -1401,7 +1418,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 18
   },
   {
     "wardSlug": "shinjuku",
@@ -1502,7 +1520,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 19
   },
   {
     "wardSlug": "suginami",
@@ -1602,7 +1621,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 20
   },
   {
     "wardSlug": "sumida",
@@ -1703,7 +1723,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 21
   },
   {
     "wardSlug": "taito",
@@ -1780,7 +1801,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 22
   },
   {
     "wardSlug": "toshima",
@@ -1867,6 +1889,7 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 23
   }
 ]

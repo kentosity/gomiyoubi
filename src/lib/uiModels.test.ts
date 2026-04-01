@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { type WardRuntimeData } from "../types/data";
-import { type GenericFeature } from "../types/map";
+import { type DetailedAreaRuntimeData, type WardRuntimeData } from "../types/data";
 import {
   buildActiveArea,
   buildCategoryOptions,
@@ -56,7 +55,7 @@ describe("uiModels", () => {
   it("builds a ward panel as shared content model", () => {
     const activeArea = buildActiveArea(
       { wardSlug: "koto", areaId: null, featureLabel: null },
-      [],
+      {},
       wardDataBySlug,
     );
     const panel = buildHoverPanelModel(activeArea, "monday");
@@ -80,29 +79,19 @@ describe("uiModels", () => {
   });
 
   it("builds a zone panel with a weekly schedule", () => {
-    const zone: GenericFeature = {
-      type: "Feature",
-      geometry: {
-        type: "Polygon",
-        coordinates: [],
-      },
-      properties: {
-        areaId: "test-area",
-        wardSlug: "chuo",
-        labelJa: "テスト丁目",
-        mondayCategories: "burnable,resource",
-        tuesdayCategories: "",
-        wednesdayCategories: "",
-        thursdayCategories: "",
-        fridayCategories: "",
-        saturdayCategories: "",
-        sundayCategories: "",
+    const zone: DetailedAreaRuntimeData = {
+      areaId: "test-area",
+      wardSlug: "chuo",
+      tileFeatureId: 100,
+      labelJa: "テスト丁目",
+      dayCategories: {
+        monday: ["burnable", "resource"],
       },
     };
 
     const activeArea = buildActiveArea(
       { wardSlug: "chuo", areaId: "test-area", featureLabel: null },
-      [zone],
+      { "test-area": zone },
       wardDataBySlug,
     );
     const panel = buildHoverPanelModel(activeArea, "monday");
@@ -125,30 +114,20 @@ describe("uiModels", () => {
   });
 
   it("uses the hovered boundary label while keeping the collection area in info rows", () => {
-    const zone: GenericFeature = {
-      type: "Feature",
-      geometry: {
-        type: "Polygon",
-        coordinates: [],
-      },
-      properties: {
-        areaId: "koto:district:02",
-        wardSlug: "koto",
-        labelJa: "2地区",
-        boundaryName: "亀戸4丁目",
-        mondayCategories: "burnable",
-        tuesdayCategories: "",
-        wednesdayCategories: "",
-        thursdayCategories: "",
-        fridayCategories: "",
-        saturdayCategories: "",
-        sundayCategories: "",
+    const zone: DetailedAreaRuntimeData = {
+      areaId: "koto:district:02",
+      wardSlug: "koto",
+      tileFeatureId: 200,
+      labelJa: "2地区",
+      boundaryName: "亀戸4丁目",
+      dayCategories: {
+        monday: ["burnable"],
       },
     };
 
     const activeArea = buildActiveArea(
       { wardSlug: "koto", areaId: "koto:district:02", featureLabel: "亀戸4丁目" },
-      [zone],
+      { "koto:district:02": zone },
       wardDataBySlug,
     );
     const panel = buildHoverPanelModel(activeArea, "monday");

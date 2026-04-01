@@ -28,7 +28,6 @@ function ensurePmtilesProtocol() {
 }
 
 type UseTrashMapOptions = {
-  activeTarget: MapTarget;
   isFocusLocked: boolean;
   isMapDataReady: boolean;
   onClearHover: () => void;
@@ -37,7 +36,6 @@ type UseTrashMapOptions = {
 };
 
 export function useTrashMap({
-  activeTarget,
   isFocusLocked,
   isMapDataReady,
   onClearHover,
@@ -45,15 +43,10 @@ export function useTrashMap({
   onToggleFocusTarget,
 }: UseTrashMapOptions) {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const initialActiveTargetRef = useRef(activeTarget);
   const mapRef = useRef<Map | null>(null);
   const hoverFrameRef = useRef<number | null>(null);
   const latestPointerPointRef = useRef<maplibregl.Point | null>(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
-
-  useEffect(() => {
-    initialActiveTargetRef.current = activeTarget;
-  }, [activeTarget]);
 
   function getRenderedFeatureString(
     feature: maplibregl.MapGeoJSONFeature | undefined,
@@ -79,7 +72,7 @@ export function useTrashMap({
     }
 
     const map = mapRef.current;
-    if (!map) {
+    if (!map || map.isMoving()) {
       return;
     }
 
@@ -196,17 +189,7 @@ export function useTrashMap({
     mapRef.current = map;
 
     map.on("load", () => {
-      map.addSource(MAP_SOURCE_IDS.wards, {
-        type: "vector",
-        url: `pmtiles://${PMTILES_URL}`,
-      });
-
-      map.addSource(MAP_SOURCE_IDS.wardOutlines, {
-        type: "vector",
-        url: `pmtiles://${PMTILES_URL}`,
-      });
-
-      map.addSource(MAP_SOURCE_IDS.detailedAreas, {
+      map.addSource(MAP_SOURCE_IDS.tiles, {
         type: "vector",
         url: `pmtiles://${PMTILES_URL}`,
       });
@@ -215,8 +198,8 @@ export function useTrashMap({
       map.addLayer(createWardActiveMaskLayer());
       map.addLayer(createDetailedAreasFillLayer());
       map.addLayer(createDetailedAreasActiveMaskLayer());
-      map.addLayer(createDetailedAreasOutlineLayer(initialActiveTargetRef.current.areaId));
-      map.addLayer(createWardOutlineLayer(initialActiveTargetRef.current.wardSlug));
+      map.addLayer(createDetailedAreasOutlineLayer());
+      map.addLayer(createWardOutlineLayer());
 
       map.getCanvas().style.cursor = "crosshair";
 

@@ -3,7 +3,6 @@ import { ControlPanel } from "./components/ControlPanel";
 import { HoverCard } from "./components/HoverCard";
 import { useMapData } from "./hooks/useMapData";
 import { useMapFeatureState } from "./hooks/useMapFeatureState";
-import { useMapHighlighting } from "./hooks/useMapHighlighting";
 import { useMapSelection } from "./hooks/useMapSelection";
 import { useTrashFilters } from "./hooks/useTrashFilters";
 import { useTrashMap } from "./hooks/useTrashMap";
@@ -17,14 +16,13 @@ import {
 
 function App() {
   const { chooseDay, selectedCategories, selectedDay, toggleCategory } = useTrashFilters();
-  const { detailedAreaFeatures, isReady, wardOverviewRows } = useMapData();
+  const { detailedAreaById, detailedAreas, isReady, wardOverviewRows } = useMapData();
   const { activeTarget, clearHover, isFocusLocked, setHoverTarget, toggleFocusTarget } =
     useMapSelection();
 
   const wardRuntimeData = useMemo(() => buildWardRuntimeData(wardOverviewRows), [wardOverviewRows]);
 
   const { containerRef, isMapLoaded, mapRef } = useTrashMap({
-    activeTarget,
     isFocusLocked,
     isMapDataReady: isReady,
     onClearHover: clearHover,
@@ -34,19 +32,12 @@ function App() {
 
   useMapFeatureState({
     activeTarget,
-    detailedAreaFeatures,
+    detailedAreas,
     isMapLoaded,
     mapRef,
     selectedCategories,
     selectedDay,
     wardRuntimeData,
-  });
-
-  useMapHighlighting({
-    activeAreaId: activeTarget.areaId,
-    activeWardSlug: activeTarget.areaId ? null : activeTarget.wardSlug,
-    isMapLoaded,
-    mapRef,
   });
 
   const dayOptions = useMemo(() => buildDayOptions(selectedDay), [selectedDay]);
@@ -68,8 +59,8 @@ function App() {
     return activeOptions.map((option) => option.label).join(" / ");
   }, [categoryOptions]);
   const activeArea = useMemo(
-    () => buildActiveArea(activeTarget, detailedAreaFeatures, wardRuntimeData),
-    [activeTarget, detailedAreaFeatures, wardRuntimeData],
+    () => buildActiveArea(activeTarget, detailedAreaById, wardRuntimeData),
+    [activeTarget, detailedAreaById, wardRuntimeData],
   );
   const hoverPanel = useMemo(
     () => buildHoverPanelModel(activeArea, selectedDay),

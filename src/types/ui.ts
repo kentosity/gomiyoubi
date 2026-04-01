@@ -1,6 +1,5 @@
 import { type CategoryKey, type DayKey } from "../data/schedule";
-import { type WardRuntimeData } from "./data";
-import { type GenericFeature } from "./map";
+import { type DetailedAreaRuntimeData, type WardRuntimeData } from "./data";
 
 export type DayOptionModel = {
   day: DayKey;
@@ -43,7 +42,7 @@ export type ActiveArea =
   | { kind: "ward"; ward: WardRuntimeData }
   | {
       activeFeatureLabel: string | null;
-      detailedArea: GenericFeature;
+      detailedArea: DetailedAreaRuntimeData;
       kind: "detailedArea";
       ward: WardRuntimeData;
     };

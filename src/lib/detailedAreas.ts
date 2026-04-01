@@ -1,27 +1,5 @@
 import { type CategoryKey, type DayKey, weekdayOrder } from "../data/schedule";
-import { type GenericFeature } from "../types/map";
-
-function getStringProperty(feature: GenericFeature, key: string): string | null {
-  const value = feature.properties?.[key];
-  return typeof value === "string" && value.length > 0 ? value : null;
-}
-
-export function getDetailedAreaId(feature: GenericFeature): string | null {
-  return getStringProperty(feature, "areaId") ?? getStringProperty(feature, "zoneId");
-}
-
-export function getDetailedAreaLabel(feature: GenericFeature): string {
-  return (
-    getStringProperty(feature, "labelJa") ??
-    getStringProperty(feature, "boundaryName") ??
-    getStringProperty(feature, "townJa") ??
-    "詳細エリア"
-  );
-}
-
-export function getDetailedAreaWardSlug(feature: GenericFeature): string | null {
-  return getStringProperty(feature, "wardSlug");
-}
+import { type DetailedAreaRuntimeData } from "../types/data";
 
 export function parseCategoryList(value: unknown): CategoryKey[] {
   if (typeof value !== "string" || value.length === 0) {
@@ -32,16 +10,16 @@ export function parseCategoryList(value: unknown): CategoryKey[] {
 }
 
 export function getDetailedAreaCategories(
-  feature: GenericFeature,
+  detailedArea: DetailedAreaRuntimeData,
   day: DayKey | null,
 ): CategoryKey[] {
   if (day) {
-    return parseCategoryList(feature.properties?.[`${day}Categories`]);
+    return detailedArea.dayCategories[day] ?? [];
   }
 
   const categories = new Set<CategoryKey>();
   for (const weekday of weekdayOrder) {
-    for (const category of parseCategoryList(feature.properties?.[`${weekday}Categories`])) {
+    for (const category of detailedArea.dayCategories[weekday] ?? []) {
       categories.add(category);
     }
   }
@@ -49,17 +27,6 @@ export function getDetailedAreaCategories(
   return [...categories];
 }
 
-export function getUniqueDetailedAreaFeatures(features: GenericFeature[]): GenericFeature[] {
-  const featureByAreaId = new Map<string, GenericFeature>();
-
-  for (const feature of features) {
-    const areaId = getDetailedAreaId(feature);
-    if (!areaId || featureByAreaId.has(areaId)) {
-      continue;
-    }
-
-    featureByAreaId.set(areaId, feature);
-  }
-
-  return [...featureByAreaId.values()];
+export function getDetailedAreaLabel(detailedArea: DetailedAreaRuntimeData): string {
+  return detailedArea.labelJa ?? detailedArea.boundaryName ?? "詳細エリア";
 }

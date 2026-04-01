@@ -1,8 +1,8 @@
 :root {
-  --shell-pad: 18px;
+  --shell-pad: 12px;
   --panel-pad: 24px;
-  --panel-width-detail: 340px;
-  --panel-width-filter: 320px;
+  --panel-width-detail: 312px;
+  --panel-width-filter: 296px;
 
   --line-body: 1.58;
   --line-tight: 1.28;

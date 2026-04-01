@@ -7,12 +7,10 @@ import {
 } from "../data/schedule";
 import {
   getDetailedAreaCategories,
-  getDetailedAreaId,
   getDetailedAreaLabel,
 } from "./detailedAreas";
-import { type GenericFeature } from "../types/map";
 import { type MapTarget } from "../types/selection";
-import { type WardRuntimeData } from "../types/data";
+import { type DetailedAreaRuntimeData, type WardRuntimeData } from "../types/data";
 import {
   type ActiveArea,
   type CategoryOptionModel,
@@ -84,20 +82,21 @@ function buildWardScheduleRows(ward: WardRuntimeData, selectedDay: DayKey) {
     .filter((row) => row.categories.length > 0);
 }
 
-function getAreaSourceLabel(detailedArea: GenericFeature, fallbackSourceLabel: string): string {
-  const sourceLabel = detailedArea.properties?.sourceLabel;
-  return typeof sourceLabel === "string" && sourceLabel.length > 0
-    ? sourceLabel
+function getAreaSourceLabel(
+  detailedArea: DetailedAreaRuntimeData,
+  fallbackSourceLabel: string,
+): string {
+  return detailedArea.sourceLabel && detailedArea.sourceLabel.length > 0
+    ? detailedArea.sourceLabel
     : fallbackSourceLabel;
 }
 
 function getAreaSourceUrl(
-  detailedArea: GenericFeature,
+  detailedArea: DetailedAreaRuntimeData,
   fallbackSourceUrl?: string | null,
 ): string | null {
-  const sourceUrl = detailedArea.properties?.sourceUrl;
-  return typeof sourceUrl === "string" && sourceUrl.length > 0
-    ? sourceUrl
+  return detailedArea.sourceUrl && detailedArea.sourceUrl.length > 0
+    ? detailedArea.sourceUrl
     : (fallbackSourceUrl ?? null);
 }
 
@@ -122,16 +121,14 @@ export function buildCategoryOptions(selectedCategories: CategoryKey[]): Categor
 
 export function buildActiveArea(
   activeTarget: MapTarget,
-  detailedAreaFeatures: GenericFeature[],
+  detailedAreaById: Record<string, DetailedAreaRuntimeData>,
   wardDataBySlug: Record<string, WardRuntimeData>,
 ): ActiveArea {
   if (activeTarget.areaId) {
-    const detailedArea =
-      detailedAreaFeatures.find((feature) => getDetailedAreaId(feature) === activeTarget.areaId) ??
-      null;
+    const detailedArea = detailedAreaById[activeTarget.areaId] ?? null;
 
     if (detailedArea) {
-      const wardSlug = String(detailedArea.properties?.wardSlug ?? activeTarget.wardSlug ?? "");
+      const wardSlug = detailedArea.wardSlug || String(activeTarget.wardSlug ?? "");
       const ward = wardDataBySlug[wardSlug];
       if (!ward) {
         return { kind: "empty" };

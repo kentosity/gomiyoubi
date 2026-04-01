@@ -86,7 +86,7 @@
   width: min(100%, var(--panel-width-detail));
   max-width: var(--panel-width-detail);
   max-height: calc(100vh - (var(--shell-pad) * 2));
-  padding: 20px;
+  padding: 16px 16px 14px;
   overflow: auto;
 }
 

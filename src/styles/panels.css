@@ -14,12 +14,12 @@
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: 5px;
+  margin-bottom: 12px;
 }
 
 .panel-intro-spaced {
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .panel-copy,
@@ -30,7 +30,7 @@
 }
 
 .empty-state-summary {
-  margin-top: 16px;
+  margin-top: 10px;
   border-top: 1px solid var(--color-divider);
 }
 
@@ -39,14 +39,14 @@
 }
 
 .section-label {
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .filter-block {
   position: relative;
   z-index: 1;
-  margin-top: 20px;
-  padding-top: 20px;
+  margin-top: 14px;
+  padding-top: 14px;
   border-top: 1px solid var(--color-divider);
 }
 
@@ -61,13 +61,13 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .weekday-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 8px;
+  gap: 6px;
 }
 
 .weekday-pill,
@@ -89,11 +89,12 @@
 }
 
 .weekday-pill {
-  min-height: 46px;
-  border-radius: 16px;
+  min-height: 38px;
+  border-radius: 14px;
   background: rgba(255, 255, 255, 0.42);
   color: var(--color-text-soft);
   font-weight: 600;
+  font-size: 0.82rem;
 }
 
 .weekday-pill.active {
@@ -105,17 +106,17 @@
 
 .category-grid {
   display: grid;
-  gap: 10px;
+  gap: 7px;
 }
 
 .category-pill {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: 12px;
-  min-height: 52px;
-  padding: 0 14px;
-  border-radius: 18px;
+  gap: 10px;
+  min-height: 42px;
+  padding: 0 11px;
+  border-radius: 16px;
   background: rgba(255, 255, 255, 0.44);
   color: var(--color-text);
   text-align: left;
@@ -133,19 +134,21 @@
 .category-label {
   min-width: 0;
   font-weight: 600;
+  font-size: 0.82rem;
 }
 
 .category-short {
   color: var(--color-text-muted);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.66rem;
 }
 
 .mini-caption {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 12px;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 0.74rem;
 }
 
 .legend-swatch,
@@ -159,16 +162,16 @@
 
 .schedule-grid {
   display: grid;
-  gap: 6px;
+  gap: 4px;
 }
 
 .schedule-row {
   display: grid;
   grid-template-columns: 28px minmax(0, 1fr);
-  gap: 10px;
+  gap: 8px;
   align-items: start;
-  padding: 10px 12px;
-  border-radius: 16px;
+  padding: 7px 9px;
+  border-radius: 14px;
   border: 1px solid var(--color-divider);
   background: rgba(255, 255, 255, 0.34);
 }
@@ -182,39 +185,40 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 28px;
+  min-height: 24px;
   color: var(--color-text-muted);
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.74rem;
 }
 
 .schedule-types {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 4px;
 }
 
 .signal-chip {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  min-height: 28px;
-  padding: 0 9px;
+  gap: 6px;
+  min-height: 24px;
+  padding: 0 7px;
   border-radius: var(--radius-pill);
   border: 1px solid var(--color-divider);
   background: rgba(255, 255, 255, 0.68);
-  font-size: 0.76rem;
+  font-size: 0.71rem;
 }
 
 .schedule-empty {
   display: inline-flex;
   align-items: center;
-  min-height: 28px;
+  min-height: 24px;
   color: var(--color-text-muted);
+  font-size: 0.74rem;
 }
 
 .info-section {
-  margin-top: 16px;
+  margin-top: 10px;
 }
 
 .info-grid {
@@ -225,10 +229,10 @@
 
 .info-row {
   display: grid;
-  grid-template-columns: 84px minmax(0, 1fr);
-  gap: 12px;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 10px;
   align-items: start;
-  padding: 10px 0;
+  padding: 7px 0;
   border-bottom: 1px solid var(--color-divider);
 }
 
@@ -238,21 +242,64 @@
 }
 
 .info-row span {
-  padding-top: 2px;
+  padding-top: 1px;
 }
 
 .info-row strong,
 .info-row a {
   justify-self: end;
   color: var(--color-text);
-  font-size: 0.82rem;
+  font-size: 0.77rem;
   font-weight: 600;
-  line-height: 1.45;
+  line-height: 1.3;
   text-align: right;
 }
 
 .info-row a {
   text-decoration: none;
+}
+
+.hover-card .eyebrow {
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+}
+
+.hover-card h2 {
+  font-size: clamp(1.02rem, 1.35vw, 1.24rem);
+  line-height: 1.12;
+}
+
+.hover-card .panel-copy {
+  font-size: 0.8rem;
+  line-height: 1.42;
+}
+
+.hover-card .section-label {
+  font-size: 0.64rem;
+}
+
+.control-panel {
+  padding: 16px 16px 14px;
+}
+
+.control-panel .panel-intro {
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.control-panel .eyebrow {
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+}
+
+.control-panel h2 {
+  font-size: clamp(0.98rem, 1.25vw, 1.18rem);
+  line-height: 1.1;
+}
+
+.control-panel .panel-copy {
+  font-size: 0.78rem;
+  line-height: 1.35;
 }
 
 @media (max-width: 860px) {

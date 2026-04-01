@@ -12,7 +12,7 @@ WARD_BOUNDARIES_PATH = PUBLIC_DATA_DIR / "ward-boundaries.geojson"
 WARD_OUTLINES_PATH = PUBLIC_DATA_DIR / "ward-outlines.geojson"
 DETAILED_AREAS_PATH = PUBLIC_DATA_DIR / "detailed-areas.geojson"
 WARD_OVERVIEWS_PATH = PUBLIC_DATA_DIR / "ward-overviews.json"
-DETAILED_AREA_INDEX_PATH = PUBLIC_DATA_DIR / "detailed-area-index.geojson"
+DETAILED_AREA_INDEX_PATH = PUBLIC_DATA_DIR / "detailed-area-index.json"
 TILESET_OUTPUT_PATH = PUBLIC_DATA_DIR / "gomiyoubi.pmtiles"
 
 DAY_KEYS = (
@@ -33,6 +33,14 @@ def load_json(path: Path):
 def write_json(path: Path, payload):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def write_compact_json(path: Path, payload):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n",
+        encoding="utf-8",
+    )
 
 
 def write_temp_geojson(path: Path, features: list[dict]):
@@ -86,7 +94,7 @@ def main():
 
     write_json(WARD_OVERVIEWS_PATH, augmented_ward_overviews)
 
-    detailed_area_index_features = []
+    detailed_area_index_rows = []
     seen_area_ids: set[str] = set()
     for feature in detailed_areas["features"]:
         properties = dict(feature.get("properties") or {})
@@ -94,22 +102,26 @@ def main():
         if not area_id or area_id in seen_area_ids:
             continue
         seen_area_ids.add(area_id)
-        properties["tileFeatureId"] = area_id_to_tile_id[area_id]
-        detailed_area_index_features.append(
+        detailed_area_index_rows.append(
             {
-                "type": "Feature",
-                "properties": properties,
-                "geometry": None,
+                "areaId": area_id,
+                "boundaryName": properties.get("boundaryName"),
+                "labelJa": properties.get("labelJa"),
+                "mondayCategories": properties.get("mondayCategories"),
+                "saturdayCategories": properties.get("saturdayCategories"),
+                "sourceLabel": properties.get("sourceLabel"),
+                "sourceUrl": properties.get("sourceUrl"),
+                "sundayCategories": properties.get("sundayCategories"),
+                "thursdayCategories": properties.get("thursdayCategories"),
+                "tileFeatureId": area_id_to_tile_id[area_id],
+                "tuesdayCategories": properties.get("tuesdayCategories"),
+                "wardSlug": properties.get("wardSlug"),
+                "wednesdayCategories": properties.get("wednesdayCategories"),
+                "fridayCategories": properties.get("fridayCategories"),
             }
         )
 
-    write_json(
-        DETAILED_AREA_INDEX_PATH,
-        {
-            "type": "FeatureCollection",
-            "features": detailed_area_index_features,
-        },
-    )
+    write_compact_json(DETAILED_AREA_INDEX_PATH, detailed_area_index_rows)
 
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_dir_path = Path(temp_dir)
