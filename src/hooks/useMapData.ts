@@ -6,7 +6,6 @@ type MapDataState = {
   detailedAreaFeatures: GenericFeature[];
   isReady: boolean;
   wardOverviewRows: WardRuntimeData[];
-  wardFeatures: GenericFeature[];
 };
 
 const EMPTY_FEATURE_COLLECTION: GenericFeatureCollection = {
@@ -28,7 +27,6 @@ async function fetchFirstAvailableGeojson(urls: string[]): Promise<GenericFeatur
 }
 
 export function useMapData(): MapDataState {
-  const [wardFeatures, setWardFeatures] = useState<GenericFeature[]>([]);
   const [detailedAreaFeatures, setDetailedAreaFeatures] = useState<GenericFeature[]>([]);
   const [wardOverviewRows, setWardOverviewRows] = useState<WardRuntimeData[]>([]);
   const [isReady, setIsReady] = useState(false);
@@ -37,20 +35,20 @@ export function useMapData(): MapDataState {
     let isDisposed = false;
 
     async function loadMapData() {
-      const [wardResponse, overviewResponse, detailedAreaGeojson] = await Promise.all([
-        fetch("/data/ward-boundaries.geojson"),
+      const [overviewResponse, detailedAreaGeojson] = await Promise.all([
         fetch("/data/ward-overviews.json"),
-        fetchFirstAvailableGeojson(["/data/detailed-areas.geojson", "/data/chuo-zones.geojson"]),
+        fetchFirstAvailableGeojson([
+          "/data/detailed-area-index.geojson",
+          "/data/detailed-areas.geojson",
+          "/data/chuo-zones.geojson",
+        ]),
       ]);
-
-      const wardGeojson: GenericFeatureCollection = await wardResponse.json();
       const overviewRows: WardRuntimeData[] = await overviewResponse.json();
 
       if (isDisposed) {
         return;
       }
 
-      setWardFeatures(wardGeojson.features);
       setDetailedAreaFeatures(detailedAreaGeojson.features);
       setWardOverviewRows(overviewRows);
       setIsReady(true);
@@ -63,5 +61,5 @@ export function useMapData(): MapDataState {
     };
   }, []);
 
-  return { wardFeatures, detailedAreaFeatures, wardOverviewRows, isReady };
+  return { detailedAreaFeatures, wardOverviewRows, isReady };
 }

@@ -8,7 +8,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 1
   },
   {
     "wardSlug": "arakawa",
@@ -19,7 +20,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 2
   },
   {
     "wardSlug": "bunkyo",
@@ -30,7 +32,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 3
   },
   {
     "wardSlug": "chiyoda",
@@ -41,7 +44,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 4
   },
   {
     "wardSlug": "chuo",
@@ -189,7 +193,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 5
   },
   {
     "wardSlug": "edogawa",
@@ -200,7 +205,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 6
   },
   {
     "wardSlug": "itabashi",
@@ -211,7 +217,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 7
   },
   {
     "wardSlug": "katsushika",
@@ -222,7 +229,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 8
   },
   {
     "wardSlug": "kita",
@@ -233,7 +241,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 9
   },
   {
     "wardSlug": "koto",
@@ -334,7 +343,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 10
   },
   {
     "wardSlug": "meguro",
@@ -345,7 +355,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 11
   },
   {
     "wardSlug": "minato",
@@ -356,7 +367,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 12
   },
   {
     "wardSlug": "nakano",
@@ -367,7 +379,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 13
   },
   {
     "wardSlug": "nerima",
@@ -378,7 +391,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 14
   },
   {
     "wardSlug": "ota",
@@ -389,7 +403,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 15
   },
   {
     "wardSlug": "setagaya",
@@ -400,7 +415,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 16
   },
   {
     "wardSlug": "shibuya",
@@ -411,7 +427,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 17
   },
   {
     "wardSlug": "shinagawa",
@@ -422,7 +439,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 18
   },
   {
     "wardSlug": "shinjuku",
@@ -433,7 +451,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 19
   },
   {
     "wardSlug": "suginami",
@@ -444,7 +463,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 20
   },
   {
     "wardSlug": "sumida",
@@ -544,7 +564,8 @@
         }
       ]
     },
-    "hasDetailedAreas": true
+    "hasDetailedAreas": true,
+    "tileFeatureId": 21
   },
   {
     "wardSlug": "taito",
@@ -555,7 +576,8 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 22
   },
   {
     "wardSlug": "toshima",
@@ -566,6 +588,7 @@
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false
+    "hasDetailedAreas": false,
+    "tileFeatureId": 23
   }
 ]

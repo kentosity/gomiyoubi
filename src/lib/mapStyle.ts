@@ -3,13 +3,18 @@ import maplibregl from "maplibre-gl";
 export const MULTI_CATEGORY_COLOR = "#facc15";
 
 export const MAP_SOURCE_IDS = {
-  outsideMask: "outside-mask",
   wards: "wards",
+  wardOutlines: "ward-outlines",
   detailedAreas: "detailed-areas",
 } as const;
 
+export const MAP_SOURCE_LAYERS = {
+  wards: "wards",
+  wardOutlines: "ward_outlines",
+  detailedAreas: "detailed_areas",
+} as const;
+
 export const MAP_LAYER_IDS = {
-  outsideMask: "outside-mask",
   wardFill: "ward-fill",
   detailedAreasFill: "detailed-areas-fill",
   detailedAreasOutline: "detailed-areas-outline",
@@ -81,6 +86,7 @@ export function createWardFillLayer(): maplibregl.FillLayerSpecification {
     id: MAP_LAYER_IDS.wardFill,
     type: "fill",
     source: MAP_SOURCE_IDS.wards,
+    "source-layer": MAP_SOURCE_LAYERS.wards,
     paint: {
       "fill-color": [
         "case",
@@ -104,23 +110,12 @@ export function createWardFillLayer(): maplibregl.FillLayerSpecification {
   };
 }
 
-export function createOutsideMaskLayer(): maplibregl.FillLayerSpecification {
-  return {
-    id: MAP_LAYER_IDS.outsideMask,
-    type: "fill",
-    source: MAP_SOURCE_IDS.outsideMask,
-    paint: {
-      "fill-color": "#d7e3ec",
-      "fill-opacity": 0.12,
-    },
-  };
-}
-
 export function createDetailedAreasFillLayer(): maplibregl.FillLayerSpecification {
   return {
     id: MAP_LAYER_IDS.detailedAreasFill,
     type: "fill",
     source: MAP_SOURCE_IDS.detailedAreas,
+    "source-layer": MAP_SOURCE_LAYERS.detailedAreas,
     paint: {
       "fill-color": ["coalesce", ["feature-state", "activeFillColor"], "#000000"],
       "fill-opacity": [
@@ -140,6 +135,7 @@ export function createDetailedAreasOutlineLayer(
     id: MAP_LAYER_IDS.detailedAreasOutline,
     type: "line",
     source: MAP_SOURCE_IDS.detailedAreas,
+    "source-layer": MAP_SOURCE_LAYERS.detailedAreas,
     paint: {
       "line-color": getDetailedAreaOutlineColor(activeAreaId),
       "line-width": getDetailedAreaOutlineWidth(activeAreaId),
@@ -153,7 +149,8 @@ export function createWardOutlineLayer(
   return {
     id: MAP_LAYER_IDS.wardOutline,
     type: "line",
-    source: MAP_SOURCE_IDS.wards,
+    source: MAP_SOURCE_IDS.wardOutlines,
+    "source-layer": MAP_SOURCE_LAYERS.wardOutlines,
     paint: {
       "line-color": getWardOutlineColor(activeWardSlug),
       "line-width": getWardOutlineWidth(activeWardSlug),

@@ -1,8 +1,7 @@
 import { useEffect, useEffectEvent, useRef, useState } from "react";
 import maplibregl, { Map } from "maplibre-gl";
-import { updateBounds } from "../lib/geojson";
+import { PMTiles, Protocol } from "pmtiles";
 import {
-  createOutsideMaskLayer,
   createDetailedAreasFillLayer,
   createDetailedAreasOutlineLayer,
   createWardFillLayer,
@@ -11,37 +10,40 @@ import {
   MAP_SOURCE_IDS,
   TOKYO_STYLE,
 } from "../lib/mapStyle";
-import { type GenericFeatureCollection } from "../types/map";
 import { type MapTarget } from "../types/selection";
+
+const PMTILES_URL = "/data/gomiyoubi.pmtiles";
+const pmtilesProtocol = new Protocol();
+const sharedArchive = new PMTiles(PMTILES_URL);
+let isPmtilesProtocolRegistered = false;
+
+function ensurePmtilesProtocol() {
+  if (!isPmtilesProtocolRegistered) {
+    maplibregl.addProtocol("pmtiles", pmtilesProtocol.tile);
+    pmtilesProtocol.add(sharedArchive);
+    isPmtilesProtocolRegistered = true;
+  }
+}
 
 type UseTrashMapOptions = {
   activeTarget: MapTarget;
-  detailedAreaData: GenericFeatureCollection;
   isFocusLocked: boolean;
   isMapDataReady: boolean;
   onClearHover: () => void;
   onHoverTargetChange: (target: MapTarget) => void;
   onToggleFocusTarget: (target: MapTarget) => void;
-  outsideMaskData: GenericFeatureCollection;
-  wardData: GenericFeatureCollection;
 };
 
 export function useTrashMap({
   activeTarget,
-  detailedAreaData,
   isFocusLocked,
   isMapDataReady,
   onClearHover,
   onHoverTargetChange,
   onToggleFocusTarget,
-  outsideMaskData,
-  wardData,
 }: UseTrashMapOptions) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const initialActiveTargetRef = useRef(activeTarget);
-  const initialDetailedAreaDataRef = useRef(detailedAreaData);
-  const initialOutsideMaskDataRef = useRef(outsideMaskData);
-  const initialWardDataRef = useRef(wardData);
   const mapRef = useRef<Map | null>(null);
   const hoverFrameRef = useRef<number | null>(null);
   const latestPointerPointRef = useRef<maplibregl.Point | null>(null);
@@ -49,10 +51,7 @@ export function useTrashMap({
 
   useEffect(() => {
     initialActiveTargetRef.current = activeTarget;
-    initialDetailedAreaDataRef.current = detailedAreaData;
-    initialOutsideMaskDataRef.current = outsideMaskData;
-    initialWardDataRef.current = wardData;
-  }, [activeTarget, detailedAreaData, outsideMaskData, wardData]);
+  }, [activeTarget]);
 
   function getRenderedFeatureString(
     feature: maplibregl.MapGeoJSONFeature | undefined,
@@ -167,6 +166,8 @@ export function useTrashMap({
       return;
     }
 
+    ensurePmtilesProtocol();
+
     const map = new maplibregl.Map({
       container: containerRef.current,
       style: TOKYO_STYLE,
@@ -179,24 +180,21 @@ export function useTrashMap({
     mapRef.current = map;
 
     map.on("load", () => {
-      map.addSource(MAP_SOURCE_IDS.outsideMask, {
-        type: "geojson",
-        data: initialOutsideMaskDataRef.current,
+      map.addSource(MAP_SOURCE_IDS.wards, {
+        type: "vector",
+        url: `pmtiles://${PMTILES_URL}`,
       });
 
-      map.addSource(MAP_SOURCE_IDS.wards, {
-        type: "geojson",
-        data: initialWardDataRef.current,
-        promoteId: "slug",
+      map.addSource(MAP_SOURCE_IDS.wardOutlines, {
+        type: "vector",
+        url: `pmtiles://${PMTILES_URL}`,
       });
 
       map.addSource(MAP_SOURCE_IDS.detailedAreas, {
-        type: "geojson",
-        data: initialDetailedAreaDataRef.current,
-        promoteId: "renderId",
+        type: "vector",
+        url: `pmtiles://${PMTILES_URL}`,
       });
 
-      map.addLayer(createOutsideMaskLayer());
       map.addLayer(createWardFillLayer());
       map.addLayer(createDetailedAreasFillLayer());
       map.addLayer(createDetailedAreasOutlineLayer(initialActiveTargetRef.current.areaId));
@@ -206,11 +204,10 @@ export function useTrashMap({
       map.on("click", handleMapClick);
       map.getCanvas().addEventListener("mouseleave", handlePointerLeave);
 
-      const bounds = new maplibregl.LngLatBounds();
-      for (const feature of initialWardDataRef.current.features) {
-        updateBounds(bounds, feature.geometry);
-      }
-      map.fitBounds(bounds, { padding: 64, duration: 0 });
+      map.fitBounds(new maplibregl.LngLatBounds([139.55, 35.52], [139.96, 35.85]), {
+        padding: 64,
+        duration: 0,
+      });
       setIsMapLoaded(true);
     });
 

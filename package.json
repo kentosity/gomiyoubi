@@ -11,7 +11,7 @@
     "data:extract": "pnpm data:extract:koto && pnpm data:extract:sumida",
     "db:bootstrap": "python3 scripts/bootstrap_sqlite.py --force",
     "db:export": "python3 scripts/export_frontend_data.py",
-    "db:build": "pnpm data:extract && pnpm db:bootstrap && pnpm db:export",
+    "db:build": "pnpm data:extract && pnpm db:bootstrap && pnpm db:export && pnpm build:tiles",
     "db:summary": "python3 scripts/sqlite_summary.py",
     "typecheck": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.node.json --noEmit",
     "build": "pnpm typecheck && vite build",
@@ -24,11 +24,15 @@
     "test:run": "vitest run",
     "check": "pnpm lint && pnpm format:check && pnpm test:run && pnpm build",
     "clean": "rm -rf dist coverage",
-    "fetch:boundaries": "node scripts/fetch-ward-boundaries.mjs",
+    "build:ward-boundaries": "python3 scripts/build_ward_outlines.py",
+    "build:ward-outlines": "python3 scripts/build_ward_outlines.py",
+    "build:tiles": "python3 scripts/build_map_tiles.py",
+    "fetch:boundaries": "pnpm build:ward-boundaries",
     "build:chuo-zones": "python3 scripts/build_chuo_zones.py"
   },
   "dependencies": {
     "maplibre-gl": "^5.9.0",
+    "pmtiles": "^4.4.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

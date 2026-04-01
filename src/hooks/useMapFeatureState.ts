@@ -1,32 +1,27 @@
 import { useEffect, type RefObject } from "react";
 import { type Map } from "maplibre-gl";
 import { type CategoryKey, type DayKey } from "../data/schedule";
-import {
-  getDetailedAreaFeatureState,
-  getWardFeatureState,
-} from "../lib/mapData";
-import { MAP_SOURCE_IDS } from "../lib/mapStyle";
-import { type GenericFeatureCollection } from "../types/map";
+import { getDetailedAreaFeatureState, getWardFeatureState } from "../lib/mapData";
+import { MAP_SOURCE_IDS, MAP_SOURCE_LAYERS } from "../lib/mapStyle";
+import { type GenericFeature } from "../types/map";
 import { type WardRuntimeData } from "../types/data";
 
 type UseMapFeatureStateOptions = {
-  detailedAreaSourceData: GenericFeatureCollection;
+  detailedAreaFeatures: GenericFeature[];
   isMapLoaded: boolean;
   mapRef: RefObject<Map | null>;
   selectedCategories: CategoryKey[];
   selectedDay: DayKey | null;
   wardRuntimeData: Record<string, WardRuntimeData>;
-  wardSourceData: GenericFeatureCollection;
 };
 
 export function useMapFeatureState({
-  detailedAreaSourceData,
+  detailedAreaFeatures,
   isMapLoaded,
   mapRef,
   selectedCategories,
   selectedDay,
   wardRuntimeData,
-  wardSourceData,
 }: UseMapFeatureStateOptions) {
   useEffect(() => {
     if (!isMapLoaded || !mapRef.current) {
@@ -34,47 +29,56 @@ export function useMapFeatureState({
     }
 
     const map = mapRef.current;
+    const applyFeatureState = () => {
+      for (const ward of Object.values(wardRuntimeData)) {
+        if (typeof ward.tileFeatureId !== "number") {
+          continue;
+        }
 
-    for (const feature of wardSourceData.features) {
-      const wardSlug =
-        typeof feature.properties?.slug === "string" ? String(feature.properties.slug) : null;
-      if (!wardSlug) {
-        continue;
+        map.setFeatureState(
+          {
+            source: MAP_SOURCE_IDS.wards,
+            sourceLayer: MAP_SOURCE_LAYERS.wards,
+            id: ward.tileFeatureId,
+          },
+          getWardFeatureState(ward.wardSlug, wardRuntimeData, selectedDay, selectedCategories),
+        );
       }
 
-      map.setFeatureState(
-        {
-          source: MAP_SOURCE_IDS.wards,
-          id: wardSlug,
-        },
-        getWardFeatureState(wardSlug, wardRuntimeData, selectedDay, selectedCategories),
-      );
-    }
+      for (const feature of detailedAreaFeatures) {
+        const tileFeatureId =
+          typeof feature.properties?.tileFeatureId === "number"
+            ? feature.properties.tileFeatureId
+            : typeof feature.properties?.tileFeatureId === "string"
+              ? Number(feature.properties.tileFeatureId)
+              : null;
+        if (!tileFeatureId || Number.isNaN(tileFeatureId)) {
+          continue;
+        }
 
-    for (const feature of detailedAreaSourceData.features) {
-      const renderId =
-        typeof feature.properties?.renderId === "string"
-          ? String(feature.properties.renderId)
-          : null;
-      if (!renderId) {
-        continue;
+        map.setFeatureState(
+          {
+            source: MAP_SOURCE_IDS.detailedAreas,
+            sourceLayer: MAP_SOURCE_LAYERS.detailedAreas,
+            id: tileFeatureId,
+          },
+          getDetailedAreaFeatureState(feature, selectedDay, selectedCategories),
+        );
       }
+    };
 
-      map.setFeatureState(
-        {
-          source: MAP_SOURCE_IDS.detailedAreas,
-          id: renderId,
-        },
-        getDetailedAreaFeatureState(feature, selectedDay, selectedCategories),
-      );
-    }
+    applyFeatureState();
+    map.on("idle", applyFeatureState);
+
+    return () => {
+      map.off("idle", applyFeatureState);
+    };
   }, [
-    detailedAreaSourceData,
+    detailedAreaFeatures,
     isMapLoaded,
     mapRef,
     selectedCategories,
     selectedDay,
     wardRuntimeData,
-    wardSourceData,
   ]);
 }

@@ -7,15 +7,17 @@ What is in the repo right now:
 - a source registry for the official ward schedule pages
 - a SQLite-backed canonical data model for sources, areas, claims, and consensus
 - a SQLite-to-`public/data` export step for the frontend map artifacts
+- a tile build step that packs ward and detailed-area geometry into `PMTiles`
 - a `MapLibre + React + Vite` display prototype
 - project notes and findings in `docs/findings.md`
 
 Current prototype limits:
 
-- the map is still ward-level, not exact block-level collection-zone masking
+- the map is sub-ward for `Chuo`, `Koto`, and `Sumida`, but not yet exact collection-point masking
 - `Chuo` is backed by the official CSV and has the strongest day signal
-- `Koto` now has normalized district-level schedule claims in SQLite, but address-to-district geometry is still pending
-- `Sumida` now has normalized 12-zone weekday patterns in SQLite, but zone geometry is still pending
+- `Koto` has normalized district-level claims and district geometry
+- `Sumida` has normalized 12-zone weekday patterns and zone geometry
+- the remaining `20` wards are still `pending` coverage placeholders
 
 Run it:
 
@@ -40,6 +42,7 @@ Common commands:
 /opt/homebrew/bin/mise x -- pnpm db:bootstrap
 /opt/homebrew/bin/mise x -- pnpm db:export
 /opt/homebrew/bin/mise x -- pnpm db:build
+/opt/homebrew/bin/mise x -- pnpm build:tiles
 /opt/homebrew/bin/mise x -- pnpm db:summary
 /opt/homebrew/bin/mise x -- pnpm lint
 /opt/homebrew/bin/mise x -- pnpm format
@@ -60,17 +63,24 @@ Primary data files:
 - `scripts/extract_koto_data.py`
 - `scripts/extract_sumida_data.py`
 - `scripts/export_frontend_data.py`
+- `scripts/build_ward_outlines.py`
+- `scripts/build_map_tiles.py`
 - `public/data/ward-boundaries.geojson`
+- `public/data/ward-outlines.geojson`
 - `public/data/ward-overviews.json`
-- `public/data/detailed-areas.geojson`
+- `public/data/detailed-area-index.geojson`
+- `public/data/gomiyoubi.pmtiles`
 
 Published frontend artifacts:
 
 - `public/data/ward-boundaries.geojson`
+- `public/data/ward-outlines.geojson`
 - `public/data/ward-overviews.json`
-- `public/data/detailed-areas.geojson`
-- refresh them from SQLite with `pnpm db:export`
-- rebuild the SQLite database and refresh those artifacts with `pnpm db:build`
+- `public/data/detailed-area-index.geojson`
+- `public/data/gomiyoubi.pmtiles`
+- refresh the JSON exports from SQLite with `pnpm db:export`
+- rebuild the JSON exports and tiles with `pnpm db:build`
+- rebuild just the tile artifacts with `pnpm build:tiles`
 
 Useful notes:
 

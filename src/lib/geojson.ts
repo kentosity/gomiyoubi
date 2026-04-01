@@ -1,7 +1,14 @@
 import maplibregl from "maplibre-gl";
 import { type GenericFeature, type GenericFeatureCollection } from "../types/map";
 
-export function updateBounds(bounds: maplibregl.LngLatBounds, geometry: GeoJSON.Geometry) {
+export function updateBounds(
+  bounds: maplibregl.LngLatBounds,
+  geometry: GeoJSON.Geometry | null,
+) {
+  if (!geometry) {
+    return;
+  }
+
   if (geometry.type === "Polygon") {
     for (const ring of geometry.coordinates) {
       for (const [lng, lat] of ring) {

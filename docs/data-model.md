@@ -35,6 +35,7 @@ The canonical pieces now live here:
 - schema: `data/schema.sql`
 - bootstrap script: `scripts/bootstrap_sqlite.py`
 - frontend export script: `scripts/export_frontend_data.py`
+- tile build scripts: `scripts/build_ward_outlines.py`, `scripts/build_map_tiles.py`
 - summary script: `scripts/sqlite_summary.py`
 - local database: `data/gomiyoubi.sqlite` (generated, not committed)
 
@@ -231,21 +232,23 @@ This is a better fit for incremental coverage than hiding unsupported wards enti
 
 ## Frontend Performance Notes
 
-The current frontend architecture is intentionally split between:
+The frontend architecture is intentionally split between:
 
-- static source data
-- dynamic feature state
+- lightweight metadata fetched into React
+- static geometry delivered as vector tiles
+- dynamic paint state applied through `MapLibre feature-state`
 
-Published GeoJSON should be treated as mostly static. Interactive filter changes should avoid rebuilding and re-uploading entire GeoJSON sources when possible.
+The earlier GeoJSON-only path worked for the first prototype, but it became the next real bottleneck once the project loaded `23` ward polygons plus detailed sub-ward geometry on startup.
 
 The current direction is:
 
-- keep ward/detailed geometry in published `public/data`
+- keep canonical data in SQLite
+- export ward summaries as JSON
+- export a slim detailed-area index for the hover/detail UI
+- pack ward fills, ward outlines, and detailed polygons into `public/data/gomiyoubi.pmtiles`
 - use `MapLibre feature-state` for day/category paint updates
-- keep outside-mask geometry simple
-- simplify fetched ward boundaries at generation time
 
-That approach proved materially faster than pushing full source replacements on every filter change.
+This is a better fit than browser-side SQLite or WASM for the current problem. The performance issue was geometry delivery and parse cost, not relational query execution.
 
 ## Frontend Export
 
@@ -254,10 +257,18 @@ The browser does not read SQLite directly.
 Instead we export frontend-ready artifacts from the canonical database:
 
 - `public/data/ward-boundaries.geojson`
+- `public/data/ward-outlines.geojson`
 - `public/data/ward-overviews.json`
-- `public/data/detailed-areas.geojson`
+- `public/data/detailed-area-index.geojson`
+- `public/data/gomiyoubi.pmtiles`
 
-The runtime app currently fetches these published artifacts and no longer depends on hardcoded ward metadata in `src/data`.
+The runtime app currently:
+
+- fetches `ward-overviews.json`
+- fetches `detailed-area-index.geojson`
+- loads geometry from `gomiyoubi.pmtiles`
+
+It no longer depends on hardcoded ward metadata in `src/data`, and it no longer needs to parse all geometry as startup GeoJSON in the browser.
 
 Run:
 

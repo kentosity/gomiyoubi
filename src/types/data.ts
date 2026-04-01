@@ -4,6 +4,7 @@ export type WardRuntimeData = {
   wardSlug: string;
   wardNameJa: string;
   wardNameEn: string;
+  tileFeatureId: number;
   sourceQuality: SourceQuality;
   sourceLabel: string;
   granularity: string;

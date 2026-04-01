@@ -45,6 +45,7 @@ Last updated: `2026-04-01`
   - high-resolution `23`-ward boundary GeoJSON
   - an expensive outside-mask polygon
   - repeated whole-source `setData()` updates for day/category changes
+- Loading multiple large startup GeoJSON files was the next hard ceiling. Even compressed over the network, the browser still had to parse and upload too much geometry on first paint.
 - Deterministic fixes were more effective than styling tweaks:
   - simplify ward boundaries at fetch time
   - replace the outside mask with `4` simple rectangles instead of a complex hole polygon
@@ -53,10 +54,20 @@ Last updated: `2026-04-01`
   - suppress redundant hover state updates and limit pointer work to `1` animation frame
 - After simplifying ward boundaries, `public/data/ward-boundaries.geojson` dropped from about `1.8 MB` / `22k` coordinates to about `163 KB` / `1.9k` coordinates. That was a major performance win.
 - In this app, `feature-state` is the right model for interactive coloring. Static geometry should stay static; only the paint-relevant state should change when filters change.
+- Raw GeoJSON startup delivery was replaced by a tile pipeline:
+  - geometry is now packed into `public/data/gomiyoubi.pmtiles`
+  - the frontend only fetches lightweight metadata JSON plus a slim `detailed-area-index.geojson`
+  - `MapLibre + PMTiles` is a better fit than browser-side SQLite or WASM for this bottleneck, because the problem was geometry transport and parse cost, not relational querying
+- The first PMTiles prototype cut the geometry delivery path from multi-megabyte startup GeoJSON down to roughly:
+  - `gomiyoubi.pmtiles`: `~728 KB`
+  - `detailed-area-index.geojson`: `~142 KB`
+  - `ward-overviews.json`: `~13 KB`
+- With vector tiles, feature-state application must account for tile timing. Applying state only once on map load is not sufficient; reapplying on `idle` is necessary so late-arriving tiles still receive color state.
 
 ## Next Likely Work
 
 - Resolve the remaining `Chuo` address-split rows without inventing geometry.
 - Add real source discovery for the remaining `20` wards that are currently boundary-only placeholders.
+- Replace the remaining `detailed-area-index.geojson` startup payload with an even slimmer plain JSON index if first-paint latency still matters.
 - Decide whether the next frontend bottleneck is small enough to leave as-is or whether to move more hover/highlight logic into `feature-state`.
 - Reduce the client bundle size if frontend performance becomes a problem.

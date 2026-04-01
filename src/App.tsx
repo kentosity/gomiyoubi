@@ -5,11 +5,8 @@ import { useMapData } from "./hooks/useMapData";
 import { useMapFeatureState } from "./hooks/useMapFeatureState";
 import { useMapHighlighting } from "./hooks/useMapHighlighting";
 import { useMapSelection } from "./hooks/useMapSelection";
-import { useMapSourceData } from "./hooks/useMapSourceData";
 import { useTrashFilters } from "./hooks/useTrashFilters";
 import { useTrashMap } from "./hooks/useTrashMap";
-import { buildOutsideMaskFeatureCollection } from "./lib/geojson";
-import { buildDetailedAreaSourceData, buildWardSourceData } from "./lib/mapData";
 import { buildWardRuntimeData } from "./lib/runtimeData";
 import {
   buildActiveArea,
@@ -20,55 +17,28 @@ import {
 
 function App() {
   const { chooseDay, selectedCategories, selectedDay, toggleCategory } = useTrashFilters();
-  const { detailedAreaFeatures, isReady, wardFeatures, wardOverviewRows } = useMapData();
+  const { detailedAreaFeatures, isReady, wardOverviewRows } = useMapData();
   const { activeTarget, clearHover, isFocusLocked, setHoverTarget, toggleFocusTarget } =
     useMapSelection();
 
-  const wardRuntimeData = useMemo(
-    () => buildWardRuntimeData(wardFeatures, detailedAreaFeatures, wardOverviewRows),
-    [detailedAreaFeatures, wardFeatures, wardOverviewRows],
-  );
-  const wardSourceData = useMemo(
-    () => buildWardSourceData(wardFeatures, wardRuntimeData),
-    [wardFeatures, wardRuntimeData],
-  );
-  const outsideMaskData = useMemo(
-    () => buildOutsideMaskFeatureCollection(wardFeatures),
-    [wardFeatures],
-  );
-  const detailedAreaSourceData = useMemo(
-    () => buildDetailedAreaSourceData(detailedAreaFeatures),
-    [detailedAreaFeatures],
-  );
+  const wardRuntimeData = useMemo(() => buildWardRuntimeData(wardOverviewRows), [wardOverviewRows]);
 
   const { containerRef, isMapLoaded, mapRef } = useTrashMap({
     activeTarget,
-    detailedAreaData: detailedAreaSourceData,
     isFocusLocked,
     isMapDataReady: isReady,
     onClearHover: clearHover,
     onHoverTargetChange: setHoverTarget,
     onToggleFocusTarget: toggleFocusTarget,
-    outsideMaskData,
-    wardData: wardSourceData,
-  });
-
-  useMapSourceData({
-    detailedAreaData: detailedAreaSourceData,
-    isMapLoaded,
-    mapRef,
-    outsideMaskData,
-    wardData: wardSourceData,
   });
 
   useMapFeatureState({
-    detailedAreaSourceData,
+    detailedAreaFeatures,
     isMapLoaded,
     mapRef,
     selectedCategories,
     selectedDay,
     wardRuntimeData,
-    wardSourceData,
   });
 
   useMapHighlighting({
