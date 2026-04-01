@@ -21,10 +21,7 @@ import {
   type InfoRowModel,
 } from "../types/ui";
 
-function buildInfoRows(
-  sourceLabel: string,
-  sourceUrl?: string | null,
-): InfoRowModel[] {
+function buildInfoRows(sourceLabel: string, sourceUrl?: string | null): InfoRowModel[] {
   return [
     {
       kind: "text",
@@ -94,11 +91,14 @@ function getAreaSourceLabel(detailedArea: GenericFeature, fallbackSourceLabel: s
     : fallbackSourceLabel;
 }
 
-function getAreaSourceUrl(detailedArea: GenericFeature, fallbackSourceUrl?: string | null): string | null {
+function getAreaSourceUrl(
+  detailedArea: GenericFeature,
+  fallbackSourceUrl?: string | null,
+): string | null {
   const sourceUrl = detailedArea.properties?.sourceUrl;
   return typeof sourceUrl === "string" && sourceUrl.length > 0
     ? sourceUrl
-    : fallbackSourceUrl ?? null;
+    : (fallbackSourceUrl ?? null);
 }
 
 export function buildDayOptions(selectedDay: DayKey): DayOptionModel[] {
@@ -163,8 +163,9 @@ export function buildHoverPanelModel(activeArea: ActiveArea, selectedDay: DayKey
   if (activeArea.kind === "empty") {
     return {
       kind: "empty",
+      eyebrow: "MAP INSPECTOR",
       title: "エリア情報",
-      copy: "地図上の区または丁目に合わせると表示します。",
+      copy: "区または町丁目に合わせて確認し、クリックで選択を固定できます。",
     };
   }
 
@@ -175,6 +176,10 @@ export function buildHoverPanelModel(activeArea: ActiveArea, selectedDay: DayKey
 
     return {
       kind: "content",
+      eyebrow: activeArea.ward.hasDetailedAreas ? "WARD OVERVIEW" : "WARD SCHEDULE",
+      note: activeArea.ward.hasDetailedAreas
+        ? "この区は町丁目ごとの詳細があります。地図上を拡大して地区を選ぶと、より正確な収集日を確認できます。"
+        : undefined,
       title: activeArea.ward.wardNameJa,
       scheduleLabel: scheduleRows && scheduleRows.length > 0 ? "曜日ごとの収集" : undefined,
       scheduleRows: scheduleRows && scheduleRows.length > 0 ? scheduleRows : undefined,
@@ -184,6 +189,7 @@ export function buildHoverPanelModel(activeArea: ActiveArea, selectedDay: DayKey
 
   return {
     kind: "content",
+    eyebrow: activeArea.ward.wardNameJa,
     title: activeArea.activeFeatureLabel || getDetailedAreaLabel(activeArea.detailedArea),
     scheduleLabel: "曜日ごとの収集",
     scheduleRows: weekdayOrder.map((day) => ({

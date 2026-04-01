@@ -1,48 +1,42 @@
 :root {
-  --paper-grid: 20px;
-  --paper-grid-major: 100px;
-  --line-body: 20px;
-  --line-tight: 20px;
-  --line-title: 40px;
-  --panel-pad: 20px;
-  --panel-width-detail: min(344px, calc(100vw - 40px));
-  --panel-width-filter: min(292px, calc(100vw - 40px));
+  --shell-pad: 18px;
+  --panel-pad: 24px;
+  --panel-width-detail: 340px;
+  --panel-width-filter: 320px;
 
-  --font-sans: "BIZ UDPMincho", "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
-  --font-serif: "BIZ UDPMincho", "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
+  --line-body: 1.58;
+  --line-tight: 1.28;
+  --line-title: 1.02;
 
-  --color-text: #243247;
-  --color-text-soft: #53657c;
-  --color-text-strong: #172232;
-  --color-accent: #365f96;
-  --color-surface: rgba(248, 245, 235, 0.92);
-  --color-surface-strong: rgba(241, 236, 222, 0.94);
-  --color-border: rgba(90, 116, 152, 0.24);
-  --color-shadow: rgba(71, 85, 105, 0.18);
-  --color-pill: rgba(225, 217, 197, 0.92);
-  --color-grid-major: rgba(92, 130, 179, 0.22);
-  --color-grid-minor: rgba(92, 130, 179, 0.08);
-  --color-paper-stain: rgba(191, 162, 107, 0.1);
-  --color-ink-red: #9f4b4b;
-  --color-paper-redline: rgba(159, 75, 75, 0.14);
-  --color-paper-blue: rgba(92, 130, 179, 0.12);
-  --color-paper-shadow-soft: rgba(120, 102, 72, 0.12);
-  --color-stamp-bg: rgba(194, 68, 68, 0.06);
-  --color-stamp-border: rgba(159, 75, 75, 0.34);
-  --color-note-bg: rgba(249, 244, 224, 0.88);
+  --font-sans:
+    "Avenir Next", "IBM Plex Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    sans-serif;
+  --font-display:
+    "Avenir Next Condensed", "Avenir Next", "DIN Alternate", "IBM Plex Sans JP", "Hiragino Sans",
+    sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", "IBM Plex Mono", "Menlo", monospace;
 
-  --gradient-bg:
-    radial-gradient(circle at top left, rgba(191, 162, 107, 0.18), transparent 26%),
-    radial-gradient(circle at bottom right, rgba(92, 130, 179, 0.14), transparent 28%),
-    linear-gradient(180deg, #f7f2e6 0%, #efe8d8 100%);
-  --gradient-action: linear-gradient(180deg, rgba(110, 141, 179, 0.22), rgba(72, 104, 143, 0.18));
+  --color-canvas: #ddd8cf;
+  --color-canvas-soft: #f4efe6;
+  --color-panel: rgba(247, 243, 237, 0.84);
+  --color-panel-strong: rgba(255, 252, 247, 0.92);
+  --color-text: #171717;
+  --color-text-soft: #575c63;
+  --color-text-muted: #7a8087;
+  --color-accent: rgba(255, 255, 255, 0.96);
+  --color-accent-soft: rgba(255, 255, 255, 0.18);
+  --color-border: rgba(23, 23, 23, 0.12);
+  --color-border-strong: rgba(23, 23, 23, 0.22);
+  --color-divider: rgba(23, 23, 23, 0.09);
+  --color-shadow: rgba(19, 24, 28, 0.12);
+  --color-shadow-soft: rgba(19, 24, 28, 0.05);
+  --color-map-veil: rgba(255, 252, 247, 0.12);
 
-  --radius-card-lg: 16px;
-  --radius-card-md: 16px;
+  --radius-stage: 30px;
+  --radius-panel: 24px;
   --radius-pill: 999px;
-  --radius-chip: 10px;
-  --radius-block: 12px;
-  --radius-button: 8px;
+  --radius-button: 18px;
 
-  --shadow-card: 0 20px 52px var(--color-shadow), 0 8px 18px var(--color-paper-shadow-soft);
+  --shadow-stage: 0 34px 80px var(--color-shadow), 0 6px 18px var(--color-shadow-soft);
+  --shadow-card: 0 24px 56px rgba(19, 24, 28, 0.08), 0 6px 18px rgba(19, 24, 28, 0.04);
 }

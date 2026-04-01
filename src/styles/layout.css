@@ -1,7 +1,38 @@
 .app-shell {
   position: relative;
   min-height: 100vh;
+  padding: var(--shell-pad);
+}
+
+.map-stage {
+  position: absolute;
+  inset: var(--shell-pad);
+  border-radius: var(--radius-stage);
   overflow: hidden;
+  background: #d3cec4;
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  box-shadow: var(--shadow-stage);
+}
+
+.map-stage::before,
+.map-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.map-stage::before {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent 26%),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.32), transparent 26%);
+}
+
+.map-stage::after {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 44%),
+    linear-gradient(0deg, rgba(12, 16, 20, 0.08), transparent 18%);
 }
 
 .map-canvas {
@@ -9,103 +40,152 @@
   inset: 0;
 }
 
-.map-canvas::after {
-  content: none;
-}
-
-.map-canvas::before {
-  content: none;
-}
-
-.surface-card {
+.app-chrome {
+  position: relative;
   z-index: 2;
-  backdrop-filter: blur(16px);
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.12)),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0,
-      transparent calc(var(--paper-grid) - 1px),
-      var(--color-grid-minor) calc(var(--paper-grid) - 1px),
-      var(--color-grid-minor) var(--paper-grid)
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0,
-      transparent calc(var(--paper-grid) - 1px),
-      var(--color-grid-minor) calc(var(--paper-grid) - 1px),
-      var(--color-grid-minor) var(--paper-grid)
-    ),
-    radial-gradient(circle at top left, var(--color-paper-stain), transparent 30%),
-    var(--color-surface);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-card);
-  overflow: hidden;
-}
-
-.surface-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: var(--panel-pad);
-  width: 1px;
-  background: linear-gradient(
-    180deg,
-    transparent 0,
-    rgba(182, 95, 95, 0.08) 16%,
-    rgba(182, 95, 95, 0.08) 84%,
-    transparent 100%
-  );
+  min-height: calc(100vh - (var(--shell-pad) * 2));
+  display: grid;
+  grid-template-columns:
+    minmax(300px, var(--panel-width-detail))
+    minmax(0, 1fr)
+    minmax(280px, var(--panel-width-filter));
+  grid-template-rows: 1fr;
+  gap: 18px;
   pointer-events: none;
 }
 
-.surface-card::after {
-  content: none;
+.surface-card {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.16)),
+    var(--color-panel);
+  backdrop-filter: blur(18px) saturate(0.88);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
 }
 
-.control-panel,
-.hover-card {
+.surface-card::before,
+.surface-card::after {
+  content: none;
   position: absolute;
-  z-index: 2;
+  pointer-events: none;
+}
+
+.hover-card,
+.control-panel {
+  width: 100%;
+  border-radius: var(--radius-panel);
+}
+
+.hover-card {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
+  width: min(100%, var(--panel-width-detail));
+  max-width: var(--panel-width-detail);
+  max-height: calc(100vh - (var(--shell-pad) * 2));
+  padding: 20px;
+  overflow: auto;
 }
 
 .control-panel {
-  top: 20px;
-  right: 20px;
-  width: var(--panel-width-filter);
+  grid-column: 3;
+  grid-row: 1;
+  align-self: start;
   padding: var(--panel-pad);
-  border-radius: var(--radius-card-lg);
-}
-
-.hover-card {
-  top: 20px;
-  left: 20px;
-  width: var(--panel-width-detail);
-  padding: var(--panel-pad);
-  border-radius: var(--radius-card-md);
+  overflow: auto;
 }
 
 .maplibregl-ctrl-bottom-right {
-  bottom: 20px;
-  right: 20px;
+  right: 24px;
+  bottom: 24px;
 }
 
-@media (max-width: 920px) {
-  .control-panel,
+.maplibregl-ctrl-group {
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: 0 12px 30px rgba(19, 24, 28, 0.12) !important;
+  background: rgba(250, 248, 244, 0.88) !important;
+  backdrop-filter: blur(14px);
+}
+
+.maplibregl-ctrl-group button {
+  width: 40px;
+  height: 40px;
+  background: transparent !important;
+}
+
+.maplibregl-ctrl-group button + button {
+  border-top: 1px solid var(--color-divider);
+}
+
+.maplibregl-ctrl button span {
+  opacity: 0.8;
+}
+
+.maplibregl-ctrl-attrib {
+  border-radius: 999px !important;
+  margin: 0 10px 10px 0 !important;
+  padding: 4px 10px !important;
+  background: rgba(250, 248, 244, 0.74) !important;
+  color: var(--color-text-soft);
+}
+
+@media (max-width: 1120px) {
+  .app-chrome {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, var(--panel-width-filter));
+    grid-template-rows: 1fr;
+  }
+
   .hover-card {
-    position: static;
-    width: auto;
-    margin: 20px;
+    grid-column: 1;
+    grid-row: 1;
   }
 
+  .control-panel {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 860px) {
   .app-shell {
-    display: grid;
-    grid-template-rows: 360px auto auto;
+    padding: 0;
   }
 
-  .map-canvas {
+  .map-stage {
     position: relative;
-    min-height: 360px;
+    inset: auto;
+    min-height: 46vh;
+    border-radius: 0 0 28px 28px;
+  }
+
+  .app-chrome {
+    min-height: 0;
+    margin-top: -30px;
+    padding: 0 14px 16px;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 14px;
+  }
+
+  .hover-card,
+  .control-panel {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .hover-card {
+    width: 100%;
+    max-width: none;
+    max-height: none;
+  }
+
+  .maplibregl-ctrl-bottom-right {
+    right: 14px;
+    bottom: 14px;
   }
 }

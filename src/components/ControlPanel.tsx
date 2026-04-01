@@ -4,20 +4,32 @@ import type { CategoryOptionModel, DayOptionModel } from "../types/ui";
 import { MULTI_CATEGORY_COLOR } from "../lib/mapData";
 
 type ControlPanelProps = {
+  activeCategorySummary: string;
   onChooseDay: (day: DayKey) => void;
   onToggleCategory: (category: CategoryKey) => void;
   dayOptions: DayOptionModel[];
   categoryOptions: CategoryOptionModel[];
+  selectedDayLabel: string;
 };
 
 export function ControlPanel({
+  activeCategorySummary,
   onChooseDay,
   onToggleCategory,
   dayOptions,
   categoryOptions,
+  selectedDayLabel,
 }: ControlPanelProps) {
   return (
     <section className="control-panel surface-card">
+      <div className="panel-intro">
+        <p className="eyebrow">FILTERS</p>
+        <h2>表示条件</h2>
+        <p className="panel-copy">
+          {selectedDayLabel} / {activeCategorySummary}
+        </p>
+      </div>
+
       <div className="filter-block filter-block-first">
         <div className="filter-header">
           <span>曜日</span>
@@ -54,14 +66,15 @@ export function ControlPanel({
               title={option.label}
             >
               <span className="legend-swatch" style={{ backgroundColor: option.color }} />
-              <span>{option.shortLabel}</span>
+              <span className="category-label">{option.label}</span>
+              <span className="category-short">{option.shortLabel}</span>
             </button>
           ))}
         </div>
 
         <p className="mini-caption">
           <span className="legend-swatch" style={{ backgroundColor: MULTI_CATEGORY_COLOR }} />
-          複数品目は黄色で表示
+          重なりは黄色で表示
         </p>
       </div>
     </section>

@@ -40,10 +40,10 @@ export const TOKYO_STYLE: maplibregl.StyleSpecification = {
       source: "osm",
       paint: {
         "raster-opacity": 1,
-        "raster-saturation": 0.32,
-        "raster-contrast": 0.12,
-        "raster-brightness-min": 0,
-        "raster-brightness-max": 1,
+        "raster-saturation": -0.72,
+        "raster-contrast": 0.08,
+        "raster-brightness-min": 0.16,
+        "raster-brightness-max": 0.94,
       },
     },
   ],
@@ -52,13 +52,18 @@ export const TOKYO_STYLE: maplibregl.StyleSpecification = {
 export function getWardOutlineColor(
   activeWardSlug: string | null,
 ): maplibregl.ExpressionSpecification {
-  return ["case", ["==", ["get", "slug"], activeWardSlug ?? ""], "#f8fafc", "#dbe4f0"];
+  return [
+    "case",
+    ["==", ["get", "slug"], activeWardSlug ?? ""],
+    "rgba(255, 255, 255, 0.98)",
+    "rgba(226, 232, 240, 0.34)",
+  ];
 }
 
 export function getWardOutlineWidth(
   activeWardSlug: string | null,
 ): maplibregl.ExpressionSpecification {
-  return ["case", ["==", ["get", "slug"], activeWardSlug ?? ""], 2.6, 1.2];
+  return ["case", ["==", ["get", "slug"], activeWardSlug ?? ""], 2.4, 1];
 }
 
 export function getDetailedAreaOutlineColor(
@@ -67,8 +72,8 @@ export function getDetailedAreaOutlineColor(
   return [
     "case",
     ["==", ["coalesce", ["get", "areaId"], ["get", "zoneId"]], activeAreaId ?? ""],
-    "#ffffff",
-    "rgba(226, 232, 240, 0.45)",
+    "rgba(255, 255, 255, 0.98)",
+    "rgba(226, 232, 240, 0.22)",
   ];
 }
 
@@ -78,8 +83,8 @@ export function getDetailedAreaOutlineWidth(
   return [
     "case",
     ["==", ["coalesce", ["get", "areaId"], ["get", "zoneId"]], activeAreaId ?? ""],
-    2.3,
-    0.7,
+    2.1,
+    0.8,
   ];
 }
 
@@ -93,20 +98,20 @@ export function createWardFillLayer(): maplibregl.FillLayerSpecification {
       "fill-color": [
         "case",
         ["==", ["get", "sourceQuality"], "pending"],
-        "#1f2937",
+        "#18181b",
         ["==", ["coalesce", ["feature-state", "signalCount"], 0], 0],
-        "#374151",
-        ["coalesce", ["feature-state", "fillColor"], "#334155"],
+        "#52525b",
+        ["coalesce", ["feature-state", "fillColor"], "#3f3f46"],
       ],
       "fill-opacity": [
         "case",
         ["==", ["get", "hasDetailedAreas"], true],
         0,
         ["==", ["get", "sourceQuality"], "pending"],
-        0.48,
+        0.42,
         ["==", ["coalesce", ["feature-state", "signalCount"], 0], 0],
-        0.3,
-        0.18,
+        0.22,
+        0.2,
       ],
     },
   };
@@ -119,13 +124,8 @@ export function createWardActiveMaskLayer(): maplibregl.FillLayerSpecification {
     source: MAP_SOURCE_IDS.wards,
     "source-layer": MAP_SOURCE_LAYERS.wards,
     paint: {
-      "fill-color": "#111827",
-      "fill-opacity": [
-        "case",
-        ["boolean", ["feature-state", "isActive"], false],
-        0.18,
-        0,
-      ],
+      "fill-color": "#ffffff",
+      "fill-opacity": ["case", ["boolean", ["feature-state", "isActive"], false], 0.06, 0],
     },
   };
 }
@@ -141,7 +141,7 @@ export function createDetailedAreasFillLayer(): maplibregl.FillLayerSpecificatio
       "fill-opacity": [
         "case",
         [">", ["coalesce", ["feature-state", "activeCategoryCount"], 0], 0],
-        0.66,
+        0.74,
         0,
       ],
     },
@@ -155,13 +155,8 @@ export function createDetailedAreasActiveMaskLayer(): maplibregl.FillLayerSpecif
     source: MAP_SOURCE_IDS.detailedAreas,
     "source-layer": MAP_SOURCE_LAYERS.detailedAreas,
     paint: {
-      "fill-color": "#020617",
-      "fill-opacity": [
-        "case",
-        ["boolean", ["feature-state", "isActive"], false],
-        0.28,
-        0,
-      ],
+      "fill-color": "#ffffff",
+      "fill-opacity": ["case", ["boolean", ["feature-state", "isActive"], false], 0.08, 0],
     },
   };
 }

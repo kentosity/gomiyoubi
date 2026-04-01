@@ -44,7 +44,7 @@ function App() {
 
   useMapHighlighting({
     activeAreaId: activeTarget.areaId,
-    activeWardSlug: activeTarget.wardSlug,
+    activeWardSlug: activeTarget.areaId ? null : activeTarget.wardSlug,
     isMapLoaded,
     mapRef,
   });
@@ -54,6 +54,19 @@ function App() {
     () => buildCategoryOptions(selectedCategories),
     [selectedCategories],
   );
+  const selectedDayOption = useMemo(
+    () => dayOptions.find((option) => option.isActive) ?? dayOptions[0],
+    [dayOptions],
+  );
+  const activeCategorySummary = useMemo(() => {
+    const activeOptions = categoryOptions.filter((option) => option.isActive);
+
+    if (activeOptions.length === categoryOptions.length) {
+      return "すべての品目";
+    }
+
+    return activeOptions.map((option) => option.label).join(" / ");
+  }, [categoryOptions]);
   const activeArea = useMemo(
     () => buildActiveArea(activeTarget, detailedAreaFeatures, wardRuntimeData),
     [activeTarget, detailedAreaFeatures, wardRuntimeData],
@@ -65,16 +78,27 @@ function App() {
 
   return (
     <div className="app-shell">
-      <div className="map-canvas" ref={containerRef} />
+      <div className="map-stage">
+        <div className="map-canvas" ref={containerRef} />
+      </div>
 
-      <HoverCard panel={hoverPanel} />
+      <div className="app-chrome">
+        <HoverCard
+          activeCategorySummary={activeCategorySummary}
+          isFocusLocked={isFocusLocked}
+          panel={hoverPanel}
+          selectedDayLabel={selectedDayOption.label}
+        />
 
-      <ControlPanel
-        categoryOptions={categoryOptions}
-        dayOptions={dayOptions}
-        onChooseDay={chooseDay}
-        onToggleCategory={toggleCategory}
-      />
+        <ControlPanel
+          activeCategorySummary={activeCategorySummary}
+          categoryOptions={categoryOptions}
+          dayOptions={dayOptions}
+          onChooseDay={chooseDay}
+          onToggleCategory={toggleCategory}
+          selectedDayLabel={selectedDayOption.label}
+        />
+      </div>
     </div>
   );
 }

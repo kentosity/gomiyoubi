@@ -31,13 +31,12 @@ export type ScheduleRowModel = {
   shortLabel: string;
 };
 
-export type InfoRowModel =
-  | {
-      kind: "text";
-      label: string;
-      url?: string;
-      value: string;
-    };
+export type InfoRowModel = {
+  kind: "text";
+  label: string;
+  url?: string;
+  value: string;
+};
 
 export type ActiveArea =
   | { kind: "empty" }
@@ -52,12 +51,15 @@ export type ActiveArea =
 export type HoverPanelModel =
   | {
       copy: string;
+      eyebrow: string;
       kind: "empty";
       title: string;
     }
   | {
+      eyebrow: string;
       infoRows: InfoRowModel[];
       kind: "content";
+      note?: string;
       scheduleLabel?: string;
       scheduleRows?: ScheduleRowModel[];
       title: string;
