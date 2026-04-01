@@ -1,11 +1,37 @@
 import { describe, expect, it } from "vitest";
+import { type WardRuntimeData } from "../types/data";
+import { type GenericFeature } from "../types/map";
 import {
   buildActiveArea,
   buildCategoryOptions,
   buildDayOptions,
   buildHoverPanelModel,
 } from "./uiModels";
-import { type GenericFeature } from "../types/map";
+
+const wardDataBySlug: Record<string, WardRuntimeData> = {
+  chuo: {
+    wardSlug: "chuo",
+    wardNameJa: "中央区",
+    wardNameEn: "Chuo",
+    sourceQuality: "high",
+    sourceLabel: "中央区オープンデータ / gomitoshigen.csv",
+    granularity: "中央区は町丁・字等の境界まで反映済みです",
+    notes: [],
+    daySignals: {},
+    hasDetailedAreas: true,
+  },
+  koto: {
+    wardSlug: "koto",
+    wardNameJa: "江東区",
+    wardNameEn: "Koto",
+    sourceQuality: "medium",
+    sourceLabel: "江東区 地区別資源回収・ごみ収集日一覧",
+    granularity: "江東区はまだ区レベルの暫定表示です",
+    notes: [],
+    daySignals: {},
+    hasDetailedAreas: false,
+  },
+};
 
 describe("uiModels", () => {
   it("builds day options with the selected day marked active", () => {
@@ -25,7 +51,7 @@ describe("uiModels", () => {
   });
 
   it("builds a ward panel with source and quality only", () => {
-    const activeArea = buildActiveArea({ wardSlug: "koto", zoneId: null }, []);
+    const activeArea = buildActiveArea({ wardSlug: "koto", areaId: null }, [], wardDataBySlug);
     const panel = buildHoverPanelModel(activeArea, "monday");
 
     expect(panel.kind).toBe("ward");
@@ -48,7 +74,8 @@ describe("uiModels", () => {
         coordinates: [],
       },
       properties: {
-        zoneId: "test-zone",
+        areaId: "test-area",
+        wardSlug: "chuo",
         labelJa: "テスト丁目",
         mondayCategories: "burnable,resource",
         tuesdayCategories: "",
@@ -60,12 +87,16 @@ describe("uiModels", () => {
       },
     };
 
-    const activeArea = buildActiveArea({ wardSlug: "chuo", zoneId: "test-zone" }, [zone]);
+    const activeArea = buildActiveArea(
+      { wardSlug: "chuo", areaId: "test-area" },
+      [zone],
+      wardDataBySlug,
+    );
     const panel = buildHoverPanelModel(activeArea, "monday");
 
-    expect(panel.kind).toBe("zone");
-    if (panel.kind !== "zone") {
-      throw new Error("Expected zone panel");
+    expect(panel.kind).toBe("detailedArea");
+    if (panel.kind !== "detailedArea") {
+      throw new Error("Expected detailed area panel");
     }
 
     expect(panel.title).toBe("テスト丁目");

@@ -4,18 +4,22 @@ import {
   type CategorySignal,
   type DayKey,
   weekdayOrder,
-  wardSchedules,
-} from "../data/prototypeData";
-import { type GenericFeature } from "../types/map";
+} from "../data/schedule";
+import { getDetailedAreaCategories } from "./detailedAreas";
+import { type WardRuntimeData } from "../types/data";
 
-export function getSignalsForWard(slug: string, day: DayKey | null): CategorySignal[] {
+export function getSignalsForWard(
+  wardDataBySlug: Record<string, WardRuntimeData>,
+  slug: string,
+  day: DayKey | null,
+): CategorySignal[] {
   if (day) {
-    return wardSchedules[slug]?.daySignals[day] ?? [];
+    return wardDataBySlug[slug]?.daySignals[day] ?? [];
   }
 
   const totals = new Map<CategoryKey, number>();
   for (const weekday of weekdayOrder) {
-    for (const signal of wardSchedules[slug]?.daySignals[weekday] ?? []) {
+    for (const signal of wardDataBySlug[slug]?.daySignals[weekday] ?? []) {
       totals.set(signal.category, (totals.get(signal.category) ?? 0) + signal.areas);
     }
   }
@@ -39,32 +43,11 @@ export function getDominantColorFromSignals(signals: CategorySignal[]): string {
   return categoryMeta[dominant.category].color;
 }
 
-export function parseCategoryList(value: unknown): CategoryKey[] {
-  if (typeof value !== "string" || value.length === 0) {
-    return [];
-  }
-
-  return value.split(",").filter(Boolean) as CategoryKey[];
-}
-
-export function getZoneCategories(feature: GenericFeature, day: DayKey | null): CategoryKey[] {
-  if (day) {
-    return parseCategoryList(feature.properties?.[`${day}Categories`]);
-  }
-
-  const categories = new Set<CategoryKey>();
-  for (const weekday of weekdayOrder) {
-    for (const category of parseCategoryList(feature.properties?.[`${weekday}Categories`])) {
-      categories.add(category);
-    }
-  }
-
-  return [...categories];
-}
-
 export function filterZoneCategories(
   categories: CategoryKey[],
   selectedCategories: CategoryKey[],
 ): CategoryKey[] {
   return categories.filter((category) => selectedCategories.includes(category));
 }
+
+export { getDetailedAreaCategories };

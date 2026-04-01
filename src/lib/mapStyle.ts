@@ -4,13 +4,13 @@ export const MULTI_CATEGORY_COLOR = "#facc15";
 
 export const MAP_SOURCE_IDS = {
   wards: "wards",
-  chuoZones: "chuo-zones",
+  detailedAreas: "detailed-areas",
 } as const;
 
 export const MAP_LAYER_IDS = {
   wardFill: "ward-fill",
-  chuoZonesFill: "chuo-zones-fill",
-  chuoZonesOutline: "chuo-zones-outline",
+  detailedAreasFill: "detailed-areas-fill",
+  detailedAreasOutline: "detailed-areas-outline",
   wardOutline: "ward-outline",
 } as const;
 
@@ -52,21 +52,26 @@ export function getWardOutlineWidth(
   return ["case", ["==", ["get", "slug"], activeWardSlug ?? ""], 2.6, 1.2];
 }
 
-export function getZoneOutlineColor(
-  activeZoneId: string | null,
+export function getDetailedAreaOutlineColor(
+  activeAreaId: string | null,
 ): maplibregl.ExpressionSpecification {
   return [
     "case",
-    ["==", ["get", "zoneId"], activeZoneId ?? ""],
+    ["==", ["coalesce", ["get", "areaId"], ["get", "zoneId"]], activeAreaId ?? ""],
     "#ffffff",
     "rgba(226, 232, 240, 0.45)",
   ];
 }
 
-export function getZoneOutlineWidth(
-  activeZoneId: string | null,
+export function getDetailedAreaOutlineWidth(
+  activeAreaId: string | null,
 ): maplibregl.ExpressionSpecification {
-  return ["case", ["==", ["get", "zoneId"], activeZoneId ?? ""], 2.3, 0.7];
+  return [
+    "case",
+    ["==", ["coalesce", ["get", "areaId"], ["get", "zoneId"]], activeAreaId ?? ""],
+    2.3,
+    0.7,
+  ];
 }
 
 export function createWardFillLayer(): maplibregl.FillLayerSpecification {
@@ -78,7 +83,7 @@ export function createWardFillLayer(): maplibregl.FillLayerSpecification {
       "fill-color": ["coalesce", ["get", "fillColor"], "#334155"],
       "fill-opacity": [
         "case",
-        ["==", ["get", "slug"], "chuo"],
+        ["==", ["get", "hasDetailedAreas"], true],
         0.08,
         ["==", ["get", "sourceQuality"], "pending"],
         0.22,
@@ -88,11 +93,11 @@ export function createWardFillLayer(): maplibregl.FillLayerSpecification {
   };
 }
 
-export function createChuoZonesFillLayer(): maplibregl.FillLayerSpecification {
+export function createDetailedAreasFillLayer(): maplibregl.FillLayerSpecification {
   return {
-    id: MAP_LAYER_IDS.chuoZonesFill,
+    id: MAP_LAYER_IDS.detailedAreasFill,
     type: "fill",
-    source: MAP_SOURCE_IDS.chuoZones,
+    source: MAP_SOURCE_IDS.detailedAreas,
     paint: {
       "fill-color": ["coalesce", ["get", "activeFillColor"], "#000000"],
       "fill-opacity": ["case", [">", ["get", "activeCategoryCount"], 0], 0.78, 0.04],
@@ -100,16 +105,16 @@ export function createChuoZonesFillLayer(): maplibregl.FillLayerSpecification {
   };
 }
 
-export function createChuoZonesOutlineLayer(
-  activeZoneId: string | null,
+export function createDetailedAreasOutlineLayer(
+  activeAreaId: string | null,
 ): maplibregl.LineLayerSpecification {
   return {
-    id: MAP_LAYER_IDS.chuoZonesOutline,
+    id: MAP_LAYER_IDS.detailedAreasOutline,
     type: "line",
-    source: MAP_SOURCE_IDS.chuoZones,
+    source: MAP_SOURCE_IDS.detailedAreas,
     paint: {
-      "line-color": getZoneOutlineColor(activeZoneId),
-      "line-width": getZoneOutlineWidth(activeZoneId),
+      "line-color": getDetailedAreaOutlineColor(activeAreaId),
+      "line-width": getDetailedAreaOutlineWidth(activeAreaId),
     },
   };
 }

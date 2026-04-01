@@ -4,14 +4,14 @@ import { MAP_SOURCE_IDS } from "../lib/mapStyle";
 import { type GenericFeatureCollection } from "../types/map";
 
 type UseMapSourceDataOptions = {
-  chuoZoneData: GenericFeatureCollection;
+  detailedAreaData: GenericFeatureCollection;
   isMapLoaded: boolean;
   mapRef: RefObject<Map | null>;
   wardData: GenericFeatureCollection;
 };
 
 export function useMapSourceData({
-  chuoZoneData,
+  detailedAreaData,
   isMapLoaded,
   mapRef,
   wardData,
@@ -28,11 +28,11 @@ export function useMapSourceData({
       wardSource.setData(wardData);
     }
 
-    const chuoSource = mapRef.current.getSource(MAP_SOURCE_IDS.chuoZones) as
+    const detailedAreaSource = mapRef.current.getSource(MAP_SOURCE_IDS.detailedAreas) as
       | maplibregl.GeoJSONSource
       | undefined;
-    if (chuoSource) {
-      chuoSource.setData(chuoZoneData);
+    if (detailedAreaSource) {
+      detailedAreaSource.setData(detailedAreaData);
     }
-  }, [chuoZoneData, isMapLoaded, mapRef, wardData]);
+  }, [detailedAreaData, isMapLoaded, mapRef, wardData]);
 }

@@ -6,6 +6,10 @@
   "scripts": {
     "dev": "vite",
     "dev:host": "vite --host",
+    "db:bootstrap": "python3 scripts/bootstrap_sqlite.py --force",
+    "db:export": "python3 scripts/export_frontend_data.py",
+    "db:build": "pnpm db:bootstrap && pnpm db:export",
+    "db:summary": "python3 scripts/sqlite_summary.py",
     "typecheck": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.node.json --noEmit",
     "build": "pnpm typecheck && vite build",
     "preview": "vite preview",

@@ -1,23 +1,23 @@
 import { useEffect, type RefObject } from "react";
 import { type Map } from "maplibre-gl";
 import {
+  getDetailedAreaOutlineColor,
+  getDetailedAreaOutlineWidth,
   getWardOutlineColor,
   getWardOutlineWidth,
-  getZoneOutlineColor,
-  getZoneOutlineWidth,
   MAP_LAYER_IDS,
 } from "../lib/mapStyle";
 
 type UseMapHighlightingOptions = {
+  activeAreaId: string | null;
   activeWardSlug: string | null;
-  activeZoneId: string | null;
   isMapLoaded: boolean;
   mapRef: RefObject<Map | null>;
 };
 
 export function useMapHighlighting({
+  activeAreaId,
   activeWardSlug,
-  activeZoneId,
   isMapLoaded,
   mapRef,
 }: UseMapHighlightingOptions) {
@@ -39,17 +39,17 @@ export function useMapHighlighting({
       );
     }
 
-    if (mapRef.current.getLayer(MAP_LAYER_IDS.chuoZonesOutline)) {
+    if (mapRef.current.getLayer(MAP_LAYER_IDS.detailedAreasOutline)) {
       mapRef.current.setPaintProperty(
-        MAP_LAYER_IDS.chuoZonesOutline,
+        MAP_LAYER_IDS.detailedAreasOutline,
         "line-color",
-        getZoneOutlineColor(activeZoneId),
+        getDetailedAreaOutlineColor(activeAreaId),
       );
       mapRef.current.setPaintProperty(
-        MAP_LAYER_IDS.chuoZonesOutline,
+        MAP_LAYER_IDS.detailedAreasOutline,
         "line-width",
-        getZoneOutlineWidth(activeZoneId),
+        getDetailedAreaOutlineWidth(activeAreaId),
       );
     }
-  }, [activeWardSlug, activeZoneId, isMapLoaded, mapRef]);
+  }, [activeAreaId, activeWardSlug, isMapLoaded, mapRef]);
 }

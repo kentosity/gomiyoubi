@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { categoryMeta, type CategoryKey, type DayKey } from "../data/prototypeData";
+import { categoryMeta, type CategoryKey, type DayKey } from "../data/schedule";
 import { getTomorrowDayKey } from "../lib/day";
 
 const ALL_CATEGORIES = Object.keys(categoryMeta) as CategoryKey[];

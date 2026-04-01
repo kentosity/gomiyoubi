@@ -2,14 +2,17 @@ import {
   categoryMeta,
   type CategoryKey,
   type DayKey,
-  type WardScheduleSummary,
   weekdayMeta,
   weekdayOrder,
-  wardSchedules,
-} from "../data/prototypeData";
-import { getZoneCategories } from "./scheduleData";
+} from "../data/schedule";
+import {
+  getDetailedAreaCategories,
+  getDetailedAreaId,
+  getDetailedAreaLabel,
+} from "./detailedAreas";
 import { type GenericFeature } from "../types/map";
 import { type MapTarget } from "../types/selection";
+import { type WardRuntimeData } from "../types/data";
 import {
   type ActiveArea,
   type CategoryOptionModel,
@@ -18,24 +21,16 @@ import {
   type InfoRowModel,
 } from "../types/ui";
 
-function getQualityBadgeModel(sourceQuality: WardScheduleSummary["sourceQuality"]) {
+function getQualityBadgeModel(sourceQuality: WardRuntimeData["sourceQuality"]) {
   return {
     label: sourceQuality === "high" ? "高" : sourceQuality === "medium" ? "中" : "待",
     tone: sourceQuality,
   } as const;
 }
 
-function getZoneTitle(zone: GenericFeature): string {
-  return String(zone.properties?.labelJa ?? "中央区エリア");
-}
-
-function getZoneSourceLabel(ward: WardScheduleSummary): string {
-  return `${ward.sourceLabel}・e-Stat境界`;
-}
-
 function buildInfoRows(
   sourceLabel: string,
-  sourceQuality: WardScheduleSummary["sourceQuality"],
+  sourceQuality: WardRuntimeData["sourceQuality"],
 ): InfoRowModel[] {
   return [
     {
@@ -49,6 +44,13 @@ function buildInfoRows(
       badge: getQualityBadgeModel(sourceQuality),
     },
   ];
+}
+
+function getAreaSourceLabel(detailedArea: GenericFeature, fallbackSourceLabel: string): string {
+  const sourceLabel = detailedArea.properties?.sourceLabel;
+  return typeof sourceLabel === "string" && sourceLabel.length > 0
+    ? sourceLabel
+    : fallbackSourceLabel;
 }
 
 export function buildDayOptions(selectedDay: DayKey): DayOptionModel[] {
@@ -72,25 +74,31 @@ export function buildCategoryOptions(selectedCategories: CategoryKey[]): Categor
 
 export function buildActiveArea(
   activeTarget: MapTarget,
-  chuoZoneFeatures: GenericFeature[],
+  detailedAreaFeatures: GenericFeature[],
+  wardDataBySlug: Record<string, WardRuntimeData>,
 ): ActiveArea {
-  if (activeTarget.zoneId) {
-    const zone =
-      chuoZoneFeatures.find(
-        (feature) => String(feature.properties?.zoneId) === activeTarget.zoneId,
-      ) ?? null;
+  if (activeTarget.areaId) {
+    const detailedArea =
+      detailedAreaFeatures.find((feature) => getDetailedAreaId(feature) === activeTarget.areaId) ??
+      null;
 
-    if (zone) {
+    if (detailedArea) {
+      const wardSlug = String(detailedArea.properties?.wardSlug ?? activeTarget.wardSlug ?? "");
+      const ward = wardDataBySlug[wardSlug];
+      if (!ward) {
+        return { kind: "empty" };
+      }
+
       return {
-        kind: "zone",
-        ward: wardSchedules.chuo,
-        zone,
+        kind: "detailedArea",
+        detailedArea,
+        ward,
       };
     }
   }
 
   if (activeTarget.wardSlug) {
-    const ward = wardSchedules[activeTarget.wardSlug];
+    const ward = wardDataBySlug[activeTarget.wardSlug];
     if (ward) {
       return {
         kind: "ward",
@@ -120,19 +128,22 @@ export function buildHoverPanelModel(activeArea: ActiveArea, selectedDay: DayKey
   }
 
   return {
-    kind: "zone",
-    title: getZoneTitle(activeArea.zone),
+    kind: "detailedArea",
+    title: getDetailedAreaLabel(activeArea.detailedArea),
     scheduleRows: weekdayOrder.map((day) => ({
       day,
       shortLabel: weekdayMeta[day].shortLabel,
       isActive: day === selectedDay,
       emptyLabel: "なし",
-      categories: getZoneCategories(activeArea.zone, day).map((category) => ({
+      categories: getDetailedAreaCategories(activeArea.detailedArea, day).map((category) => ({
         category,
         color: categoryMeta[category].color,
         label: categoryMeta[category].label,
       })),
     })),
-    infoRows: buildInfoRows(getZoneSourceLabel(activeArea.ward), activeArea.ward.sourceQuality),
+    infoRows: buildInfoRows(
+      getAreaSourceLabel(activeArea.detailedArea, activeArea.ward.sourceLabel),
+      activeArea.ward.sourceQuality,
+    ),
   };
 }

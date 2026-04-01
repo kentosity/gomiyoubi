@@ -1,4 +1,5 @@
-import { type CategoryKey, type DayKey, type WardScheduleSummary } from "../data/prototypeData";
+import { type CategoryKey, type DayKey, type SourceQuality } from "../data/schedule";
+import { type WardRuntimeData } from "./data";
 import { type GenericFeature } from "./map";
 
 export type DayOptionModel = {
@@ -32,7 +33,7 @@ export type ScheduleRowModel = {
 
 export type QualityBadgeModel = {
   label: string;
-  tone: WardScheduleSummary["sourceQuality"];
+  tone: SourceQuality;
 };
 
 export type InfoRowModel =
@@ -49,8 +50,8 @@ export type InfoRowModel =
 
 export type ActiveArea =
   | { kind: "empty" }
-  | { kind: "ward"; ward: WardScheduleSummary }
-  | { kind: "zone"; ward: WardScheduleSummary; zone: GenericFeature };
+  | { kind: "ward"; ward: WardRuntimeData }
+  | { kind: "detailedArea"; detailedArea: GenericFeature; ward: WardRuntimeData };
 
 export type HoverPanelModel =
   | {
@@ -65,7 +66,7 @@ export type HoverPanelModel =
     }
   | {
       infoRows: InfoRowModel[];
-      kind: "zone";
+      kind: "detailedArea";
       scheduleRows: ScheduleRowModel[];
       title: string;
     };

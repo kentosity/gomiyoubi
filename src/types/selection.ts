@@ -1,17 +1,17 @@
 export type MapTarget = {
   wardSlug: string | null;
-  zoneId: string | null;
+  areaId: string | null;
 };
 
 export const EMPTY_MAP_TARGET: MapTarget = {
   wardSlug: null,
-  zoneId: null,
+  areaId: null,
 };
 
 export function hasMapTarget(target: MapTarget): boolean {
-  return target.wardSlug !== null || target.zoneId !== null;
+  return target.wardSlug !== null || target.areaId !== null;
 }
 
 export function isSameMapTarget(left: MapTarget, right: MapTarget): boolean {
-  return left.wardSlug === right.wardSlug && left.zoneId === right.zoneId;
+  return left.wardSlug === right.wardSlug && left.areaId === right.areaId;
 }

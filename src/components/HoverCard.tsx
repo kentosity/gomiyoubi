@@ -7,7 +7,7 @@ type HoverCardProps = {
 export function HoverCard({ panel }: HoverCardProps) {
   return (
     <aside className="hover-card surface-card">
-      {panel.kind === "zone" ? (
+      {panel.kind === "detailedArea" ? (
         <>
           <div className="panel-header panel-header-tight">
             <h2>{panel.title}</h2>

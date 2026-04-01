@@ -1,18 +1,20 @@
-import { categoryMeta, type CategoryKey, type DayKey, wardSchedules } from "../data/prototypeData";
+import { categoryMeta, type CategoryKey, type DayKey } from "../data/schedule";
+import { getDetailedAreaId } from "./detailedAreas";
 import { MULTI_CATEGORY_COLOR } from "./mapStyle";
 import {
   filterSignalsByCategories,
   filterZoneCategories,
   getDominantColorFromSignals,
   getSignalsForWard,
-  getZoneCategories,
+  getDetailedAreaCategories,
 } from "./scheduleData";
 import { type GenericFeature, type GenericFeatureCollection } from "../types/map";
+import { type WardRuntimeData } from "../types/data";
 
 export { MULTI_CATEGORY_COLOR } from "./mapStyle";
-export { getZoneCategories } from "./scheduleData";
+export { getDetailedAreaCategories } from "./scheduleData";
 
-export function getZoneFillColor(categories: CategoryKey[]): string {
+export function getDetailedAreaFillColor(categories: CategoryKey[]): string {
   if (categories.length === 0) {
     return "#000000";
   }
@@ -26,6 +28,7 @@ export function getZoneFillColor(categories: CategoryKey[]): string {
 
 export function buildWardData(
   features: GenericFeature[],
+  wardDataBySlug: Record<string, WardRuntimeData>,
   selectedDay: DayKey | null,
   selectedCategories: CategoryKey[],
 ): GenericFeatureCollection {
@@ -34,7 +37,7 @@ export function buildWardData(
     features: features.map((feature) => {
       const slug = String(feature.properties?.slug ?? "");
       const signals = filterSignalsByCategories(
-        getSignalsForWard(slug, selectedDay),
+        getSignalsForWard(wardDataBySlug, slug, selectedDay),
         selectedCategories,
       );
 
@@ -43,15 +46,16 @@ export function buildWardData(
         properties: {
           ...feature.properties,
           fillColor: getDominantColorFromSignals(signals),
+          hasDetailedAreas: wardDataBySlug[slug]?.hasDetailedAreas ?? false,
           signalCount: signals.length,
-          sourceQuality: wardSchedules[slug]?.sourceQuality ?? "pending",
+          sourceQuality: wardDataBySlug[slug]?.sourceQuality ?? "pending",
         },
       };
     }),
   };
 }
 
-export function buildChuoZoneData(
+export function buildDetailedAreaData(
   features: GenericFeature[],
   selectedDay: DayKey | null,
   selectedCategories: CategoryKey[],
@@ -60,17 +64,19 @@ export function buildChuoZoneData(
     type: "FeatureCollection",
     features: features.map((feature) => {
       const activeCategories = filterZoneCategories(
-        getZoneCategories(feature, selectedDay),
+        getDetailedAreaCategories(feature, selectedDay),
         selectedCategories,
       );
+      const areaId = getDetailedAreaId(feature);
 
       return {
         ...feature,
         properties: {
           ...feature.properties,
+          ...(areaId ? { areaId } : {}),
           activeCategories: activeCategories.join(","),
           activeCategoryCount: activeCategories.length,
-          activeFillColor: getZoneFillColor(activeCategories),
+          activeFillColor: getDetailedAreaFillColor(activeCategories),
         },
       };
     }),

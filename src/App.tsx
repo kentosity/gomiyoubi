@@ -7,7 +7,8 @@ import { useMapSelection } from "./hooks/useMapSelection";
 import { useMapSourceData } from "./hooks/useMapSourceData";
 import { useTrashFilters } from "./hooks/useTrashFilters";
 import { useTrashMap } from "./hooks/useTrashMap";
-import { buildChuoZoneData, buildWardData } from "./lib/mapData";
+import { buildDetailedAreaData, buildWardData } from "./lib/mapData";
+import { buildWardRuntimeData } from "./lib/runtimeData";
 import {
   buildActiveArea,
   buildCategoryOptions,
@@ -17,22 +18,26 @@ import {
 
 function App() {
   const { chooseDay, selectedCategories, selectedDay, toggleCategory } = useTrashFilters();
-  const { chuoZoneFeatures, isReady, wardFeatures } = useMapData();
+  const { detailedAreaFeatures, isReady, wardFeatures, wardOverviewRows } = useMapData();
   const { activeTarget, clearHover, isFocusLocked, setHoverTarget, toggleFocusTarget } =
     useMapSelection();
 
-  const wardData = useMemo(
-    () => buildWardData(wardFeatures, selectedDay, selectedCategories),
-    [selectedCategories, selectedDay, wardFeatures],
+  const wardRuntimeData = useMemo(
+    () => buildWardRuntimeData(wardFeatures, detailedAreaFeatures, wardOverviewRows),
+    [detailedAreaFeatures, wardFeatures, wardOverviewRows],
   );
-  const chuoZoneData = useMemo(
-    () => buildChuoZoneData(chuoZoneFeatures, selectedDay, selectedCategories),
-    [chuoZoneFeatures, selectedCategories, selectedDay],
+  const wardData = useMemo(
+    () => buildWardData(wardFeatures, wardRuntimeData, selectedDay, selectedCategories),
+    [selectedCategories, selectedDay, wardFeatures, wardRuntimeData],
+  );
+  const detailedAreaData = useMemo(
+    () => buildDetailedAreaData(detailedAreaFeatures, selectedDay, selectedCategories),
+    [detailedAreaFeatures, selectedCategories, selectedDay],
   );
 
   const { containerRef, isMapLoaded, mapRef } = useTrashMap({
     activeTarget,
-    chuoZoneData,
+    detailedAreaData,
     isFocusLocked,
     isMapDataReady: isReady,
     onClearHover: clearHover,
@@ -42,15 +47,15 @@ function App() {
   });
 
   useMapSourceData({
-    chuoZoneData,
+    detailedAreaData,
     isMapLoaded,
     mapRef,
     wardData,
   });
 
   useMapHighlighting({
+    activeAreaId: activeTarget.areaId,
     activeWardSlug: activeTarget.wardSlug,
-    activeZoneId: activeTarget.zoneId,
     isMapLoaded,
     mapRef,
   });
@@ -61,8 +66,8 @@ function App() {
     [selectedCategories],
   );
   const activeArea = useMemo(
-    () => buildActiveArea(activeTarget, chuoZoneFeatures),
-    [activeTarget, chuoZoneFeatures],
+    () => buildActiveArea(activeTarget, detailedAreaFeatures, wardRuntimeData),
+    [activeTarget, detailedAreaFeatures, wardRuntimeData],
   );
   const hoverPanel = useMemo(
     () => buildHoverPanelModel(activeArea, selectedDay),

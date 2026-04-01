@@ -1,4 +1,4 @@
-import { type DayKey, weekdayOrder } from "../data/prototypeData";
+import { type DayKey, weekdayOrder } from "../data/schedule";
 
 export function getDayKeyFromDate(date: Date): DayKey {
   return weekdayOrder[date.getDay()];

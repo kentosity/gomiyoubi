@@ -1,5 +1,5 @@
 import { type CSSProperties } from "react";
-import type { CategoryKey, DayKey } from "../data/prototypeData";
+import type { CategoryKey, DayKey } from "../data/schedule";
 import type { CategoryOptionModel, DayOptionModel } from "../types/ui";
 import { MULTI_CATEGORY_COLOR } from "../lib/mapData";
 
