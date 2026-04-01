@@ -1,5 +1,49 @@
 [
   {
+    "wardSlug": "adachi",
+    "wardNameJa": "足立区",
+    "wardNameEn": "Adachi",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "arakawa",
+    "wardNameJa": "荒川区",
+    "wardNameEn": "Arakawa",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "bunkyo",
+    "wardNameJa": "文京区",
+    "wardNameEn": "Bunkyo",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "chiyoda",
+    "wardNameJa": "千代田区",
+    "wardNameEn": "Chiyoda",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
     "wardSlug": "chuo",
     "wardNameJa": "中央区",
     "wardNameEn": "Chuo",
@@ -12,155 +56,452 @@
       "中央区の小エリアを指していないときは、区全体の要約を表示します。"
     ],
     "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 34
+        },
+        {
+          "category": "nonburnable",
+          "areas": 19
+        },
+        {
+          "category": "plastic",
+          "areas": 17
+        },
+        {
+          "category": "resource",
+          "areas": 20
+        },
+        {
+          "category": "bulky",
+          "areas": 23
+        }
+      ],
       "monday": [
         {
           "category": "burnable",
-          "areas": 37
+          "areas": 47
         },
         {
           "category": "nonburnable",
-          "areas": 11
-        },
-        {
-          "category": "resource",
-          "areas": 10
+          "areas": 15
         },
         {
           "category": "plastic",
-          "areas": 8
-        },
-        {
-          "category": "bulky",
-          "areas": 3
-        }
-      ],
-      "tuesday": [
-        {
-          "category": "bulky",
-          "areas": 16
+          "areas": 15
         },
         {
           "category": "resource",
-          "areas": 13
-        },
-        {
-          "category": "plastic",
-          "areas": 11
-        },
-        {
-          "category": "nonburnable",
-          "areas": 11
-        },
-        {
-          "category": "burnable",
-          "areas": 18
-        }
-      ],
-      "wednesday": [
-        {
-          "category": "burnable",
-          "areas": 27
-        },
-        {
-          "category": "plastic",
-          "areas": 12
-        },
-        {
-          "category": "nonburnable",
-          "areas": 8
+          "areas": 17
         },
         {
           "category": "bulky",
-          "areas": 4
-        },
-        {
-          "category": "resource",
-          "areas": 3
-        }
-      ],
-      "thursday": [
-        {
-          "category": "burnable",
-          "areas": 28
-        },
-        {
-          "category": "resource",
-          "areas": 11
-        },
-        {
-          "category": "nonburnable",
-          "areas": 10
-        },
-        {
-          "category": "bulky",
-          "areas": 6
-        },
-        {
-          "category": "plastic",
-          "areas": 4
-        }
-      ],
-      "friday": [
-        {
-          "category": "bulky",
-          "areas": 22
-        },
-        {
-          "category": "burnable",
-          "areas": 18
-        },
-        {
-          "category": "nonburnable",
-          "areas": 13
-        },
-        {
-          "category": "plastic",
-          "areas": 11
-        },
-        {
-          "category": "resource",
-          "areas": 11
+          "areas": 9
         }
       ],
       "saturday": [
         {
           "category": "burnable",
-          "areas": 35
-        },
-        {
-          "category": "plastic",
-          "areas": 10
-        },
-        {
-          "category": "resource",
-          "areas": 8
-        },
-        {
-          "category": "bulky",
-          "areas": 5
+          "areas": 44
         },
         {
           "category": "nonburnable",
-          "areas": 3
+          "areas": 7
+        },
+        {
+          "category": "plastic",
+          "areas": 18
+        },
+        {
+          "category": "resource",
+          "areas": 15
+        },
+        {
+          "category": "bulky",
+          "areas": 11
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 47
+        },
+        {
+          "category": "nonburnable",
+          "areas": 17
+        },
+        {
+          "category": "plastic",
+          "areas": 7
+        },
+        {
+          "category": "resource",
+          "areas": 15
+        },
+        {
+          "category": "bulky",
+          "areas": 15
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 34
+        },
+        {
+          "category": "nonburnable",
+          "areas": 20
+        },
+        {
+          "category": "plastic",
+          "areas": 19
+        },
+        {
+          "category": "resource",
+          "areas": 19
+        },
+        {
+          "category": "bulky",
+          "areas": 20
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 44
+        },
+        {
+          "category": "nonburnable",
+          "areas": 15
+        },
+        {
+          "category": "plastic",
+          "areas": 17
+        },
+        {
+          "category": "resource",
+          "areas": 7
+        },
+        {
+          "category": "bulky",
+          "areas": 15
         }
       ]
     },
     "hasDetailedAreas": true
   },
   {
+    "wardSlug": "edogawa",
+    "wardNameJa": "江戸川区",
+    "wardNameEn": "Edogawa",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "itabashi",
+    "wardNameJa": "板橋区",
+    "wardNameEn": "Itabashi",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "katsushika",
+    "wardNameJa": "葛飾区",
+    "wardNameEn": "Katsushika",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "kita",
+    "wardNameJa": "北区",
+    "wardNameEn": "Kita",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
     "wardSlug": "koto",
     "wardNameJa": "江東区",
     "wardNameEn": "Koto",
     "sourceQuality": "medium",
-    "sourceLabel": "江東区 地区別資源回収・ごみ収集日一覧",
-    "granularity": "江東区はまだ区レベルの暫定表示です",
+    "sourceLabel": "江東区 地区別資源回収・ごみ収集日一覧（2026年度）",
+    "granularity": "12地区の収集パターンと地区境界を反映済みです。",
     "notes": [
-      "江東区の収集ロジックは 12 地区に分かれています。",
-      "曜日ベースの種類は使えますが、不燃ごみは日付指定なのでこの試作には未反映です。",
-      "住所から地区番号への対応づけがまだ残っているので、正確なマスク化は次の段階です。"
+      "12地区の weekly pattern を公式 entry page の画像 alt text から抽出しました。",
+      "地区境界は公式 district image と公式区報テキスト版をもとに町丁目 selector へ正規化しています。",
+      "燃やさないごみは隔週パターンなので freeform rule として保持しています。",
+      "集合住宅や一部地域の例外は別 claim として扱う前提です。"
     ],
     "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 4
+        },
+        {
+          "category": "plastic",
+          "areas": 2
+        },
+        {
+          "category": "resource",
+          "areas": 2
+        }
+      ],
       "monday": [
+        {
+          "category": "burnable",
+          "areas": 4
+        },
+        {
+          "category": "plastic",
+          "areas": 2
+        },
+        {
+          "category": "resource",
+          "areas": 2
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 4
+        },
+        {
+          "category": "plastic",
+          "areas": 2
+        },
+        {
+          "category": "resource",
+          "areas": 2
+        }
+      ],
+      "thursday": [
+        {
+          "category": "burnable",
+          "areas": 4
+        },
+        {
+          "category": "plastic",
+          "areas": 1
+        },
+        {
+          "category": "resource",
+          "areas": 2
+        }
+      ],
+      "tuesday": [
+        {
+          "category": "burnable",
+          "areas": 4
+        },
+        {
+          "category": "plastic",
+          "areas": 2
+        },
+        {
+          "category": "resource",
+          "areas": 2
+        }
+      ],
+      "wednesday": [
+        {
+          "category": "burnable",
+          "areas": 4
+        },
+        {
+          "category": "plastic",
+          "areas": 3
+        },
+        {
+          "category": "resource",
+          "areas": 2
+        }
+      ]
+    },
+    "hasDetailedAreas": true
+  },
+  {
+    "wardSlug": "meguro",
+    "wardNameJa": "目黒区",
+    "wardNameEn": "Meguro",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "minato",
+    "wardNameJa": "港区",
+    "wardNameEn": "Minato",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "nakano",
+    "wardNameJa": "中野区",
+    "wardNameEn": "Nakano",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "nerima",
+    "wardNameJa": "練馬区",
+    "wardNameEn": "Nerima",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "ota",
+    "wardNameJa": "大田区",
+    "wardNameEn": "Ota",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "setagaya",
+    "wardNameJa": "世田谷区",
+    "wardNameEn": "Setagaya",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "shibuya",
+    "wardNameJa": "渋谷区",
+    "wardNameEn": "Shibuya",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "shinagawa",
+    "wardNameJa": "品川区",
+    "wardNameEn": "Shinagawa",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "shinjuku",
+    "wardNameJa": "新宿区",
+    "wardNameEn": "Shinjuku",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "suginami",
+    "wardNameJa": "杉並区",
+    "wardNameEn": "Suginami",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
+    "hasDetailedAreas": false
+  },
+  {
+    "wardSlug": "sumida",
+    "wardNameJa": "墨田区",
+    "wardNameEn": "Sumida",
+    "sourceQuality": "medium",
+    "sourceLabel": "墨田区 資源とごみの収集カレンダー",
+    "granularity": "12地区の収集パターンと地区境界を反映済みです。",
+    "notes": [
+      "地区ラベルは公式 entry page の PDF リンク文言から抽出しています。",
+      "収集曜日は公式 2026 年度 summary calendar をレビュー済み転記から正規化しています。",
+      "燃やさないごみは月内の第1・第3回または第2・第4回の freeform rule として保持しています。"
+    ],
+    "daySignals": {
+      "friday": [
+        {
+          "category": "burnable",
+          "areas": 4
+        },
+        {
+          "category": "plastic",
+          "areas": 2
+        },
+        {
+          "category": "resource",
+          "areas": 2
+        }
+      ],
+      "monday": [
+        {
+          "category": "burnable",
+          "areas": 4
+        },
+        {
+          "category": "plastic",
+          "areas": 2
+        },
+        {
+          "category": "resource",
+          "areas": 2
+        }
+      ],
+      "saturday": [
+        {
+          "category": "burnable",
+          "areas": 4
+        },
+        {
+          "category": "plastic",
+          "areas": 2
+        },
+        {
+          "category": "resource",
+          "areas": 2
+        }
+      ],
+      "thursday": [
         {
           "category": "burnable",
           "areas": 4
@@ -195,69 +536,35 @@
         },
         {
           "category": "plastic",
-          "areas": 3
-        },
-        {
-          "category": "resource",
-          "areas": 2
-        }
-      ],
-      "thursday": [
-        {
-          "category": "burnable",
-          "areas": 4
-        },
-        {
-          "category": "resource",
-          "areas": 2
-        },
-        {
-          "category": "plastic",
-          "areas": 1
-        }
-      ],
-      "friday": [
-        {
-          "category": "burnable",
-          "areas": 4
-        },
-        {
-          "category": "plastic",
           "areas": 2
         },
         {
           "category": "resource",
-          "areas": 2
-        }
-      ],
-      "saturday": [
-        {
-          "category": "burnable",
-          "areas": 4
-        },
-        {
-          "category": "resource",
-          "areas": 2
-        },
-        {
-          "category": "plastic",
           "areas": 2
         }
       ]
     },
+    "hasDetailedAreas": true
+  },
+  {
+    "wardSlug": "taito",
+    "wardNameJa": "台東区",
+    "wardNameEn": "Taito",
+    "sourceQuality": "pending",
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
+    "daySignals": {},
     "hasDetailedAreas": false
   },
   {
-    "wardSlug": "sumida",
-    "wardNameJa": "墨田区",
-    "wardNameEn": "Sumida",
+    "wardSlug": "toshima",
+    "wardNameJa": "豊島区",
+    "wardNameEn": "Toshima",
     "sourceQuality": "pending",
-    "sourceLabel": "墨田区 資源とごみの収集カレンダー",
-    "granularity": "墨田区はソース追跡のみで正規化待ちです",
-    "notes": [
-      "公式 PDF の所在は追跡済みですが、曜日と品目の抽出はまだです。",
-      "未完成でも作業対象として見えるように、地図上には残しています。"
-    ],
+    "sourceLabel": "データソース未設定",
+    "granularity": "",
+    "notes": [],
     "daySignals": {},
     "hasDetailedAreas": false
   }

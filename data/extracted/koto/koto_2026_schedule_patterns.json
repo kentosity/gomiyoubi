@@ -1,0 +1,309 @@
+{
+  "ward_slug": "koto",
+  "fiscal_year": 2026,
+  "generated_at": "2026-04-01T08:53:56+00:00",
+  "parser_version": "koto_extract_v1",
+  "source_path": "data/raw/koto/koto_entry_page.html",
+  "district_patterns": [
+    {
+      "district_number": 1,
+      "source_image": "/388010/kurashi/gomi/kate/images/8-1.png",
+      "raw_alt": "【1地区】資源土曜日、プラスチック木曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+      "weekly_schedule": {
+        "resource": [
+          "saturday"
+        ],
+        "plastic": [
+          "thursday"
+        ],
+        "burnable": [
+          "tuesday",
+          "friday"
+        ]
+      },
+      "nonweekly_schedule": {
+        "nonburnable": {
+          "rule_type": "freeform",
+          "weekday": "monday",
+          "text_ja": "隔週月曜日",
+          "pattern": "alternating_weeks"
+        }
+      }
+    },
+    {
+      "district_number": 2,
+      "source_image": "/388010/kurashi/gomi/kate/images/8-2.png",
+      "raw_alt": "【2地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+      "weekly_schedule": {
+        "resource": [
+          "monday"
+        ],
+        "plastic": [
+          "friday"
+        ],
+        "burnable": [
+          "wednesday",
+          "saturday"
+        ]
+      },
+      "nonweekly_schedule": {
+        "nonburnable": {
+          "rule_type": "freeform",
+          "weekday": "tuesday",
+          "text_ja": "隔週火曜日",
+          "pattern": "alternating_weeks"
+        }
+      }
+    },
+    {
+      "district_number": 3,
+      "source_image": "/388010/kurashi/gomi/kate/images/8-3.png",
+      "raw_alt": "【3地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+      "weekly_schedule": {
+        "resource": [
+          "tuesday"
+        ],
+        "plastic": [
+          "saturday"
+        ],
+        "burnable": [
+          "monday",
+          "thursday"
+        ]
+      },
+      "nonweekly_schedule": {
+        "nonburnable": {
+          "rule_type": "freeform",
+          "weekday": "wednesday",
+          "text_ja": "隔週水曜日",
+          "pattern": "alternating_weeks"
+        }
+      }
+    },
+    {
+      "district_number": 4,
+      "source_image": "/388010/kurashi/gomi/kate/images/8-4.png",
+      "raw_alt": "【4地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+      "weekly_schedule": {
+        "resource": [
+          "wednesday"
+        ],
+        "plastic": [
+          "monday"
+        ],
+        "burnable": [
+          "tuesday",
+          "friday"
+        ]
+      },
+      "nonweekly_schedule": {
+        "nonburnable": {
+          "rule_type": "freeform",
+          "weekday": "thursday",
+          "text_ja": "隔週木曜日",
+          "pattern": "alternating_weeks"
+        }
+      }
+    },
+    {
+      "district_number": 5,
+      "source_image": "/388010/kurashi/gomi/kate/images/8-5.png",
+      "raw_alt": "【5地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+      "weekly_schedule": {
+        "resource": [
+          "thursday"
+        ],
+        "plastic": [
+          "tuesday"
+        ],
+        "burnable": [
+          "wednesday",
+          "saturday"
+        ]
+      },
+      "nonweekly_schedule": {
+        "nonburnable": {
+          "rule_type": "freeform",
+          "weekday": "friday",
+          "text_ja": "隔週金曜日",
+          "pattern": "alternating_weeks"
+        }
+      }
+    },
+    {
+      "district_number": 6,
+      "source_image": "/388010/kurashi/gomi/kate/images/8-6.png",
+      "raw_alt": "【6地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+      "weekly_schedule": {
+        "resource": [
+          "friday"
+        ],
+        "plastic": [
+          "wednesday"
+        ],
+        "burnable": [
+          "monday",
+          "thursday"
+        ]
+      },
+      "nonweekly_schedule": {
+        "nonburnable": {
+          "rule_type": "freeform",
+          "weekday": "saturday",
+          "text_ja": "隔週土曜日",
+          "pattern": "alternating_weeks"
+        }
+      }
+    },
+    {
+      "district_number": 7,
+      "source_image": "/388010/kurashi/gomi/kate/images/8-7.png",
+      "raw_alt": "【7地区】資源土曜日、プラスチック水曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+      "weekly_schedule": {
+        "resource": [
+          "saturday"
+        ],
+        "plastic": [
+          "wednesday"
+        ],
+        "burnable": [
+          "tuesday",
+          "friday"
+        ]
+      },
+      "nonweekly_schedule": {
+        "nonburnable": {
+          "rule_type": "freeform",
+          "weekday": "monday",
+          "text_ja": "隔週月曜日",
+          "pattern": "alternating_weeks"
+        }
+      }
+    },
+    {
+      "district_number": 8,
+      "source_image": "/388010/kurashi/gomi/kate/images/8-8.png",
+      "raw_alt": "【8地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+      "weekly_schedule": {
+        "resource": [
+          "monday"
+        ],
+        "plastic": [
+          "friday"
+        ],
+        "burnable": [
+          "wednesday",
+          "saturday"
+        ]
+      },
+      "nonweekly_schedule": {
+        "nonburnable": {
+          "rule_type": "freeform",
+          "weekday": "tuesday",
+          "text_ja": "隔週火曜日",
+          "pattern": "alternating_weeks"
+        }
+      }
+    },
+    {
+      "district_number": 9,
+      "source_image": "/388010/kurashi/gomi/kate/images/8-9.png",
+      "raw_alt": "【9地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+      "weekly_schedule": {
+        "resource": [
+          "tuesday"
+        ],
+        "plastic": [
+          "saturday"
+        ],
+        "burnable": [
+          "monday",
+          "thursday"
+        ]
+      },
+      "nonweekly_schedule": {
+        "nonburnable": {
+          "rule_type": "freeform",
+          "weekday": "wednesday",
+          "text_ja": "隔週水曜日",
+          "pattern": "alternating_weeks"
+        }
+      }
+    },
+    {
+      "district_number": 10,
+      "source_image": "/388010/kurashi/gomi/kate/images/8-10.png",
+      "raw_alt": "【10地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+      "weekly_schedule": {
+        "resource": [
+          "wednesday"
+        ],
+        "plastic": [
+          "monday"
+        ],
+        "burnable": [
+          "tuesday",
+          "friday"
+        ]
+      },
+      "nonweekly_schedule": {
+        "nonburnable": {
+          "rule_type": "freeform",
+          "weekday": "thursday",
+          "text_ja": "隔週木曜日",
+          "pattern": "alternating_weeks"
+        }
+      }
+    },
+    {
+      "district_number": 11,
+      "source_image": "/388010/kurashi/gomi/kate/images/8-11.png",
+      "raw_alt": "【11地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+      "weekly_schedule": {
+        "resource": [
+          "thursday"
+        ],
+        "plastic": [
+          "tuesday"
+        ],
+        "burnable": [
+          "wednesday",
+          "saturday"
+        ]
+      },
+      "nonweekly_schedule": {
+        "nonburnable": {
+          "rule_type": "freeform",
+          "weekday": "friday",
+          "text_ja": "隔週金曜日",
+          "pattern": "alternating_weeks"
+        }
+      }
+    },
+    {
+      "district_number": 12,
+      "source_image": "/388010/kurashi/gomi/kate/images/8-12.png",
+      "raw_alt": "【12地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+      "weekly_schedule": {
+        "resource": [
+          "friday"
+        ],
+        "plastic": [
+          "wednesday"
+        ],
+        "burnable": [
+          "monday",
+          "thursday"
+        ]
+      },
+      "nonweekly_schedule": {
+        "nonburnable": {
+          "rule_type": "freeform",
+          "weekday": "saturday",
+          "text_ja": "隔週土曜日",
+          "pattern": "alternating_weeks"
+        }
+      }
+    }
+  ]
+}

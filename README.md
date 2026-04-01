@@ -14,8 +14,8 @@ Current prototype limits:
 
 - the map is still ward-level, not exact block-level collection-zone masking
 - `Chuo` is backed by the official CSV and has the strongest day signal
-- `Koto` is backed by district templates, but non-burnable is still date-specific and omitted from the prototype view
-- `Sumida` is tracked on the map but still waiting on schedule normalization
+- `Koto` now has normalized district-level schedule claims in SQLite, but address-to-district geometry is still pending
+- `Sumida` now has normalized 12-zone weekday patterns in SQLite, but zone geometry is still pending
 
 Run it:
 
@@ -36,6 +36,7 @@ Common commands:
 ```bash
 /opt/homebrew/bin/mise x -- pnpm dev
 /opt/homebrew/bin/mise x -- pnpm dev:host
+/opt/homebrew/bin/mise x -- pnpm data:extract
 /opt/homebrew/bin/mise x -- pnpm db:bootstrap
 /opt/homebrew/bin/mise x -- pnpm db:export
 /opt/homebrew/bin/mise x -- pnpm db:build
@@ -56,6 +57,8 @@ Primary data files:
 
 - `data/source-registry.json`
 - `data/schema.sql`
+- `scripts/extract_koto_data.py`
+- `scripts/extract_sumida_data.py`
 - `scripts/export_frontend_data.py`
 - `public/data/ward-boundaries.geojson`
 - `public/data/ward-overviews.json`

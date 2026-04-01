@@ -3,11 +3,13 @@ import maplibregl from "maplibre-gl";
 export const MULTI_CATEGORY_COLOR = "#facc15";
 
 export const MAP_SOURCE_IDS = {
+  outsideMask: "outside-mask",
   wards: "wards",
   detailedAreas: "detailed-areas",
 } as const;
 
 export const MAP_LAYER_IDS = {
+  outsideMask: "outside-mask",
   wardFill: "ward-fill",
   detailedAreasFill: "detailed-areas-fill",
   detailedAreasOutline: "detailed-areas-outline",
@@ -30,11 +32,11 @@ export const TOKYO_STYLE: maplibregl.StyleSpecification = {
       type: "raster",
       source: "osm",
       paint: {
-        "raster-opacity": 0.72,
-        "raster-saturation": -0.7,
-        "raster-contrast": -0.12,
-        "raster-brightness-min": 0.28,
-        "raster-brightness-max": 0.9,
+        "raster-opacity": 1,
+        "raster-saturation": 0.32,
+        "raster-contrast": 0.12,
+        "raster-brightness-min": 0,
+        "raster-brightness-max": 1,
       },
     },
   ],
@@ -80,15 +82,36 @@ export function createWardFillLayer(): maplibregl.FillLayerSpecification {
     type: "fill",
     source: MAP_SOURCE_IDS.wards,
     paint: {
-      "fill-color": ["coalesce", ["get", "fillColor"], "#334155"],
+      "fill-color": [
+        "case",
+        ["==", ["get", "sourceQuality"], "pending"],
+        "#1f2937",
+        ["==", ["coalesce", ["feature-state", "signalCount"], 0], 0],
+        "#374151",
+        ["coalesce", ["feature-state", "fillColor"], "#334155"],
+      ],
       "fill-opacity": [
         "case",
         ["==", ["get", "hasDetailedAreas"], true],
-        0.08,
+        0,
         ["==", ["get", "sourceQuality"], "pending"],
-        0.22,
-        0.34,
+        0.48,
+        ["==", ["coalesce", ["feature-state", "signalCount"], 0], 0],
+        0.3,
+        0.18,
       ],
+    },
+  };
+}
+
+export function createOutsideMaskLayer(): maplibregl.FillLayerSpecification {
+  return {
+    id: MAP_LAYER_IDS.outsideMask,
+    type: "fill",
+    source: MAP_SOURCE_IDS.outsideMask,
+    paint: {
+      "fill-color": "#d7e3ec",
+      "fill-opacity": 0.12,
     },
   };
 }
@@ -99,8 +122,13 @@ export function createDetailedAreasFillLayer(): maplibregl.FillLayerSpecificatio
     type: "fill",
     source: MAP_SOURCE_IDS.detailedAreas,
     paint: {
-      "fill-color": ["coalesce", ["get", "activeFillColor"], "#000000"],
-      "fill-opacity": ["case", [">", ["get", "activeCategoryCount"], 0], 0.78, 0.04],
+      "fill-color": ["coalesce", ["feature-state", "activeFillColor"], "#000000"],
+      "fill-opacity": [
+        "case",
+        [">", ["coalesce", ["feature-state", "activeCategoryCount"], 0], 0],
+        0.66,
+        0,
+      ],
     },
   };
 }

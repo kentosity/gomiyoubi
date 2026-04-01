@@ -16,11 +16,11 @@ export function useMapSelection() {
   );
 
   function setHoverTarget(target: MapTarget) {
-    setHoverTargetState(target);
+    setHoverTargetState((current) => (isSameMapTarget(current, target) ? current : target));
   }
 
   function clearHover() {
-    setHoverTargetState(EMPTY_MAP_TARGET);
+    setHoverTargetState((current) => (hasMapTarget(current) ? EMPTY_MAP_TARGET : current));
   }
 
   function toggleFocusTarget(target: MapTarget) {

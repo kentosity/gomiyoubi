@@ -1,0 +1,906 @@
+{
+  "ward_slug": "sumida",
+  "source_path": "data/raw/sumida/sumida_download_01.pdf",
+  "rows": [
+    {
+      "zone_index": 1,
+      "zone_code": "01",
+      "label_ja": "両国、亀沢、石原、横網",
+      "resource_day": "tuesday",
+      "plastic_day": "wednesday",
+      "burnable_days": [
+        "monday",
+        "thursday"
+      ],
+      "nonburnable": {
+        "day": "saturday",
+        "ordinals": [
+          1,
+          3
+        ],
+        "label_ja": "1回目・3回目 土曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-04",
+            "2026-04-18"
+          ],
+          "2026-05": [
+            "2026-05-02",
+            "2026-05-16"
+          ],
+          "2026-06": [
+            "2026-06-06",
+            "2026-06-20"
+          ],
+          "2026-07": [
+            "2026-07-04",
+            "2026-07-18"
+          ],
+          "2026-08": [
+            "2026-08-01",
+            "2026-08-15"
+          ],
+          "2026-09": [
+            "2026-09-05",
+            "2026-09-19"
+          ],
+          "2026-10": [
+            "2026-10-03",
+            "2026-10-17"
+          ],
+          "2026-11": [
+            "2026-11-07",
+            "2026-11-21"
+          ],
+          "2026-12": [
+            "2026-12-05",
+            "2026-12-19"
+          ],
+          "2027-01": [
+            "2027-01-02",
+            "2027-01-16"
+          ],
+          "2027-02": [
+            "2027-02-06",
+            "2027-02-20"
+          ],
+          "2027-03": [
+            "2027-03-06",
+            "2027-03-20"
+          ]
+        }
+      },
+      "source_evidence": {
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "summary_row_index": 1,
+        "pattern_id": "resource-tuesday_plastic-wednesday_burnable-monday-thursday_nonburnable-1-3-saturday"
+      }
+    },
+    {
+      "zone_index": 2,
+      "zone_code": "02",
+      "label_ja": "千歳、緑、立川",
+      "resource_day": "tuesday",
+      "plastic_day": "wednesday",
+      "burnable_days": [
+        "monday",
+        "thursday"
+      ],
+      "nonburnable": {
+        "day": "saturday",
+        "ordinals": [
+          2,
+          4
+        ],
+        "label_ja": "2回目・4回目 土曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-11",
+            "2026-04-25"
+          ],
+          "2026-05": [
+            "2026-05-09",
+            "2026-05-23"
+          ],
+          "2026-06": [
+            "2026-06-13",
+            "2026-06-27"
+          ],
+          "2026-07": [
+            "2026-07-11",
+            "2026-07-25"
+          ],
+          "2026-08": [
+            "2026-08-08",
+            "2026-08-22"
+          ],
+          "2026-09": [
+            "2026-09-12",
+            "2026-09-26"
+          ],
+          "2026-10": [
+            "2026-10-10",
+            "2026-10-24"
+          ],
+          "2026-11": [
+            "2026-11-14",
+            "2026-11-28"
+          ],
+          "2026-12": [
+            "2026-12-12",
+            "2026-12-26"
+          ],
+          "2027-01": [
+            "2027-01-09",
+            "2027-01-23"
+          ],
+          "2027-02": [
+            "2027-02-13",
+            "2027-02-27"
+          ],
+          "2027-03": [
+            "2027-03-13",
+            "2027-03-27"
+          ]
+        }
+      },
+      "source_evidence": {
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "summary_row_index": 2,
+        "pattern_id": "resource-tuesday_plastic-wednesday_burnable-monday-thursday_nonburnable-2-4-saturday"
+      }
+    },
+    {
+      "zone_index": 3,
+      "zone_code": "03",
+      "label_ja": "太平、横川",
+      "resource_day": "friday",
+      "plastic_day": "saturday",
+      "burnable_days": [
+        "monday",
+        "thursday"
+      ],
+      "nonburnable": {
+        "day": "wednesday",
+        "ordinals": [
+          1,
+          3
+        ],
+        "label_ja": "1回目・3回目 水曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-01",
+            "2026-04-15"
+          ],
+          "2026-05": [
+            "2026-05-06",
+            "2026-05-20"
+          ],
+          "2026-06": [
+            "2026-06-03",
+            "2026-06-17"
+          ],
+          "2026-07": [
+            "2026-07-01",
+            "2026-07-15"
+          ],
+          "2026-08": [
+            "2026-08-05",
+            "2026-08-19"
+          ],
+          "2026-09": [
+            "2026-09-02",
+            "2026-09-16"
+          ],
+          "2026-10": [
+            "2026-10-07",
+            "2026-10-21"
+          ],
+          "2026-11": [
+            "2026-11-04",
+            "2026-11-18"
+          ],
+          "2026-12": [
+            "2026-12-02",
+            "2026-12-16"
+          ],
+          "2027-01": [
+            "2027-01-06",
+            "2027-01-20"
+          ],
+          "2027-02": [
+            "2027-02-03",
+            "2027-02-17"
+          ],
+          "2027-03": [
+            "2027-03-03",
+            "2027-03-17"
+          ]
+        }
+      },
+      "source_evidence": {
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "summary_row_index": 3,
+        "pattern_id": "resource-friday_plastic-saturday_burnable-monday-thursday_nonburnable-1-3-wednesday"
+      }
+    },
+    {
+      "zone_index": 4,
+      "zone_code": "04",
+      "label_ja": "菊川、江東橋、錦糸",
+      "resource_day": "friday",
+      "plastic_day": "saturday",
+      "burnable_days": [
+        "monday",
+        "thursday"
+      ],
+      "nonburnable": {
+        "day": "wednesday",
+        "ordinals": [
+          2,
+          4
+        ],
+        "label_ja": "2回目・4回目 水曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-08",
+            "2026-04-22"
+          ],
+          "2026-05": [
+            "2026-05-13",
+            "2026-05-27"
+          ],
+          "2026-06": [
+            "2026-06-10",
+            "2026-06-24"
+          ],
+          "2026-07": [
+            "2026-07-08",
+            "2026-07-22"
+          ],
+          "2026-08": [
+            "2026-08-12",
+            "2026-08-26"
+          ],
+          "2026-09": [
+            "2026-09-09",
+            "2026-09-23"
+          ],
+          "2026-10": [
+            "2026-10-14",
+            "2026-10-28"
+          ],
+          "2026-11": [
+            "2026-11-11",
+            "2026-11-25"
+          ],
+          "2026-12": [
+            "2026-12-09",
+            "2026-12-23"
+          ],
+          "2027-01": [
+            "2027-01-13",
+            "2027-01-27"
+          ],
+          "2027-02": [
+            "2027-02-10",
+            "2027-02-24"
+          ],
+          "2027-03": [
+            "2027-03-10",
+            "2027-03-24"
+          ]
+        }
+      },
+      "source_evidence": {
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "summary_row_index": 4,
+        "pattern_id": "resource-friday_plastic-saturday_burnable-monday-thursday_nonburnable-2-4-wednesday"
+      }
+    },
+    {
+      "zone_index": 5,
+      "zone_code": "05",
+      "label_ja": "本所1・2丁目、東駒形1・2丁目、吾妻橋、向島1・2・3丁目",
+      "resource_day": "saturday",
+      "plastic_day": "thursday",
+      "burnable_days": [
+        "tuesday",
+        "friday"
+      ],
+      "nonburnable": {
+        "day": "monday",
+        "ordinals": [
+          1,
+          3
+        ],
+        "label_ja": "1回目・3回目 月曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-06",
+            "2026-04-20"
+          ],
+          "2026-05": [
+            "2026-05-04",
+            "2026-05-18"
+          ],
+          "2026-06": [
+            "2026-06-01",
+            "2026-06-15"
+          ],
+          "2026-07": [
+            "2026-07-06",
+            "2026-07-20"
+          ],
+          "2026-08": [
+            "2026-08-03",
+            "2026-08-17"
+          ],
+          "2026-09": [
+            "2026-09-07",
+            "2026-09-21"
+          ],
+          "2026-10": [
+            "2026-10-05",
+            "2026-10-19"
+          ],
+          "2026-11": [
+            "2026-11-02",
+            "2026-11-16"
+          ],
+          "2026-12": [
+            "2026-12-07",
+            "2026-12-21"
+          ],
+          "2027-01": [
+            "2027-01-04",
+            "2027-01-18"
+          ],
+          "2027-02": [
+            "2027-02-01",
+            "2027-02-15"
+          ],
+          "2027-03": [
+            "2027-03-01",
+            "2027-03-15"
+          ]
+        }
+      },
+      "source_evidence": {
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "summary_row_index": 5,
+        "pattern_id": "resource-saturday_plastic-thursday_burnable-tuesday-friday_nonburnable-1-3-monday"
+      }
+    },
+    {
+      "zone_index": 6,
+      "zone_code": "06",
+      "label_ja": "向島4・5丁目、東向島1・2・3丁目、堤通1丁目",
+      "resource_day": "saturday",
+      "plastic_day": "thursday",
+      "burnable_days": [
+        "tuesday",
+        "friday"
+      ],
+      "nonburnable": {
+        "day": "monday",
+        "ordinals": [
+          2,
+          4
+        ],
+        "label_ja": "2回目・4回目 月曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-13",
+            "2026-04-27"
+          ],
+          "2026-05": [
+            "2026-05-11",
+            "2026-05-25"
+          ],
+          "2026-06": [
+            "2026-06-08",
+            "2026-06-22"
+          ],
+          "2026-07": [
+            "2026-07-13",
+            "2026-07-27"
+          ],
+          "2026-08": [
+            "2026-08-10",
+            "2026-08-24"
+          ],
+          "2026-09": [
+            "2026-09-14",
+            "2026-09-28"
+          ],
+          "2026-10": [
+            "2026-10-12",
+            "2026-10-26"
+          ],
+          "2026-11": [
+            "2026-11-09",
+            "2026-11-23"
+          ],
+          "2026-12": [
+            "2026-12-14",
+            "2026-12-28"
+          ],
+          "2027-01": [
+            "2027-01-11",
+            "2027-01-25"
+          ],
+          "2027-02": [
+            "2027-02-08",
+            "2027-02-22"
+          ],
+          "2027-03": [
+            "2027-03-08",
+            "2027-03-22"
+          ]
+        }
+      },
+      "source_evidence": {
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "summary_row_index": 6,
+        "pattern_id": "resource-saturday_plastic-thursday_burnable-tuesday-friday_nonburnable-2-4-monday"
+      }
+    },
+    {
+      "zone_index": 7,
+      "zone_code": "07",
+      "label_ja": "押上、京島",
+      "resource_day": "wednesday",
+      "plastic_day": "monday",
+      "burnable_days": [
+        "tuesday",
+        "friday"
+      ],
+      "nonburnable": {
+        "day": "thursday",
+        "ordinals": [
+          1,
+          3
+        ],
+        "label_ja": "1回目・3回目 木曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-02",
+            "2026-04-16"
+          ],
+          "2026-05": [
+            "2026-05-07",
+            "2026-05-21"
+          ],
+          "2026-06": [
+            "2026-06-04",
+            "2026-06-18"
+          ],
+          "2026-07": [
+            "2026-07-02",
+            "2026-07-16"
+          ],
+          "2026-08": [
+            "2026-08-06",
+            "2026-08-20"
+          ],
+          "2026-09": [
+            "2026-09-03",
+            "2026-09-17"
+          ],
+          "2026-10": [
+            "2026-10-01",
+            "2026-10-15"
+          ],
+          "2026-11": [
+            "2026-11-05",
+            "2026-11-19"
+          ],
+          "2026-12": [
+            "2026-12-03",
+            "2026-12-17"
+          ],
+          "2027-01": [
+            "2027-01-07",
+            "2027-01-21"
+          ],
+          "2027-02": [
+            "2027-02-04",
+            "2027-02-18"
+          ],
+          "2027-03": [
+            "2027-03-04",
+            "2027-03-18"
+          ]
+        }
+      },
+      "source_evidence": {
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "summary_row_index": 7,
+        "pattern_id": "resource-wednesday_plastic-monday_burnable-tuesday-friday_nonburnable-1-3-thursday"
+      }
+    },
+    {
+      "zone_index": 8,
+      "zone_code": "08",
+      "label_ja": "本所3・4丁目、東駒形3・4丁目、業平、文花1丁目",
+      "resource_day": "wednesday",
+      "plastic_day": "monday",
+      "burnable_days": [
+        "tuesday",
+        "friday"
+      ],
+      "nonburnable": {
+        "day": "thursday",
+        "ordinals": [
+          2,
+          4
+        ],
+        "label_ja": "2回目・4回目 木曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-09",
+            "2026-04-23"
+          ],
+          "2026-05": [
+            "2026-05-14",
+            "2026-05-28"
+          ],
+          "2026-06": [
+            "2026-06-11",
+            "2026-06-25"
+          ],
+          "2026-07": [
+            "2026-07-09",
+            "2026-07-23"
+          ],
+          "2026-08": [
+            "2026-08-13",
+            "2026-08-27"
+          ],
+          "2026-09": [
+            "2026-09-10",
+            "2026-09-24"
+          ],
+          "2026-10": [
+            "2026-10-08",
+            "2026-10-22"
+          ],
+          "2026-11": [
+            "2026-11-12",
+            "2026-11-26"
+          ],
+          "2026-12": [
+            "2026-12-10",
+            "2026-12-24"
+          ],
+          "2027-01": [
+            "2027-01-14",
+            "2027-01-28"
+          ],
+          "2027-02": [
+            "2027-02-11",
+            "2027-02-25"
+          ],
+          "2027-03": [
+            "2027-03-11",
+            "2027-03-25"
+          ]
+        }
+      },
+      "source_evidence": {
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "summary_row_index": 8,
+        "pattern_id": "resource-wednesday_plastic-monday_burnable-tuesday-friday_nonburnable-2-4-thursday"
+      }
+    },
+    {
+      "zone_index": 9,
+      "zone_code": "09",
+      "label_ja": "堤通2丁目、東向島4丁目、墨田1・2・5丁目",
+      "resource_day": "thursday",
+      "plastic_day": "friday",
+      "burnable_days": [
+        "wednesday",
+        "saturday"
+      ],
+      "nonburnable": {
+        "day": "tuesday",
+        "ordinals": [
+          1,
+          3
+        ],
+        "label_ja": "1回目・3回目 火曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-07",
+            "2026-04-21"
+          ],
+          "2026-05": [
+            "2026-05-05",
+            "2026-05-19"
+          ],
+          "2026-06": [
+            "2026-06-02",
+            "2026-06-16"
+          ],
+          "2026-07": [
+            "2026-07-07",
+            "2026-07-21"
+          ],
+          "2026-08": [
+            "2026-08-04",
+            "2026-08-18"
+          ],
+          "2026-09": [
+            "2026-09-01",
+            "2026-09-15"
+          ],
+          "2026-10": [
+            "2026-10-06",
+            "2026-10-20"
+          ],
+          "2026-11": [
+            "2026-11-03",
+            "2026-11-17"
+          ],
+          "2026-12": [
+            "2026-12-01",
+            "2026-12-15"
+          ],
+          "2027-01": [
+            "2027-01-05",
+            "2027-01-19"
+          ],
+          "2027-02": [
+            "2027-02-02",
+            "2027-02-16"
+          ],
+          "2027-03": [
+            "2027-03-02",
+            "2027-03-16"
+          ]
+        }
+      },
+      "source_evidence": {
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "summary_row_index": 9,
+        "pattern_id": "resource-thursday_plastic-friday_burnable-wednesday-saturday_nonburnable-1-3-tuesday"
+      }
+    },
+    {
+      "zone_index": 10,
+      "zone_code": "10",
+      "label_ja": "東向島5・6丁目、墨田3・4丁目、八広6丁目",
+      "resource_day": "thursday",
+      "plastic_day": "friday",
+      "burnable_days": [
+        "wednesday",
+        "saturday"
+      ],
+      "nonburnable": {
+        "day": "tuesday",
+        "ordinals": [
+          2,
+          4
+        ],
+        "label_ja": "2回目・4回目 火曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-14",
+            "2026-04-28"
+          ],
+          "2026-05": [
+            "2026-05-12",
+            "2026-05-26"
+          ],
+          "2026-06": [
+            "2026-06-09",
+            "2026-06-23"
+          ],
+          "2026-07": [
+            "2026-07-14",
+            "2026-07-28"
+          ],
+          "2026-08": [
+            "2026-08-11",
+            "2026-08-25"
+          ],
+          "2026-09": [
+            "2026-09-08",
+            "2026-09-22"
+          ],
+          "2026-10": [
+            "2026-10-13",
+            "2026-10-27"
+          ],
+          "2026-11": [
+            "2026-11-10",
+            "2026-11-24"
+          ],
+          "2026-12": [
+            "2026-12-08",
+            "2026-12-22"
+          ],
+          "2027-01": [
+            "2027-01-12",
+            "2027-01-26"
+          ],
+          "2027-02": [
+            "2027-02-09",
+            "2027-02-23"
+          ],
+          "2027-03": [
+            "2027-03-09",
+            "2027-03-23"
+          ]
+        }
+      },
+      "source_evidence": {
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "summary_row_index": 10,
+        "pattern_id": "resource-thursday_plastic-friday_burnable-wednesday-saturday_nonburnable-2-4-tuesday"
+      }
+    },
+    {
+      "zone_index": 11,
+      "zone_code": "11",
+      "label_ja": "立花、東墨田",
+      "resource_day": "monday",
+      "plastic_day": "tuesday",
+      "burnable_days": [
+        "wednesday",
+        "saturday"
+      ],
+      "nonburnable": {
+        "day": "friday",
+        "ordinals": [
+          1,
+          3
+        ],
+        "label_ja": "1回目・3回目 金曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-03",
+            "2026-04-17"
+          ],
+          "2026-05": [
+            "2026-05-01",
+            "2026-05-15"
+          ],
+          "2026-06": [
+            "2026-06-05",
+            "2026-06-19"
+          ],
+          "2026-07": [
+            "2026-07-03",
+            "2026-07-17"
+          ],
+          "2026-08": [
+            "2026-08-07",
+            "2026-08-21"
+          ],
+          "2026-09": [
+            "2026-09-04",
+            "2026-09-18"
+          ],
+          "2026-10": [
+            "2026-10-02",
+            "2026-10-16"
+          ],
+          "2026-11": [
+            "2026-11-06",
+            "2026-11-20"
+          ],
+          "2026-12": [
+            "2026-12-04",
+            "2026-12-18"
+          ],
+          "2027-01": [
+            "2027-01-01",
+            "2027-01-15"
+          ],
+          "2027-02": [
+            "2027-02-05",
+            "2027-02-19"
+          ],
+          "2027-03": [
+            "2027-03-05",
+            "2027-03-19"
+          ]
+        }
+      },
+      "source_evidence": {
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "summary_row_index": 11,
+        "pattern_id": "resource-monday_plastic-tuesday_burnable-wednesday-saturday_nonburnable-1-3-friday"
+      }
+    },
+    {
+      "zone_index": 12,
+      "zone_code": "12",
+      "label_ja": "文花2・3丁目、八広1・2・3・4・5丁目",
+      "resource_day": "monday",
+      "plastic_day": "tuesday",
+      "burnable_days": [
+        "wednesday",
+        "saturday"
+      ],
+      "nonburnable": {
+        "day": "friday",
+        "ordinals": [
+          2,
+          4
+        ],
+        "label_ja": "2回目・4回目 金曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-10",
+            "2026-04-24"
+          ],
+          "2026-05": [
+            "2026-05-08",
+            "2026-05-22"
+          ],
+          "2026-06": [
+            "2026-06-12",
+            "2026-06-26"
+          ],
+          "2026-07": [
+            "2026-07-10",
+            "2026-07-24"
+          ],
+          "2026-08": [
+            "2026-08-14",
+            "2026-08-28"
+          ],
+          "2026-09": [
+            "2026-09-11",
+            "2026-09-25"
+          ],
+          "2026-10": [
+            "2026-10-09",
+            "2026-10-23"
+          ],
+          "2026-11": [
+            "2026-11-13",
+            "2026-11-27"
+          ],
+          "2026-12": [
+            "2026-12-11",
+            "2026-12-25"
+          ],
+          "2027-01": [
+            "2027-01-08",
+            "2027-01-22"
+          ],
+          "2027-02": [
+            "2027-02-12",
+            "2027-02-26"
+          ],
+          "2027-03": [
+            "2027-03-12",
+            "2027-03-26"
+          ]
+        }
+      },
+      "source_evidence": {
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "summary_row_index": 12,
+        "pattern_id": "resource-monday_plastic-tuesday_burnable-wednesday-saturday_nonburnable-2-4-friday"
+      }
+    }
+  ]
+}

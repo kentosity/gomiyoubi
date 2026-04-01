@@ -1,0 +1,38 @@
+{
+  "ward_slug": "sumida",
+  "generated_at": "2026-04-01T08:53:58.780489+00:00",
+  "script_version": "2026-04-01",
+  "raw_files": [
+    {
+      "path": "data/raw/sumida/sumida_entry_page.html",
+      "sha256": "a89b46be00b02dc42393c7799203ff52dc8fbfb3d306339020449118a66bf9b7"
+    },
+    {
+      "path": "data/raw/sumida/sumida_download_01.pdf",
+      "sha256": "5437283353185b5263de5ef062a78d67a37d292dd2da4b53ed4fa746b7c1452e"
+    },
+    {
+      "path": "data/raw/sumida/sumida_download_02.pdf",
+      "sha256": "93c4b2a751f4f7bdacc1089c33e11097dbc2ef6431fb8d1260e103bb0688620f"
+    },
+    {
+      "path": "data/raw/sumida/sumida_download_03.pdf",
+      "sha256": "53c59bf8d581382c1ff56ec45bc7fa555a16d5a3c2d25e7a17ee776d01fc0e1a"
+    }
+  ],
+  "outputs": [
+    "data/extracted/sumida/zone-labels.json",
+    "data/extracted/sumida/summary-calendar-2026-page-1.png",
+    "data/extracted/sumida/summary-ocr.txt",
+    "data/manual/sumida/summary-calendar-2026.reviewed.json",
+    "data/extracted/sumida/zone-patterns-2026.json",
+    "data/normalized/sumida/zone-schedules-2026.json"
+  ],
+  "zone_count": 12,
+  "claim_count": 60,
+  "notes": [
+    "Zone labels come from the official Sumida entry page links for 0804_01.pdf through 0804_12.pdf.",
+    "Weekly and alternating nonburnable patterns are loaded from a reviewed transcription file, not embedded in this script.",
+    "The OCR text is preserved as an audit artifact, but the normalized pattern rows are based on manual verification against the rendered page image."
+  ]
+}

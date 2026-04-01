@@ -61,12 +61,8 @@ export type HoverPanelModel =
     }
   | {
       infoRows: InfoRowModel[];
-      kind: "ward";
-      title: string;
-    }
-  | {
-      infoRows: InfoRowModel[];
-      kind: "detailedArea";
-      scheduleRows: ScheduleRowModel[];
+      kind: "content";
+      scheduleLabel?: string;
+      scheduleRows?: ScheduleRowModel[];
       title: string;
     };

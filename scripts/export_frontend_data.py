@@ -62,6 +62,54 @@ def table_exists(connection: sqlite3.Connection, table_name: str) -> bool:
     return row is not None
 
 
+def build_ward_day_signals(connection: sqlite3.Connection) -> dict[str, dict[str, list[dict[str, int | str]]]]:
+    rows = connection.execute(
+        """
+        SELECT
+          w.slug AS ward_slug,
+          sr.rule_json,
+          cr.category,
+          COUNT(DISTINCT a.id) AS area_count
+        FROM consensus_records cr
+        JOIN areas a ON a.id = cr.area_id
+        JOIN wards w ON w.id = a.ward_id
+        JOIN schedule_rules sr ON sr.id = cr.rule_id
+        WHERE a.area_kind <> 'ward'
+          AND sr.rule_type = 'weekly'
+        GROUP BY w.slug, sr.rule_json, cr.category
+        ORDER BY w.slug, cr.category
+        """
+    ).fetchall()
+
+    signals_by_ward: dict[str, dict[str, list[dict[str, int | str]]]] = {}
+
+    for row in rows:
+        ward_slug = str(row["ward_slug"])
+        day = str(parse_json(row["rule_json"], {}).get("day") or "")
+        if day not in DAY_ORDER:
+            continue
+
+        ward_signals = signals_by_ward.setdefault(ward_slug, {})
+        day_signals = ward_signals.setdefault(day, [])
+        day_signals.append(
+            {
+                "category": str(row["category"]),
+                "areas": int(row["area_count"]),
+            }
+        )
+
+    for ward_signals in signals_by_ward.values():
+        for day, signals in ward_signals.items():
+            ward_signals[day] = sorted(
+                signals,
+                key=lambda signal: CATEGORY_ORDER.index(str(signal["category"]))
+                if str(signal["category"]) in CATEGORY_ORDER
+                else len(CATEGORY_ORDER),
+            )
+
+    return signals_by_ward
+
+
 def numeric_chome_or_text(value: str | None):
     if value is None or value == "":
         return None
@@ -116,6 +164,7 @@ def export_ward_boundaries(connection: sqlite3.Connection):
 
 
 def export_ward_overviews(connection: sqlite3.Connection):
+    derived_day_signals = build_ward_day_signals(connection)
     rows = connection.execute(
         """
         SELECT
@@ -130,9 +179,11 @@ def export_ward_overviews(connection: sqlite3.Connection):
           EXISTS (
             SELECT 1
             FROM areas a
+            JOIN area_geometries ag ON ag.area_id = a.id
             WHERE a.ward_id = w.id
               AND a.area_kind <> 'ward'
               AND a.status = 'active'
+              AND ag.status = 'active'
           ) AS has_detailed_areas
         FROM wards w
         LEFT JOIN ward_overviews wo ON wo.ward_id = w.id
@@ -149,7 +200,7 @@ def export_ward_overviews(connection: sqlite3.Connection):
             "sourceLabel": row["source_label"] or "データソース未設定",
             "granularity": row["granularity"] or "",
             "notes": parse_json(row["notes_json"], []),
-            "daySignals": parse_json(row["day_signals_json"], {}),
+            "daySignals": derived_day_signals.get(row["slug"]) or parse_json(row["day_signals_json"], {}),
             "hasDetailedAreas": bool(row["has_detailed_areas"]),
         }
         for row in rows

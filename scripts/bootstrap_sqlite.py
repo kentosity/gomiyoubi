@@ -5,6 +5,8 @@ import json
 import sqlite3
 from pathlib import Path
 
+from tokyo_small_area_boundaries import build_boundary_index, load_ward_small_area_features
+
 ROOT = Path(__file__).resolve().parent.parent
 DB_PATH = ROOT / "data" / "gomiyoubi.sqlite"
 SCHEMA_PATH = ROOT / "data" / "schema.sql"
@@ -13,6 +15,7 @@ WARD_BOUNDARIES_PATH = ROOT / "public" / "data" / "ward-boundaries.geojson"
 CHUO_ZONES_PATH = ROOT / "public" / "data" / "chuo-zones.geojson"
 CHUO_UNRESOLVED_PATH = ROOT / "public" / "data" / "chuo-unresolved.json"
 WARD_OVERVIEWS_PATH = ROOT / "data" / "seed" / "ward-overviews.json"
+NORMALIZED_DIR = ROOT / "data" / "normalized"
 
 DAY_COLUMNS = (
     ("monday", "mondayCategories"),
@@ -210,6 +213,13 @@ def insert_ward_overview(
           day_signals_json
         )
         VALUES (?, ?, ?, ?, ?, ?)
+        ON CONFLICT(ward_id) DO UPDATE SET
+          source_quality = excluded.source_quality,
+          source_label = excluded.source_label,
+          granularity = excluded.granularity,
+          notes_json = excluded.notes_json,
+          day_signals_json = excluded.day_signals_json,
+          updated_at = CURRENT_TIMESTAMP
         """,
         (
             ward_id,
@@ -224,6 +234,60 @@ def insert_ward_overview(
 
 def get_area_id(connection: sqlite3.Connection, area_key: str) -> int | None:
     row = connection.execute("SELECT id FROM areas WHERE area_key = ?", (area_key,)).fetchone()
+    return int(row["id"]) if row else None
+
+
+def insert_source_artifact(
+    connection: sqlite3.Connection,
+    *,
+    artifact_key: str,
+    source_id: int,
+    artifact_kind: str,
+    local_path: str | None,
+    content_type: str | None,
+    sha256: str | None = None,
+    fetched_at: str | None = None,
+    parser_version: str | None = None,
+    ocr_engine: str | None = None,
+    metadata: dict | None = None,
+) -> int:
+    cursor = connection.execute(
+        """
+        INSERT INTO source_artifacts (
+          artifact_key,
+          source_id,
+          artifact_kind,
+          local_path,
+          content_type,
+          sha256,
+          fetched_at,
+          parser_version,
+          ocr_engine,
+          metadata_json
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        (
+            artifact_key,
+            source_id,
+            artifact_kind,
+            local_path,
+            content_type,
+            sha256,
+            fetched_at,
+            parser_version,
+            ocr_engine,
+            json.dumps(metadata or {}, ensure_ascii=False),
+        ),
+    )
+    return int(cursor.lastrowid)
+
+
+def get_artifact_id(connection: sqlite3.Connection, artifact_key: str) -> int | None:
+    row = connection.execute(
+        "SELECT id FROM source_artifacts WHERE artifact_key = ?",
+        (artifact_key,),
+    ).fetchone()
     return int(row["id"]) if row else None
 
 
@@ -282,6 +346,33 @@ def get_rule_id(connection: sqlite3.Connection, day: str) -> int:
             rule_key,
             json.dumps({"day": day}, ensure_ascii=False),
             f"Weekly pickup on {day}",
+        ),
+    )
+    return int(cursor.lastrowid)
+
+
+def get_or_create_rule(
+    connection: sqlite3.Connection,
+    *,
+    rule_key: str,
+    rule_type: str,
+    rule_json: dict,
+    description: str | None = None,
+) -> int:
+    row = connection.execute("SELECT id FROM schedule_rules WHERE rule_key = ?", (rule_key,)).fetchone()
+    if row is not None:
+        return int(row["id"])
+
+    cursor = connection.execute(
+        """
+        INSERT INTO schedule_rules (rule_key, rule_type, rule_json, description)
+        VALUES (?, ?, ?, ?)
+        """,
+        (
+            rule_key,
+            rule_type,
+            json.dumps(rule_json, ensure_ascii=False),
+            description,
         ),
     )
     return int(cursor.lastrowid)
@@ -405,7 +496,282 @@ def insert_review_task(
             json.dumps(payload, ensure_ascii=False),
             created_by,
         ),
+        )
+
+
+def ensure_estat_boundary_source(connection: sqlite3.Connection, ward_id: int, ward_slug: str, ward_name_ja: str) -> int:
+    source_key = f"{ward_slug}:boundary:e-stat"
+    existing_id = get_source_id(connection, source_key)
+    if existing_id is not None:
+        return existing_id
+
+    return insert_source(
+        connection,
+        ward_id=ward_id,
+        source_key=source_key,
+        source_kind="boundary",
+        label=f"{ward_name_ja} 町丁・字等別境界",
+        url="https://www.e-stat.go.jp/gis/statmap-search/data",
+        format_value="shape",
+        metadata={"source_label": "e-Stat 町丁・字等別境界"},
+        is_official=0,
     )
+
+
+def bootstrap_geometry_memberships(
+    connection: sqlite3.Connection,
+    *,
+    ward_id: int,
+    ward_slug: str,
+    ward_name_ja: str,
+    area_ids_by_key: dict[str, int],
+    memberships: list[dict],
+):
+    if not memberships:
+        return
+
+    boundary_features = load_ward_small_area_features(ward_slug)
+    features_by_town, features_by_town_chome = build_boundary_index(boundary_features)
+    boundary_source_id = ensure_estat_boundary_source(connection, ward_id, ward_slug, ward_name_ja)
+
+    for membership in memberships:
+        area_key = membership["area_key"]
+        area_id = area_ids_by_key.get(area_key) or get_area_id(connection, area_key)
+        if area_id is None:
+            raise ValueError(f"Missing area for geometry membership: {area_key}")
+
+        matched_features: list[dict] = []
+        seen_boundary_keys: set[str] = set()
+
+        for member in membership.get("members", []):
+            town_ja = str(member["town_ja"])
+            chomes = member.get("chomes") or []
+
+            if chomes:
+                for chome in chomes:
+                    feature = features_by_town_chome.get((town_ja, str(chome)))
+                    if feature is None:
+                        raise ValueError(f"Missing boundary match for {ward_slug} {town_ja}{chome}丁目")
+                    boundary_key = str(feature["boundary_key"])
+                    if boundary_key not in seen_boundary_keys:
+                        seen_boundary_keys.add(boundary_key)
+                        matched_features.append(feature)
+                continue
+
+            town_features = features_by_town.get(town_ja)
+            if not town_features:
+                raise ValueError(f"Missing boundary match for {ward_slug} {town_ja}")
+            for feature in town_features:
+                boundary_key = str(feature["boundary_key"])
+                if boundary_key not in seen_boundary_keys:
+                    seen_boundary_keys.add(boundary_key)
+                    matched_features.append(feature)
+
+        for part_index, feature in enumerate(matched_features):
+            insert_area_geometry(
+                connection,
+                geometry_key=f"{area_key}:geometry:{part_index}",
+                area_id=area_id,
+                geometry_source_id=boundary_source_id,
+                boundary_key=str(feature["boundary_key"]),
+                boundary_name=str(feature["boundary_name"]),
+                part_index=part_index,
+                geometry=feature["geometry"],
+                metadata={
+                    "source_url": membership.get("selector_source_urls", [None])[0],
+                    "selector_source_label": membership.get("selector_source_label"),
+                },
+            )
+
+
+def bootstrap_normalized_datasets(connection: sqlite3.Connection):
+    if not NORMALIZED_DIR.exists():
+        return
+
+    for path in sorted(NORMALIZED_DIR.glob("*/*.json")):
+        dataset = load_json(path)
+        ward_slug = dataset.get("ward_slug")
+        if not ward_slug:
+            continue
+
+        ward_id = get_ward_id(connection, ward_slug)
+        ward_name_ja = connection.execute(
+            "SELECT name_ja FROM wards WHERE id = ?",
+            (ward_id,),
+        ).fetchone()["name_ja"]
+
+        overview = dataset.get("overview")
+        if overview:
+            insert_ward_overview(
+                connection,
+                ward_id=ward_id,
+                source_quality=overview["source_quality"],
+                source_label=overview["source_label"],
+                granularity=overview["granularity"],
+                notes=overview.get("notes", []),
+                day_signals=overview.get("day_signals", {}),
+            )
+
+        artifact_ids_by_key: dict[str, int] = {}
+        artifact_rows = dataset.get("artifacts") or dataset.get("source_artifacts") or []
+        for artifact in artifact_rows:
+            source_id = get_source_id(connection, artifact["source_key"])
+            if source_id is None:
+                raise ValueError(f"Missing source for artifact: {artifact['source_key']}")
+
+            artifact_id = insert_source_artifact(
+                connection,
+                artifact_key=artifact["artifact_key"],
+                source_id=source_id,
+                artifact_kind=artifact["artifact_kind"],
+                local_path=artifact.get("local_path"),
+                content_type=artifact.get("content_type"),
+                sha256=artifact.get("sha256"),
+                fetched_at=artifact.get("fetched_at"),
+                parser_version=artifact.get("parser_version"),
+                ocr_engine=artifact.get("ocr_engine"),
+                metadata=artifact.get("metadata"),
+            )
+            artifact_ids_by_key[artifact["artifact_key"]] = artifact_id
+
+        area_ids_by_key = {}
+        for area in dataset.get("areas", []):
+            parent_area_key = area.get("parent_area_key")
+            parent_area_id = get_area_id(connection, parent_area_key) if parent_area_key else None
+            area_id = insert_area(
+                connection,
+                area_key=area["area_key"],
+                ward_id=ward_id,
+                parent_area_id=parent_area_id,
+                area_kind=area["area_kind"],
+                label_ja=area["label_ja"],
+                label_en=area.get("label_en"),
+                town_ja=area.get("town_ja"),
+                chome=area.get("chome"),
+                status=area.get("status", "active"),
+                metadata=area.get("metadata"),
+            )
+            area_ids_by_key[area["area_key"]] = area_id
+
+        bootstrap_geometry_memberships(
+            connection,
+            ward_id=ward_id,
+            ward_slug=ward_slug,
+            ward_name_ja=str(ward_name_ja),
+            area_ids_by_key=area_ids_by_key,
+            memberships=dataset.get("geometry_memberships", []),
+        )
+
+        for claim in dataset.get("claims", []):
+            area_id = area_ids_by_key.get(claim["area_key"]) or get_area_id(connection, claim["area_key"])
+            if area_id is None:
+                raise ValueError(f"Missing area for claim: {claim['area_key']}")
+
+            rule = claim["rule"]
+            rule_id = get_or_create_rule(
+                connection,
+                rule_key=rule["rule_key"],
+                rule_type=rule["rule_type"],
+                rule_json=rule["rule_json"],
+                description=rule.get("description"),
+            )
+            source_id = get_source_id(connection, claim["source_key"]) if claim.get("source_key") else None
+            artifact_id = (
+                artifact_ids_by_key.get(claim["artifact_key"]) or get_artifact_id(connection, claim["artifact_key"])
+                if claim.get("artifact_key")
+                else None
+            )
+
+            claim_id = connection.execute(
+                """
+                INSERT INTO schedule_claims (
+                  claim_key,
+                  ward_id,
+                  area_id,
+                  category,
+                  rule_id,
+                  source_id,
+                  artifact_id,
+                  source_type,
+                  effective_from,
+                  effective_to,
+                  confidence,
+                  submitted_by,
+                  evidence_json,
+                  note
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    claim["claim_key"],
+                    ward_id,
+                    area_id,
+                    claim["category"],
+                    rule_id,
+                    source_id,
+                    artifact_id,
+                    claim["source_type"],
+                    claim.get("effective_from"),
+                    claim.get("effective_to"),
+                    claim["confidence"],
+                    claim["submitted_by"],
+                    json.dumps(claim.get("evidence", {}), ensure_ascii=False),
+                    claim.get("note"),
+                ),
+            ).lastrowid
+
+            connection.execute(
+                """
+                INSERT INTO consensus_records (
+                  ward_id,
+                  area_id,
+                  category,
+                  rule_id,
+                  resolved_claim_id,
+                  resolution_method,
+                  confidence
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    ward_id,
+                    area_id,
+                    claim["category"],
+                    rule_id,
+                    int(claim_id),
+                    claim.get("resolution_method", "official_priority"),
+                    claim["confidence"],
+                ),
+            )
+
+        for task in dataset.get("review_tasks", []):
+            source_id = get_source_id(connection, task["source_key"]) if task.get("source_key") else None
+            area_id = area_ids_by_key.get(task["area_key"]) if task.get("area_key") else None
+            connection.execute(
+                """
+                INSERT INTO review_tasks (
+                  task_key,
+                  ward_id,
+                  area_id,
+                  source_id,
+                  task_type,
+                  title,
+                  payload_json,
+                  created_by
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    task["task_key"],
+                    ward_id,
+                    area_id,
+                    source_id,
+                    task["task_type"],
+                    task["title"],
+                    json.dumps(task.get("payload", {}), ensure_ascii=False),
+                    task["created_by"],
+                ),
+            )
 
 
 def bootstrap_sources(connection: sqlite3.Connection):
@@ -684,6 +1050,7 @@ def main():
         bootstrap_sources(connection)
         bootstrap_ward_overviews(connection)
         bootstrap_ward_boundaries(connection)
+        bootstrap_normalized_datasets(connection)
         bootstrap_chuo_zones(connection)
         bootstrap_chuo_review_tasks(connection)
         upsert_metadata(connection, "bootstrap_script", "scripts/bootstrap_sqlite.py")

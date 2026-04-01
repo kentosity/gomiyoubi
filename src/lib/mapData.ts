@@ -26,28 +26,21 @@ export function getDetailedAreaFillColor(categories: CategoryKey[]): string {
   return categoryMeta[categories[0]].color;
 }
 
-export function buildWardData(
+export function buildWardSourceData(
   features: GenericFeature[],
   wardDataBySlug: Record<string, WardRuntimeData>,
-  selectedDay: DayKey | null,
-  selectedCategories: CategoryKey[],
 ): GenericFeatureCollection {
   return {
     type: "FeatureCollection",
     features: features.map((feature) => {
       const slug = String(feature.properties?.slug ?? "");
-      const signals = filterSignalsByCategories(
-        getSignalsForWard(wardDataBySlug, slug, selectedDay),
-        selectedCategories,
-      );
 
       return {
         ...feature,
         properties: {
           ...feature.properties,
-          fillColor: getDominantColorFromSignals(signals),
+          slug,
           hasDetailedAreas: wardDataBySlug[slug]?.hasDetailedAreas ?? false,
-          signalCount: signals.length,
           sourceQuality: wardDataBySlug[slug]?.sourceQuality ?? "pending",
         },
       };
@@ -55,30 +48,54 @@ export function buildWardData(
   };
 }
 
-export function buildDetailedAreaData(
+export function buildDetailedAreaSourceData(
   features: GenericFeature[],
-  selectedDay: DayKey | null,
-  selectedCategories: CategoryKey[],
 ): GenericFeatureCollection {
   return {
     type: "FeatureCollection",
-    features: features.map((feature) => {
-      const activeCategories = filterZoneCategories(
-        getDetailedAreaCategories(feature, selectedDay),
-        selectedCategories,
-      );
+    features: features.map((feature, index) => {
       const areaId = getDetailedAreaId(feature);
-
       return {
         ...feature,
         properties: {
           ...feature.properties,
           ...(areaId ? { areaId } : {}),
-          activeCategories: activeCategories.join(","),
-          activeCategoryCount: activeCategories.length,
-          activeFillColor: getDetailedAreaFillColor(activeCategories),
+          renderId: `${areaId ?? "feature"}:${index}`,
         },
       };
     }),
+  };
+}
+
+export function getWardFeatureState(
+  wardSlug: string,
+  wardDataBySlug: Record<string, WardRuntimeData>,
+  selectedDay: DayKey | null,
+  selectedCategories: CategoryKey[],
+) {
+  const signals = filterSignalsByCategories(
+    getSignalsForWard(wardDataBySlug, wardSlug, selectedDay),
+    selectedCategories,
+  );
+
+  return {
+    fillColor: getDominantColorFromSignals(signals),
+    signalCount: signals.length,
+  };
+}
+
+export function getDetailedAreaFeatureState(
+  feature: GenericFeature,
+  selectedDay: DayKey | null,
+  selectedCategories: CategoryKey[],
+) {
+  const activeCategories = filterZoneCategories(
+    getDetailedAreaCategories(feature, selectedDay),
+    selectedCategories,
+  );
+
+  return {
+    activeCategoryCount: activeCategories.length,
+    activeFillColor: getDetailedAreaFillColor(activeCategories),
   };
 }

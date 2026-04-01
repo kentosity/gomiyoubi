@@ -10,56 +10,11 @@
 }
 
 .map-canvas::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(rgba(247, 242, 230, 0.22), rgba(247, 242, 230, 0.16)),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0,
-      transparent calc(var(--paper-grid) - 1px),
-      rgba(92, 130, 179, 0.08) calc(var(--paper-grid) - 1px),
-      rgba(92, 130, 179, 0.08) var(--paper-grid)
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0,
-      transparent calc(var(--paper-grid) - 1px),
-      rgba(92, 130, 179, 0.08) calc(var(--paper-grid) - 1px),
-      rgba(92, 130, 179, 0.08) var(--paper-grid)
-    ),
-    linear-gradient(
-      90deg,
-      rgba(159, 75, 75, 0.045) 0,
-      rgba(159, 75, 75, 0.045) 1px,
-      transparent 1px
-    );
-  background-size:
-    auto,
-    auto,
-    auto,
-    100% 100%;
-  background-position:
-    0 0,
-    0 0,
-    0 0,
-    80px 0;
-  mix-blend-mode: multiply;
-  opacity: 0.58;
+  content: none;
 }
 
 .map-canvas::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.22), transparent 14%),
-    radial-gradient(circle at 84% 74%, rgba(191, 162, 107, 0.1), transparent 18%);
-  mix-blend-mode: screen;
-  opacity: 0.42;
+  content: none;
 }
 
 .surface-card {

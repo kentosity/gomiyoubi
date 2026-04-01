@@ -1,0 +1,145 @@
+{
+  "ward_slug": "koto",
+  "reviewed_at": "2026-04-01",
+  "review_basis": "District membership transcribed from official Koto ward sources and normalized to town/chome selectors for e-Stat joins.",
+  "sources": [
+    {
+      "label": "地区別資源回収・ごみ収集日一覧",
+      "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html"
+    },
+    {
+      "label": "住所別地区番号画像",
+      "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png"
+    },
+    {
+      "label": "年末年始の資源・ごみ収集日（2025年12月11日号 こうとう区報テキスト版）",
+      "url": "https://www.city.koto.lg.jp/011501/kuse/koho/kuho/r07/text/121112.html"
+    }
+  ],
+  "districts": [
+    {
+      "district_number": 1,
+      "members": [
+        { "town_ja": "新砂" },
+        { "town_ja": "東砂", "chomes": ["6", "7", "8"] },
+        { "town_ja": "南砂", "chomes": ["2", "3", "4", "6", "7"] }
+      ]
+    },
+    {
+      "district_number": 2,
+      "members": [
+        { "town_ja": "亀戸", "chomes": ["4", "5", "6", "7", "8", "9"] }
+      ]
+    },
+    {
+      "district_number": 3,
+      "members": [
+        { "town_ja": "永代" },
+        { "town_ja": "越中島" },
+        { "town_ja": "清澄" },
+        { "town_ja": "佐賀" },
+        { "town_ja": "富岡" },
+        { "town_ja": "深川", "chomes": ["1"] },
+        { "town_ja": "福住" },
+        { "town_ja": "古石場" },
+        { "town_ja": "牡丹" },
+        { "town_ja": "門前仲町" }
+      ]
+    },
+    {
+      "district_number": 4,
+      "members": [
+        { "town_ja": "大島", "chomes": ["8", "9"] },
+        { "town_ja": "北砂", "chomes": ["6", "7"] },
+        { "town_ja": "東砂", "chomes": ["1", "2", "3", "4", "5"] }
+      ]
+    },
+    {
+      "district_number": 5,
+      "members": [
+        { "town_ja": "白河", "chomes": ["1", "2", "3"] },
+        { "town_ja": "新大橋" },
+        { "town_ja": "高橋" },
+        { "town_ja": "常盤" },
+        { "town_ja": "平野", "chomes": ["1", "2", "3"] },
+        { "town_ja": "三好", "chomes": ["1", "2", "3"] },
+        { "town_ja": "森下", "chomes": ["1", "2", "3", "4"] }
+      ]
+    },
+    {
+      "district_number": 6,
+      "members": [
+        { "town_ja": "青海" },
+        { "town_ja": "有明" },
+        { "town_ja": "塩浜", "chomes": ["1"] },
+        { "town_ja": "東雲" },
+        { "town_ja": "豊洲" }
+      ]
+    },
+    {
+      "district_number": 7,
+      "members": [
+        { "town_ja": "北砂", "chomes": ["1", "2", "3", "4", "5"] },
+        { "town_ja": "南砂", "chomes": ["1", "5"] }
+      ]
+    },
+    {
+      "district_number": 8,
+      "members": [
+        { "town_ja": "大島", "chomes": ["1", "2"] },
+        { "town_ja": "亀戸", "chomes": ["1", "2", "3"] },
+        { "town_ja": "住吉" },
+        { "town_ja": "毛利" }
+      ]
+    },
+    {
+      "district_number": 9,
+      "members": [
+        { "town_ja": "木場" },
+        { "town_ja": "東陽" },
+        { "town_ja": "深川", "chomes": ["2"] },
+        { "town_ja": "冬木" }
+      ]
+    },
+    {
+      "district_number": 10,
+      "members": [
+        { "town_ja": "大島", "chomes": ["3", "4", "5", "6", "7"] }
+      ]
+    },
+    {
+      "district_number": 11,
+      "members": [
+        { "town_ja": "石島" },
+        { "town_ja": "海辺" },
+        { "town_ja": "扇橋" },
+        { "town_ja": "白河", "chomes": ["4"] },
+        { "town_ja": "猿江" },
+        { "town_ja": "千石" },
+        { "town_ja": "千田" },
+        { "town_ja": "平野", "chomes": ["4"] },
+        { "town_ja": "三好", "chomes": ["4"] },
+        { "town_ja": "森下", "chomes": ["5"] }
+      ]
+    },
+    {
+      "district_number": 12,
+      "members": [
+        { "town_ja": "枝川" },
+        { "town_ja": "塩浜", "chomes": ["2"] },
+        { "town_ja": "潮見" },
+        { "town_ja": "新木場" },
+        { "town_ja": "辰巳" },
+        { "town_ja": "夢の島" },
+        { "town_ja": "若洲" }
+      ]
+    }
+  ],
+  "unmatched_members": [
+    {
+      "district_number": 6,
+      "town_ja": "海の森",
+      "reason": "Not present in the 2020 e-Stat small-area boundary dataset used by the importer."
+    }
+  ]
+}

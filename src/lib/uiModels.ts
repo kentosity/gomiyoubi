@@ -46,6 +46,33 @@ function buildInfoRows(
   ];
 }
 
+function buildWardInfoRows(ward: WardRuntimeData): InfoRowModel[] {
+  return [
+    {
+      kind: "text",
+      label: "反映単位",
+      value: ward.granularity,
+    },
+    ...buildInfoRows(ward.sourceLabel, ward.sourceQuality),
+  ];
+}
+
+function buildWardScheduleRows(ward: WardRuntimeData, selectedDay: DayKey) {
+  return weekdayOrder
+    .map((day) => ({
+      day,
+      shortLabel: weekdayMeta[day].shortLabel,
+      isActive: day === selectedDay,
+      emptyLabel: "なし",
+      categories: (ward.daySignals[day] ?? []).map((signal) => ({
+        category: signal.category,
+        color: categoryMeta[signal.category].color,
+        label: categoryMeta[signal.category].label,
+      })),
+    }))
+    .filter((row) => row.categories.length > 0);
+}
+
 function getAreaSourceLabel(detailedArea: GenericFeature, fallbackSourceLabel: string): string {
   const sourceLabel = detailedArea.properties?.sourceLabel;
   return typeof sourceLabel === "string" && sourceLabel.length > 0
@@ -120,16 +147,23 @@ export function buildHoverPanelModel(activeArea: ActiveArea, selectedDay: DayKey
   }
 
   if (activeArea.kind === "ward") {
+    const scheduleRows = !activeArea.ward.hasDetailedAreas
+      ? buildWardScheduleRows(activeArea.ward, selectedDay)
+      : undefined;
+
     return {
-      kind: "ward",
+      kind: "content",
       title: activeArea.ward.wardNameJa,
-      infoRows: buildInfoRows(activeArea.ward.sourceLabel, activeArea.ward.sourceQuality),
+      scheduleLabel: scheduleRows && scheduleRows.length > 0 ? "曜日ごとの収集" : undefined,
+      scheduleRows: scheduleRows && scheduleRows.length > 0 ? scheduleRows : undefined,
+      infoRows: buildWardInfoRows(activeArea.ward),
     };
   }
 
   return {
-    kind: "detailedArea",
+    kind: "content",
     title: getDetailedAreaLabel(activeArea.detailedArea),
+    scheduleLabel: "曜日ごとの収集",
     scheduleRows: weekdayOrder.map((day) => ({
       day,
       shortLabel: weekdayMeta[day].shortLabel,

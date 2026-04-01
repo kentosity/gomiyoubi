@@ -1,11 +1,316 @@
 {
   "updated_at": "2026-04-01",
   "scope": [
-    "sumida",
+    "adachi",
+    "arakawa",
+    "bunkyo",
+    "chiyoda",
+    "chuo",
+    "edogawa",
+    "itabashi",
+    "katsushika",
+    "kita",
     "koto",
-    "chuo"
+    "meguro",
+    "minato",
+    "nakano",
+    "nerima",
+    "ota",
+    "setagaya",
+    "shibuya",
+    "shinagawa",
+    "shinjuku",
+    "suginami",
+    "sumida",
+    "taito",
+    "toshima"
   ],
   "wards": [
+    {
+      "ward_slug": "adachi",
+      "ward_name_en": "Adachi",
+      "ward_name_ja": "足立区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "arakawa",
+      "ward_name_en": "Arakawa",
+      "ward_name_ja": "荒川区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "bunkyo",
+      "ward_name_en": "Bunkyo",
+      "ward_name_ja": "文京区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "chiyoda",
+      "ward_name_en": "Chiyoda",
+      "ward_name_ja": "千代田区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "chuo",
+      "ward_name_en": "Chuo",
+      "ward_name_ja": "中央区",
+      "status": "tracked",
+      "official_sources": {
+        "entry_page": {
+          "label": "中央区オープンデータ",
+          "url": "https://www.city.chuo.lg.jp/kusei/gaiyou/toukeidate/opendata.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "ごみと資源の収集曜日",
+            "url": "https://www.city.chuo.lg.jp/documents/984/gomitoshigen.csv",
+            "format": "csv",
+            "encoding": "cp932"
+          },
+          {
+            "label": "ゴミの分別方法一覧",
+            "url": "https://www.city.chuo.lg.jp/documents/984/gominobunbetu.csv",
+            "format": "csv",
+            "encoding": "cp932"
+          },
+          {
+            "label": "資源回収場所",
+            "url": "https://www.city.chuo.lg.jp/documents/984/shigenkaishubasho.csv",
+            "format": "csv",
+            "encoding": "cp932"
+          }
+        ]
+      },
+      "notes": [
+        "Chuo is the strongest source in this initial set because the collection weekday data is already published as machine-readable CSV.",
+        "A sample from gomitoshigen.csv contains columns for region, town name, chome, burnable, non-burnable, plastic, resources, and bulky waste.",
+        "The CSV uses Japanese fiscal-year style collection patterns and should be treated as the primary scraping target for Chuo."
+      ]
+    },
+    {
+      "ward_slug": "edogawa",
+      "ward_name_en": "Edogawa",
+      "ward_name_ja": "江戸川区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "itabashi",
+      "ward_name_en": "Itabashi",
+      "ward_name_ja": "板橋区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "katsushika",
+      "ward_name_en": "Katsushika",
+      "ward_name_ja": "葛飾区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "kita",
+      "ward_name_en": "Kita",
+      "ward_name_ja": "北区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "koto",
+      "ward_name_en": "Koto",
+      "ward_name_ja": "江東区",
+      "status": "tracked",
+      "official_sources": {
+        "entry_page": {
+          "label": "地区別資源回収・ごみ収集日一覧",
+          "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+          "format": "html",
+          "last_verified": "2026-04-01"
+        },
+        "downloads": [
+          {
+            "label": "2026年度 資源回収・ごみ収集日一覧 表面",
+            "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/documents/8omote.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2027-03"
+          },
+          {
+            "label": "2026年度 資源回収・ごみ収集日一覧 裏面",
+            "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/documents/8ura.pdf",
+            "format": "pdf",
+            "coverage": "2026-04 to 2027-03"
+          },
+          {
+            "label": "住所別地区番号画像",
+            "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
+            "format": "image"
+          },
+          {
+            "label": "配布施設一覧",
+            "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/documents/8shisetu.pdf",
+            "format": "pdf"
+          }
+        ],
+        "related_pages": [
+          {
+            "label": "資源とごみの分け方・出し方",
+            "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/7348.html",
+            "format": "html"
+          },
+          {
+            "label": "ことまっぷ - ごみマップ",
+            "url": "https://koto.geocloud.jp/mp/20",
+            "format": "interactive_map"
+          },
+          {
+            "label": "江東ごみナビ",
+            "url": "https://www.city.koto.lg.jp/381104/kurashi/gomi/kotogominavi.html",
+            "format": "html"
+          },
+          {
+            "label": "年末年始の資源・ごみ収集日（2025年12月11日号 こうとう区報テキスト版）",
+            "url": "https://www.city.koto.lg.jp/011501/kuse/koho/kuho/r07/text/121112.html",
+            "format": "html"
+          }
+        ]
+      },
+      "notes": [
+        "Koto publishes district schedules by district number 1 through 12.",
+        "The current schedule page still publishes the address lookup as an image, but a recent official text page also lists the district membership by town and chome.",
+        "The external geocloud map returned HTTP 403 to a scripted check on 2026-04-01, but the ward page still links to it as an official interactive source.",
+        "The entry page warns that some apartment complexes and some local areas may follow different collection days."
+      ]
+    },
+    {
+      "ward_slug": "meguro",
+      "ward_name_en": "Meguro",
+      "ward_name_ja": "目黒区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "minato",
+      "ward_name_en": "Minato",
+      "ward_name_ja": "港区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "nakano",
+      "ward_name_en": "Nakano",
+      "ward_name_ja": "中野区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "nerima",
+      "ward_name_en": "Nerima",
+      "ward_name_ja": "練馬区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "ota",
+      "ward_name_en": "Ota",
+      "ward_name_ja": "大田区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "setagaya",
+      "ward_name_en": "Setagaya",
+      "ward_name_ja": "世田谷区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "shibuya",
+      "ward_name_en": "Shibuya",
+      "ward_name_ja": "渋谷区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "shinagawa",
+      "ward_name_en": "Shinagawa",
+      "ward_name_ja": "品川区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "shinjuku",
+      "ward_name_en": "Shinjuku",
+      "ward_name_ja": "新宿区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
+    {
+      "ward_slug": "suginami",
+      "ward_name_en": "Suginami",
+      "ward_name_ja": "杉並区",
+      "status": "tracked",
+      "official_sources": {},
+      "notes": [
+        "Boundary only. Source discovery and normalization are not started yet."
+      ]
+    },
     {
       "ward_slug": "sumida",
       "ward_name_en": "Sumida",
@@ -112,103 +417,23 @@
       ]
     },
     {
-      "ward_slug": "koto",
-      "ward_name_en": "Koto",
-      "ward_name_ja": "江東区",
+      "ward_slug": "taito",
+      "ward_name_en": "Taito",
+      "ward_name_ja": "台東区",
       "status": "tracked",
-      "official_sources": {
-        "entry_page": {
-          "label": "地区別資源回収・ごみ収集日一覧",
-          "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
-          "format": "html",
-          "last_verified": "2026-04-01"
-        },
-        "downloads": [
-          {
-            "label": "2026年度 資源回収・ごみ収集日一覧 表面",
-            "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/documents/8omote.pdf",
-            "format": "pdf",
-            "coverage": "2026-04 to 2027-03"
-          },
-          {
-            "label": "2026年度 資源回収・ごみ収集日一覧 裏面",
-            "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/documents/8ura.pdf",
-            "format": "pdf",
-            "coverage": "2026-04 to 2027-03"
-          },
-          {
-            "label": "住所別地区番号画像",
-            "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
-            "format": "image"
-          },
-          {
-            "label": "配布施設一覧",
-            "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/documents/8shisetu.pdf",
-            "format": "pdf"
-          }
-        ],
-        "related_pages": [
-          {
-            "label": "資源とごみの分け方・出し方",
-            "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/7348.html",
-            "format": "html"
-          },
-          {
-            "label": "ことまっぷ - ごみマップ",
-            "url": "https://koto.geocloud.jp/mp/20",
-            "format": "interactive_map"
-          },
-          {
-            "label": "江東ごみナビ",
-            "url": "https://www.city.koto.lg.jp/381104/kurashi/gomi/kotogominavi.html",
-            "format": "html"
-          }
-        ]
-      },
+      "official_sources": {},
       "notes": [
-        "Koto publishes district schedules by district number 1 through 12.",
-        "The practical mapping source for addresses is an image, not a text table, so address-to-district normalization will require OCR or manual transcription.",
-        "The external geocloud map returned HTTP 403 to a scripted check on 2026-04-01, but the ward page still links to it as an official interactive source.",
-        "The entry page warns that some apartment complexes and some local areas may follow different collection days."
+        "Boundary only. Source discovery and normalization are not started yet."
       ]
     },
     {
-      "ward_slug": "chuo",
-      "ward_name_en": "Chuo",
-      "ward_name_ja": "中央区",
+      "ward_slug": "toshima",
+      "ward_name_en": "Toshima",
+      "ward_name_ja": "豊島区",
       "status": "tracked",
-      "official_sources": {
-        "entry_page": {
-          "label": "中央区オープンデータ",
-          "url": "https://www.city.chuo.lg.jp/kusei/gaiyou/toukeidate/opendata.html",
-          "format": "html",
-          "last_verified": "2026-04-01"
-        },
-        "downloads": [
-          {
-            "label": "ごみと資源の収集曜日",
-            "url": "https://www.city.chuo.lg.jp/documents/984/gomitoshigen.csv",
-            "format": "csv",
-            "encoding": "cp932"
-          },
-          {
-            "label": "ゴミの分別方法一覧",
-            "url": "https://www.city.chuo.lg.jp/documents/984/gominobunbetu.csv",
-            "format": "csv",
-            "encoding": "cp932"
-          },
-          {
-            "label": "資源回収場所",
-            "url": "https://www.city.chuo.lg.jp/documents/984/shigenkaishubasho.csv",
-            "format": "csv",
-            "encoding": "cp932"
-          }
-        ]
-      },
+      "official_sources": {},
       "notes": [
-        "Chuo is the strongest source in this initial set because the collection weekday data is already published as machine-readable CSV.",
-        "A sample from gomitoshigen.csv contains columns for region, town name, chome, burnable, non-burnable, plastic, resources, and bulky waste.",
-        "The CSV uses Japanese fiscal-year style collection patterns and should be treated as the primary scraping target for Chuo."
+        "Boundary only. Source discovery and normalization are not started yet."
       ]
     }
   ]

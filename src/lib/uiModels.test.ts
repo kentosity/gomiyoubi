@@ -50,17 +50,19 @@ describe("uiModels", () => {
     expect(options.find((option) => option.category === "plastic")?.isActive).toBe(false);
   });
 
-  it("builds a ward panel with source and quality only", () => {
+  it("builds a ward panel as shared content model", () => {
     const activeArea = buildActiveArea({ wardSlug: "koto", areaId: null }, [], wardDataBySlug);
     const panel = buildHoverPanelModel(activeArea, "monday");
 
-    expect(panel.kind).toBe("ward");
-    if (panel.kind !== "ward") {
-      throw new Error("Expected ward panel");
+    expect(panel.kind).toBe("content");
+    if (panel.kind !== "content") {
+      throw new Error("Expected content panel");
     }
 
     expect(panel.title).toBe("江東区");
+    expect(panel.scheduleRows).toBeUndefined();
     expect(panel.infoRows).toEqual([
+      { kind: "text", label: "反映単位", value: "江東区はまだ区レベルの暫定表示です" },
       { kind: "text", label: "データソース", value: "江東区 地区別資源回収・ごみ収集日一覧" },
       { badge: { label: "中", tone: "medium" }, kind: "badge", label: "反映品質" },
     ]);
@@ -94,13 +96,14 @@ describe("uiModels", () => {
     );
     const panel = buildHoverPanelModel(activeArea, "monday");
 
-    expect(panel.kind).toBe("detailedArea");
-    if (panel.kind !== "detailedArea") {
-      throw new Error("Expected detailed area panel");
+    expect(panel.kind).toBe("content");
+    if (panel.kind !== "content") {
+      throw new Error("Expected content panel");
     }
 
     expect(panel.title).toBe("テスト丁目");
-    expect(panel.scheduleRows.find((row) => row.day === "monday")).toMatchObject({
+    expect(panel.scheduleLabel).toBe("曜日ごとの収集");
+    expect(panel.scheduleRows?.find((row) => row.day === "monday")).toMatchObject({
       isActive: true,
       shortLabel: "月",
       categories: [

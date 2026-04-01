@@ -2,6 +2,7 @@ import { useEffect, useEffectEvent, useRef, useState } from "react";
 import maplibregl, { Map } from "maplibre-gl";
 import { updateBounds } from "../lib/geojson";
 import {
+  createOutsideMaskLayer,
   createDetailedAreasFillLayer,
   createDetailedAreasOutlineLayer,
   createWardFillLayer,
@@ -21,6 +22,7 @@ type UseTrashMapOptions = {
   onClearHover: () => void;
   onHoverTargetChange: (target: MapTarget) => void;
   onToggleFocusTarget: (target: MapTarget) => void;
+  outsideMaskData: GenericFeatureCollection;
   wardData: GenericFeatureCollection;
 };
 
@@ -32,20 +34,25 @@ export function useTrashMap({
   onClearHover,
   onHoverTargetChange,
   onToggleFocusTarget,
+  outsideMaskData,
   wardData,
 }: UseTrashMapOptions) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const initialActiveTargetRef = useRef(activeTarget);
   const initialDetailedAreaDataRef = useRef(detailedAreaData);
+  const initialOutsideMaskDataRef = useRef(outsideMaskData);
   const initialWardDataRef = useRef(wardData);
   const mapRef = useRef<Map | null>(null);
+  const hoverFrameRef = useRef<number | null>(null);
+  const latestPointerPointRef = useRef<maplibregl.Point | null>(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
 
   useEffect(() => {
     initialActiveTargetRef.current = activeTarget;
     initialDetailedAreaDataRef.current = detailedAreaData;
+    initialOutsideMaskDataRef.current = outsideMaskData;
     initialWardDataRef.current = wardData;
-  }, [activeTarget, detailedAreaData, wardData]);
+  }, [activeTarget, detailedAreaData, outsideMaskData, wardData]);
 
   function getRenderedFeatureString(
     feature: maplibregl.MapGeoJSONFeature | undefined,
@@ -55,7 +62,7 @@ export function useTrashMap({
     return typeof value === "string" && value.length > 0 ? value : null;
   }
 
-  const handlePointerMove = useEffectEvent((event: maplibregl.MapMouseEvent) => {
+  const updateHoverFromPoint = useEffectEvent((point: maplibregl.Point) => {
     if (isFocusLocked) {
       return;
     }
@@ -65,30 +72,49 @@ export function useTrashMap({
       return;
     }
 
-    const areaFeatures = map.queryRenderedFeatures(event.point, {
-      layers: [MAP_LAYER_IDS.detailedAreasFill],
+    const featuresAtPoint = map.queryRenderedFeatures(point, {
+      layers: [MAP_LAYER_IDS.detailedAreasFill, MAP_LAYER_IDS.wardFill],
     });
+    const detailedAreaFeature = featuresAtPoint.find(
+      (feature) => feature.layer.id === MAP_LAYER_IDS.detailedAreasFill,
+    );
+    const wardFeature = featuresAtPoint.find((feature) => feature.layer.id === MAP_LAYER_IDS.wardFill);
+
     const areaId =
-      getRenderedFeatureString(areaFeatures[0], "areaId") ??
-      getRenderedFeatureString(areaFeatures[0], "zoneId");
-    const wardSlug = getRenderedFeatureString(areaFeatures[0], "wardSlug");
+      getRenderedFeatureString(detailedAreaFeature, "areaId") ??
+      getRenderedFeatureString(detailedAreaFeature, "zoneId");
+    const wardSlug = getRenderedFeatureString(detailedAreaFeature, "wardSlug");
 
     if (areaId && wardSlug) {
       onHoverTargetChange({ wardSlug, areaId });
       return;
     }
 
-    const wardFeaturesAtPoint = map.queryRenderedFeatures(event.point, {
-      layers: [MAP_LAYER_IDS.wardFill],
-    });
-    const wardSlugAtPoint = wardFeaturesAtPoint[0]?.properties?.slug;
+    const wardSlugAtPoint = getRenderedFeatureString(wardFeature, "slug");
 
-    if (typeof wardSlugAtPoint === "string") {
+    if (wardSlugAtPoint) {
       onHoverTargetChange({ wardSlug: wardSlugAtPoint, areaId: null });
       return;
     }
 
     onClearHover();
+  });
+
+  const handlePointerMove = useEffectEvent((event: maplibregl.MapMouseEvent) => {
+    latestPointerPointRef.current = event.point;
+
+    if (hoverFrameRef.current !== null) {
+      return;
+    }
+
+    hoverFrameRef.current = window.requestAnimationFrame(() => {
+      hoverFrameRef.current = null;
+      const point = latestPointerPointRef.current;
+      if (!point) {
+        return;
+      }
+      updateHoverFromPoint(point);
+    });
   });
 
   const handleMapClick = useEffectEvent((event: maplibregl.MapMouseEvent) => {
@@ -153,16 +179,24 @@ export function useTrashMap({
     mapRef.current = map;
 
     map.on("load", () => {
+      map.addSource(MAP_SOURCE_IDS.outsideMask, {
+        type: "geojson",
+        data: initialOutsideMaskDataRef.current,
+      });
+
       map.addSource(MAP_SOURCE_IDS.wards, {
         type: "geojson",
         data: initialWardDataRef.current,
+        promoteId: "slug",
       });
 
       map.addSource(MAP_SOURCE_IDS.detailedAreas, {
         type: "geojson",
         data: initialDetailedAreaDataRef.current,
+        promoteId: "renderId",
       });
 
+      map.addLayer(createOutsideMaskLayer());
       map.addLayer(createWardFillLayer());
       map.addLayer(createDetailedAreasFillLayer());
       map.addLayer(createDetailedAreasOutlineLayer(initialActiveTargetRef.current.areaId));
@@ -182,6 +216,10 @@ export function useTrashMap({
 
     return () => {
       setIsMapLoaded(false);
+      if (hoverFrameRef.current !== null) {
+        window.cancelAnimationFrame(hoverFrameRef.current);
+        hoverFrameRef.current = null;
+      }
       map.getCanvas().removeEventListener("mouseleave", handlePointerLeave);
       map.remove();
       mapRef.current = null;

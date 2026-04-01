@@ -1,0 +1,4989 @@
+{
+  "ward_slug": "koto",
+  "generated_at": "2026-04-01T08:53:56+00:00",
+  "parser_version": "koto_extract_v1",
+  "overview": {
+    "source_quality": "medium",
+    "source_label": "江東区 地区別資源回収・ごみ収集日一覧（2026年度）",
+    "granularity": "12地区の収集パターンと地区境界を反映済みです。",
+    "notes": [
+      "12地区の weekly pattern を公式 entry page の画像 alt text から抽出しました。",
+      "地区境界は公式 district image と公式区報テキスト版をもとに町丁目 selector へ正規化しています。",
+      "燃やさないごみは隔週パターンなので freeform rule として保持しています。",
+      "集合住宅や一部地域の例外は別 claim として扱う前提です。"
+    ]
+  },
+  "sources": [
+    {
+      "source_key": "koto:entry_page",
+      "ward_slug": "koto",
+      "source_kind": "entry_page",
+      "label": "地区別資源回収・ごみ収集日一覧",
+      "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+      "format": "html",
+      "is_official": 1,
+      "encoding": null,
+      "coverage_label": null,
+      "last_verified": "2026-04-01",
+      "metadata": {
+        "ward_slug": "koto",
+        "raw_path": "data/raw/koto/koto_entry_page.html"
+      }
+    },
+    {
+      "source_key": "koto:download:01",
+      "ward_slug": "koto",
+      "source_kind": "download",
+      "label": "2026年度 資源回収・ごみ収集日一覧 表面",
+      "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/documents/8omote.pdf",
+      "format": "pdf",
+      "is_official": 1,
+      "encoding": null,
+      "coverage_label": "2026-04 to 2027-03",
+      "last_verified": null,
+      "metadata": {
+        "ward_slug": "koto",
+        "fiscal_year": 2026
+      }
+    },
+    {
+      "source_key": "koto:download:03",
+      "ward_slug": "koto",
+      "source_kind": "download",
+      "label": "住所別地区番号画像",
+      "url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
+      "format": "image",
+      "is_official": 1,
+      "encoding": null,
+      "coverage_label": null,
+      "last_verified": null,
+      "metadata": {
+        "ward_slug": "koto",
+        "raw_path": "data/raw/koto/koto_download_03.png"
+      }
+    }
+  ],
+  "source_artifacts": [
+    {
+      "artifact_key": "koto:artifact:entry_page:fetch",
+      "source_key": "koto:entry_page",
+      "artifact_kind": "fetch",
+      "local_path": "data/raw/koto/koto_entry_page.html",
+      "content_type": "text/html",
+      "sha256": "f6220f4d0c2bab245a92331d5d5392b2da542650ccd49122f8f0ea354688e215",
+      "fetched_at": "2026-04-01",
+      "parser_version": null,
+      "ocr_engine": null,
+      "metadata": {
+        "fiscal_year": 2026
+      }
+    },
+    {
+      "artifact_key": "koto:artifact:address_image:fetch",
+      "source_key": "koto:download:03",
+      "artifact_kind": "fetch",
+      "local_path": "data/raw/koto/koto_download_03.png",
+      "content_type": "image/png",
+      "sha256": "c331fdca7133fae8deece7d7971c64f3e15c0bdd3f7a90d09d5ad9c2a9e67cc7",
+      "fetched_at": "2026-04-01",
+      "parser_version": null,
+      "ocr_engine": null,
+      "metadata": {
+        "purpose": "district address lookup image"
+      }
+    },
+    {
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_key": "koto:entry_page",
+      "artifact_kind": "parser_output",
+      "local_path": "data/extracted/koto/koto_2026_schedule_patterns.json",
+      "content_type": "application/json",
+      "sha256": "c376649c584ef829a360db5640eb6d837ee31afa033071d9853f84cea4e565fe",
+      "fetched_at": "2026-04-01",
+      "parser_version": "koto_extract_v1",
+      "ocr_engine": null,
+      "metadata": {
+        "fiscal_year": 2026
+      }
+    },
+    {
+      "artifact_key": "koto:artifact:address_image:ocr",
+      "source_key": "koto:download:03",
+      "artifact_kind": "ocr",
+      "local_path": "data/extracted/koto/koto_address_ocr.txt",
+      "content_type": "text/plain",
+      "sha256": "c0699aee104dcab784ef32549427616c3ead85333bfafb233b6334426e7e11b8",
+      "fetched_at": "2026-04-01",
+      "parser_version": "koto_extract_v1",
+      "ocr_engine": "tesseract 5.5.2 lang=jpn psm=4",
+      "metadata": {
+        "tsv_path": "data/extracted/koto/koto_address_ocr.tsv",
+        "tsv_sha256": "273ae789e09346632b74b2aef3ef46a22bf7bebfa79bdb67da1df338d08d1961",
+        "line_count": 23,
+        "character_count": 1118
+      }
+    },
+    {
+      "artifact_key": "koto:artifact:district-selectors:manual",
+      "source_key": "koto:download:03",
+      "artifact_kind": "manual_transcription",
+      "local_path": "data/manual/koto/district-boundary-selectors.json",
+      "content_type": "application/json",
+      "sha256": "ca61ad2700c406ac1f65f1425bf6b69349613127997500d2579735ac6e43dd41",
+      "fetched_at": "2026-04-01",
+      "parser_version": "koto_extract_v1",
+      "ocr_engine": null,
+      "metadata": {
+        "review_basis": "Official district membership normalized for boundary joins."
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_key": "koto:artifact:entry_page:fetch",
+      "source_key": "koto:entry_page",
+      "artifact_kind": "fetch",
+      "local_path": "data/raw/koto/koto_entry_page.html",
+      "content_type": "text/html",
+      "sha256": "f6220f4d0c2bab245a92331d5d5392b2da542650ccd49122f8f0ea354688e215",
+      "fetched_at": "2026-04-01",
+      "parser_version": null,
+      "ocr_engine": null,
+      "metadata": {
+        "fiscal_year": 2026
+      }
+    },
+    {
+      "artifact_key": "koto:artifact:address_image:fetch",
+      "source_key": "koto:download:03",
+      "artifact_kind": "fetch",
+      "local_path": "data/raw/koto/koto_download_03.png",
+      "content_type": "image/png",
+      "sha256": "c331fdca7133fae8deece7d7971c64f3e15c0bdd3f7a90d09d5ad9c2a9e67cc7",
+      "fetched_at": "2026-04-01",
+      "parser_version": null,
+      "ocr_engine": null,
+      "metadata": {
+        "purpose": "district address lookup image"
+      }
+    },
+    {
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_key": "koto:entry_page",
+      "artifact_kind": "parser_output",
+      "local_path": "data/extracted/koto/koto_2026_schedule_patterns.json",
+      "content_type": "application/json",
+      "sha256": "c376649c584ef829a360db5640eb6d837ee31afa033071d9853f84cea4e565fe",
+      "fetched_at": "2026-04-01",
+      "parser_version": "koto_extract_v1",
+      "ocr_engine": null,
+      "metadata": {
+        "fiscal_year": 2026
+      }
+    },
+    {
+      "artifact_key": "koto:artifact:address_image:ocr",
+      "source_key": "koto:download:03",
+      "artifact_kind": "ocr",
+      "local_path": "data/extracted/koto/koto_address_ocr.txt",
+      "content_type": "text/plain",
+      "sha256": "c0699aee104dcab784ef32549427616c3ead85333bfafb233b6334426e7e11b8",
+      "fetched_at": "2026-04-01",
+      "parser_version": "koto_extract_v1",
+      "ocr_engine": "tesseract 5.5.2 lang=jpn psm=4",
+      "metadata": {
+        "tsv_path": "data/extracted/koto/koto_address_ocr.tsv",
+        "tsv_sha256": "273ae789e09346632b74b2aef3ef46a22bf7bebfa79bdb67da1df338d08d1961",
+        "line_count": 23,
+        "character_count": 1118
+      }
+    },
+    {
+      "artifact_key": "koto:artifact:district-selectors:manual",
+      "source_key": "koto:download:03",
+      "artifact_kind": "manual_transcription",
+      "local_path": "data/manual/koto/district-boundary-selectors.json",
+      "content_type": "application/json",
+      "sha256": "ca61ad2700c406ac1f65f1425bf6b69349613127997500d2579735ac6e43dd41",
+      "fetched_at": "2026-04-01",
+      "parser_version": "koto_extract_v1",
+      "ocr_engine": null,
+      "metadata": {
+        "review_basis": "Official district membership normalized for boundary joins."
+      }
+    }
+  ],
+  "areas": [
+    {
+      "area_key": "koto:district:01",
+      "ward_slug": "koto",
+      "parent_area_key": "ward:koto",
+      "area_kind": "district",
+      "label_ja": "1地区",
+      "label_en": "Koto District 1",
+      "town_ja": null,
+      "chome": null,
+      "status": "active",
+      "metadata": {
+        "district_number": 1,
+        "schedule_year": 2026,
+        "address_mapping_status": "ready"
+      }
+    },
+    {
+      "area_key": "koto:district:02",
+      "ward_slug": "koto",
+      "parent_area_key": "ward:koto",
+      "area_kind": "district",
+      "label_ja": "2地区",
+      "label_en": "Koto District 2",
+      "town_ja": null,
+      "chome": null,
+      "status": "active",
+      "metadata": {
+        "district_number": 2,
+        "schedule_year": 2026,
+        "address_mapping_status": "ready"
+      }
+    },
+    {
+      "area_key": "koto:district:03",
+      "ward_slug": "koto",
+      "parent_area_key": "ward:koto",
+      "area_kind": "district",
+      "label_ja": "3地区",
+      "label_en": "Koto District 3",
+      "town_ja": null,
+      "chome": null,
+      "status": "active",
+      "metadata": {
+        "district_number": 3,
+        "schedule_year": 2026,
+        "address_mapping_status": "ready"
+      }
+    },
+    {
+      "area_key": "koto:district:04",
+      "ward_slug": "koto",
+      "parent_area_key": "ward:koto",
+      "area_kind": "district",
+      "label_ja": "4地区",
+      "label_en": "Koto District 4",
+      "town_ja": null,
+      "chome": null,
+      "status": "active",
+      "metadata": {
+        "district_number": 4,
+        "schedule_year": 2026,
+        "address_mapping_status": "ready"
+      }
+    },
+    {
+      "area_key": "koto:district:05",
+      "ward_slug": "koto",
+      "parent_area_key": "ward:koto",
+      "area_kind": "district",
+      "label_ja": "5地区",
+      "label_en": "Koto District 5",
+      "town_ja": null,
+      "chome": null,
+      "status": "active",
+      "metadata": {
+        "district_number": 5,
+        "schedule_year": 2026,
+        "address_mapping_status": "ready"
+      }
+    },
+    {
+      "area_key": "koto:district:06",
+      "ward_slug": "koto",
+      "parent_area_key": "ward:koto",
+      "area_kind": "district",
+      "label_ja": "6地区",
+      "label_en": "Koto District 6",
+      "town_ja": null,
+      "chome": null,
+      "status": "active",
+      "metadata": {
+        "district_number": 6,
+        "schedule_year": 2026,
+        "address_mapping_status": "ready"
+      }
+    },
+    {
+      "area_key": "koto:district:07",
+      "ward_slug": "koto",
+      "parent_area_key": "ward:koto",
+      "area_kind": "district",
+      "label_ja": "7地区",
+      "label_en": "Koto District 7",
+      "town_ja": null,
+      "chome": null,
+      "status": "active",
+      "metadata": {
+        "district_number": 7,
+        "schedule_year": 2026,
+        "address_mapping_status": "ready"
+      }
+    },
+    {
+      "area_key": "koto:district:08",
+      "ward_slug": "koto",
+      "parent_area_key": "ward:koto",
+      "area_kind": "district",
+      "label_ja": "8地区",
+      "label_en": "Koto District 8",
+      "town_ja": null,
+      "chome": null,
+      "status": "active",
+      "metadata": {
+        "district_number": 8,
+        "schedule_year": 2026,
+        "address_mapping_status": "ready"
+      }
+    },
+    {
+      "area_key": "koto:district:09",
+      "ward_slug": "koto",
+      "parent_area_key": "ward:koto",
+      "area_kind": "district",
+      "label_ja": "9地区",
+      "label_en": "Koto District 9",
+      "town_ja": null,
+      "chome": null,
+      "status": "active",
+      "metadata": {
+        "district_number": 9,
+        "schedule_year": 2026,
+        "address_mapping_status": "ready"
+      }
+    },
+    {
+      "area_key": "koto:district:10",
+      "ward_slug": "koto",
+      "parent_area_key": "ward:koto",
+      "area_kind": "district",
+      "label_ja": "10地区",
+      "label_en": "Koto District 10",
+      "town_ja": null,
+      "chome": null,
+      "status": "active",
+      "metadata": {
+        "district_number": 10,
+        "schedule_year": 2026,
+        "address_mapping_status": "ready"
+      }
+    },
+    {
+      "area_key": "koto:district:11",
+      "ward_slug": "koto",
+      "parent_area_key": "ward:koto",
+      "area_kind": "district",
+      "label_ja": "11地区",
+      "label_en": "Koto District 11",
+      "town_ja": null,
+      "chome": null,
+      "status": "active",
+      "metadata": {
+        "district_number": 11,
+        "schedule_year": 2026,
+        "address_mapping_status": "ready"
+      }
+    },
+    {
+      "area_key": "koto:district:12",
+      "ward_slug": "koto",
+      "parent_area_key": "ward:koto",
+      "area_kind": "district",
+      "label_ja": "12地区",
+      "label_en": "Koto District 12",
+      "town_ja": null,
+      "chome": null,
+      "status": "active",
+      "metadata": {
+        "district_number": 12,
+        "schedule_year": 2026,
+        "address_mapping_status": "ready"
+      }
+    }
+  ],
+  "geometry_memberships": [
+    {
+      "area_key": "koto:district:01",
+      "selector_source_label": "江東区 地区別地区番号対応",
+      "selector_source_urls": [
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
+        "https://www.city.koto.lg.jp/011501/kuse/koho/kuho/r07/text/121112.html"
+      ],
+      "members": [
+        {
+          "town_ja": "新砂"
+        },
+        {
+          "town_ja": "東砂",
+          "chomes": [
+            "6",
+            "7",
+            "8"
+          ]
+        },
+        {
+          "town_ja": "南砂",
+          "chomes": [
+            "2",
+            "3",
+            "4",
+            "6",
+            "7"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "koto:district:02",
+      "selector_source_label": "江東区 地区別地区番号対応",
+      "selector_source_urls": [
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
+        "https://www.city.koto.lg.jp/011501/kuse/koho/kuho/r07/text/121112.html"
+      ],
+      "members": [
+        {
+          "town_ja": "亀戸",
+          "chomes": [
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "koto:district:03",
+      "selector_source_label": "江東区 地区別地区番号対応",
+      "selector_source_urls": [
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
+        "https://www.city.koto.lg.jp/011501/kuse/koho/kuho/r07/text/121112.html"
+      ],
+      "members": [
+        {
+          "town_ja": "永代"
+        },
+        {
+          "town_ja": "越中島"
+        },
+        {
+          "town_ja": "清澄"
+        },
+        {
+          "town_ja": "佐賀"
+        },
+        {
+          "town_ja": "富岡"
+        },
+        {
+          "town_ja": "深川",
+          "chomes": [
+            "1"
+          ]
+        },
+        {
+          "town_ja": "福住"
+        },
+        {
+          "town_ja": "古石場"
+        },
+        {
+          "town_ja": "牡丹"
+        },
+        {
+          "town_ja": "門前仲町"
+        }
+      ]
+    },
+    {
+      "area_key": "koto:district:04",
+      "selector_source_label": "江東区 地区別地区番号対応",
+      "selector_source_urls": [
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
+        "https://www.city.koto.lg.jp/011501/kuse/koho/kuho/r07/text/121112.html"
+      ],
+      "members": [
+        {
+          "town_ja": "大島",
+          "chomes": [
+            "8",
+            "9"
+          ]
+        },
+        {
+          "town_ja": "北砂",
+          "chomes": [
+            "6",
+            "7"
+          ]
+        },
+        {
+          "town_ja": "東砂",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "koto:district:05",
+      "selector_source_label": "江東区 地区別地区番号対応",
+      "selector_source_urls": [
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
+        "https://www.city.koto.lg.jp/011501/kuse/koho/kuho/r07/text/121112.html"
+      ],
+      "members": [
+        {
+          "town_ja": "白河",
+          "chomes": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        {
+          "town_ja": "新大橋"
+        },
+        {
+          "town_ja": "高橋"
+        },
+        {
+          "town_ja": "常盤"
+        },
+        {
+          "town_ja": "平野",
+          "chomes": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        {
+          "town_ja": "三好",
+          "chomes": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        {
+          "town_ja": "森下",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "koto:district:06",
+      "selector_source_label": "江東区 地区別地区番号対応",
+      "selector_source_urls": [
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
+        "https://www.city.koto.lg.jp/011501/kuse/koho/kuho/r07/text/121112.html"
+      ],
+      "members": [
+        {
+          "town_ja": "青海"
+        },
+        {
+          "town_ja": "有明"
+        },
+        {
+          "town_ja": "塩浜",
+          "chomes": [
+            "1"
+          ]
+        },
+        {
+          "town_ja": "東雲"
+        },
+        {
+          "town_ja": "豊洲"
+        }
+      ]
+    },
+    {
+      "area_key": "koto:district:07",
+      "selector_source_label": "江東区 地区別地区番号対応",
+      "selector_source_urls": [
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
+        "https://www.city.koto.lg.jp/011501/kuse/koho/kuho/r07/text/121112.html"
+      ],
+      "members": [
+        {
+          "town_ja": "北砂",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
+        },
+        {
+          "town_ja": "南砂",
+          "chomes": [
+            "1",
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "koto:district:08",
+      "selector_source_label": "江東区 地区別地区番号対応",
+      "selector_source_urls": [
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
+        "https://www.city.koto.lg.jp/011501/kuse/koho/kuho/r07/text/121112.html"
+      ],
+      "members": [
+        {
+          "town_ja": "大島",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        },
+        {
+          "town_ja": "亀戸",
+          "chomes": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        {
+          "town_ja": "住吉"
+        },
+        {
+          "town_ja": "毛利"
+        }
+      ]
+    },
+    {
+      "area_key": "koto:district:09",
+      "selector_source_label": "江東区 地区別地区番号対応",
+      "selector_source_urls": [
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
+        "https://www.city.koto.lg.jp/011501/kuse/koho/kuho/r07/text/121112.html"
+      ],
+      "members": [
+        {
+          "town_ja": "木場"
+        },
+        {
+          "town_ja": "東陽"
+        },
+        {
+          "town_ja": "深川",
+          "chomes": [
+            "2"
+          ]
+        },
+        {
+          "town_ja": "冬木"
+        }
+      ]
+    },
+    {
+      "area_key": "koto:district:10",
+      "selector_source_label": "江東区 地区別地区番号対応",
+      "selector_source_urls": [
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
+        "https://www.city.koto.lg.jp/011501/kuse/koho/kuho/r07/text/121112.html"
+      ],
+      "members": [
+        {
+          "town_ja": "大島",
+          "chomes": [
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "koto:district:11",
+      "selector_source_label": "江東区 地区別地区番号対応",
+      "selector_source_urls": [
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
+        "https://www.city.koto.lg.jp/011501/kuse/koho/kuho/r07/text/121112.html"
+      ],
+      "members": [
+        {
+          "town_ja": "石島"
+        },
+        {
+          "town_ja": "海辺"
+        },
+        {
+          "town_ja": "扇橋"
+        },
+        {
+          "town_ja": "白河",
+          "chomes": [
+            "4"
+          ]
+        },
+        {
+          "town_ja": "猿江"
+        },
+        {
+          "town_ja": "千石"
+        },
+        {
+          "town_ja": "千田"
+        },
+        {
+          "town_ja": "平野",
+          "chomes": [
+            "4"
+          ]
+        },
+        {
+          "town_ja": "三好",
+          "chomes": [
+            "4"
+          ]
+        },
+        {
+          "town_ja": "森下",
+          "chomes": [
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "koto:district:12",
+      "selector_source_label": "江東区 地区別地区番号対応",
+      "selector_source_urls": [
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/images/address.png",
+        "https://www.city.koto.lg.jp/011501/kuse/koho/kuho/r07/text/121112.html"
+      ],
+      "members": [
+        {
+          "town_ja": "枝川"
+        },
+        {
+          "town_ja": "塩浜",
+          "chomes": [
+            "2"
+          ]
+        },
+        {
+          "town_ja": "潮見"
+        },
+        {
+          "town_ja": "新木場"
+        },
+        {
+          "town_ja": "辰巳"
+        },
+        {
+          "town_ja": "夢の島"
+        },
+        {
+          "town_ja": "若洲"
+        }
+      ]
+    }
+  ],
+  "schedule_rules": [
+    {
+      "rule_key": "koto:rule:freeform:alternating_weeks:friday",
+      "rule_type": "freeform",
+      "rule_json": {
+        "text_ja": "隔週金曜日",
+        "weekday": "friday",
+        "pattern": "alternating_weeks"
+      },
+      "description": "隔週金曜日"
+    },
+    {
+      "rule_key": "koto:rule:freeform:alternating_weeks:monday",
+      "rule_type": "freeform",
+      "rule_json": {
+        "text_ja": "隔週月曜日",
+        "weekday": "monday",
+        "pattern": "alternating_weeks"
+      },
+      "description": "隔週月曜日"
+    },
+    {
+      "rule_key": "koto:rule:freeform:alternating_weeks:saturday",
+      "rule_type": "freeform",
+      "rule_json": {
+        "text_ja": "隔週土曜日",
+        "weekday": "saturday",
+        "pattern": "alternating_weeks"
+      },
+      "description": "隔週土曜日"
+    },
+    {
+      "rule_key": "koto:rule:freeform:alternating_weeks:thursday",
+      "rule_type": "freeform",
+      "rule_json": {
+        "text_ja": "隔週木曜日",
+        "weekday": "thursday",
+        "pattern": "alternating_weeks"
+      },
+      "description": "隔週木曜日"
+    },
+    {
+      "rule_key": "koto:rule:freeform:alternating_weeks:tuesday",
+      "rule_type": "freeform",
+      "rule_json": {
+        "text_ja": "隔週火曜日",
+        "weekday": "tuesday",
+        "pattern": "alternating_weeks"
+      },
+      "description": "隔週火曜日"
+    },
+    {
+      "rule_key": "koto:rule:freeform:alternating_weeks:wednesday",
+      "rule_type": "freeform",
+      "rule_json": {
+        "text_ja": "隔週水曜日",
+        "weekday": "wednesday",
+        "pattern": "alternating_weeks"
+      },
+      "description": "隔週水曜日"
+    },
+    {
+      "rule_key": "koto:rule:weekly:friday",
+      "rule_type": "weekly",
+      "rule_json": {
+        "day": "friday"
+      },
+      "description": "friday weekly collection"
+    },
+    {
+      "rule_key": "koto:rule:weekly:monday",
+      "rule_type": "weekly",
+      "rule_json": {
+        "day": "monday"
+      },
+      "description": "monday weekly collection"
+    },
+    {
+      "rule_key": "koto:rule:weekly:saturday",
+      "rule_type": "weekly",
+      "rule_json": {
+        "day": "saturday"
+      },
+      "description": "saturday weekly collection"
+    },
+    {
+      "rule_key": "koto:rule:weekly:thursday",
+      "rule_type": "weekly",
+      "rule_json": {
+        "day": "thursday"
+      },
+      "description": "thursday weekly collection"
+    },
+    {
+      "rule_key": "koto:rule:weekly:tuesday",
+      "rule_type": "weekly",
+      "rule_json": {
+        "day": "tuesday"
+      },
+      "description": "tuesday weekly collection"
+    },
+    {
+      "rule_key": "koto:rule:weekly:wednesday",
+      "rule_type": "weekly",
+      "rule_json": {
+        "day": "wednesday"
+      },
+      "description": "wednesday weekly collection"
+    }
+  ],
+  "schedule_claims": [
+    {
+      "claim_key": "koto:claim:district:01:resource:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:01",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-1.png",
+        "raw_alt": "【1地区】資源土曜日、プラスチック木曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 1,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:01:plastic:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:01",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "thursday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-1.png",
+        "raw_alt": "【1地区】資源土曜日、プラスチック木曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 1,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:01:burnable:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:01",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-1.png",
+        "raw_alt": "【1地区】資源土曜日、プラスチック木曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 1,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:01:burnable:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:01",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-1.png",
+        "raw_alt": "【1地区】資源土曜日、プラスチック木曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 1,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:01:nonburnable:alternating:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:01",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:monday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週月曜日",
+          "weekday": "monday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週月曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-1.png",
+        "raw_alt": "【1地区】資源土曜日、プラスチック木曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 1,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週月曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:02:resource:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:02",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-2.png",
+        "raw_alt": "【2地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 2,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:02:plastic:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:02",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-2.png",
+        "raw_alt": "【2地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 2,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:02:burnable:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:02",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-2.png",
+        "raw_alt": "【2地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 2,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:02:burnable:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:02",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-2.png",
+        "raw_alt": "【2地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 2,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:02:nonburnable:alternating:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:02",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:tuesday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週火曜日",
+          "weekday": "tuesday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週火曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-2.png",
+        "raw_alt": "【2地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 2,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週火曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:03:resource:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:03",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-3.png",
+        "raw_alt": "【3地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 3,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:03:plastic:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:03",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-3.png",
+        "raw_alt": "【3地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 3,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:03:burnable:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:03",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-3.png",
+        "raw_alt": "【3地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 3,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:03:burnable:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:03",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "thursday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-3.png",
+        "raw_alt": "【3地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 3,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:03:nonburnable:alternating:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:03",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:wednesday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週水曜日",
+          "weekday": "wednesday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週水曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-3.png",
+        "raw_alt": "【3地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 3,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週水曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:04:resource:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:04",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-4.png",
+        "raw_alt": "【4地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 4,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:04:plastic:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:04",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-4.png",
+        "raw_alt": "【4地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 4,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:04:burnable:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:04",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-4.png",
+        "raw_alt": "【4地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 4,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:04:burnable:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:04",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-4.png",
+        "raw_alt": "【4地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 4,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:04:nonburnable:alternating:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:04",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:thursday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週木曜日",
+          "weekday": "thursday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週木曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-4.png",
+        "raw_alt": "【4地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 4,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週木曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:05:resource:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:05",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "thursday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-5.png",
+        "raw_alt": "【5地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 5,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:05:plastic:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:05",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-5.png",
+        "raw_alt": "【5地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 5,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:05:burnable:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:05",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-5.png",
+        "raw_alt": "【5地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 5,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:05:burnable:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:05",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-5.png",
+        "raw_alt": "【5地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 5,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:05:nonburnable:alternating:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:05",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:friday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週金曜日",
+          "weekday": "friday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週金曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-5.png",
+        "raw_alt": "【5地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 5,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週金曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:06:resource:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:06",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-6.png",
+        "raw_alt": "【6地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 6,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:06:plastic:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:06",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-6.png",
+        "raw_alt": "【6地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 6,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:06:burnable:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:06",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-6.png",
+        "raw_alt": "【6地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 6,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:06:burnable:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:06",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "thursday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-6.png",
+        "raw_alt": "【6地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 6,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:06:nonburnable:alternating:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:06",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:saturday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週土曜日",
+          "weekday": "saturday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週土曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-6.png",
+        "raw_alt": "【6地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 6,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週土曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:07:resource:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:07",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-7.png",
+        "raw_alt": "【7地区】資源土曜日、プラスチック水曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 7,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:07:plastic:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:07",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-7.png",
+        "raw_alt": "【7地区】資源土曜日、プラスチック水曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 7,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:07:burnable:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:07",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-7.png",
+        "raw_alt": "【7地区】資源土曜日、プラスチック水曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 7,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:07:burnable:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:07",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-7.png",
+        "raw_alt": "【7地区】資源土曜日、プラスチック水曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 7,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:07:nonburnable:alternating:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:07",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:monday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週月曜日",
+          "weekday": "monday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週月曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-7.png",
+        "raw_alt": "【7地区】資源土曜日、プラスチック水曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 7,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週月曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:08:resource:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:08",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-8.png",
+        "raw_alt": "【8地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 8,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:08:plastic:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:08",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-8.png",
+        "raw_alt": "【8地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 8,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:08:burnable:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:08",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-8.png",
+        "raw_alt": "【8地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 8,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:08:burnable:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:08",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-8.png",
+        "raw_alt": "【8地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 8,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:08:nonburnable:alternating:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:08",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:tuesday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週火曜日",
+          "weekday": "tuesday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週火曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-8.png",
+        "raw_alt": "【8地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 8,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週火曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:09:resource:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:09",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-9.png",
+        "raw_alt": "【9地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 9,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:09:plastic:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:09",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-9.png",
+        "raw_alt": "【9地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 9,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:09:burnable:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:09",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-9.png",
+        "raw_alt": "【9地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 9,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:09:burnable:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:09",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "thursday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-9.png",
+        "raw_alt": "【9地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 9,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:09:nonburnable:alternating:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:09",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:wednesday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週水曜日",
+          "weekday": "wednesday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週水曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-9.png",
+        "raw_alt": "【9地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 9,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週水曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:10:resource:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:10",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-10.png",
+        "raw_alt": "【10地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 10,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:10:plastic:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:10",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-10.png",
+        "raw_alt": "【10地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 10,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:10:burnable:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:10",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-10.png",
+        "raw_alt": "【10地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 10,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:10:burnable:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:10",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-10.png",
+        "raw_alt": "【10地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 10,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:10:nonburnable:alternating:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:10",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:thursday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週木曜日",
+          "weekday": "thursday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週木曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-10.png",
+        "raw_alt": "【10地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 10,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週木曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:11:resource:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:11",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "thursday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-11.png",
+        "raw_alt": "【11地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 11,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:11:plastic:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:11",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-11.png",
+        "raw_alt": "【11地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 11,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:11:burnable:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:11",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-11.png",
+        "raw_alt": "【11地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 11,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:11:burnable:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:11",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-11.png",
+        "raw_alt": "【11地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 11,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:11:nonburnable:alternating:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:11",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:friday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週金曜日",
+          "weekday": "friday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週金曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-11.png",
+        "raw_alt": "【11地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 11,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週金曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:12:resource:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:12",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-12.png",
+        "raw_alt": "【12地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 12,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:12:plastic:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:12",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-12.png",
+        "raw_alt": "【12地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 12,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:12:burnable:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:12",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-12.png",
+        "raw_alt": "【12地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 12,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:12:burnable:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:12",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "thursday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-12.png",
+        "raw_alt": "【12地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 12,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:12:nonburnable:alternating:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:12",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:saturday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週土曜日",
+          "weekday": "saturday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週土曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-12.png",
+        "raw_alt": "【12地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 12,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週土曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    }
+  ],
+  "claims": [
+    {
+      "claim_key": "koto:claim:district:01:resource:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:01",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-1.png",
+        "raw_alt": "【1地区】資源土曜日、プラスチック木曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 1,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:01:plastic:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:01",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "thursday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-1.png",
+        "raw_alt": "【1地区】資源土曜日、プラスチック木曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 1,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:01:burnable:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:01",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-1.png",
+        "raw_alt": "【1地区】資源土曜日、プラスチック木曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 1,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:01:burnable:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:01",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-1.png",
+        "raw_alt": "【1地区】資源土曜日、プラスチック木曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 1,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:01:nonburnable:alternating:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:01",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:monday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週月曜日",
+          "weekday": "monday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週月曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-1.png",
+        "raw_alt": "【1地区】資源土曜日、プラスチック木曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 1,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週月曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:02:resource:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:02",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-2.png",
+        "raw_alt": "【2地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 2,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:02:plastic:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:02",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-2.png",
+        "raw_alt": "【2地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 2,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:02:burnable:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:02",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-2.png",
+        "raw_alt": "【2地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 2,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:02:burnable:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:02",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-2.png",
+        "raw_alt": "【2地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 2,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:02:nonburnable:alternating:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:02",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:tuesday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週火曜日",
+          "weekday": "tuesday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週火曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-2.png",
+        "raw_alt": "【2地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 2,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週火曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:03:resource:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:03",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-3.png",
+        "raw_alt": "【3地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 3,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:03:plastic:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:03",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-3.png",
+        "raw_alt": "【3地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 3,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:03:burnable:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:03",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-3.png",
+        "raw_alt": "【3地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 3,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:03:burnable:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:03",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "thursday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-3.png",
+        "raw_alt": "【3地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 3,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:03:nonburnable:alternating:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:03",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:wednesday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週水曜日",
+          "weekday": "wednesday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週水曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-3.png",
+        "raw_alt": "【3地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 3,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週水曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:04:resource:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:04",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-4.png",
+        "raw_alt": "【4地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 4,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:04:plastic:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:04",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-4.png",
+        "raw_alt": "【4地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 4,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:04:burnable:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:04",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-4.png",
+        "raw_alt": "【4地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 4,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:04:burnable:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:04",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-4.png",
+        "raw_alt": "【4地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 4,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:04:nonburnable:alternating:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:04",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:thursday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週木曜日",
+          "weekday": "thursday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週木曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-4.png",
+        "raw_alt": "【4地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 4,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週木曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:05:resource:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:05",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "thursday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-5.png",
+        "raw_alt": "【5地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 5,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:05:plastic:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:05",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-5.png",
+        "raw_alt": "【5地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 5,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:05:burnable:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:05",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-5.png",
+        "raw_alt": "【5地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 5,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:05:burnable:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:05",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-5.png",
+        "raw_alt": "【5地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 5,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:05:nonburnable:alternating:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:05",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:friday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週金曜日",
+          "weekday": "friday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週金曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-5.png",
+        "raw_alt": "【5地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 5,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週金曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:06:resource:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:06",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-6.png",
+        "raw_alt": "【6地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 6,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:06:plastic:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:06",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-6.png",
+        "raw_alt": "【6地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 6,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:06:burnable:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:06",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-6.png",
+        "raw_alt": "【6地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 6,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:06:burnable:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:06",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "thursday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-6.png",
+        "raw_alt": "【6地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 6,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:06:nonburnable:alternating:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:06",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:saturday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週土曜日",
+          "weekday": "saturday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週土曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-6.png",
+        "raw_alt": "【6地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 6,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週土曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:07:resource:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:07",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-7.png",
+        "raw_alt": "【7地区】資源土曜日、プラスチック水曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 7,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:07:plastic:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:07",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-7.png",
+        "raw_alt": "【7地区】資源土曜日、プラスチック水曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 7,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:07:burnable:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:07",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-7.png",
+        "raw_alt": "【7地区】資源土曜日、プラスチック水曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 7,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:07:burnable:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:07",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-7.png",
+        "raw_alt": "【7地区】資源土曜日、プラスチック水曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 7,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:07:nonburnable:alternating:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:07",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:monday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週月曜日",
+          "weekday": "monday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週月曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-7.png",
+        "raw_alt": "【7地区】資源土曜日、プラスチック水曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週月曜日",
+        "district_number": 7,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週月曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:08:resource:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:08",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-8.png",
+        "raw_alt": "【8地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 8,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:08:plastic:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:08",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-8.png",
+        "raw_alt": "【8地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 8,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:08:burnable:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:08",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-8.png",
+        "raw_alt": "【8地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 8,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:08:burnable:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:08",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-8.png",
+        "raw_alt": "【8地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 8,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:08:nonburnable:alternating:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:08",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:tuesday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週火曜日",
+          "weekday": "tuesday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週火曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-8.png",
+        "raw_alt": "【8地区】資源月曜日、プラスチック金曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週火曜日",
+        "district_number": 8,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週火曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:09:resource:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:09",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-9.png",
+        "raw_alt": "【9地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 9,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:09:plastic:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:09",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-9.png",
+        "raw_alt": "【9地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 9,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:09:burnable:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:09",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-9.png",
+        "raw_alt": "【9地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 9,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:09:burnable:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:09",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "thursday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-9.png",
+        "raw_alt": "【9地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 9,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:09:nonburnable:alternating:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:09",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:wednesday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週水曜日",
+          "weekday": "wednesday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週水曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-9.png",
+        "raw_alt": "【9地区】資源火曜日、プラスチック土曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週水曜日",
+        "district_number": 9,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週水曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:10:resource:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:10",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-10.png",
+        "raw_alt": "【10地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 10,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:10:plastic:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:10",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-10.png",
+        "raw_alt": "【10地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 10,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:10:burnable:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:10",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-10.png",
+        "raw_alt": "【10地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 10,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:10:burnable:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:10",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-10.png",
+        "raw_alt": "【10地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 10,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:10:nonburnable:alternating:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:10",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:thursday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週木曜日",
+          "weekday": "thursday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週木曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-10.png",
+        "raw_alt": "【10地区】資源水曜日、プラスチック月曜日、燃やすごみ火曜日・金曜日、燃やさないごみ隔週木曜日",
+        "district_number": 10,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週木曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:11:resource:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:11",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "thursday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-11.png",
+        "raw_alt": "【11地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 11,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:11:plastic:tuesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:11",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:tuesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "tuesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-11.png",
+        "raw_alt": "【11地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 11,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:11:burnable:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:11",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-11.png",
+        "raw_alt": "【11地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 11,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:11:burnable:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:11",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "saturday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-11.png",
+        "raw_alt": "【11地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 11,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:11:nonburnable:alternating:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:11",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:friday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週金曜日",
+          "weekday": "friday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週金曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-11.png",
+        "raw_alt": "【11地区】資源木曜日、プラスチック火曜日、燃やすごみ水曜日・土曜日、燃やさないごみ隔週金曜日",
+        "district_number": 11,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週金曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:12:resource:friday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:12",
+      "category": "resource",
+      "rule_key": "koto:rule:weekly:friday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "friday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-12.png",
+        "raw_alt": "【12地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 12,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:12:plastic:wednesday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:12",
+      "category": "plastic",
+      "rule_key": "koto:rule:weekly:wednesday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "wednesday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-12.png",
+        "raw_alt": "【12地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 12,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:12:burnable:monday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:12",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:monday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "monday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-12.png",
+        "raw_alt": "【12地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 12,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:12:burnable:thursday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:12",
+      "category": "burnable",
+      "rule_key": "koto:rule:weekly:thursday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 1.0,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "thursday weekly collection"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-12.png",
+        "raw_alt": "【12地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 12,
+        "fiscal_year": 2026
+      },
+      "note": null,
+      "resolution_method": "official_priority"
+    },
+    {
+      "claim_key": "koto:claim:district:12:nonburnable:alternating:saturday",
+      "ward_slug": "koto",
+      "area_key": "koto:district:12",
+      "category": "nonburnable",
+      "rule_key": "koto:rule:freeform:alternating_weeks:saturday",
+      "source_key": "koto:entry_page",
+      "artifact_key": "koto:artifact:entry_page:parser_output:2026",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.95,
+      "status": "active",
+      "submitted_by": "scripts/extract_koto_data.py",
+      "supersedes_claim_key": null,
+      "rule": {
+        "rule_key": "koto:rule:freeform:alternating_weeks:saturday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "text_ja": "隔週土曜日",
+          "weekday": "saturday",
+          "pattern": "alternating_weeks"
+        },
+        "description": "隔週土曜日"
+      },
+      "evidence": {
+        "source_url": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+        "source_image": "/388010/kurashi/gomi/kate/images/8-12.png",
+        "raw_alt": "【12地区】資源金曜日、プラスチック水曜日、燃やすごみ月曜日・木曜日、燃やさないごみ隔週土曜日",
+        "district_number": 12,
+        "fiscal_year": 2026,
+        "rule_text_ja": "隔週土曜日"
+      },
+      "note": "隔週のどちら側かは月間カレンダー確認が必要です。",
+      "resolution_method": "official_priority"
+    }
+  ],
+  "review_tasks": [
+    {
+      "task_key": "koto:task:boundary-gap:06:海の森",
+      "ward_slug": "koto",
+      "area_key": "koto:district:06",
+      "source_key": "koto:download:03",
+      "task_type": "source_refresh",
+      "status": "open",
+      "title": "海の森 の境界データ確認",
+      "payload": {
+        "raw_image_path": "data/raw/koto/koto_download_03.png",
+        "selector_file_path": "data/manual/koto/district-boundary-selectors.json",
+        "member": {
+          "district_number": 6,
+          "town_ja": "海の森",
+          "reason": "Not present in the 2020 e-Stat small-area boundary dataset used by the importer."
+        }
+      },
+      "created_by": "scripts/extract_koto_data.py"
+    }
+  ]
+}

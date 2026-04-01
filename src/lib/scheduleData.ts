@@ -36,7 +36,7 @@ export function filterSignalsByCategories(
 
 export function getDominantColorFromSignals(signals: CategorySignal[]): string {
   if (signals.length === 0) {
-    return "#475569";
+    return "#cbd5e1";
   }
 
   const dominant = [...signals].sort((left, right) => right.areas - left.areas)[0];

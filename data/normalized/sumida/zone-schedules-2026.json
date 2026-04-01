@@ -1,0 +1,3632 @@
+{
+  "ward_slug": "sumida",
+  "overview": {
+    "source_quality": "medium",
+    "source_label": "墨田区 資源とごみの収集カレンダー",
+    "granularity": "12地区の収集パターンと地区境界を反映済みです。",
+    "notes": [
+      "地区ラベルは公式 entry page の PDF リンク文言から抽出しています。",
+      "収集曜日は公式 2026 年度 summary calendar をレビュー済み転記から正規化しています。",
+      "燃やさないごみは月内の第1・第3回または第2・第4回の freeform rule として保持しています。"
+    ],
+    "day_signals": {}
+  },
+  "artifacts": [
+    {
+      "artifact_key": "sumida:artifact:entry-page:zone-labels",
+      "source_key": "sumida:entry_page",
+      "artifact_kind": "parser_output",
+      "local_path": "data/extracted/sumida/zone-labels.json",
+      "content_type": "application/json",
+      "parser_version": "2026-04-01",
+      "metadata": {
+        "raw_path": "data/raw/sumida/sumida_entry_page.html",
+        "method": "regex_html_parse"
+      }
+    },
+    {
+      "artifact_key": "sumida:artifact:summary-calendar:ocr-jpn",
+      "source_key": "sumida:download:01",
+      "artifact_kind": "ocr",
+      "local_path": "data/extracted/sumida/summary-ocr.txt",
+      "content_type": "text/plain",
+      "parser_version": "2026-04-01",
+      "ocr_engine": "tesseract jpn --psm 6",
+      "metadata": {
+        "raw_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "rendered_page_path": "data/extracted/sumida/summary-calendar-2026-page-1.png"
+      }
+    },
+    {
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_key": "sumida:download:01",
+      "artifact_kind": "manual_transcription",
+      "local_path": "data/manual/sumida/summary-calendar-2026.reviewed.json",
+      "content_type": "application/json",
+      "parser_version": "2026-04-01",
+      "metadata": {
+        "raw_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "rendered_page_path": "data/extracted/sumida/summary-calendar-2026-page-1.png",
+        "extracted_output_path": "data/extracted/sumida/zone-patterns-2026.json",
+        "method": "manual_review_of_official_summary_table"
+      }
+    }
+  ],
+  "areas": [
+    {
+      "area_key": "sumida:zone:01",
+      "parent_area_key": "ward:sumida",
+      "area_kind": "district",
+      "label_ja": "両国、亀沢、石原、横網",
+      "status": "active",
+      "metadata": {
+        "zone_index": 1,
+        "zone_code": "01",
+        "source_label_ja": "両国、亀沢、石原、横網",
+        "source_kind": "summary_calendar_zone"
+      }
+    },
+    {
+      "area_key": "sumida:zone:02",
+      "parent_area_key": "ward:sumida",
+      "area_kind": "district",
+      "label_ja": "千歳、緑、立川",
+      "status": "active",
+      "metadata": {
+        "zone_index": 2,
+        "zone_code": "02",
+        "source_label_ja": "千歳、緑、立川",
+        "source_kind": "summary_calendar_zone"
+      }
+    },
+    {
+      "area_key": "sumida:zone:03",
+      "parent_area_key": "ward:sumida",
+      "area_kind": "district",
+      "label_ja": "太平、横川",
+      "status": "active",
+      "metadata": {
+        "zone_index": 3,
+        "zone_code": "03",
+        "source_label_ja": "太平、横川",
+        "source_kind": "summary_calendar_zone"
+      }
+    },
+    {
+      "area_key": "sumida:zone:04",
+      "parent_area_key": "ward:sumida",
+      "area_kind": "district",
+      "label_ja": "菊川、江東橋、錦糸",
+      "status": "active",
+      "metadata": {
+        "zone_index": 4,
+        "zone_code": "04",
+        "source_label_ja": "菊川、江東橋、錦糸",
+        "source_kind": "summary_calendar_zone"
+      }
+    },
+    {
+      "area_key": "sumida:zone:05",
+      "parent_area_key": "ward:sumida",
+      "area_kind": "district",
+      "label_ja": "本所1・2丁目、東駒形1・2丁目、吾妻橋、向島1・2・3丁目",
+      "status": "active",
+      "metadata": {
+        "zone_index": 5,
+        "zone_code": "05",
+        "source_label_ja": "本所1・2丁目、東駒形1・2丁目、吾妻橋、向島1・2・3丁目",
+        "source_kind": "summary_calendar_zone"
+      }
+    },
+    {
+      "area_key": "sumida:zone:06",
+      "parent_area_key": "ward:sumida",
+      "area_kind": "district",
+      "label_ja": "向島4・5丁目、東向島1・2・3丁目、堤通1丁目",
+      "status": "active",
+      "metadata": {
+        "zone_index": 6,
+        "zone_code": "06",
+        "source_label_ja": "向島4・5丁目、東向島1・2・3丁目、堤通1丁目",
+        "source_kind": "summary_calendar_zone"
+      }
+    },
+    {
+      "area_key": "sumida:zone:07",
+      "parent_area_key": "ward:sumida",
+      "area_kind": "district",
+      "label_ja": "押上、京島",
+      "status": "active",
+      "metadata": {
+        "zone_index": 7,
+        "zone_code": "07",
+        "source_label_ja": "押上、京島",
+        "source_kind": "summary_calendar_zone"
+      }
+    },
+    {
+      "area_key": "sumida:zone:08",
+      "parent_area_key": "ward:sumida",
+      "area_kind": "district",
+      "label_ja": "本所3・4丁目、東駒形3・4丁目、業平、文花1丁目",
+      "status": "active",
+      "metadata": {
+        "zone_index": 8,
+        "zone_code": "08",
+        "source_label_ja": "本所3・4丁目、東駒形3・4丁目、業平、文花1丁目",
+        "source_kind": "summary_calendar_zone"
+      }
+    },
+    {
+      "area_key": "sumida:zone:09",
+      "parent_area_key": "ward:sumida",
+      "area_kind": "district",
+      "label_ja": "堤通2丁目、東向島4丁目、墨田1・2・5丁目",
+      "status": "active",
+      "metadata": {
+        "zone_index": 9,
+        "zone_code": "09",
+        "source_label_ja": "堤通2丁目、東向島4丁目、墨田1・2・5丁目",
+        "source_kind": "summary_calendar_zone"
+      }
+    },
+    {
+      "area_key": "sumida:zone:10",
+      "parent_area_key": "ward:sumida",
+      "area_kind": "district",
+      "label_ja": "東向島5・6丁目、墨田3・4丁目、八広6丁目",
+      "status": "active",
+      "metadata": {
+        "zone_index": 10,
+        "zone_code": "10",
+        "source_label_ja": "東向島5・6丁目、墨田3・4丁目、八広6丁目",
+        "source_kind": "summary_calendar_zone"
+      }
+    },
+    {
+      "area_key": "sumida:zone:11",
+      "parent_area_key": "ward:sumida",
+      "area_kind": "district",
+      "label_ja": "立花、東墨田",
+      "status": "active",
+      "metadata": {
+        "zone_index": 11,
+        "zone_code": "11",
+        "source_label_ja": "立花、東墨田",
+        "source_kind": "summary_calendar_zone"
+      }
+    },
+    {
+      "area_key": "sumida:zone:12",
+      "parent_area_key": "ward:sumida",
+      "area_kind": "district",
+      "label_ja": "文花2・3丁目、八広1・2・3・4・5丁目",
+      "status": "active",
+      "metadata": {
+        "zone_index": 12,
+        "zone_code": "12",
+        "source_label_ja": "文花2・3丁目、八広1・2・3・4・5丁目",
+        "source_kind": "summary_calendar_zone"
+      }
+    }
+  ],
+  "geometry_memberships": [
+    {
+      "area_key": "sumida:zone:01",
+      "selector_source_label": "墨田区 ごみの分別・収集日ページ",
+      "selector_source_urls": [
+        "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.html"
+      ],
+      "members": [
+        {
+          "town_ja": "両国"
+        },
+        {
+          "town_ja": "亀沢"
+        },
+        {
+          "town_ja": "石原"
+        },
+        {
+          "town_ja": "横網"
+        }
+      ]
+    },
+    {
+      "area_key": "sumida:zone:02",
+      "selector_source_label": "墨田区 ごみの分別・収集日ページ",
+      "selector_source_urls": [
+        "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.html"
+      ],
+      "members": [
+        {
+          "town_ja": "千歳"
+        },
+        {
+          "town_ja": "緑"
+        },
+        {
+          "town_ja": "立川"
+        }
+      ]
+    },
+    {
+      "area_key": "sumida:zone:03",
+      "selector_source_label": "墨田区 ごみの分別・収集日ページ",
+      "selector_source_urls": [
+        "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.html"
+      ],
+      "members": [
+        {
+          "town_ja": "太平"
+        },
+        {
+          "town_ja": "横川"
+        }
+      ]
+    },
+    {
+      "area_key": "sumida:zone:04",
+      "selector_source_label": "墨田区 ごみの分別・収集日ページ",
+      "selector_source_urls": [
+        "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.html"
+      ],
+      "members": [
+        {
+          "town_ja": "菊川"
+        },
+        {
+          "town_ja": "江東橋"
+        },
+        {
+          "town_ja": "錦糸"
+        }
+      ]
+    },
+    {
+      "area_key": "sumida:zone:05",
+      "selector_source_label": "墨田区 ごみの分別・収集日ページ",
+      "selector_source_urls": [
+        "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.html"
+      ],
+      "members": [
+        {
+          "town_ja": "本所",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        },
+        {
+          "town_ja": "東駒形",
+          "chomes": [
+            "1",
+            "2"
+          ]
+        },
+        {
+          "town_ja": "吾妻橋"
+        },
+        {
+          "town_ja": "向島",
+          "chomes": [
+            "1",
+            "2",
+            "3"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "sumida:zone:06",
+      "selector_source_label": "墨田区 ごみの分別・収集日ページ",
+      "selector_source_urls": [
+        "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.html"
+      ],
+      "members": [
+        {
+          "town_ja": "向島",
+          "chomes": [
+            "4",
+            "5"
+          ]
+        },
+        {
+          "town_ja": "東向島",
+          "chomes": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        {
+          "town_ja": "堤通",
+          "chomes": [
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "sumida:zone:07",
+      "selector_source_label": "墨田区 ごみの分別・収集日ページ",
+      "selector_source_urls": [
+        "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.html"
+      ],
+      "members": [
+        {
+          "town_ja": "押上"
+        },
+        {
+          "town_ja": "京島"
+        }
+      ]
+    },
+    {
+      "area_key": "sumida:zone:08",
+      "selector_source_label": "墨田区 ごみの分別・収集日ページ",
+      "selector_source_urls": [
+        "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.html"
+      ],
+      "members": [
+        {
+          "town_ja": "本所",
+          "chomes": [
+            "3",
+            "4"
+          ]
+        },
+        {
+          "town_ja": "東駒形",
+          "chomes": [
+            "3",
+            "4"
+          ]
+        },
+        {
+          "town_ja": "業平"
+        },
+        {
+          "town_ja": "文花",
+          "chomes": [
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "sumida:zone:09",
+      "selector_source_label": "墨田区 ごみの分別・収集日ページ",
+      "selector_source_urls": [
+        "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.html"
+      ],
+      "members": [
+        {
+          "town_ja": "堤通",
+          "chomes": [
+            "2"
+          ]
+        },
+        {
+          "town_ja": "東向島",
+          "chomes": [
+            "4"
+          ]
+        },
+        {
+          "town_ja": "墨田",
+          "chomes": [
+            "1",
+            "2",
+            "5"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "sumida:zone:10",
+      "selector_source_label": "墨田区 ごみの分別・収集日ページ",
+      "selector_source_urls": [
+        "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.html"
+      ],
+      "members": [
+        {
+          "town_ja": "東向島",
+          "chomes": [
+            "5",
+            "6"
+          ]
+        },
+        {
+          "town_ja": "墨田",
+          "chomes": [
+            "3",
+            "4"
+          ]
+        },
+        {
+          "town_ja": "八広",
+          "chomes": [
+            "6"
+          ]
+        }
+      ]
+    },
+    {
+      "area_key": "sumida:zone:11",
+      "selector_source_label": "墨田区 ごみの分別・収集日ページ",
+      "selector_source_urls": [
+        "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.html"
+      ],
+      "members": [
+        {
+          "town_ja": "立花"
+        },
+        {
+          "town_ja": "東墨田"
+        }
+      ]
+    },
+    {
+      "area_key": "sumida:zone:12",
+      "selector_source_label": "墨田区 ごみの分別・収集日ページ",
+      "selector_source_urls": [
+        "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.html"
+      ],
+      "members": [
+        {
+          "town_ja": "文花",
+          "chomes": [
+            "2",
+            "3"
+          ]
+        },
+        {
+          "town_ja": "八広",
+          "chomes": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
+        }
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "claim_key": "sumida:zone:01:weekly:tuesday:resource:official",
+      "area_key": "sumida:zone:01",
+      "category": "resource",
+      "rule": {
+        "rule_key": "weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "Weekly pickup on tuesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 1,
+        "zone_label_ja": "両国、亀沢、石原、横網",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 1,
+        "column": "resource_day",
+        "display_label_ja": "火曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:01:weekly:wednesday:plastic:official",
+      "area_key": "sumida:zone:01",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "Weekly pickup on wednesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 1,
+        "zone_label_ja": "両国、亀沢、石原、横網",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 1,
+        "column": "plastic_day",
+        "display_label_ja": "水曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:01:weekly:monday:burnable:official",
+      "area_key": "sumida:zone:01",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "Weekly pickup on monday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 1,
+        "zone_label_ja": "両国、亀沢、石原、横網",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 1,
+        "column": "burnable_days",
+        "display_label_ja": "月曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:01:weekly:thursday:burnable:official",
+      "area_key": "sumida:zone:01",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "Weekly pickup on thursday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 1,
+        "zone_label_ja": "両国、亀沢、石原、横網",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 1,
+        "column": "burnable_days",
+        "display_label_ja": "木曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:01:freeform:1-3:saturday:nonburnable:official",
+      "area_key": "sumida:zone:01",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "sumida:freeform:nonburnable:1-3:saturday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "pattern_kind": "alternating_monthly_weekday",
+          "day": "saturday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "dates_by_month": {
+            "2026-04": [
+              "2026-04-04",
+              "2026-04-18"
+            ],
+            "2026-05": [
+              "2026-05-02",
+              "2026-05-16"
+            ],
+            "2026-06": [
+              "2026-06-06",
+              "2026-06-20"
+            ],
+            "2026-07": [
+              "2026-07-04",
+              "2026-07-18"
+            ],
+            "2026-08": [
+              "2026-08-01",
+              "2026-08-15"
+            ],
+            "2026-09": [
+              "2026-09-05",
+              "2026-09-19"
+            ],
+            "2026-10": [
+              "2026-10-03",
+              "2026-10-17"
+            ],
+            "2026-11": [
+              "2026-11-07",
+              "2026-11-21"
+            ],
+            "2026-12": [
+              "2026-12-05",
+              "2026-12-19"
+            ],
+            "2027-01": [
+              "2027-01-02",
+              "2027-01-16"
+            ],
+            "2027-02": [
+              "2027-02-06",
+              "2027-02-20"
+            ],
+            "2027-03": [
+              "2027-03-06",
+              "2027-03-20"
+            ]
+          },
+          "display_label_ja": "1回目・3回目 土曜日"
+        },
+        "description": "Nonburnable pickup on the 1-3 occurrences of saturday each month"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.96,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 1,
+        "zone_label_ja": "両国、亀沢、石原、横網",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 1,
+        "column": "nonburnable",
+        "display_label_ja": "1回目・3回目 土曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-04",
+            "2026-04-18"
+          ],
+          "2026-05": [
+            "2026-05-02",
+            "2026-05-16"
+          ],
+          "2026-06": [
+            "2026-06-06",
+            "2026-06-20"
+          ],
+          "2026-07": [
+            "2026-07-04",
+            "2026-07-18"
+          ],
+          "2026-08": [
+            "2026-08-01",
+            "2026-08-15"
+          ],
+          "2026-09": [
+            "2026-09-05",
+            "2026-09-19"
+          ],
+          "2026-10": [
+            "2026-10-03",
+            "2026-10-17"
+          ],
+          "2026-11": [
+            "2026-11-07",
+            "2026-11-21"
+          ],
+          "2026-12": [
+            "2026-12-05",
+            "2026-12-19"
+          ],
+          "2027-01": [
+            "2027-01-02",
+            "2027-01-16"
+          ],
+          "2027-02": [
+            "2027-02-06",
+            "2027-02-20"
+          ],
+          "2027-03": [
+            "2027-03-06",
+            "2027-03-20"
+          ]
+        }
+      },
+      "note": "Official Sumida summary calendar shows nonburnable pickup as alternating monthly weekday occurrences."
+    },
+    {
+      "claim_key": "sumida:zone:02:weekly:tuesday:resource:official",
+      "area_key": "sumida:zone:02",
+      "category": "resource",
+      "rule": {
+        "rule_key": "weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "Weekly pickup on tuesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 2,
+        "zone_label_ja": "千歳、緑、立川",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 2,
+        "column": "resource_day",
+        "display_label_ja": "火曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:02:weekly:wednesday:plastic:official",
+      "area_key": "sumida:zone:02",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "Weekly pickup on wednesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 2,
+        "zone_label_ja": "千歳、緑、立川",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 2,
+        "column": "plastic_day",
+        "display_label_ja": "水曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:02:weekly:monday:burnable:official",
+      "area_key": "sumida:zone:02",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "Weekly pickup on monday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 2,
+        "zone_label_ja": "千歳、緑、立川",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 2,
+        "column": "burnable_days",
+        "display_label_ja": "月曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:02:weekly:thursday:burnable:official",
+      "area_key": "sumida:zone:02",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "Weekly pickup on thursday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 2,
+        "zone_label_ja": "千歳、緑、立川",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 2,
+        "column": "burnable_days",
+        "display_label_ja": "木曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:02:freeform:2-4:saturday:nonburnable:official",
+      "area_key": "sumida:zone:02",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "sumida:freeform:nonburnable:2-4:saturday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "pattern_kind": "alternating_monthly_weekday",
+          "day": "saturday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "dates_by_month": {
+            "2026-04": [
+              "2026-04-11",
+              "2026-04-25"
+            ],
+            "2026-05": [
+              "2026-05-09",
+              "2026-05-23"
+            ],
+            "2026-06": [
+              "2026-06-13",
+              "2026-06-27"
+            ],
+            "2026-07": [
+              "2026-07-11",
+              "2026-07-25"
+            ],
+            "2026-08": [
+              "2026-08-08",
+              "2026-08-22"
+            ],
+            "2026-09": [
+              "2026-09-12",
+              "2026-09-26"
+            ],
+            "2026-10": [
+              "2026-10-10",
+              "2026-10-24"
+            ],
+            "2026-11": [
+              "2026-11-14",
+              "2026-11-28"
+            ],
+            "2026-12": [
+              "2026-12-12",
+              "2026-12-26"
+            ],
+            "2027-01": [
+              "2027-01-09",
+              "2027-01-23"
+            ],
+            "2027-02": [
+              "2027-02-13",
+              "2027-02-27"
+            ],
+            "2027-03": [
+              "2027-03-13",
+              "2027-03-27"
+            ]
+          },
+          "display_label_ja": "2回目・4回目 土曜日"
+        },
+        "description": "Nonburnable pickup on the 2-4 occurrences of saturday each month"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.96,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 2,
+        "zone_label_ja": "千歳、緑、立川",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 2,
+        "column": "nonburnable",
+        "display_label_ja": "2回目・4回目 土曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-11",
+            "2026-04-25"
+          ],
+          "2026-05": [
+            "2026-05-09",
+            "2026-05-23"
+          ],
+          "2026-06": [
+            "2026-06-13",
+            "2026-06-27"
+          ],
+          "2026-07": [
+            "2026-07-11",
+            "2026-07-25"
+          ],
+          "2026-08": [
+            "2026-08-08",
+            "2026-08-22"
+          ],
+          "2026-09": [
+            "2026-09-12",
+            "2026-09-26"
+          ],
+          "2026-10": [
+            "2026-10-10",
+            "2026-10-24"
+          ],
+          "2026-11": [
+            "2026-11-14",
+            "2026-11-28"
+          ],
+          "2026-12": [
+            "2026-12-12",
+            "2026-12-26"
+          ],
+          "2027-01": [
+            "2027-01-09",
+            "2027-01-23"
+          ],
+          "2027-02": [
+            "2027-02-13",
+            "2027-02-27"
+          ],
+          "2027-03": [
+            "2027-03-13",
+            "2027-03-27"
+          ]
+        }
+      },
+      "note": "Official Sumida summary calendar shows nonburnable pickup as alternating monthly weekday occurrences."
+    },
+    {
+      "claim_key": "sumida:zone:03:weekly:friday:resource:official",
+      "area_key": "sumida:zone:03",
+      "category": "resource",
+      "rule": {
+        "rule_key": "weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "Weekly pickup on friday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 3,
+        "zone_label_ja": "太平、横川",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 3,
+        "column": "resource_day",
+        "display_label_ja": "金曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:03:weekly:saturday:plastic:official",
+      "area_key": "sumida:zone:03",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "Weekly pickup on saturday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 3,
+        "zone_label_ja": "太平、横川",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 3,
+        "column": "plastic_day",
+        "display_label_ja": "土曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:03:weekly:monday:burnable:official",
+      "area_key": "sumida:zone:03",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "Weekly pickup on monday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 3,
+        "zone_label_ja": "太平、横川",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 3,
+        "column": "burnable_days",
+        "display_label_ja": "月曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:03:weekly:thursday:burnable:official",
+      "area_key": "sumida:zone:03",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "Weekly pickup on thursday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 3,
+        "zone_label_ja": "太平、横川",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 3,
+        "column": "burnable_days",
+        "display_label_ja": "木曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:03:freeform:1-3:wednesday:nonburnable:official",
+      "area_key": "sumida:zone:03",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "sumida:freeform:nonburnable:1-3:wednesday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "pattern_kind": "alternating_monthly_weekday",
+          "day": "wednesday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "dates_by_month": {
+            "2026-04": [
+              "2026-04-01",
+              "2026-04-15"
+            ],
+            "2026-05": [
+              "2026-05-06",
+              "2026-05-20"
+            ],
+            "2026-06": [
+              "2026-06-03",
+              "2026-06-17"
+            ],
+            "2026-07": [
+              "2026-07-01",
+              "2026-07-15"
+            ],
+            "2026-08": [
+              "2026-08-05",
+              "2026-08-19"
+            ],
+            "2026-09": [
+              "2026-09-02",
+              "2026-09-16"
+            ],
+            "2026-10": [
+              "2026-10-07",
+              "2026-10-21"
+            ],
+            "2026-11": [
+              "2026-11-04",
+              "2026-11-18"
+            ],
+            "2026-12": [
+              "2026-12-02",
+              "2026-12-16"
+            ],
+            "2027-01": [
+              "2027-01-06",
+              "2027-01-20"
+            ],
+            "2027-02": [
+              "2027-02-03",
+              "2027-02-17"
+            ],
+            "2027-03": [
+              "2027-03-03",
+              "2027-03-17"
+            ]
+          },
+          "display_label_ja": "1回目・3回目 水曜日"
+        },
+        "description": "Nonburnable pickup on the 1-3 occurrences of wednesday each month"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.96,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 3,
+        "zone_label_ja": "太平、横川",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 3,
+        "column": "nonburnable",
+        "display_label_ja": "1回目・3回目 水曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-01",
+            "2026-04-15"
+          ],
+          "2026-05": [
+            "2026-05-06",
+            "2026-05-20"
+          ],
+          "2026-06": [
+            "2026-06-03",
+            "2026-06-17"
+          ],
+          "2026-07": [
+            "2026-07-01",
+            "2026-07-15"
+          ],
+          "2026-08": [
+            "2026-08-05",
+            "2026-08-19"
+          ],
+          "2026-09": [
+            "2026-09-02",
+            "2026-09-16"
+          ],
+          "2026-10": [
+            "2026-10-07",
+            "2026-10-21"
+          ],
+          "2026-11": [
+            "2026-11-04",
+            "2026-11-18"
+          ],
+          "2026-12": [
+            "2026-12-02",
+            "2026-12-16"
+          ],
+          "2027-01": [
+            "2027-01-06",
+            "2027-01-20"
+          ],
+          "2027-02": [
+            "2027-02-03",
+            "2027-02-17"
+          ],
+          "2027-03": [
+            "2027-03-03",
+            "2027-03-17"
+          ]
+        }
+      },
+      "note": "Official Sumida summary calendar shows nonburnable pickup as alternating monthly weekday occurrences."
+    },
+    {
+      "claim_key": "sumida:zone:04:weekly:friday:resource:official",
+      "area_key": "sumida:zone:04",
+      "category": "resource",
+      "rule": {
+        "rule_key": "weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "Weekly pickup on friday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 4,
+        "zone_label_ja": "菊川、江東橋、錦糸",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 4,
+        "column": "resource_day",
+        "display_label_ja": "金曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:04:weekly:saturday:plastic:official",
+      "area_key": "sumida:zone:04",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "Weekly pickup on saturday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 4,
+        "zone_label_ja": "菊川、江東橋、錦糸",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 4,
+        "column": "plastic_day",
+        "display_label_ja": "土曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:04:weekly:monday:burnable:official",
+      "area_key": "sumida:zone:04",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "Weekly pickup on monday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 4,
+        "zone_label_ja": "菊川、江東橋、錦糸",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 4,
+        "column": "burnable_days",
+        "display_label_ja": "月曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:04:weekly:thursday:burnable:official",
+      "area_key": "sumida:zone:04",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "Weekly pickup on thursday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 4,
+        "zone_label_ja": "菊川、江東橋、錦糸",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 4,
+        "column": "burnable_days",
+        "display_label_ja": "木曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:04:freeform:2-4:wednesday:nonburnable:official",
+      "area_key": "sumida:zone:04",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "sumida:freeform:nonburnable:2-4:wednesday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "pattern_kind": "alternating_monthly_weekday",
+          "day": "wednesday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "dates_by_month": {
+            "2026-04": [
+              "2026-04-08",
+              "2026-04-22"
+            ],
+            "2026-05": [
+              "2026-05-13",
+              "2026-05-27"
+            ],
+            "2026-06": [
+              "2026-06-10",
+              "2026-06-24"
+            ],
+            "2026-07": [
+              "2026-07-08",
+              "2026-07-22"
+            ],
+            "2026-08": [
+              "2026-08-12",
+              "2026-08-26"
+            ],
+            "2026-09": [
+              "2026-09-09",
+              "2026-09-23"
+            ],
+            "2026-10": [
+              "2026-10-14",
+              "2026-10-28"
+            ],
+            "2026-11": [
+              "2026-11-11",
+              "2026-11-25"
+            ],
+            "2026-12": [
+              "2026-12-09",
+              "2026-12-23"
+            ],
+            "2027-01": [
+              "2027-01-13",
+              "2027-01-27"
+            ],
+            "2027-02": [
+              "2027-02-10",
+              "2027-02-24"
+            ],
+            "2027-03": [
+              "2027-03-10",
+              "2027-03-24"
+            ]
+          },
+          "display_label_ja": "2回目・4回目 水曜日"
+        },
+        "description": "Nonburnable pickup on the 2-4 occurrences of wednesday each month"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.96,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 4,
+        "zone_label_ja": "菊川、江東橋、錦糸",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 4,
+        "column": "nonburnable",
+        "display_label_ja": "2回目・4回目 水曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-08",
+            "2026-04-22"
+          ],
+          "2026-05": [
+            "2026-05-13",
+            "2026-05-27"
+          ],
+          "2026-06": [
+            "2026-06-10",
+            "2026-06-24"
+          ],
+          "2026-07": [
+            "2026-07-08",
+            "2026-07-22"
+          ],
+          "2026-08": [
+            "2026-08-12",
+            "2026-08-26"
+          ],
+          "2026-09": [
+            "2026-09-09",
+            "2026-09-23"
+          ],
+          "2026-10": [
+            "2026-10-14",
+            "2026-10-28"
+          ],
+          "2026-11": [
+            "2026-11-11",
+            "2026-11-25"
+          ],
+          "2026-12": [
+            "2026-12-09",
+            "2026-12-23"
+          ],
+          "2027-01": [
+            "2027-01-13",
+            "2027-01-27"
+          ],
+          "2027-02": [
+            "2027-02-10",
+            "2027-02-24"
+          ],
+          "2027-03": [
+            "2027-03-10",
+            "2027-03-24"
+          ]
+        }
+      },
+      "note": "Official Sumida summary calendar shows nonburnable pickup as alternating monthly weekday occurrences."
+    },
+    {
+      "claim_key": "sumida:zone:05:weekly:saturday:resource:official",
+      "area_key": "sumida:zone:05",
+      "category": "resource",
+      "rule": {
+        "rule_key": "weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "Weekly pickup on saturday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 5,
+        "zone_label_ja": "本所1・2丁目、東駒形1・2丁目、吾妻橋、向島1・2・3丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 5,
+        "column": "resource_day",
+        "display_label_ja": "土曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:05:weekly:thursday:plastic:official",
+      "area_key": "sumida:zone:05",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "Weekly pickup on thursday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 5,
+        "zone_label_ja": "本所1・2丁目、東駒形1・2丁目、吾妻橋、向島1・2・3丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 5,
+        "column": "plastic_day",
+        "display_label_ja": "木曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:05:weekly:tuesday:burnable:official",
+      "area_key": "sumida:zone:05",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "Weekly pickup on tuesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 5,
+        "zone_label_ja": "本所1・2丁目、東駒形1・2丁目、吾妻橋、向島1・2・3丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 5,
+        "column": "burnable_days",
+        "display_label_ja": "火曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:05:weekly:friday:burnable:official",
+      "area_key": "sumida:zone:05",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "Weekly pickup on friday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 5,
+        "zone_label_ja": "本所1・2丁目、東駒形1・2丁目、吾妻橋、向島1・2・3丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 5,
+        "column": "burnable_days",
+        "display_label_ja": "金曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:05:freeform:1-3:monday:nonburnable:official",
+      "area_key": "sumida:zone:05",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "sumida:freeform:nonburnable:1-3:monday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "pattern_kind": "alternating_monthly_weekday",
+          "day": "monday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "dates_by_month": {
+            "2026-04": [
+              "2026-04-06",
+              "2026-04-20"
+            ],
+            "2026-05": [
+              "2026-05-04",
+              "2026-05-18"
+            ],
+            "2026-06": [
+              "2026-06-01",
+              "2026-06-15"
+            ],
+            "2026-07": [
+              "2026-07-06",
+              "2026-07-20"
+            ],
+            "2026-08": [
+              "2026-08-03",
+              "2026-08-17"
+            ],
+            "2026-09": [
+              "2026-09-07",
+              "2026-09-21"
+            ],
+            "2026-10": [
+              "2026-10-05",
+              "2026-10-19"
+            ],
+            "2026-11": [
+              "2026-11-02",
+              "2026-11-16"
+            ],
+            "2026-12": [
+              "2026-12-07",
+              "2026-12-21"
+            ],
+            "2027-01": [
+              "2027-01-04",
+              "2027-01-18"
+            ],
+            "2027-02": [
+              "2027-02-01",
+              "2027-02-15"
+            ],
+            "2027-03": [
+              "2027-03-01",
+              "2027-03-15"
+            ]
+          },
+          "display_label_ja": "1回目・3回目 月曜日"
+        },
+        "description": "Nonburnable pickup on the 1-3 occurrences of monday each month"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.96,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 5,
+        "zone_label_ja": "本所1・2丁目、東駒形1・2丁目、吾妻橋、向島1・2・3丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 5,
+        "column": "nonburnable",
+        "display_label_ja": "1回目・3回目 月曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-06",
+            "2026-04-20"
+          ],
+          "2026-05": [
+            "2026-05-04",
+            "2026-05-18"
+          ],
+          "2026-06": [
+            "2026-06-01",
+            "2026-06-15"
+          ],
+          "2026-07": [
+            "2026-07-06",
+            "2026-07-20"
+          ],
+          "2026-08": [
+            "2026-08-03",
+            "2026-08-17"
+          ],
+          "2026-09": [
+            "2026-09-07",
+            "2026-09-21"
+          ],
+          "2026-10": [
+            "2026-10-05",
+            "2026-10-19"
+          ],
+          "2026-11": [
+            "2026-11-02",
+            "2026-11-16"
+          ],
+          "2026-12": [
+            "2026-12-07",
+            "2026-12-21"
+          ],
+          "2027-01": [
+            "2027-01-04",
+            "2027-01-18"
+          ],
+          "2027-02": [
+            "2027-02-01",
+            "2027-02-15"
+          ],
+          "2027-03": [
+            "2027-03-01",
+            "2027-03-15"
+          ]
+        }
+      },
+      "note": "Official Sumida summary calendar shows nonburnable pickup as alternating monthly weekday occurrences."
+    },
+    {
+      "claim_key": "sumida:zone:06:weekly:saturday:resource:official",
+      "area_key": "sumida:zone:06",
+      "category": "resource",
+      "rule": {
+        "rule_key": "weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "Weekly pickup on saturday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 6,
+        "zone_label_ja": "向島4・5丁目、東向島1・2・3丁目、堤通1丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 6,
+        "column": "resource_day",
+        "display_label_ja": "土曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:06:weekly:thursday:plastic:official",
+      "area_key": "sumida:zone:06",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "Weekly pickup on thursday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 6,
+        "zone_label_ja": "向島4・5丁目、東向島1・2・3丁目、堤通1丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 6,
+        "column": "plastic_day",
+        "display_label_ja": "木曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:06:weekly:tuesday:burnable:official",
+      "area_key": "sumida:zone:06",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "Weekly pickup on tuesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 6,
+        "zone_label_ja": "向島4・5丁目、東向島1・2・3丁目、堤通1丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 6,
+        "column": "burnable_days",
+        "display_label_ja": "火曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:06:weekly:friday:burnable:official",
+      "area_key": "sumida:zone:06",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "Weekly pickup on friday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 6,
+        "zone_label_ja": "向島4・5丁目、東向島1・2・3丁目、堤通1丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 6,
+        "column": "burnable_days",
+        "display_label_ja": "金曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:06:freeform:2-4:monday:nonburnable:official",
+      "area_key": "sumida:zone:06",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "sumida:freeform:nonburnable:2-4:monday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "pattern_kind": "alternating_monthly_weekday",
+          "day": "monday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "dates_by_month": {
+            "2026-04": [
+              "2026-04-13",
+              "2026-04-27"
+            ],
+            "2026-05": [
+              "2026-05-11",
+              "2026-05-25"
+            ],
+            "2026-06": [
+              "2026-06-08",
+              "2026-06-22"
+            ],
+            "2026-07": [
+              "2026-07-13",
+              "2026-07-27"
+            ],
+            "2026-08": [
+              "2026-08-10",
+              "2026-08-24"
+            ],
+            "2026-09": [
+              "2026-09-14",
+              "2026-09-28"
+            ],
+            "2026-10": [
+              "2026-10-12",
+              "2026-10-26"
+            ],
+            "2026-11": [
+              "2026-11-09",
+              "2026-11-23"
+            ],
+            "2026-12": [
+              "2026-12-14",
+              "2026-12-28"
+            ],
+            "2027-01": [
+              "2027-01-11",
+              "2027-01-25"
+            ],
+            "2027-02": [
+              "2027-02-08",
+              "2027-02-22"
+            ],
+            "2027-03": [
+              "2027-03-08",
+              "2027-03-22"
+            ]
+          },
+          "display_label_ja": "2回目・4回目 月曜日"
+        },
+        "description": "Nonburnable pickup on the 2-4 occurrences of monday each month"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.96,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 6,
+        "zone_label_ja": "向島4・5丁目、東向島1・2・3丁目、堤通1丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 6,
+        "column": "nonburnable",
+        "display_label_ja": "2回目・4回目 月曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-13",
+            "2026-04-27"
+          ],
+          "2026-05": [
+            "2026-05-11",
+            "2026-05-25"
+          ],
+          "2026-06": [
+            "2026-06-08",
+            "2026-06-22"
+          ],
+          "2026-07": [
+            "2026-07-13",
+            "2026-07-27"
+          ],
+          "2026-08": [
+            "2026-08-10",
+            "2026-08-24"
+          ],
+          "2026-09": [
+            "2026-09-14",
+            "2026-09-28"
+          ],
+          "2026-10": [
+            "2026-10-12",
+            "2026-10-26"
+          ],
+          "2026-11": [
+            "2026-11-09",
+            "2026-11-23"
+          ],
+          "2026-12": [
+            "2026-12-14",
+            "2026-12-28"
+          ],
+          "2027-01": [
+            "2027-01-11",
+            "2027-01-25"
+          ],
+          "2027-02": [
+            "2027-02-08",
+            "2027-02-22"
+          ],
+          "2027-03": [
+            "2027-03-08",
+            "2027-03-22"
+          ]
+        }
+      },
+      "note": "Official Sumida summary calendar shows nonburnable pickup as alternating monthly weekday occurrences."
+    },
+    {
+      "claim_key": "sumida:zone:07:weekly:wednesday:resource:official",
+      "area_key": "sumida:zone:07",
+      "category": "resource",
+      "rule": {
+        "rule_key": "weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "Weekly pickup on wednesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 7,
+        "zone_label_ja": "押上、京島",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 7,
+        "column": "resource_day",
+        "display_label_ja": "水曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:07:weekly:monday:plastic:official",
+      "area_key": "sumida:zone:07",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "Weekly pickup on monday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 7,
+        "zone_label_ja": "押上、京島",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 7,
+        "column": "plastic_day",
+        "display_label_ja": "月曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:07:weekly:tuesday:burnable:official",
+      "area_key": "sumida:zone:07",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "Weekly pickup on tuesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 7,
+        "zone_label_ja": "押上、京島",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 7,
+        "column": "burnable_days",
+        "display_label_ja": "火曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:07:weekly:friday:burnable:official",
+      "area_key": "sumida:zone:07",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "Weekly pickup on friday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 7,
+        "zone_label_ja": "押上、京島",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 7,
+        "column": "burnable_days",
+        "display_label_ja": "金曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:07:freeform:1-3:thursday:nonburnable:official",
+      "area_key": "sumida:zone:07",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "sumida:freeform:nonburnable:1-3:thursday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "pattern_kind": "alternating_monthly_weekday",
+          "day": "thursday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "dates_by_month": {
+            "2026-04": [
+              "2026-04-02",
+              "2026-04-16"
+            ],
+            "2026-05": [
+              "2026-05-07",
+              "2026-05-21"
+            ],
+            "2026-06": [
+              "2026-06-04",
+              "2026-06-18"
+            ],
+            "2026-07": [
+              "2026-07-02",
+              "2026-07-16"
+            ],
+            "2026-08": [
+              "2026-08-06",
+              "2026-08-20"
+            ],
+            "2026-09": [
+              "2026-09-03",
+              "2026-09-17"
+            ],
+            "2026-10": [
+              "2026-10-01",
+              "2026-10-15"
+            ],
+            "2026-11": [
+              "2026-11-05",
+              "2026-11-19"
+            ],
+            "2026-12": [
+              "2026-12-03",
+              "2026-12-17"
+            ],
+            "2027-01": [
+              "2027-01-07",
+              "2027-01-21"
+            ],
+            "2027-02": [
+              "2027-02-04",
+              "2027-02-18"
+            ],
+            "2027-03": [
+              "2027-03-04",
+              "2027-03-18"
+            ]
+          },
+          "display_label_ja": "1回目・3回目 木曜日"
+        },
+        "description": "Nonburnable pickup on the 1-3 occurrences of thursday each month"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.96,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 7,
+        "zone_label_ja": "押上、京島",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 7,
+        "column": "nonburnable",
+        "display_label_ja": "1回目・3回目 木曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-02",
+            "2026-04-16"
+          ],
+          "2026-05": [
+            "2026-05-07",
+            "2026-05-21"
+          ],
+          "2026-06": [
+            "2026-06-04",
+            "2026-06-18"
+          ],
+          "2026-07": [
+            "2026-07-02",
+            "2026-07-16"
+          ],
+          "2026-08": [
+            "2026-08-06",
+            "2026-08-20"
+          ],
+          "2026-09": [
+            "2026-09-03",
+            "2026-09-17"
+          ],
+          "2026-10": [
+            "2026-10-01",
+            "2026-10-15"
+          ],
+          "2026-11": [
+            "2026-11-05",
+            "2026-11-19"
+          ],
+          "2026-12": [
+            "2026-12-03",
+            "2026-12-17"
+          ],
+          "2027-01": [
+            "2027-01-07",
+            "2027-01-21"
+          ],
+          "2027-02": [
+            "2027-02-04",
+            "2027-02-18"
+          ],
+          "2027-03": [
+            "2027-03-04",
+            "2027-03-18"
+          ]
+        }
+      },
+      "note": "Official Sumida summary calendar shows nonburnable pickup as alternating monthly weekday occurrences."
+    },
+    {
+      "claim_key": "sumida:zone:08:weekly:wednesday:resource:official",
+      "area_key": "sumida:zone:08",
+      "category": "resource",
+      "rule": {
+        "rule_key": "weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "Weekly pickup on wednesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 8,
+        "zone_label_ja": "本所3・4丁目、東駒形3・4丁目、業平、文花1丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 8,
+        "column": "resource_day",
+        "display_label_ja": "水曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:08:weekly:monday:plastic:official",
+      "area_key": "sumida:zone:08",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "Weekly pickup on monday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 8,
+        "zone_label_ja": "本所3・4丁目、東駒形3・4丁目、業平、文花1丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 8,
+        "column": "plastic_day",
+        "display_label_ja": "月曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:08:weekly:tuesday:burnable:official",
+      "area_key": "sumida:zone:08",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "Weekly pickup on tuesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 8,
+        "zone_label_ja": "本所3・4丁目、東駒形3・4丁目、業平、文花1丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 8,
+        "column": "burnable_days",
+        "display_label_ja": "火曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:08:weekly:friday:burnable:official",
+      "area_key": "sumida:zone:08",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "Weekly pickup on friday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 8,
+        "zone_label_ja": "本所3・4丁目、東駒形3・4丁目、業平、文花1丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 8,
+        "column": "burnable_days",
+        "display_label_ja": "金曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:08:freeform:2-4:thursday:nonburnable:official",
+      "area_key": "sumida:zone:08",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "sumida:freeform:nonburnable:2-4:thursday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "pattern_kind": "alternating_monthly_weekday",
+          "day": "thursday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "dates_by_month": {
+            "2026-04": [
+              "2026-04-09",
+              "2026-04-23"
+            ],
+            "2026-05": [
+              "2026-05-14",
+              "2026-05-28"
+            ],
+            "2026-06": [
+              "2026-06-11",
+              "2026-06-25"
+            ],
+            "2026-07": [
+              "2026-07-09",
+              "2026-07-23"
+            ],
+            "2026-08": [
+              "2026-08-13",
+              "2026-08-27"
+            ],
+            "2026-09": [
+              "2026-09-10",
+              "2026-09-24"
+            ],
+            "2026-10": [
+              "2026-10-08",
+              "2026-10-22"
+            ],
+            "2026-11": [
+              "2026-11-12",
+              "2026-11-26"
+            ],
+            "2026-12": [
+              "2026-12-10",
+              "2026-12-24"
+            ],
+            "2027-01": [
+              "2027-01-14",
+              "2027-01-28"
+            ],
+            "2027-02": [
+              "2027-02-11",
+              "2027-02-25"
+            ],
+            "2027-03": [
+              "2027-03-11",
+              "2027-03-25"
+            ]
+          },
+          "display_label_ja": "2回目・4回目 木曜日"
+        },
+        "description": "Nonburnable pickup on the 2-4 occurrences of thursday each month"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.96,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 8,
+        "zone_label_ja": "本所3・4丁目、東駒形3・4丁目、業平、文花1丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 8,
+        "column": "nonburnable",
+        "display_label_ja": "2回目・4回目 木曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-09",
+            "2026-04-23"
+          ],
+          "2026-05": [
+            "2026-05-14",
+            "2026-05-28"
+          ],
+          "2026-06": [
+            "2026-06-11",
+            "2026-06-25"
+          ],
+          "2026-07": [
+            "2026-07-09",
+            "2026-07-23"
+          ],
+          "2026-08": [
+            "2026-08-13",
+            "2026-08-27"
+          ],
+          "2026-09": [
+            "2026-09-10",
+            "2026-09-24"
+          ],
+          "2026-10": [
+            "2026-10-08",
+            "2026-10-22"
+          ],
+          "2026-11": [
+            "2026-11-12",
+            "2026-11-26"
+          ],
+          "2026-12": [
+            "2026-12-10",
+            "2026-12-24"
+          ],
+          "2027-01": [
+            "2027-01-14",
+            "2027-01-28"
+          ],
+          "2027-02": [
+            "2027-02-11",
+            "2027-02-25"
+          ],
+          "2027-03": [
+            "2027-03-11",
+            "2027-03-25"
+          ]
+        }
+      },
+      "note": "Official Sumida summary calendar shows nonburnable pickup as alternating monthly weekday occurrences."
+    },
+    {
+      "claim_key": "sumida:zone:09:weekly:thursday:resource:official",
+      "area_key": "sumida:zone:09",
+      "category": "resource",
+      "rule": {
+        "rule_key": "weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "Weekly pickup on thursday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 9,
+        "zone_label_ja": "堤通2丁目、東向島4丁目、墨田1・2・5丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 9,
+        "column": "resource_day",
+        "display_label_ja": "木曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:09:weekly:friday:plastic:official",
+      "area_key": "sumida:zone:09",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "Weekly pickup on friday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 9,
+        "zone_label_ja": "堤通2丁目、東向島4丁目、墨田1・2・5丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 9,
+        "column": "plastic_day",
+        "display_label_ja": "金曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:09:weekly:wednesday:burnable:official",
+      "area_key": "sumida:zone:09",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "Weekly pickup on wednesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 9,
+        "zone_label_ja": "堤通2丁目、東向島4丁目、墨田1・2・5丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 9,
+        "column": "burnable_days",
+        "display_label_ja": "水曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:09:weekly:saturday:burnable:official",
+      "area_key": "sumida:zone:09",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "Weekly pickup on saturday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 9,
+        "zone_label_ja": "堤通2丁目、東向島4丁目、墨田1・2・5丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 9,
+        "column": "burnable_days",
+        "display_label_ja": "土曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:09:freeform:1-3:tuesday:nonburnable:official",
+      "area_key": "sumida:zone:09",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "sumida:freeform:nonburnable:1-3:tuesday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "pattern_kind": "alternating_monthly_weekday",
+          "day": "tuesday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "dates_by_month": {
+            "2026-04": [
+              "2026-04-07",
+              "2026-04-21"
+            ],
+            "2026-05": [
+              "2026-05-05",
+              "2026-05-19"
+            ],
+            "2026-06": [
+              "2026-06-02",
+              "2026-06-16"
+            ],
+            "2026-07": [
+              "2026-07-07",
+              "2026-07-21"
+            ],
+            "2026-08": [
+              "2026-08-04",
+              "2026-08-18"
+            ],
+            "2026-09": [
+              "2026-09-01",
+              "2026-09-15"
+            ],
+            "2026-10": [
+              "2026-10-06",
+              "2026-10-20"
+            ],
+            "2026-11": [
+              "2026-11-03",
+              "2026-11-17"
+            ],
+            "2026-12": [
+              "2026-12-01",
+              "2026-12-15"
+            ],
+            "2027-01": [
+              "2027-01-05",
+              "2027-01-19"
+            ],
+            "2027-02": [
+              "2027-02-02",
+              "2027-02-16"
+            ],
+            "2027-03": [
+              "2027-03-02",
+              "2027-03-16"
+            ]
+          },
+          "display_label_ja": "1回目・3回目 火曜日"
+        },
+        "description": "Nonburnable pickup on the 1-3 occurrences of tuesday each month"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.96,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 9,
+        "zone_label_ja": "堤通2丁目、東向島4丁目、墨田1・2・5丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 9,
+        "column": "nonburnable",
+        "display_label_ja": "1回目・3回目 火曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-07",
+            "2026-04-21"
+          ],
+          "2026-05": [
+            "2026-05-05",
+            "2026-05-19"
+          ],
+          "2026-06": [
+            "2026-06-02",
+            "2026-06-16"
+          ],
+          "2026-07": [
+            "2026-07-07",
+            "2026-07-21"
+          ],
+          "2026-08": [
+            "2026-08-04",
+            "2026-08-18"
+          ],
+          "2026-09": [
+            "2026-09-01",
+            "2026-09-15"
+          ],
+          "2026-10": [
+            "2026-10-06",
+            "2026-10-20"
+          ],
+          "2026-11": [
+            "2026-11-03",
+            "2026-11-17"
+          ],
+          "2026-12": [
+            "2026-12-01",
+            "2026-12-15"
+          ],
+          "2027-01": [
+            "2027-01-05",
+            "2027-01-19"
+          ],
+          "2027-02": [
+            "2027-02-02",
+            "2027-02-16"
+          ],
+          "2027-03": [
+            "2027-03-02",
+            "2027-03-16"
+          ]
+        }
+      },
+      "note": "Official Sumida summary calendar shows nonburnable pickup as alternating monthly weekday occurrences."
+    },
+    {
+      "claim_key": "sumida:zone:10:weekly:thursday:resource:official",
+      "area_key": "sumida:zone:10",
+      "category": "resource",
+      "rule": {
+        "rule_key": "weekly:thursday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "thursday"
+        },
+        "description": "Weekly pickup on thursday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 10,
+        "zone_label_ja": "東向島5・6丁目、墨田3・4丁目、八広6丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 10,
+        "column": "resource_day",
+        "display_label_ja": "木曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:10:weekly:friday:plastic:official",
+      "area_key": "sumida:zone:10",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "weekly:friday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "friday"
+        },
+        "description": "Weekly pickup on friday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 10,
+        "zone_label_ja": "東向島5・6丁目、墨田3・4丁目、八広6丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 10,
+        "column": "plastic_day",
+        "display_label_ja": "金曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:10:weekly:wednesday:burnable:official",
+      "area_key": "sumida:zone:10",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "Weekly pickup on wednesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 10,
+        "zone_label_ja": "東向島5・6丁目、墨田3・4丁目、八広6丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 10,
+        "column": "burnable_days",
+        "display_label_ja": "水曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:10:weekly:saturday:burnable:official",
+      "area_key": "sumida:zone:10",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "Weekly pickup on saturday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 10,
+        "zone_label_ja": "東向島5・6丁目、墨田3・4丁目、八広6丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 10,
+        "column": "burnable_days",
+        "display_label_ja": "土曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:10:freeform:2-4:tuesday:nonburnable:official",
+      "area_key": "sumida:zone:10",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "sumida:freeform:nonburnable:2-4:tuesday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "pattern_kind": "alternating_monthly_weekday",
+          "day": "tuesday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "dates_by_month": {
+            "2026-04": [
+              "2026-04-14",
+              "2026-04-28"
+            ],
+            "2026-05": [
+              "2026-05-12",
+              "2026-05-26"
+            ],
+            "2026-06": [
+              "2026-06-09",
+              "2026-06-23"
+            ],
+            "2026-07": [
+              "2026-07-14",
+              "2026-07-28"
+            ],
+            "2026-08": [
+              "2026-08-11",
+              "2026-08-25"
+            ],
+            "2026-09": [
+              "2026-09-08",
+              "2026-09-22"
+            ],
+            "2026-10": [
+              "2026-10-13",
+              "2026-10-27"
+            ],
+            "2026-11": [
+              "2026-11-10",
+              "2026-11-24"
+            ],
+            "2026-12": [
+              "2026-12-08",
+              "2026-12-22"
+            ],
+            "2027-01": [
+              "2027-01-12",
+              "2027-01-26"
+            ],
+            "2027-02": [
+              "2027-02-09",
+              "2027-02-23"
+            ],
+            "2027-03": [
+              "2027-03-09",
+              "2027-03-23"
+            ]
+          },
+          "display_label_ja": "2回目・4回目 火曜日"
+        },
+        "description": "Nonburnable pickup on the 2-4 occurrences of tuesday each month"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.96,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 10,
+        "zone_label_ja": "東向島5・6丁目、墨田3・4丁目、八広6丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 10,
+        "column": "nonburnable",
+        "display_label_ja": "2回目・4回目 火曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-14",
+            "2026-04-28"
+          ],
+          "2026-05": [
+            "2026-05-12",
+            "2026-05-26"
+          ],
+          "2026-06": [
+            "2026-06-09",
+            "2026-06-23"
+          ],
+          "2026-07": [
+            "2026-07-14",
+            "2026-07-28"
+          ],
+          "2026-08": [
+            "2026-08-11",
+            "2026-08-25"
+          ],
+          "2026-09": [
+            "2026-09-08",
+            "2026-09-22"
+          ],
+          "2026-10": [
+            "2026-10-13",
+            "2026-10-27"
+          ],
+          "2026-11": [
+            "2026-11-10",
+            "2026-11-24"
+          ],
+          "2026-12": [
+            "2026-12-08",
+            "2026-12-22"
+          ],
+          "2027-01": [
+            "2027-01-12",
+            "2027-01-26"
+          ],
+          "2027-02": [
+            "2027-02-09",
+            "2027-02-23"
+          ],
+          "2027-03": [
+            "2027-03-09",
+            "2027-03-23"
+          ]
+        }
+      },
+      "note": "Official Sumida summary calendar shows nonburnable pickup as alternating monthly weekday occurrences."
+    },
+    {
+      "claim_key": "sumida:zone:11:weekly:monday:resource:official",
+      "area_key": "sumida:zone:11",
+      "category": "resource",
+      "rule": {
+        "rule_key": "weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "Weekly pickup on monday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 11,
+        "zone_label_ja": "立花、東墨田",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 11,
+        "column": "resource_day",
+        "display_label_ja": "月曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:11:weekly:tuesday:plastic:official",
+      "area_key": "sumida:zone:11",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "Weekly pickup on tuesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 11,
+        "zone_label_ja": "立花、東墨田",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 11,
+        "column": "plastic_day",
+        "display_label_ja": "火曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:11:weekly:wednesday:burnable:official",
+      "area_key": "sumida:zone:11",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "Weekly pickup on wednesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 11,
+        "zone_label_ja": "立花、東墨田",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 11,
+        "column": "burnable_days",
+        "display_label_ja": "水曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:11:weekly:saturday:burnable:official",
+      "area_key": "sumida:zone:11",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "Weekly pickup on saturday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 11,
+        "zone_label_ja": "立花、東墨田",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 11,
+        "column": "burnable_days",
+        "display_label_ja": "土曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:11:freeform:1-3:friday:nonburnable:official",
+      "area_key": "sumida:zone:11",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "sumida:freeform:nonburnable:1-3:friday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "pattern_kind": "alternating_monthly_weekday",
+          "day": "friday",
+          "ordinals": [
+            1,
+            3
+          ],
+          "dates_by_month": {
+            "2026-04": [
+              "2026-04-03",
+              "2026-04-17"
+            ],
+            "2026-05": [
+              "2026-05-01",
+              "2026-05-15"
+            ],
+            "2026-06": [
+              "2026-06-05",
+              "2026-06-19"
+            ],
+            "2026-07": [
+              "2026-07-03",
+              "2026-07-17"
+            ],
+            "2026-08": [
+              "2026-08-07",
+              "2026-08-21"
+            ],
+            "2026-09": [
+              "2026-09-04",
+              "2026-09-18"
+            ],
+            "2026-10": [
+              "2026-10-02",
+              "2026-10-16"
+            ],
+            "2026-11": [
+              "2026-11-06",
+              "2026-11-20"
+            ],
+            "2026-12": [
+              "2026-12-04",
+              "2026-12-18"
+            ],
+            "2027-01": [
+              "2027-01-01",
+              "2027-01-15"
+            ],
+            "2027-02": [
+              "2027-02-05",
+              "2027-02-19"
+            ],
+            "2027-03": [
+              "2027-03-05",
+              "2027-03-19"
+            ]
+          },
+          "display_label_ja": "1回目・3回目 金曜日"
+        },
+        "description": "Nonburnable pickup on the 1-3 occurrences of friday each month"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.96,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 11,
+        "zone_label_ja": "立花、東墨田",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 11,
+        "column": "nonburnable",
+        "display_label_ja": "1回目・3回目 金曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-03",
+            "2026-04-17"
+          ],
+          "2026-05": [
+            "2026-05-01",
+            "2026-05-15"
+          ],
+          "2026-06": [
+            "2026-06-05",
+            "2026-06-19"
+          ],
+          "2026-07": [
+            "2026-07-03",
+            "2026-07-17"
+          ],
+          "2026-08": [
+            "2026-08-07",
+            "2026-08-21"
+          ],
+          "2026-09": [
+            "2026-09-04",
+            "2026-09-18"
+          ],
+          "2026-10": [
+            "2026-10-02",
+            "2026-10-16"
+          ],
+          "2026-11": [
+            "2026-11-06",
+            "2026-11-20"
+          ],
+          "2026-12": [
+            "2026-12-04",
+            "2026-12-18"
+          ],
+          "2027-01": [
+            "2027-01-01",
+            "2027-01-15"
+          ],
+          "2027-02": [
+            "2027-02-05",
+            "2027-02-19"
+          ],
+          "2027-03": [
+            "2027-03-05",
+            "2027-03-19"
+          ]
+        }
+      },
+      "note": "Official Sumida summary calendar shows nonburnable pickup as alternating monthly weekday occurrences."
+    },
+    {
+      "claim_key": "sumida:zone:12:weekly:monday:resource:official",
+      "area_key": "sumida:zone:12",
+      "category": "resource",
+      "rule": {
+        "rule_key": "weekly:monday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "monday"
+        },
+        "description": "Weekly pickup on monday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 12,
+        "zone_label_ja": "文花2・3丁目、八広1・2・3・4・5丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 12,
+        "column": "resource_day",
+        "display_label_ja": "月曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:12:weekly:tuesday:plastic:official",
+      "area_key": "sumida:zone:12",
+      "category": "plastic",
+      "rule": {
+        "rule_key": "weekly:tuesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "tuesday"
+        },
+        "description": "Weekly pickup on tuesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 12,
+        "zone_label_ja": "文花2・3丁目、八広1・2・3・4・5丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 12,
+        "column": "plastic_day",
+        "display_label_ja": "火曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:12:weekly:wednesday:burnable:official",
+      "area_key": "sumida:zone:12",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:wednesday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "wednesday"
+        },
+        "description": "Weekly pickup on wednesday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 12,
+        "zone_label_ja": "文花2・3丁目、八広1・2・3・4・5丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 12,
+        "column": "burnable_days",
+        "display_label_ja": "水曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:12:weekly:saturday:burnable:official",
+      "area_key": "sumida:zone:12",
+      "category": "burnable",
+      "rule": {
+        "rule_key": "weekly:saturday",
+        "rule_type": "weekly",
+        "rule_json": {
+          "day": "saturday"
+        },
+        "description": "Weekly pickup on saturday"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.98,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 12,
+        "zone_label_ja": "文花2・3丁目、八広1・2・3・4・5丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 12,
+        "column": "burnable_days",
+        "display_label_ja": "土曜日"
+      },
+      "note": "Extracted from the official 2026 Sumida summary calendar table."
+    },
+    {
+      "claim_key": "sumida:zone:12:freeform:2-4:friday:nonburnable:official",
+      "area_key": "sumida:zone:12",
+      "category": "nonburnable",
+      "rule": {
+        "rule_key": "sumida:freeform:nonburnable:2-4:friday",
+        "rule_type": "freeform",
+        "rule_json": {
+          "pattern_kind": "alternating_monthly_weekday",
+          "day": "friday",
+          "ordinals": [
+            2,
+            4
+          ],
+          "dates_by_month": {
+            "2026-04": [
+              "2026-04-10",
+              "2026-04-24"
+            ],
+            "2026-05": [
+              "2026-05-08",
+              "2026-05-22"
+            ],
+            "2026-06": [
+              "2026-06-12",
+              "2026-06-26"
+            ],
+            "2026-07": [
+              "2026-07-10",
+              "2026-07-24"
+            ],
+            "2026-08": [
+              "2026-08-14",
+              "2026-08-28"
+            ],
+            "2026-09": [
+              "2026-09-11",
+              "2026-09-25"
+            ],
+            "2026-10": [
+              "2026-10-09",
+              "2026-10-23"
+            ],
+            "2026-11": [
+              "2026-11-13",
+              "2026-11-27"
+            ],
+            "2026-12": [
+              "2026-12-11",
+              "2026-12-25"
+            ],
+            "2027-01": [
+              "2027-01-08",
+              "2027-01-22"
+            ],
+            "2027-02": [
+              "2027-02-12",
+              "2027-02-26"
+            ],
+            "2027-03": [
+              "2027-03-12",
+              "2027-03-26"
+            ]
+          },
+          "display_label_ja": "2回目・4回目 金曜日"
+        },
+        "description": "Nonburnable pickup on the 2-4 occurrences of friday each month"
+      },
+      "source_key": "sumida:download:01",
+      "artifact_key": "sumida:artifact:summary-calendar:patterns",
+      "source_type": "official",
+      "effective_from": "2026-04-01",
+      "effective_to": "2027-03-31",
+      "confidence": 0.96,
+      "submitted_by": "system/extract_sumida_data",
+      "resolution_method": "official_priority",
+      "evidence": {
+        "zone_index": 12,
+        "zone_label_ja": "文花2・3丁目、八広1・2・3・4・5丁目",
+        "summary_pdf_path": "data/raw/sumida/sumida_download_01.pdf",
+        "entry_page_path": "data/raw/sumida/sumida_entry_page.html",
+        "summary_row_index": 12,
+        "column": "nonburnable",
+        "display_label_ja": "2回目・4回目 金曜日",
+        "dates_by_month": {
+          "2026-04": [
+            "2026-04-10",
+            "2026-04-24"
+          ],
+          "2026-05": [
+            "2026-05-08",
+            "2026-05-22"
+          ],
+          "2026-06": [
+            "2026-06-12",
+            "2026-06-26"
+          ],
+          "2026-07": [
+            "2026-07-10",
+            "2026-07-24"
+          ],
+          "2026-08": [
+            "2026-08-14",
+            "2026-08-28"
+          ],
+          "2026-09": [
+            "2026-09-11",
+            "2026-09-25"
+          ],
+          "2026-10": [
+            "2026-10-09",
+            "2026-10-23"
+          ],
+          "2026-11": [
+            "2026-11-13",
+            "2026-11-27"
+          ],
+          "2026-12": [
+            "2026-12-11",
+            "2026-12-25"
+          ],
+          "2027-01": [
+            "2027-01-08",
+            "2027-01-22"
+          ],
+          "2027-02": [
+            "2027-02-12",
+            "2027-02-26"
+          ],
+          "2027-03": [
+            "2027-03-12",
+            "2027-03-26"
+          ]
+        }
+      },
+      "note": "Official Sumida summary calendar shows nonburnable pickup as alternating monthly weekday occurrences."
+    }
+  ],
+  "review_tasks": []
+}

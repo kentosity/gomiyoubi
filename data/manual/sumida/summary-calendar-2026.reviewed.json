@@ -1,0 +1,91 @@
+{
+  "ward_slug": "sumida",
+  "source_path": "data/raw/sumida/sumida_download_01.pdf",
+  "review_basis": "Official 2026 Sumida summary calendar reviewed against rendered page image and OCR artifact.",
+  "rows": [
+    {
+      "resource_day": "tuesday",
+      "plastic_day": "wednesday",
+      "burnable_days": ["monday", "thursday"],
+      "nonburnable_day": "saturday",
+      "nonburnable_ordinals": [1, 3]
+    },
+    {
+      "resource_day": "tuesday",
+      "plastic_day": "wednesday",
+      "burnable_days": ["monday", "thursday"],
+      "nonburnable_day": "saturday",
+      "nonburnable_ordinals": [2, 4]
+    },
+    {
+      "resource_day": "friday",
+      "plastic_day": "saturday",
+      "burnable_days": ["monday", "thursday"],
+      "nonburnable_day": "wednesday",
+      "nonburnable_ordinals": [1, 3]
+    },
+    {
+      "resource_day": "friday",
+      "plastic_day": "saturday",
+      "burnable_days": ["monday", "thursday"],
+      "nonburnable_day": "wednesday",
+      "nonburnable_ordinals": [2, 4]
+    },
+    {
+      "resource_day": "saturday",
+      "plastic_day": "thursday",
+      "burnable_days": ["tuesday", "friday"],
+      "nonburnable_day": "monday",
+      "nonburnable_ordinals": [1, 3]
+    },
+    {
+      "resource_day": "saturday",
+      "plastic_day": "thursday",
+      "burnable_days": ["tuesday", "friday"],
+      "nonburnable_day": "monday",
+      "nonburnable_ordinals": [2, 4]
+    },
+    {
+      "resource_day": "wednesday",
+      "plastic_day": "monday",
+      "burnable_days": ["tuesday", "friday"],
+      "nonburnable_day": "thursday",
+      "nonburnable_ordinals": [1, 3]
+    },
+    {
+      "resource_day": "wednesday",
+      "plastic_day": "monday",
+      "burnable_days": ["tuesday", "friday"],
+      "nonburnable_day": "thursday",
+      "nonburnable_ordinals": [2, 4]
+    },
+    {
+      "resource_day": "thursday",
+      "plastic_day": "friday",
+      "burnable_days": ["wednesday", "saturday"],
+      "nonburnable_day": "tuesday",
+      "nonburnable_ordinals": [1, 3]
+    },
+    {
+      "resource_day": "thursday",
+      "plastic_day": "friday",
+      "burnable_days": ["wednesday", "saturday"],
+      "nonburnable_day": "tuesday",
+      "nonburnable_ordinals": [2, 4]
+    },
+    {
+      "resource_day": "monday",
+      "plastic_day": "tuesday",
+      "burnable_days": ["wednesday", "saturday"],
+      "nonburnable_day": "friday",
+      "nonburnable_ordinals": [1, 3]
+    },
+    {
+      "resource_day": "monday",
+      "plastic_day": "tuesday",
+      "burnable_days": ["wednesday", "saturday"],
+      "nonburnable_day": "friday",
+      "nonburnable_ordinals": [2, 4]
+    }
+  ]
+}

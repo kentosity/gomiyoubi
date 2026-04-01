@@ -117,6 +117,14 @@ Geometry rows for an area.
 
 This is important because the current Chuo GeoJSON already has repeated logical `zoneId` values with multiple geometry parts.
 
+The important design decision now is:
+
+- normalized datasets can carry `geometry_memberships`
+- bootstrap resolves those memberships against shared `e-Stat` small-area polygons
+- frontend consumes only published GeoJSON, not ward-specific geometry logic
+
+That pattern is what made `Koto` and `Sumida` fit the same pipeline as `Chuo` without adding new frontend branching.
+
 ### `schedule_rules`
 
 Reusable schedule rules.
@@ -191,22 +199,53 @@ Future use:
 - all wards and official source links from `data/source-registry.json`
 - ward-level fallback summaries from `data/seed/ward-overviews.json`
 - ward polygons from `public/data/ward-boundaries.geojson`
+- normalized `Koto` district claims from `data/normalized/koto/koto_district_dataset.json`
+- normalized `Sumida` zone claims from `data/normalized/sumida/zone-schedules-2026.json`
+- geometry memberships from normalized ward datasets and resolves them through the shared `e-Stat` boundary loader
 - Chuo logical areas and geometries from `public/data/chuo-zones.geojson`
 - Chuo weekly official claims and initial consensus rows
 - Chuo unresolved rows into `review_tasks`
 
 This is intentionally incomplete:
 
-- `Koto` and `Sumida` are source-tracked, but not yet normalized into claims
 - bootstrap still seeds some tables from checked-in `public/data` artifacts during the transition
 
 ## Next Migration Steps
 
 1. Replace the remaining bootstrap dependency on checked-in derived artifacts with importer scripts that write claims directly.
-2. Add importer scripts for `Koto` and `Sumida`.
-3. Add a canonical area index for address-to-district joins beyond Chuo.
-4. Add contribution flows that write `schedule_claims` and `claim_votes`.
-5. Add quorum resolution logic on top of `claim_votes` and `consensus_records`.
+2. Add a canonical area index for address-to-district joins beyond Chuo.
+3. Add contribution flows that write `schedule_claims` and `claim_votes`.
+4. Add quorum resolution logic on top of `claim_votes` and `consensus_records`.
+
+## 23-Ward Coverage Strategy
+
+The project now keeps all `23` special wards in `data/source-registry.json`, but only `Chuo`, `Koto`, and `Sumida` have normalized schedule data today.
+
+That split is deliberate:
+
+- all `23` wards should exist in the canonical ward registry and on the published map
+- unsupported wards should still render as `pending`
+- source discovery and normalization can happen ward by ward without changing frontend logic
+
+This is a better fit for incremental coverage than hiding unsupported wards entirely.
+
+## Frontend Performance Notes
+
+The current frontend architecture is intentionally split between:
+
+- static source data
+- dynamic feature state
+
+Published GeoJSON should be treated as mostly static. Interactive filter changes should avoid rebuilding and re-uploading entire GeoJSON sources when possible.
+
+The current direction is:
+
+- keep ward/detailed geometry in published `public/data`
+- use `MapLibre feature-state` for day/category paint updates
+- keep outside-mask geometry simple
+- simplify fetched ward boundaries at generation time
+
+That approach proved materially faster than pushing full source replacements on every filter change.
 
 ## Frontend Export
 

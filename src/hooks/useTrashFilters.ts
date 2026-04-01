@@ -3,10 +3,11 @@ import { categoryMeta, type CategoryKey, type DayKey } from "../data/schedule";
 import { getTomorrowDayKey } from "../lib/day";
 
 const ALL_CATEGORIES = Object.keys(categoryMeta) as CategoryKey[];
+const DEFAULT_CATEGORIES = ALL_CATEGORIES.filter((category) => category !== "bulky");
 
 export function useTrashFilters() {
   const [selectedDay, setSelectedDay] = useState<DayKey>(() => getTomorrowDayKey());
-  const [selectedCategories, setSelectedCategories] = useState<CategoryKey[]>(ALL_CATEGORIES);
+  const [selectedCategories, setSelectedCategories] = useState<CategoryKey[]>(DEFAULT_CATEGORIES);
 
   function chooseDay(day: DayKey) {
     setSelectedDay(day);

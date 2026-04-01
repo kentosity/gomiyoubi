@@ -2,9 +2,29 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 const wards = [
+  { slug: "adachi", nameJa: "足立区", nameEn: "Adachi" },
+  { slug: "arakawa", nameJa: "荒川区", nameEn: "Arakawa" },
+  { slug: "bunkyo", nameJa: "文京区", nameEn: "Bunkyo" },
+  { slug: "chiyoda", nameJa: "千代田区", nameEn: "Chiyoda" },
   { slug: "chuo", nameJa: "中央区", nameEn: "Chuo" },
+  { slug: "edogawa", nameJa: "江戸川区", nameEn: "Edogawa" },
+  { slug: "itabashi", nameJa: "板橋区", nameEn: "Itabashi" },
+  { slug: "katsushika", nameJa: "葛飾区", nameEn: "Katsushika" },
+  { slug: "kita", nameJa: "北区", nameEn: "Kita" },
   { slug: "koto", nameJa: "江東区", nameEn: "Koto" },
+  { slug: "meguro", nameJa: "目黒区", nameEn: "Meguro" },
+  { slug: "minato", nameJa: "港区", nameEn: "Minato" },
+  { slug: "nakano", nameJa: "中野区", nameEn: "Nakano" },
+  { slug: "nerima", nameJa: "練馬区", nameEn: "Nerima" },
+  { slug: "ota", nameJa: "大田区", nameEn: "Ota" },
+  { slug: "setagaya", nameJa: "世田谷区", nameEn: "Setagaya" },
+  { slug: "shibuya", nameJa: "渋谷区", nameEn: "Shibuya" },
+  { slug: "shinagawa", nameJa: "品川区", nameEn: "Shinagawa" },
+  { slug: "shinjuku", nameJa: "新宿区", nameEn: "Shinjuku" },
+  { slug: "suginami", nameJa: "杉並区", nameEn: "Suginami" },
   { slug: "sumida", nameJa: "墨田区", nameEn: "Sumida" },
+  { slug: "taito", nameJa: "台東区", nameEn: "Taito" },
+  { slug: "toshima", nameJa: "豊島区", nameEn: "Toshima" },
 ];
 
 const outputPath = path.join(process.cwd(), "public", "data", "ward-boundaries.geojson");
@@ -14,6 +34,7 @@ async function fetchWardBoundary(ward) {
     q: `${ward.nameJa}, 東京都, 日本`,
     format: "jsonv2",
     polygon_geojson: "1",
+    polygon_threshold: "0.0005",
     limit: "1",
   });
 
