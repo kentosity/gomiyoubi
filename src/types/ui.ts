@@ -1,4 +1,4 @@
-import { type CategoryKey, type DayKey, type SourceQuality } from "../data/schedule";
+import { type CategoryKey, type DayKey } from "../data/schedule";
 import { type WardRuntimeData } from "./data";
 import { type GenericFeature } from "./map";
 
@@ -31,21 +31,12 @@ export type ScheduleRowModel = {
   shortLabel: string;
 };
 
-export type QualityBadgeModel = {
-  label: string;
-  tone: SourceQuality;
-};
-
 export type InfoRowModel =
   | {
       kind: "text";
       label: string;
+      url?: string;
       value: string;
-    }
-  | {
-      badge: QualityBadgeModel;
-      kind: "badge";
-      label: string;
     };
 
 export type ActiveArea =

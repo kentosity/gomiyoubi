@@ -173,6 +173,16 @@ def export_ward_overviews(connection: sqlite3.Connection):
           w.name_en,
           wo.source_quality,
           wo.source_label,
+          (
+            SELECT s.url
+            FROM sources s
+            WHERE s.ward_id = w.id
+              AND s.is_official = 1
+              AND s.url IS NOT NULL
+              AND s.url <> ''
+            ORDER BY CASE s.source_kind WHEN 'entry_page' THEN 0 ELSE 1 END, s.id
+            LIMIT 1
+          ) AS source_url,
           wo.granularity,
           wo.notes_json,
           wo.day_signals_json,
@@ -198,6 +208,7 @@ def export_ward_overviews(connection: sqlite3.Connection):
             "wardNameEn": row["name_en"] or row["slug"].title(),
             "sourceQuality": row["source_quality"] or "pending",
             "sourceLabel": row["source_label"] or "データソース未設定",
+            "sourceUrl": row["source_url"],
             "granularity": row["granularity"] or "",
             "notes": parse_json(row["notes_json"], []),
             "daySignals": derived_day_signals.get(row["slug"]) or parse_json(row["day_signals_json"], {}),

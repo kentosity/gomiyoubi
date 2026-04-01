@@ -12,7 +12,7 @@ import {
   MAP_SOURCE_IDS,
   TOKYO_STYLE,
 } from "../lib/mapStyle";
-import { type MapTarget } from "../types/selection";
+import { EMPTY_MAP_TARGET, type MapTarget } from "../types/selection";
 
 const PMTILES_URL = "/data/gomiyoubi.pmtiles";
 const pmtilesProtocol = new Protocol();
@@ -29,16 +29,20 @@ function ensurePmtilesProtocol() {
 
 type UseTrashMapOptions = {
   activeTarget: MapTarget;
+  isFocusLocked: boolean;
   isMapDataReady: boolean;
   onClearHover: () => void;
   onHoverTargetChange: (target: MapTarget) => void;
+  onToggleFocusTarget: (target: MapTarget) => void;
 };
 
 export function useTrashMap({
   activeTarget,
+  isFocusLocked,
   isMapDataReady,
   onClearHover,
   onHoverTargetChange,
+  onToggleFocusTarget,
 }: UseTrashMapOptions) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const initialActiveTargetRef = useRef(activeTarget);
@@ -70,6 +74,10 @@ export function useTrashMap({
   }
 
   const updateHoverFromPoint = useEffectEvent((point: maplibregl.Point) => {
+    if (isFocusLocked) {
+      return;
+    }
+
     const map = mapRef.current;
     if (!map) {
       return;
@@ -120,7 +128,52 @@ export function useTrashMap({
     });
   });
 
+  const handleMapClick = useEffectEvent((event: maplibregl.MapMouseEvent) => {
+    const map = mapRef.current;
+    if (!map) {
+      return;
+    }
+
+    const areaFeatures = map.queryRenderedFeatures(event.point, {
+      layers: [MAP_LAYER_IDS.detailedAreasFill],
+    });
+    const areaId =
+      getRenderedFeatureString(areaFeatures[0], "areaId") ??
+      getRenderedFeatureString(areaFeatures[0], "zoneId");
+    const wardSlug = getRenderedFeatureString(areaFeatures[0], "wardSlug");
+
+    if (areaId && wardSlug) {
+      const target = {
+        wardSlug,
+        areaId,
+        featureLabel: getRenderedFeatureLabel(areaFeatures[0]),
+      };
+      onHoverTargetChange(target);
+      onToggleFocusTarget(target);
+      return;
+    }
+
+    const wardFeaturesAtPoint = map.queryRenderedFeatures(event.point, {
+      layers: [MAP_LAYER_IDS.wardFill],
+    });
+    const wardSlugAtPoint = wardFeaturesAtPoint[0]?.properties?.slug;
+
+    if (typeof wardSlugAtPoint === "string") {
+      const target = { wardSlug: wardSlugAtPoint, areaId: null, featureLabel: null };
+      onHoverTargetChange(target);
+      onToggleFocusTarget(target);
+      return;
+    }
+
+    onClearHover();
+    onToggleFocusTarget(EMPTY_MAP_TARGET);
+  });
+
   const handlePointerLeave = useEffectEvent(() => {
+    if (isFocusLocked) {
+      return;
+    }
+
     onClearHover();
   });
 
@@ -168,6 +221,7 @@ export function useTrashMap({
       map.getCanvas().style.cursor = "crosshair";
 
       map.on("mousemove", handlePointerMove);
+      map.on("click", handleMapClick);
       map.getCanvas().addEventListener("mouseleave", handlePointerLeave);
 
       map.fitBounds(new maplibregl.LngLatBounds([139.55, 35.52], [139.96, 35.85]), {

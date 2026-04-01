@@ -28,6 +28,7 @@ const wardDataBySlug: Record<string, WardRuntimeData> = {
     tileFeatureId: 10,
     sourceQuality: "medium",
     sourceLabel: "江東区 地区別資源回収・ごみ収集日一覧",
+    sourceUrl: "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
     granularity: "江東区はまだ区レベルの暫定表示です",
     notes: [],
     daySignals: {},
@@ -69,8 +70,12 @@ describe("uiModels", () => {
     expect(panel.scheduleRows).toBeUndefined();
     expect(panel.infoRows).toEqual([
       { kind: "text", label: "反映単位", value: "江東区はまだ区レベルの暫定表示です" },
-      { kind: "text", label: "データソース", value: "江東区 地区別資源回収・ごみ収集日一覧" },
-      { badge: { label: "中", tone: "medium" }, kind: "badge", label: "反映品質" },
+      {
+        kind: "text",
+        label: "データソース",
+        value: "江東区 地区別資源回収・ごみ収集日一覧",
+        url: "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
+      },
     ]);
   });
 

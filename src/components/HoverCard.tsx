@@ -52,12 +52,12 @@ export function HoverCard({ panel }: HoverCardProps) {
             {panel.infoRows.map((row) => (
               <div className="info-row" key={row.label}>
                 <span>{row.label}</span>
-                {row.kind === "text" ? (
-                  <strong>{row.value}</strong>
+                {row.url ? (
+                  <a href={row.url} target="_blank" rel="noreferrer">
+                    {row.value}
+                  </a>
                 ) : (
-                  <div className="info-value-inline">
-                    <span className={`quality-badge ${row.badge.tone}`}>{row.badge.label}</span>
-                  </div>
+                  <strong>{row.value}</strong>
                 )}
               </div>
             ))}

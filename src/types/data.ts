@@ -7,6 +7,7 @@ export type WardRuntimeData = {
   tileFeatureId: number;
   sourceQuality: SourceQuality;
   sourceLabel: string;
+  sourceUrl?: string | null;
   granularity: string;
   notes: string[];
   daySignals: Partial<Record<DayKey, CategorySignal[]>>;

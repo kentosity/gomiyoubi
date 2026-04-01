@@ -5,11 +5,11 @@
     "wardNameEn": "Adachi",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 1
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "arakawa",
@@ -17,11 +17,11 @@
     "wardNameEn": "Arakawa",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 2
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "bunkyo",
@@ -29,11 +29,11 @@
     "wardNameEn": "Bunkyo",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 3
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "chiyoda",
@@ -41,11 +41,11 @@
     "wardNameEn": "Chiyoda",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 4
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "chuo",
@@ -53,6 +53,7 @@
     "wardNameEn": "Chuo",
     "sourceQuality": "high",
     "sourceLabel": "中央区オープンデータ / gomitoshigen.csv",
+    "sourceUrl": "https://www.city.chuo.lg.jp/kusei/gaiyou/toukeidate/opendata.html",
     "granularity": "中央区は町丁・字等の境界まで反映済みです",
     "notes": [
       "中央区は e-Stat の町丁・字等境界を重ねています。",
@@ -193,8 +194,7 @@
         }
       ]
     },
-    "hasDetailedAreas": true,
-    "tileFeatureId": 5
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "edogawa",
@@ -202,11 +202,11 @@
     "wardNameEn": "Edogawa",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 6
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "itabashi",
@@ -214,11 +214,11 @@
     "wardNameEn": "Itabashi",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 7
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "katsushika",
@@ -226,11 +226,11 @@
     "wardNameEn": "Katsushika",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 8
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "kita",
@@ -238,11 +238,11 @@
     "wardNameEn": "Kita",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 9
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "koto",
@@ -250,6 +250,7 @@
     "wardNameEn": "Koto",
     "sourceQuality": "medium",
     "sourceLabel": "江東区 地区別資源回収・ごみ収集日一覧（2026年度）",
+    "sourceUrl": "https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html",
     "granularity": "12地区の収集パターンと地区境界を反映済みです。",
     "notes": [
       "12地区の weekly pattern を公式 entry page の画像 alt text から抽出しました。",
@@ -343,8 +344,7 @@
         }
       ]
     },
-    "hasDetailedAreas": true,
-    "tileFeatureId": 10
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "meguro",
@@ -352,11 +352,11 @@
     "wardNameEn": "Meguro",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 11
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "minato",
@@ -364,11 +364,11 @@
     "wardNameEn": "Minato",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 12
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "nakano",
@@ -376,11 +376,11 @@
     "wardNameEn": "Nakano",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 13
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "nerima",
@@ -388,11 +388,11 @@
     "wardNameEn": "Nerima",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 14
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "ota",
@@ -400,11 +400,11 @@
     "wardNameEn": "Ota",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 15
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "setagaya",
@@ -412,11 +412,11 @@
     "wardNameEn": "Setagaya",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 16
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "shibuya",
@@ -424,11 +424,11 @@
     "wardNameEn": "Shibuya",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 17
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "shinagawa",
@@ -436,11 +436,11 @@
     "wardNameEn": "Shinagawa",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 18
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "shinjuku",
@@ -448,11 +448,11 @@
     "wardNameEn": "Shinjuku",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 19
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "suginami",
@@ -460,11 +460,11 @@
     "wardNameEn": "Suginami",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 20
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "sumida",
@@ -472,6 +472,7 @@
     "wardNameEn": "Sumida",
     "sourceQuality": "medium",
     "sourceLabel": "墨田区 資源とごみの収集カレンダー",
+    "sourceUrl": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.html",
     "granularity": "12地区の収集パターンと地区境界を反映済みです。",
     "notes": [
       "地区ラベルは公式 entry page の PDF リンク文言から抽出しています。",
@@ -564,8 +565,7 @@
         }
       ]
     },
-    "hasDetailedAreas": true,
-    "tileFeatureId": 21
+    "hasDetailedAreas": true
   },
   {
     "wardSlug": "taito",
@@ -573,11 +573,11 @@
     "wardNameEn": "Taito",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 22
+    "hasDetailedAreas": false
   },
   {
     "wardSlug": "toshima",
@@ -585,10 +585,10 @@
     "wardNameEn": "Toshima",
     "sourceQuality": "pending",
     "sourceLabel": "データソース未設定",
+    "sourceUrl": null,
     "granularity": "",
     "notes": [],
     "daySignals": {},
-    "hasDetailedAreas": false,
-    "tileFeatureId": 23
+    "hasDetailedAreas": false
   }
 ]

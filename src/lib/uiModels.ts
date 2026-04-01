@@ -21,27 +21,16 @@ import {
   type InfoRowModel,
 } from "../types/ui";
 
-function getQualityBadgeModel(sourceQuality: WardRuntimeData["sourceQuality"]) {
-  return {
-    label: sourceQuality === "high" ? "高" : sourceQuality === "medium" ? "中" : "待",
-    tone: sourceQuality,
-  } as const;
-}
-
 function buildInfoRows(
   sourceLabel: string,
-  sourceQuality: WardRuntimeData["sourceQuality"],
+  sourceUrl?: string | null,
 ): InfoRowModel[] {
   return [
     {
       kind: "text",
       label: "データソース",
       value: sourceLabel,
-    },
-    {
-      kind: "badge",
-      label: "反映品質",
-      badge: getQualityBadgeModel(sourceQuality),
+      url: sourceUrl ?? undefined,
     },
   ];
 }
@@ -53,13 +42,13 @@ function buildWardInfoRows(ward: WardRuntimeData): InfoRowModel[] {
       label: "反映単位",
       value: ward.granularity,
     },
-    ...buildInfoRows(ward.sourceLabel, ward.sourceQuality),
+    ...buildInfoRows(ward.sourceLabel, ward.sourceUrl),
   ];
 }
 
 function buildDetailedAreaInfoRows(
   sourceLabel: string,
-  sourceQuality: WardRuntimeData["sourceQuality"],
+  sourceUrl: string | null,
   collectionAreaLabel: string | null,
   activeFeatureLabel: string | null,
 ): InfoRowModel[] {
@@ -79,7 +68,7 @@ function buildDetailedAreaInfoRows(
     });
   }
 
-  return [...rows, ...buildInfoRows(sourceLabel, sourceQuality)];
+  return [...rows, ...buildInfoRows(sourceLabel, sourceUrl)];
 }
 
 function buildWardScheduleRows(ward: WardRuntimeData, selectedDay: DayKey) {
@@ -103,6 +92,13 @@ function getAreaSourceLabel(detailedArea: GenericFeature, fallbackSourceLabel: s
   return typeof sourceLabel === "string" && sourceLabel.length > 0
     ? sourceLabel
     : fallbackSourceLabel;
+}
+
+function getAreaSourceUrl(detailedArea: GenericFeature, fallbackSourceUrl?: string | null): string | null {
+  const sourceUrl = detailedArea.properties?.sourceUrl;
+  return typeof sourceUrl === "string" && sourceUrl.length > 0
+    ? sourceUrl
+    : fallbackSourceUrl ?? null;
 }
 
 export function buildDayOptions(selectedDay: DayKey): DayOptionModel[] {
@@ -203,7 +199,7 @@ export function buildHoverPanelModel(activeArea: ActiveArea, selectedDay: DayKey
     })),
     infoRows: buildDetailedAreaInfoRows(
       getAreaSourceLabel(activeArea.detailedArea, activeArea.ward.sourceLabel),
-      activeArea.ward.sourceQuality,
+      getAreaSourceUrl(activeArea.detailedArea, activeArea.ward.sourceUrl),
       getDetailedAreaLabel(activeArea.detailedArea),
       activeArea.activeFeatureLabel,
     ),
