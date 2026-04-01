@@ -53,7 +53,11 @@ describe("uiModels", () => {
   });
 
   it("builds a ward panel as shared content model", () => {
-    const activeArea = buildActiveArea({ wardSlug: "koto", areaId: null }, [], wardDataBySlug);
+    const activeArea = buildActiveArea(
+      { wardSlug: "koto", areaId: null, featureLabel: null },
+      [],
+      wardDataBySlug,
+    );
     const panel = buildHoverPanelModel(activeArea, "monday");
 
     expect(panel.kind).toBe("content");
@@ -92,7 +96,7 @@ describe("uiModels", () => {
     };
 
     const activeArea = buildActiveArea(
-      { wardSlug: "chuo", areaId: "test-area" },
+      { wardSlug: "chuo", areaId: "test-area", featureLabel: null },
       [zone],
       wardDataBySlug,
     );
@@ -112,6 +116,48 @@ describe("uiModels", () => {
         { category: "burnable", color: "#f97316", label: "燃やすごみ" },
         { category: "resource", color: "#2563eb", label: "資源" },
       ],
+    });
+  });
+
+  it("uses the hovered boundary label while keeping the collection area in info rows", () => {
+    const zone: GenericFeature = {
+      type: "Feature",
+      geometry: {
+        type: "Polygon",
+        coordinates: [],
+      },
+      properties: {
+        areaId: "koto:district:02",
+        wardSlug: "koto",
+        labelJa: "2地区",
+        boundaryName: "亀戸4丁目",
+        mondayCategories: "burnable",
+        tuesdayCategories: "",
+        wednesdayCategories: "",
+        thursdayCategories: "",
+        fridayCategories: "",
+        saturdayCategories: "",
+        sundayCategories: "",
+      },
+    };
+
+    const activeArea = buildActiveArea(
+      { wardSlug: "koto", areaId: "koto:district:02", featureLabel: "亀戸4丁目" },
+      [zone],
+      wardDataBySlug,
+    );
+    const panel = buildHoverPanelModel(activeArea, "monday");
+
+    expect(panel.kind).toBe("content");
+    if (panel.kind !== "content") {
+      throw new Error("Expected content panel");
+    }
+
+    expect(panel.title).toBe("亀戸4丁目");
+    expect(panel.infoRows).toContainEqual({
+      kind: "text",
+      label: "収集地区",
+      value: "2地区",
     });
   });
 });

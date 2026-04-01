@@ -51,7 +51,12 @@ export type InfoRowModel =
 export type ActiveArea =
   | { kind: "empty" }
   | { kind: "ward"; ward: WardRuntimeData }
-  | { kind: "detailedArea"; detailedArea: GenericFeature; ward: WardRuntimeData };
+  | {
+      activeFeatureLabel: string | null;
+      detailedArea: GenericFeature;
+      kind: "detailedArea";
+      ward: WardRuntimeData;
+    };
 
 export type HoverPanelModel =
   | {

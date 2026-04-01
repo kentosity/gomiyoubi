@@ -16,7 +16,9 @@ export const MAP_SOURCE_LAYERS = {
 
 export const MAP_LAYER_IDS = {
   wardFill: "ward-fill",
+  wardActiveMask: "ward-active-mask",
   detailedAreasFill: "detailed-areas-fill",
+  detailedAreasActiveMask: "detailed-areas-active-mask",
   detailedAreasOutline: "detailed-areas-outline",
   wardOutline: "ward-outline",
 } as const;
@@ -110,6 +112,24 @@ export function createWardFillLayer(): maplibregl.FillLayerSpecification {
   };
 }
 
+export function createWardActiveMaskLayer(): maplibregl.FillLayerSpecification {
+  return {
+    id: MAP_LAYER_IDS.wardActiveMask,
+    type: "fill",
+    source: MAP_SOURCE_IDS.wards,
+    "source-layer": MAP_SOURCE_LAYERS.wards,
+    paint: {
+      "fill-color": "#111827",
+      "fill-opacity": [
+        "case",
+        ["boolean", ["feature-state", "isActive"], false],
+        0.18,
+        0,
+      ],
+    },
+  };
+}
+
 export function createDetailedAreasFillLayer(): maplibregl.FillLayerSpecification {
   return {
     id: MAP_LAYER_IDS.detailedAreasFill,
@@ -122,6 +142,24 @@ export function createDetailedAreasFillLayer(): maplibregl.FillLayerSpecificatio
         "case",
         [">", ["coalesce", ["feature-state", "activeCategoryCount"], 0], 0],
         0.66,
+        0,
+      ],
+    },
+  };
+}
+
+export function createDetailedAreasActiveMaskLayer(): maplibregl.FillLayerSpecification {
+  return {
+    id: MAP_LAYER_IDS.detailedAreasActiveMask,
+    type: "fill",
+    source: MAP_SOURCE_IDS.detailedAreas,
+    "source-layer": MAP_SOURCE_LAYERS.detailedAreas,
+    paint: {
+      "fill-color": "#020617",
+      "fill-opacity": [
+        "case",
+        ["boolean", ["feature-state", "isActive"], false],
+        0.28,
         0,
       ],
     },

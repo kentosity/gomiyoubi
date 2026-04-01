@@ -2,7 +2,9 @@ import { useEffect, useEffectEvent, useRef, useState } from "react";
 import maplibregl, { Map } from "maplibre-gl";
 import { PMTiles, Protocol } from "pmtiles";
 import {
+  createDetailedAreasActiveMaskLayer,
   createDetailedAreasFillLayer,
+  createWardActiveMaskLayer,
   createDetailedAreasOutlineLayer,
   createWardFillLayer,
   createWardOutlineLayer,
@@ -27,20 +29,16 @@ function ensurePmtilesProtocol() {
 
 type UseTrashMapOptions = {
   activeTarget: MapTarget;
-  isFocusLocked: boolean;
   isMapDataReady: boolean;
   onClearHover: () => void;
   onHoverTargetChange: (target: MapTarget) => void;
-  onToggleFocusTarget: (target: MapTarget) => void;
 };
 
 export function useTrashMap({
   activeTarget,
-  isFocusLocked,
   isMapDataReady,
   onClearHover,
   onHoverTargetChange,
-  onToggleFocusTarget,
 }: UseTrashMapOptions) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const initialActiveTargetRef = useRef(activeTarget);
@@ -61,11 +59,17 @@ export function useTrashMap({
     return typeof value === "string" && value.length > 0 ? value : null;
   }
 
-  const updateHoverFromPoint = useEffectEvent((point: maplibregl.Point) => {
-    if (isFocusLocked) {
-      return;
-    }
+  function getRenderedFeatureLabel(
+    feature: maplibregl.MapGeoJSONFeature | undefined,
+  ): string | null {
+    return (
+      getRenderedFeatureString(feature, "boundaryName") ??
+      getRenderedFeatureString(feature, "labelJa") ??
+      null
+    );
+  }
 
+  const updateHoverFromPoint = useEffectEvent((point: maplibregl.Point) => {
     const map = mapRef.current;
     if (!map) {
       return;
@@ -85,14 +89,14 @@ export function useTrashMap({
     const wardSlug = getRenderedFeatureString(detailedAreaFeature, "wardSlug");
 
     if (areaId && wardSlug) {
-      onHoverTargetChange({ wardSlug, areaId });
+      onHoverTargetChange({ wardSlug, areaId, featureLabel: getRenderedFeatureLabel(detailedAreaFeature) });
       return;
     }
 
     const wardSlugAtPoint = getRenderedFeatureString(wardFeature, "slug");
 
     if (wardSlugAtPoint) {
-      onHoverTargetChange({ wardSlug: wardSlugAtPoint, areaId: null });
+      onHoverTargetChange({ wardSlug: wardSlugAtPoint, areaId: null, featureLabel: null });
       return;
     }
 
@@ -116,48 +120,7 @@ export function useTrashMap({
     });
   });
 
-  const handleMapClick = useEffectEvent((event: maplibregl.MapMouseEvent) => {
-    const map = mapRef.current;
-    if (!map) {
-      return;
-    }
-
-    const areaFeatures = map.queryRenderedFeatures(event.point, {
-      layers: [MAP_LAYER_IDS.detailedAreasFill],
-    });
-    const areaId =
-      getRenderedFeatureString(areaFeatures[0], "areaId") ??
-      getRenderedFeatureString(areaFeatures[0], "zoneId");
-    const wardSlug = getRenderedFeatureString(areaFeatures[0], "wardSlug");
-
-    if (areaId && wardSlug) {
-      const target = { wardSlug, areaId };
-      onHoverTargetChange(target);
-      onToggleFocusTarget(target);
-      return;
-    }
-
-    const wardFeaturesAtPoint = map.queryRenderedFeatures(event.point, {
-      layers: [MAP_LAYER_IDS.wardFill],
-    });
-    const wardSlugAtPoint = wardFeaturesAtPoint[0]?.properties?.slug;
-
-    if (typeof wardSlugAtPoint === "string") {
-      const target = { wardSlug: wardSlugAtPoint, areaId: null };
-      onHoverTargetChange(target);
-      onToggleFocusTarget(target);
-      return;
-    }
-
-    onClearHover();
-    onToggleFocusTarget({ wardSlug: null, areaId: null });
-  });
-
   const handlePointerLeave = useEffectEvent(() => {
-    if (isFocusLocked) {
-      return;
-    }
-
     onClearHover();
   });
 
@@ -196,12 +159,15 @@ export function useTrashMap({
       });
 
       map.addLayer(createWardFillLayer());
+      map.addLayer(createWardActiveMaskLayer());
       map.addLayer(createDetailedAreasFillLayer());
+      map.addLayer(createDetailedAreasActiveMaskLayer());
       map.addLayer(createDetailedAreasOutlineLayer(initialActiveTargetRef.current.areaId));
       map.addLayer(createWardOutlineLayer(initialActiveTargetRef.current.wardSlug));
 
+      map.getCanvas().style.cursor = "crosshair";
+
       map.on("mousemove", handlePointerMove);
-      map.on("click", handleMapClick);
       map.getCanvas().addEventListener("mouseleave", handlePointerLeave);
 
       map.fitBounds(new maplibregl.LngLatBounds([139.55, 35.52], [139.96, 35.85]), {

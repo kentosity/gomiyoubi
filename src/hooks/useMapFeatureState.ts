@@ -5,8 +5,10 @@ import { getDetailedAreaFeatureState, getWardFeatureState } from "../lib/mapData
 import { MAP_SOURCE_IDS, MAP_SOURCE_LAYERS } from "../lib/mapStyle";
 import { type GenericFeature } from "../types/map";
 import { type WardRuntimeData } from "../types/data";
+import { type MapTarget } from "../types/selection";
 
 type UseMapFeatureStateOptions = {
+  activeTarget: MapTarget;
   detailedAreaFeatures: GenericFeature[];
   isMapLoaded: boolean;
   mapRef: RefObject<Map | null>;
@@ -16,6 +18,7 @@ type UseMapFeatureStateOptions = {
 };
 
 export function useMapFeatureState({
+  activeTarget,
   detailedAreaFeatures,
   isMapLoaded,
   mapRef,
@@ -41,7 +44,13 @@ export function useMapFeatureState({
             sourceLayer: MAP_SOURCE_LAYERS.wards,
             id: ward.tileFeatureId,
           },
-          getWardFeatureState(ward.wardSlug, wardRuntimeData, selectedDay, selectedCategories),
+          getWardFeatureState(
+            ward.wardSlug,
+            wardRuntimeData,
+            selectedDay,
+            selectedCategories,
+            activeTarget,
+          ),
         );
       }
 
@@ -62,7 +71,7 @@ export function useMapFeatureState({
             sourceLayer: MAP_SOURCE_LAYERS.detailedAreas,
             id: tileFeatureId,
           },
-          getDetailedAreaFeatureState(feature, selectedDay, selectedCategories),
+          getDetailedAreaFeatureState(feature, selectedDay, selectedCategories, activeTarget),
         );
       }
     };
@@ -74,6 +83,7 @@ export function useMapFeatureState({
       map.off("idle", applyFeatureState);
     };
   }, [
+    activeTarget,
     detailedAreaFeatures,
     isMapLoaded,
     mapRef,

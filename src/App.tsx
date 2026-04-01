@@ -18,21 +18,19 @@ import {
 function App() {
   const { chooseDay, selectedCategories, selectedDay, toggleCategory } = useTrashFilters();
   const { detailedAreaFeatures, isReady, wardOverviewRows } = useMapData();
-  const { activeTarget, clearHover, isFocusLocked, setHoverTarget, toggleFocusTarget } =
-    useMapSelection();
+  const { activeTarget, clearHover, setHoverTarget } = useMapSelection();
 
   const wardRuntimeData = useMemo(() => buildWardRuntimeData(wardOverviewRows), [wardOverviewRows]);
 
   const { containerRef, isMapLoaded, mapRef } = useTrashMap({
     activeTarget,
-    isFocusLocked,
     isMapDataReady: isReady,
     onClearHover: clearHover,
     onHoverTargetChange: setHoverTarget,
-    onToggleFocusTarget: toggleFocusTarget,
   });
 
   useMapFeatureState({
+    activeTarget,
     detailedAreaFeatures,
     isMapLoaded,
     mapRef,

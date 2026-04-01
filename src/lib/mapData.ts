@@ -9,6 +9,7 @@ import {
 } from "./scheduleData";
 import { type GenericFeature } from "../types/map";
 import { type WardRuntimeData } from "../types/data";
+import { type MapTarget } from "../types/selection";
 
 export { MULTI_CATEGORY_COLOR } from "./mapStyle";
 export { getDetailedAreaCategories } from "./scheduleData";
@@ -30,6 +31,7 @@ export function getWardFeatureState(
   wardDataBySlug: Record<string, WardRuntimeData>,
   selectedDay: DayKey | null,
   selectedCategories: CategoryKey[],
+  activeTarget: MapTarget,
 ) {
   const signals = filterSignalsByCategories(
     getSignalsForWard(wardDataBySlug, wardSlug, selectedDay),
@@ -38,6 +40,8 @@ export function getWardFeatureState(
 
   return {
     fillColor: getDominantColorFromSignals(signals),
+    hasSelection: activeTarget.areaId !== null || activeTarget.wardSlug !== null,
+    isActive: activeTarget.areaId === null && activeTarget.wardSlug === wardSlug,
     signalCount: signals.length,
   };
 }
@@ -46,6 +50,7 @@ export function getDetailedAreaFeatureState(
   feature: GenericFeature,
   selectedDay: DayKey | null,
   selectedCategories: CategoryKey[],
+  activeTarget: MapTarget,
 ) {
   const activeCategories = filterZoneCategories(
     getDetailedAreaCategories(feature, selectedDay),
@@ -55,5 +60,7 @@ export function getDetailedAreaFeatureState(
   return {
     activeCategoryCount: activeCategories.length,
     activeFillColor: getDetailedAreaFillColor(activeCategories),
+    hasSelection: activeTarget.areaId !== null || activeTarget.wardSlug !== null,
+    isActive: activeTarget.areaId === feature.properties?.areaId,
   };
 }

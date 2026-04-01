@@ -170,6 +170,8 @@ def main():
                     {
                         "areaId": area_id,
                         "wardSlug": properties.get("wardSlug"),
+                        "labelJa": properties.get("labelJa"),
+                        "boundaryName": properties.get("boundaryName"),
                         "tileFeatureId": area_id_to_tile_id[area_id],
                     },
                 )

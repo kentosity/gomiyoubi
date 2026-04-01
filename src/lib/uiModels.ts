@@ -57,6 +57,31 @@ function buildWardInfoRows(ward: WardRuntimeData): InfoRowModel[] {
   ];
 }
 
+function buildDetailedAreaInfoRows(
+  sourceLabel: string,
+  sourceQuality: WardRuntimeData["sourceQuality"],
+  collectionAreaLabel: string | null,
+  activeFeatureLabel: string | null,
+): InfoRowModel[] {
+  const rows: InfoRowModel[] = [];
+
+  if (
+    collectionAreaLabel &&
+    collectionAreaLabel.length > 0 &&
+    activeFeatureLabel &&
+    activeFeatureLabel.length > 0 &&
+    collectionAreaLabel !== activeFeatureLabel
+  ) {
+    rows.push({
+      kind: "text",
+      label: "収集地区",
+      value: collectionAreaLabel,
+    });
+  }
+
+  return [...rows, ...buildInfoRows(sourceLabel, sourceQuality)];
+}
+
 function buildWardScheduleRows(ward: WardRuntimeData, selectedDay: DayKey) {
   return weekdayOrder
     .map((day) => ({
@@ -118,6 +143,7 @@ export function buildActiveArea(
 
       return {
         kind: "detailedArea",
+        activeFeatureLabel: activeTarget.featureLabel,
         detailedArea,
         ward,
       };
@@ -162,7 +188,7 @@ export function buildHoverPanelModel(activeArea: ActiveArea, selectedDay: DayKey
 
   return {
     kind: "content",
-    title: getDetailedAreaLabel(activeArea.detailedArea),
+    title: activeArea.activeFeatureLabel || getDetailedAreaLabel(activeArea.detailedArea),
     scheduleLabel: "曜日ごとの収集",
     scheduleRows: weekdayOrder.map((day) => ({
       day,
@@ -175,9 +201,11 @@ export function buildHoverPanelModel(activeArea: ActiveArea, selectedDay: DayKey
         label: categoryMeta[category].label,
       })),
     })),
-    infoRows: buildInfoRows(
+    infoRows: buildDetailedAreaInfoRows(
       getAreaSourceLabel(activeArea.detailedArea, activeArea.ward.sourceLabel),
       activeArea.ward.sourceQuality,
+      getDetailedAreaLabel(activeArea.detailedArea),
+      activeArea.activeFeatureLabel,
     ),
   };
 }
