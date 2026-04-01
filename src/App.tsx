@@ -12,27 +12,22 @@ import {
   buildActiveArea,
   buildCategoryOptions,
   buildDayOptions,
-  buildHoverPanelModel
+  buildHoverPanelModel,
 } from "./lib/uiModels";
 
 function App() {
   const { chooseDay, selectedCategories, selectedDay, toggleCategory } = useTrashFilters();
   const { chuoZoneFeatures, isReady, wardFeatures } = useMapData();
-  const {
-    activeTarget,
-    clearHover,
-    isFocusLocked,
-    setHoverTarget,
-    toggleFocusTarget
-  } = useMapSelection();
+  const { activeTarget, clearHover, isFocusLocked, setHoverTarget, toggleFocusTarget } =
+    useMapSelection();
 
   const wardData = useMemo(
     () => buildWardData(wardFeatures, selectedDay, selectedCategories),
-    [selectedCategories, selectedDay, wardFeatures]
+    [selectedCategories, selectedDay, wardFeatures],
   );
   const chuoZoneData = useMemo(
     () => buildChuoZoneData(chuoZoneFeatures, selectedDay, selectedCategories),
-    [chuoZoneFeatures, selectedCategories, selectedDay]
+    [chuoZoneFeatures, selectedCategories, selectedDay],
   );
 
   const { containerRef, isMapLoaded, mapRef } = useTrashMap({
@@ -43,35 +38,35 @@ function App() {
     onClearHover: clearHover,
     onHoverTargetChange: setHoverTarget,
     onToggleFocusTarget: toggleFocusTarget,
-    wardData
+    wardData,
   });
 
   useMapSourceData({
     chuoZoneData,
     isMapLoaded,
     mapRef,
-    wardData
+    wardData,
   });
 
   useMapHighlighting({
     activeWardSlug: activeTarget.wardSlug,
     activeZoneId: activeTarget.zoneId,
     isMapLoaded,
-    mapRef
+    mapRef,
   });
 
   const dayOptions = useMemo(() => buildDayOptions(selectedDay), [selectedDay]);
   const categoryOptions = useMemo(
     () => buildCategoryOptions(selectedCategories),
-    [selectedCategories]
+    [selectedCategories],
   );
   const activeArea = useMemo(
     () => buildActiveArea(activeTarget, chuoZoneFeatures),
-    [activeTarget, chuoZoneFeatures]
+    [activeTarget, chuoZoneFeatures],
   );
   const hoverPanel = useMemo(
     () => buildHoverPanelModel(activeArea, selectedDay),
-    [activeArea, selectedDay]
+    [activeArea, selectedDay],
   );
 
   return (

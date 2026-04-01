@@ -14,7 +14,7 @@ export function useMapSourceData({
   chuoZoneData,
   isMapLoaded,
   mapRef,
-  wardData
+  wardData,
 }: UseMapSourceDataOptions) {
   useEffect(() => {
     if (!isMapLoaded || !mapRef.current) {

@@ -5,7 +5,7 @@ import {
   getWardOutlineWidth,
   getZoneOutlineColor,
   getZoneOutlineWidth,
-  MAP_LAYER_IDS
+  MAP_LAYER_IDS,
 } from "../lib/mapStyle";
 
 type UseMapHighlightingOptions = {
@@ -19,7 +19,7 @@ export function useMapHighlighting({
   activeWardSlug,
   activeZoneId,
   isMapLoaded,
-  mapRef
+  mapRef,
 }: UseMapHighlightingOptions) {
   useEffect(() => {
     if (!isMapLoaded || !mapRef.current) {
@@ -30,12 +30,12 @@ export function useMapHighlighting({
       mapRef.current.setPaintProperty(
         MAP_LAYER_IDS.wardOutline,
         "line-color",
-        getWardOutlineColor(activeWardSlug)
+        getWardOutlineColor(activeWardSlug),
       );
       mapRef.current.setPaintProperty(
         MAP_LAYER_IDS.wardOutline,
         "line-width",
-        getWardOutlineWidth(activeWardSlug)
+        getWardOutlineWidth(activeWardSlug),
       );
     }
 
@@ -43,12 +43,12 @@ export function useMapHighlighting({
       mapRef.current.setPaintProperty(
         MAP_LAYER_IDS.chuoZonesOutline,
         "line-color",
-        getZoneOutlineColor(activeZoneId)
+        getZoneOutlineColor(activeZoneId),
       );
       mapRef.current.setPaintProperty(
         MAP_LAYER_IDS.chuoZonesOutline,
         "line-width",
-        getZoneOutlineWidth(activeZoneId)
+        getZoneOutlineWidth(activeZoneId),
       );
     }
   }, [activeWardSlug, activeZoneId, isMapLoaded, mapRef]);

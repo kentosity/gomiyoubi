@@ -70,8 +70,7 @@
   padding: 0 6px;
   border-radius: var(--radius-pill);
   background:
-    linear-gradient(rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0.18)),
-    rgba(250, 247, 239, 0.88);
+    linear-gradient(rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0.18)), rgba(250, 247, 239, 0.88);
   color: #5f6b7c;
   border: 1px solid rgba(120, 138, 165, 0.2);
   box-shadow:
@@ -83,8 +82,7 @@
 
 .weekday-pill.active {
   background:
-    linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.08)),
-    rgba(104, 137, 177, 0.16);
+    linear-gradient(rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.08)), rgba(104, 137, 177, 0.16);
   color: var(--color-text-strong);
   border-color: rgba(79, 120, 171, 0.38);
   box-shadow:
@@ -172,8 +170,7 @@
   padding: 0 10px;
   border-radius: var(--radius-pill);
   background:
-    linear-gradient(rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0.18)),
-    rgba(250, 247, 239, 0.88);
+    linear-gradient(rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0.18)), rgba(250, 247, 239, 0.88);
   border: 1px solid rgba(120, 138, 165, 0.18);
   color: #5f6b7c;
   text-align: left;

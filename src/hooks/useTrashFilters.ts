@@ -26,6 +26,6 @@ export function useTrashFilters() {
     chooseDay,
     selectedCategories,
     selectedDay,
-    toggleCategory
+    toggleCategory,
   };
 }

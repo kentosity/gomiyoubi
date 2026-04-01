@@ -5,7 +5,7 @@ import {
   type WardScheduleSummary,
   weekdayMeta,
   weekdayOrder,
-  wardSchedules
+  wardSchedules,
 } from "../data/prototypeData";
 import { getZoneCategories } from "./scheduleData";
 import { type GenericFeature } from "../types/map";
@@ -15,13 +15,13 @@ import {
   type CategoryOptionModel,
   type DayOptionModel,
   type HoverPanelModel,
-  type InfoRowModel
+  type InfoRowModel,
 } from "../types/ui";
 
 function getQualityBadgeModel(sourceQuality: WardScheduleSummary["sourceQuality"]) {
   return {
     label: sourceQuality === "high" ? "高" : sourceQuality === "medium" ? "中" : "待",
-    tone: sourceQuality
+    tone: sourceQuality,
   } as const;
 }
 
@@ -35,19 +35,19 @@ function getZoneSourceLabel(ward: WardScheduleSummary): string {
 
 function buildInfoRows(
   sourceLabel: string,
-  sourceQuality: WardScheduleSummary["sourceQuality"]
+  sourceQuality: WardScheduleSummary["sourceQuality"],
 ): InfoRowModel[] {
   return [
     {
       kind: "text",
       label: "データソース",
-      value: sourceLabel
+      value: sourceLabel,
     },
     {
       kind: "badge",
       label: "反映品質",
-      badge: getQualityBadgeModel(sourceQuality)
-    }
+      badge: getQualityBadgeModel(sourceQuality),
+    },
   ];
 }
 
@@ -56,7 +56,7 @@ export function buildDayOptions(selectedDay: DayKey): DayOptionModel[] {
     day,
     label: weekdayMeta[day].label,
     shortLabel: weekdayMeta[day].shortLabel,
-    isActive: selectedDay === day
+    isActive: selectedDay === day,
   }));
 }
 
@@ -66,25 +66,25 @@ export function buildCategoryOptions(selectedCategories: CategoryKey[]): Categor
     color: meta.color,
     isActive: selectedCategories.includes(key as CategoryKey),
     label: meta.label,
-    shortLabel: meta.shortLabel
+    shortLabel: meta.shortLabel,
   }));
 }
 
 export function buildActiveArea(
   activeTarget: MapTarget,
-  chuoZoneFeatures: GenericFeature[]
+  chuoZoneFeatures: GenericFeature[],
 ): ActiveArea {
   if (activeTarget.zoneId) {
     const zone =
       chuoZoneFeatures.find(
-        (feature) => String(feature.properties?.zoneId) === activeTarget.zoneId
+        (feature) => String(feature.properties?.zoneId) === activeTarget.zoneId,
       ) ?? null;
 
     if (zone) {
       return {
         kind: "zone",
         ward: wardSchedules.chuo,
-        zone
+        zone,
       };
     }
   }
@@ -94,7 +94,7 @@ export function buildActiveArea(
     if (ward) {
       return {
         kind: "ward",
-        ward
+        ward,
       };
     }
   }
@@ -102,15 +102,12 @@ export function buildActiveArea(
   return { kind: "empty" };
 }
 
-export function buildHoverPanelModel(
-  activeArea: ActiveArea,
-  selectedDay: DayKey
-): HoverPanelModel {
+export function buildHoverPanelModel(activeArea: ActiveArea, selectedDay: DayKey): HoverPanelModel {
   if (activeArea.kind === "empty") {
     return {
       kind: "empty",
       title: "エリア情報",
-      copy: "地図上の区または丁目に合わせると表示します。"
+      copy: "地図上の区または丁目に合わせると表示します。",
     };
   }
 
@@ -118,7 +115,7 @@ export function buildHoverPanelModel(
     return {
       kind: "ward",
       title: activeArea.ward.wardNameJa,
-      infoRows: buildInfoRows(activeArea.ward.sourceLabel, activeArea.ward.sourceQuality)
+      infoRows: buildInfoRows(activeArea.ward.sourceLabel, activeArea.ward.sourceQuality),
     };
   }
 
@@ -133,9 +130,9 @@ export function buildHoverPanelModel(
       categories: getZoneCategories(activeArea.zone, day).map((category) => ({
         category,
         color: categoryMeta[category].color,
-        label: categoryMeta[category].label
-      }))
+        label: categoryMeta[category].label,
+      })),
     })),
-    infoRows: buildInfoRows(getZoneSourceLabel(activeArea.ward), activeArea.ward.sourceQuality)
+    infoRows: buildInfoRows(getZoneSourceLabel(activeArea.ward), activeArea.ward.sourceQuality),
   };
 }

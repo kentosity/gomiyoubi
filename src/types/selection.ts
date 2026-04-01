@@ -5,7 +5,7 @@ export type MapTarget = {
 
 export const EMPTY_MAP_TARGET: MapTarget = {
   wardSlug: null,
-  zoneId: null
+  zoneId: null,
 };
 
 export function hasMapTarget(target: MapTarget): boolean {

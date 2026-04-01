@@ -18,7 +18,7 @@ export function useMapData(): MapDataState {
     async function loadMapData() {
       const [wardResponse, chuoResponse] = await Promise.all([
         fetch("/data/ward-boundaries.geojson"),
-        fetch("/data/chuo-zones.geojson")
+        fetch("/data/chuo-zones.geojson"),
       ]);
 
       const wardGeojson: GenericFeatureCollection = await wardResponse.json();

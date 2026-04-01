@@ -4,7 +4,7 @@ import {
   type CategorySignal,
   type DayKey,
   weekdayOrder,
-  wardSchedules
+  wardSchedules,
 } from "../data/prototypeData";
 import { type GenericFeature } from "../types/map";
 
@@ -25,7 +25,7 @@ export function getSignalsForWard(slug: string, day: DayKey | null): CategorySig
 
 export function filterSignalsByCategories(
   signals: CategorySignal[],
-  selectedCategories: CategoryKey[]
+  selectedCategories: CategoryKey[],
 ): CategorySignal[] {
   return signals.filter((signal) => selectedCategories.includes(signal.category));
 }
@@ -64,7 +64,7 @@ export function getZoneCategories(feature: GenericFeature, day: DayKey | null): 
 
 export function filterZoneCategories(
   categories: CategoryKey[],
-  selectedCategories: CategoryKey[]
+  selectedCategories: CategoryKey[],
 ): CategoryKey[] {
   return categories.filter((category) => selectedCategories.includes(category));
 }

@@ -5,7 +5,7 @@ import {
   filterZoneCategories,
   getDominantColorFromSignals,
   getSignalsForWard,
-  getZoneCategories
+  getZoneCategories,
 } from "./scheduleData";
 import { type GenericFeature, type GenericFeatureCollection } from "../types/map";
 
@@ -27,7 +27,7 @@ export function getZoneFillColor(categories: CategoryKey[]): string {
 export function buildWardData(
   features: GenericFeature[],
   selectedDay: DayKey | null,
-  selectedCategories: CategoryKey[]
+  selectedCategories: CategoryKey[],
 ): GenericFeatureCollection {
   return {
     type: "FeatureCollection",
@@ -35,7 +35,7 @@ export function buildWardData(
       const slug = String(feature.properties?.slug ?? "");
       const signals = filterSignalsByCategories(
         getSignalsForWard(slug, selectedDay),
-        selectedCategories
+        selectedCategories,
       );
 
       return {
@@ -44,24 +44,24 @@ export function buildWardData(
           ...feature.properties,
           fillColor: getDominantColorFromSignals(signals),
           signalCount: signals.length,
-          sourceQuality: wardSchedules[slug]?.sourceQuality ?? "pending"
-        }
+          sourceQuality: wardSchedules[slug]?.sourceQuality ?? "pending",
+        },
       };
-    })
+    }),
   };
 }
 
 export function buildChuoZoneData(
   features: GenericFeature[],
   selectedDay: DayKey | null,
-  selectedCategories: CategoryKey[]
+  selectedCategories: CategoryKey[],
 ): GenericFeatureCollection {
   return {
     type: "FeatureCollection",
     features: features.map((feature) => {
       const activeCategories = filterZoneCategories(
         getZoneCategories(feature, selectedDay),
-        selectedCategories
+        selectedCategories,
       );
 
       return {
@@ -70,9 +70,9 @@ export function buildChuoZoneData(
           ...feature.properties,
           activeCategories: activeCategories.join(","),
           activeCategoryCount: activeCategories.length,
-          activeFillColor: getZoneFillColor(activeCategories)
-        }
+          activeFillColor: getZoneFillColor(activeCategories),
+        },
       };
-    })
+    }),
   };
 }

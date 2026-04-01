@@ -14,7 +14,7 @@ export function ControlPanel({
   onChooseDay,
   onToggleCategory,
   dayOptions,
-  categoryOptions
+  categoryOptions,
 }: ControlPanelProps) {
   return (
     <section className="control-panel surface-card">

@@ -26,10 +26,7 @@ export function HoverCard({ panel }: HoverCardProps) {
                         className="signal-chip schedule-chip"
                         key={`${row.day}-${category.category}`}
                       >
-                        <span
-                          className="signal-dot"
-                          style={{ backgroundColor: category.color }}
-                        />
+                        <span className="signal-dot" style={{ backgroundColor: category.color }} />
                         <span>{category.label}</span>
                       </div>
                     ))}

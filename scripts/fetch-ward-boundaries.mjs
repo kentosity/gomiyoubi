@@ -4,7 +4,7 @@ import path from "node:path";
 const wards = [
   { slug: "chuo", nameJa: "中央区", nameEn: "Chuo" },
   { slug: "koto", nameJa: "江東区", nameEn: "Koto" },
-  { slug: "sumida", nameJa: "墨田区", nameEn: "Sumida" }
+  { slug: "sumida", nameJa: "墨田区", nameEn: "Sumida" },
 ];
 
 const outputPath = path.join(process.cwd(), "public", "data", "ward-boundaries.geojson");
@@ -14,13 +14,13 @@ async function fetchWardBoundary(ward) {
     q: `${ward.nameJa}, 東京都, 日本`,
     format: "jsonv2",
     polygon_geojson: "1",
-    limit: "1"
+    limit: "1",
   });
 
   const response = await fetch(`https://nominatim.openstreetmap.org/search?${params.toString()}`, {
     headers: {
-      "User-Agent": "gomiyoubi prototype boundary fetcher"
-    }
+      "User-Agent": "gomiyoubi prototype boundary fetcher",
+    },
   });
 
   if (!response.ok) {
@@ -38,9 +38,9 @@ async function fetchWardBoundary(ward) {
       slug: ward.slug,
       nameJa: ward.nameJa,
       nameEn: ward.nameEn,
-      source: "OpenStreetMap Nominatim"
+      source: "OpenStreetMap Nominatim",
     },
-    geometry: items[0].geojson
+    geometry: items[0].geojson,
   };
 }
 
@@ -57,11 +57,11 @@ async function main() {
     `${JSON.stringify(
       {
         type: "FeatureCollection",
-        features
+        features,
       },
       null,
-      2
-    )}\n`
+      2,
+    )}\n`,
   );
 
   console.log(`Wrote ${outputPath}`);

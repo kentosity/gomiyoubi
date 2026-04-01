@@ -36,8 +36,16 @@
       rgba(159, 75, 75, 0.045) 1px,
       transparent 1px
     );
-  background-size: auto, auto, auto, 100% 100%;
-  background-position: 0 0, 0 0, 0 0, 80px 0;
+  background-size:
+    auto,
+    auto,
+    auto,
+    100% 100%;
+  background-position:
+    0 0,
+    0 0,
+    0 0,
+    80px 0;
   mix-blend-mode: multiply;
   opacity: 0.58;
 }

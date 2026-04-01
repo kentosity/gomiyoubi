@@ -3,7 +3,7 @@ import {
   EMPTY_MAP_TARGET,
   hasMapTarget,
   isSameMapTarget,
-  type MapTarget
+  type MapTarget,
 } from "../types/selection";
 
 export function useMapSelection() {
@@ -12,7 +12,7 @@ export function useMapSelection() {
 
   const activeTarget = useMemo(
     () => (hasMapTarget(focusedTarget) ? focusedTarget : hoverTarget),
-    [focusedTarget, hoverTarget]
+    [focusedTarget, hoverTarget],
   );
 
   function setHoverTarget(target: MapTarget) {
@@ -39,6 +39,6 @@ export function useMapSelection() {
     hoverTarget,
     isFocusLocked: hasMapTarget(focusedTarget),
     setHoverTarget,
-    toggleFocusTarget
+    toggleFocusTarget,
   };
 }

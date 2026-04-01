@@ -8,7 +8,7 @@ import {
   createWardOutlineLayer,
   MAP_LAYER_IDS,
   MAP_SOURCE_IDS,
-  TOKYO_STYLE
+  TOKYO_STYLE,
 } from "../lib/mapStyle";
 import { type GenericFeatureCollection } from "../types/map";
 import { type MapTarget } from "../types/selection";
@@ -32,11 +32,20 @@ export function useTrashMap({
   onClearHover,
   onHoverTargetChange,
   onToggleFocusTarget,
-  wardData
+  wardData,
 }: UseTrashMapOptions) {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const initialActiveTargetRef = useRef(activeTarget);
+  const initialChuoZoneDataRef = useRef(chuoZoneData);
+  const initialWardDataRef = useRef(wardData);
   const mapRef = useRef<Map | null>(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
+
+  useEffect(() => {
+    initialActiveTargetRef.current = activeTarget;
+    initialChuoZoneDataRef.current = chuoZoneData;
+    initialWardDataRef.current = wardData;
+  }, [activeTarget, chuoZoneData, wardData]);
 
   const handlePointerMove = useEffectEvent((event: maplibregl.MapMouseEvent) => {
     if (isFocusLocked) {
@@ -49,7 +58,7 @@ export function useTrashMap({
     }
 
     const zoneFeatures = map.queryRenderedFeatures(event.point, {
-      layers: [MAP_LAYER_IDS.chuoZonesFill]
+      layers: [MAP_LAYER_IDS.chuoZonesFill],
     });
     const zoneId = zoneFeatures[0]?.properties?.zoneId;
 
@@ -59,7 +68,7 @@ export function useTrashMap({
     }
 
     const wardFeaturesAtPoint = map.queryRenderedFeatures(event.point, {
-      layers: [MAP_LAYER_IDS.wardFill]
+      layers: [MAP_LAYER_IDS.wardFill],
     });
     const wardSlug = wardFeaturesAtPoint[0]?.properties?.slug;
 
@@ -78,7 +87,7 @@ export function useTrashMap({
     }
 
     const zoneFeatures = map.queryRenderedFeatures(event.point, {
-      layers: [MAP_LAYER_IDS.chuoZonesFill]
+      layers: [MAP_LAYER_IDS.chuoZonesFill],
     });
     const zoneId = zoneFeatures[0]?.properties?.zoneId;
 
@@ -90,7 +99,7 @@ export function useTrashMap({
     }
 
     const wardFeaturesAtPoint = map.queryRenderedFeatures(event.point, {
-      layers: [MAP_LAYER_IDS.wardFill]
+      layers: [MAP_LAYER_IDS.wardFill],
     });
     const wardSlug = wardFeaturesAtPoint[0]?.properties?.slug;
 
@@ -123,7 +132,7 @@ export function useTrashMap({
       style: TOKYO_STYLE,
       center: [139.79, 35.675],
       zoom: 11.2,
-      minZoom: 10.2
+      minZoom: 10.2,
     });
 
     map.addControl(new maplibregl.NavigationControl(), "bottom-right");
@@ -132,25 +141,25 @@ export function useTrashMap({
     map.on("load", () => {
       map.addSource(MAP_SOURCE_IDS.wards, {
         type: "geojson",
-        data: wardData
+        data: initialWardDataRef.current,
       });
 
       map.addSource(MAP_SOURCE_IDS.chuoZones, {
         type: "geojson",
-        data: chuoZoneData
+        data: initialChuoZoneDataRef.current,
       });
 
       map.addLayer(createWardFillLayer());
       map.addLayer(createChuoZonesFillLayer());
-      map.addLayer(createChuoZonesOutlineLayer(activeTarget.zoneId));
-      map.addLayer(createWardOutlineLayer(activeTarget.wardSlug));
+      map.addLayer(createChuoZonesOutlineLayer(initialActiveTargetRef.current.zoneId));
+      map.addLayer(createWardOutlineLayer(initialActiveTargetRef.current.wardSlug));
 
       map.on("mousemove", handlePointerMove);
       map.on("click", handleMapClick);
       map.getCanvas().addEventListener("mouseleave", handlePointerLeave);
 
       const bounds = new maplibregl.LngLatBounds();
-      for (const feature of wardData.features) {
+      for (const feature of initialWardDataRef.current.features) {
         updateBounds(bounds, feature.geometry);
       }
       map.fitBounds(bounds, { padding: 64, duration: 0 });
