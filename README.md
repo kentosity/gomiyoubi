@@ -86,6 +86,14 @@ Useful notes:
 
 - `docs/findings.md`
 - `docs/data-model.md`
+- `docs/deploy-homelab.md`
+
+Homelab deploy:
+
+```bash
+./deploy/homelab-deploy.sh
+./deploy/homelab-verify.sh
+```
 
 Last refreshed:
 

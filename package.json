@@ -30,7 +30,9 @@
     "build:ward-outlines": "python3 scripts/build_ward_outlines.py",
     "build:tiles": "python3 scripts/build_map_tiles.py",
     "fetch:boundaries": "pnpm build:ward-boundaries",
-    "build:chuo-zones": "python3 scripts/build_chuo_zones.py"
+    "build:chuo-zones": "python3 scripts/build_chuo_zones.py",
+    "deploy:homelab": "./deploy/homelab-deploy.sh",
+    "verify:homelab": "./deploy/homelab-verify.sh"
   },
   "dependencies": {
     "maplibre-gl": "^5.9.0",

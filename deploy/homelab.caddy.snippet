@@ -1,0 +1,19 @@
+Managed outside this repo on `homelab` at:
+
+`/home/podman/.config/containers/systemd/Caddyfile`
+
+Required snippet inside the existing `*.homelab.iplusi.biz, homelab.iplusi.biz` site block:
+
+```caddyfile
+@gomiyoubi host gomiyoubi.homelab.iplusi.biz
+
+handle @gomiyoubi {
+    reverse_proxy host.containers.internal:8081 {
+        header_up X-Forwarded-Proto https
+    }
+}
+```
+
+This repo does not own the full Caddyfile. If that file is changed on the live machine, mirror the effective
+`gomiyoubi` snippet here and in the deploy docs so the ingress dependency is explicit.
+
